@@ -668,6 +668,32 @@
     }
   },
   "whyBravioo": {
+    "hero": {
+      "badge": "Lider Platform",
+      "title": "Neden Binlerce Şirket",
+      "titleHighlight": "Bravioo'yu Seçiyor?",
+      "description": "İnsana yakışır iş yerlerini inşa eden teknoloji. Güvenlik, verimlilik ve çalışan memnuniyetinde sektör lideri.",
+      "benefit1": "ISO 27001 Sertifikalı Güvenlik",
+      "benefit2": "%40 Verimlilik Artışı",
+      "benefit3": "2.5M+ Mutlu Kullanıcı",
+      "ctaPrimary": "Ücretsiz Demo Al",
+      "ctaSecondary": "Fiyatları İncele",
+      "trust1": "14 Gün Ücretsiz",
+      "trust2": "Kurulum Desteği",
+      "trust3": "7/24 Destek",
+      "statsTitle": "Güvenilen Platform",
+      "statsSubtitle": "Rakamlarla Bravioo",
+      "stats": {
+        "companies": "Şirket",
+        "users": "Kullanıcı",
+        "satisfaction": "Memnuniyet",
+        "retention": "Elde Tutma"
+      },
+      "floatingCard": {
+        "value": "+%120",
+        "label": "ROI Artışı"
+      }
+    },
     "comparison": {
       "title": "Rekabet Karşılaştırması",
       "subtitle": "Bravioo'yu diğer çözümlerle karşılaştırın ve neden en iyi seçenek olduğunu görün",
@@ -682,6 +708,73 @@
       "stat1": "Daha Düşük Maliyet",
       "stat2": "Daha Hızlı Kurulum",
       "stat3": "Müşteri Memnuniyeti"
+    },
+    "roi": {
+      "title": "ROI Hesaplayıcı",
+      "subtitle": "Bravioo ile ne kadar tasarruf edeceğinizi hesaplayın",
+      "calculator": {
+        "title": "Bilgilerinizi Girin",
+        "employees": "Çalışan Sayısı",
+        "currentCost": "Mevcut Aylık Maliyet (₺)",
+        "currentCostDesc": "Şu anki HR/İK yazılım maliyetiniz",
+        "employeeRange": "Çalışan Sayısı Aralığı"
+      },
+      "results": {
+        "monthlyCost": "Bravioo Aylık Maliyet",
+        "monthlyCostDesc": "Bravioo ile ödeyeceğiniz tutar",
+        "monthlySavings": "Aylık Tasarruf",
+        "monthlySavingsDesc": "Her ay tasarruf edeceğiniz tutar",
+        "annualROI": "Yıllık ROI",
+        "annualROIDesc": "Yatırım getiri oranınız",
+        "payback": "Geri Ödeme Süresi",
+        "paybackDesc": "Yatırımınızı ne kadar sürede geri alırsınız",
+        "months": "ay",
+        "immediate": "Anında"
+      },
+      "cta": {
+        "title": "Tasarrufunuzu Gerçekleştirin",
+        "description": "Hemen ücretsiz deneme başlatın ve ilk aydan tasarruf etmeye başlayın",
+        "button": "Ücretsiz Deneme Başlat"
+      }
+    },
+    "security": {
+      "title": "Güvenlik & Uyumluluk",
+      "subtitle": "Verileriniz en yüksek güvenlik standartlarıyla korunur",
+      "certifications": {
+        "iso27001": {
+          "title": "ISO 27001",
+          "description": "Bilgi güvenliği yönetim sistemi sertifikası"
+        },
+        "gdpr": {
+          "title": "GDPR Uyumlu",
+          "description": "Avrupa veri koruma yönetmeliğine uygun"
+        },
+        "soc2": {
+          "title": "SOC 2 Type II",
+          "description": "Güvenlik, kullanılabilirlik ve gizlilik denetimi"
+        },
+        "kvkk": {
+          "title": "KVKK Uyumlu",
+          "description": "Kişisel verilerin korunması kanununa uygun"
+        }
+      },
+      "features": {
+        "title": "Güvenlik Özellikleri",
+        "subtitle": "Verilerinizi korumak için kullandığımız teknolojiler",
+        "encryption": "256-bit SSL Şifreleme",
+        "backup": "Günlük Otomatik Yedekleme",
+        "monitoring": "7/24 Güvenlik İzleme",
+        "access": "İki Faktörlü Kimlik Doğrulama",
+        "audit": "Detaylı Denetim Kayıtları",
+        "compliance": "Düzenli Uyumluluk Denetimleri"
+      },
+      "trust": {
+        "title": "Güven ve Güvenilirlik",
+        "description": "Binlerce şirketin güvendiği platform",
+        "uptime": "Çalışma Süresi",
+        "monitoring": "İzleme",
+        "breaches": "Güvenlik İhlali"
+      }
     }
   }
 }
