@@ -263,7 +263,6 @@ const MILESTONES_EN: Milestone[] = [
 export function JourneyMilestones() {
   const locale = useLocale();
   const milestones = locale === 'tr' ? MILESTONES_TR : MILESTONES_EN;
-  const [currentIndex, setCurrentIndex] = React.useState(0);
   const [visibleStart, setVisibleStart] = React.useState(0);
   
   const itemsPerView = 5; // Desktop'ta 5 item göster
