@@ -14,7 +14,7 @@ const GOLD = '#FFE27A';
 
 export function ProfessionalCustomerResults() {
   const locale = useLocale();
-  const [activeCard, setActiveCard] = useState<string | null>('dyson');
+  const [activeCard, setActiveCard] = useState<string | null>(TILES[0]?.id || null);
   const [videoModal, setVideoModal] = useState<{ src?: string; title?: string } | null>(null);
 
   const toggleCard = (id: string) => {
@@ -74,9 +74,8 @@ export function ProfessionalCustomerResults() {
           className="mt-16 hidden lg:block"
         >
           <div className="grid grid-cols-5 gap-4 h-[420px]">
-            {TILES.map((tile, index) => {
+            {TILES.slice(0, 5).map((tile, index) => {
               const isExpanded = activeCard === tile.id;
-              const isDyson = tile.id === 'dyson';
               
               return (
                 <motion.div
@@ -84,7 +83,7 @@ export function ProfessionalCustomerResults() {
                   layout
                   className={`
                     relative overflow-hidden rounded-3xl bg-white ring-1 ring-slate-200 cursor-pointer
-                    ${isExpanded ? (isDyson ? 'col-span-3' : 'col-span-2') : 'col-span-1'}
+                    ${isExpanded ? 'col-span-2' : 'col-span-1'}
                   `}
                   transition={{ 
                     type: 'spring', 
@@ -155,24 +154,21 @@ export function ProfessionalCustomerResults() {
                   {/* Collapsed Content */}
                   {!isExpanded && (
                     <motion.div 
-                      className="relative z-10 p-6 pt-0"
+                      className="relative z-10 flex items-center justify-center h-full p-6 pt-0"
                       initial={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                     >
                       {tile.logo && (
-                        <div className="mb-6">
+                        <div className="text-center">
                           <Image 
                             src={tile.logo} 
                             alt={tile.variant} 
                             width={160} 
                             height={40}
-                            className="h-8 w-auto brightness-0 invert" 
+                            className="h-8 w-auto brightness-0 invert mx-auto" 
                           />
                         </div>
                       )}
-                      <p className="mt-auto text-sm font-semibold text-white/95">
-                        {tile.title}
-                      </p>
                     </motion.div>
                   )}
 
@@ -184,84 +180,51 @@ export function ProfessionalCustomerResults() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 20 }}
                         transition={{ duration: 0.4, delay: 0.1 }}
-                        className="relative z-10 grid h-full grid-cols-1 gap-6 p-6 pt-0 lg:grid-cols-3"
+                        className="relative z-10 h-full p-6 pt-0 flex flex-col"
                       >
-                        {/* Left Column - Logo/Metric */}
-                        <div className="lg:col-span-1 flex flex-col justify-between">
-                          {tile.type === 'quote' ? (
-                            <>
-                              <div>
-                                <div 
-                                  className="text-6xl font-bold tracking-tight leading-none mb-2"
-                                  style={{ color: GOLD }}
-                                >
-                                  {tile.stat}
-                                </div>
-                                <p className="text-sm font-semibold text-white/90">
-                                  {tile.statLabel}
-                                </p>
-                              </div>
-                            </>
-                          ) : (
-                            <>
-                              <div>
-                                <Image 
-                                  src={tile.logo} 
-                                  alt={tile.variant} 
-                                  width={180} 
-                                  height={45}
-                                  className="h-9 w-auto mb-4" 
-                                />
-                                <p className="text-sm font-semibold text-white/90 mb-4">
-                                  {tile.title}
-                                </p>
-                              </div>
-                              <motion.button
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  openVideo(tile);
-                                }}
-                                className="inline-flex items-center gap-3 rounded-xl bg-black/80 backdrop-blur-sm px-6 py-3 text-sm font-semibold text-white hover:bg-black/90 transition-all group"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                aria-label={`${locale === 'tr' ? 'Videoyu oynat' : 'Play video'}: ${tile.title}`}
-                              >
-                                <Play className="h-4 w-4 group-hover:scale-110 transition-transform" />
-                                {locale === 'tr' ? 'Videoyu İzle' : 'Play Video'}
-                              </motion.button>
-                            </>
+                        {/* Top Left - Logo */}
+                        <div className="mb-4">
+                          {tile.logo && (
+                            <Image 
+                              src={tile.logo} 
+                              alt={tile.variant} 
+                              width={180} 
+                              height={45}
+                              className="h-9 w-auto" 
+                            />
                           )}
                         </div>
 
-                        {/* Right Column - Quote Panel */}
-                        <div className="lg:col-span-2">
-                          <motion.div 
-                            className="h-full rounded-2xl bg-gradient-to-br from-slate-950 to-slate-900 text-white"
-                            initial={{ scale: 0.95 }}
-                            animate={{ scale: 1 }}
-                            transition={{ duration: 0.3, delay: 0.2 }}
-                          >
-                            <div className="p-6 h-full flex flex-col justify-between">
-                              <div>
-                                <Quote className="h-8 w-8 text-orange-400 mb-4" />
-                                <p className="text-sm leading-relaxed text-white/90">
-                                  {tile.type === 'quote' 
-                                    ? tile.quote 
-                                    : (locale === 'tr' 
-                                        ? 'Nasıl başlattıkları, ölçeklendirdikleri ve takdiri ölçtüklerini izleyin.' 
-                                        : 'Watch how they launched, scaled and measured recognition.'
-                                      )
-                                  }
-                                </p>
-                              </div>
-                              {tile.type === 'quote' && tile.author && (
-                                <div className="mt-4 pt-4 border-t border-white/10">
-                                  <p className="font-semibold text-white">{tile.author}</p>
-                                  <p className="text-sm text-white/70">{tile.authorTitle}</p>
-                                </div>
-                              )}
+                        {/* Content Area */}
+                        <div className="flex-1 flex flex-col justify-end">
+                          {/* Title */}
+                          <h3 className="text-xl font-bold text-white mb-3">
+                            {tile.title}
+                          </h3>
+                          
+                          {/* Quote */}
+                          <div className="flex items-start gap-3">
+                            <Quote className="h-5 w-5 text-orange-400 flex-shrink-0 mt-1" />
+                            <p className="text-sm leading-relaxed text-white/90 italic">
+                              {tile.type === 'quote' && tile.quote
+                                ? `"${tile.quote}"`
+                                : tile.type === 'video' 
+                                  ? (locale === 'tr' 
+                                      ? '"Bravioo ile çalışan motivasyonumuz %85 arttı ve takdir kültürümüz güçlendi."' 
+                                      : '"With Bravioo, our employee motivation increased by 85% and our recognition culture strengthened."'
+                                    )
+                                  : '"Takdir sistemimiz sayesinde çalışan memnuniyetinde büyük artış gözlemledik."'
+                              }
+                            </p>
+                          </div>
+
+                          {/* Author */}
+                          {tile.type === 'quote' && tile.author && (
+                            <div className="mt-4 pt-3 border-t border-white/20">
+                              <p className="text-sm font-semibold text-white">{tile.author}</p>
+                              <p className="text-xs text-white/70">{tile.authorTitle}</p>
                             </div>
-                          </motion.div>
+                          )}
                         </div>
                       </motion.div>
                     )}

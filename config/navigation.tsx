@@ -15,6 +15,8 @@ import {
   Target,
   Smartphone
 } from "lucide-react";
+import { TurkeyFlag } from '@/components/icons/TurkeyFlag';
+import { UKFlag } from '@/components/icons/UKFlag';
 
 // Bu, her bir navigasyon elemanının tipini tanımlar
 export type NavItem = {
@@ -126,9 +128,21 @@ export const navigationData: NavItem[] = [
       }
     }
   },
-  { 
-    nameKey: 'pricing', 
-    href: '/pricing' 
+  {
+    nameKey: 'pricing',
+    href: '/pricing',
+    children: [
+      { 
+        nameKey: 'employerPricing', 
+        href: '/pricing/employer',
+        icon: <Users className="w-4 h-4" />
+      },
+      { 
+        nameKey: 'brandPartnership', 
+        href: '/pricing/brands',
+        icon: <Building className="w-4 h-4" />
+      }
+    ]
   },
   { 
     nameKey: 'customers', 
@@ -137,39 +151,74 @@ export const navigationData: NavItem[] = [
   {
     nameKey: 'whyBravioo',
     href: '/why-bravioo',
-    children: [
-      { 
-        nameKey: 'aboutUs', 
-        href: '/about',
-        icon: <Building className="w-4 h-4" />
+    isMegaMenu: true,
+    megaMenuContent: {
+      mainLinks: [
+        {
+          nameKey: 'aboutUs',
+          descriptionKey: 'aboutUsDesc',
+          href: '/about',
+          icon: <Building className="w-6 h-6" />,
+          isNew: false
+        },
+        {
+          nameKey: 'difference',
+          descriptionKey: 'differenceDesc',
+          href: '/why-bravioo',
+          icon: <Target className="w-6 h-6" />,
+          isNew: false
+        },
+        {
+          nameKey: 'security',
+          descriptionKey: 'securityDesc',
+          href: '/security',
+          icon: <Shield className="w-6 h-6" />,
+          isNew: false
+        },
+        {
+          nameKey: 'press',
+          descriptionKey: 'pressDesc',
+          href: '/press',
+          icon: <Newspaper className="w-6 h-6" />,
+          isNew: false
+        }
+      ],
+      featuredContent: {
+        titleKey: 'companyNews',
+        items: [
+          {
+            title: 'Bravioo Raised $5M Series A',
+            descriptionKey: 'seriesADesc',
+            href: '/press/series-a',
+            image: '/images/press/series-a.jpg',
+            badge: 'New'
+          },
+          {
+            title: 'Remote Work Excellence Award',
+            descriptionKey: 'awardDesc', 
+            href: '/press/award',
+            image: '/images/press/award.jpg'
+          }
+        ]
       },
-      { 
-        nameKey: 'security', 
-        href: '/security',
-        icon: <Shield className="w-4 h-4" />
-      },
-      { 
-        nameKey: 'difference', 
-        href: '/why-bravioo',
-        icon: <Target className="w-4 h-4" />
-      },
-      { 
-        nameKey: 'press', 
-        href: '/press',
-        icon: <Newspaper className="w-4 h-4" />
+      bottomCTA: {
+        titleKey: 'whyBraviooCTATitle',
+        descriptionKey: 'whyBraviooCTADesc',
+        buttonTextKey: 'learnMore',
+        href: '/why-bravioo'
       }
-    ]
+    }
   },
   { 
-    nameKey: 'blog', 
-    href: '/blog' 
+    nameKey: 'contact', 
+    href: '/contact' 
   }
 ];
 
 // Dil seçenekleri
 export const languages = [
-  { code: 'tr', name: 'Türkçe', flag: '🇹🇷' },
-  { code: 'en', name: 'English', flag: '🇺🇸' },
+  { code: 'tr', name: 'Türkçe', flag: <TurkeyFlag className="w-5 h-3" /> },
+  { code: 'en', name: 'English', flag: <UKFlag className="w-5 h-3" /> },
 ];
 
 // CTA butonları

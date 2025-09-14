@@ -1,5 +1,7 @@
 import { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
+import { Header } from '@/components/header';
+import { Footer } from '@/components/footer';
 import { AboutHero } from '@/components/sections/about-hero';
 import { BrandManifesto } from '@/components/sections/brand-manifesto';
 import { JourneyMilestones } from '@/components/sections/journey-milestones';
@@ -14,13 +16,17 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen">
-      <AboutHero />
-      <BrandManifesto />
-      <JourneyMilestones />
-      <CompanyValues />
-      <TeamLeadership />
-      <InvestorPartners />
-    </main>
+    <>
+      <Header />
+      <main className="min-h-screen">
+        <AboutHero />
+        <BrandManifesto />
+        <JourneyMilestones />
+        <CompanyValues />
+        <TeamLeadership />
+        <InvestorPartners />
+      </main>
+      <Footer />
+    </>
   );
 }

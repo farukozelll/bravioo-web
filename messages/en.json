@@ -237,5 +237,30 @@
   "customers": {
     "title": "Customer Stories",
     "subtitle": "Results achieved by successful companies with Bravioo"
+  },
+  "about": {
+    "title": "About Us",
+    "hero": {
+      "subtitle": "Technology for Human-Worthy Work",
+      "description": "At Bravioo, we see the human behind the numbers and reports. We believe that potential only flourishes when it is recognized and valued."
+    },
+    "manifesto": {
+      "title": "Brand Manifesto",
+      "quote": "At Bravioo, we see the human behind the numbers and reports. We believe that potential only flourishes when it is recognized."
+    },
+    "values": {
+      "title": "Three-Layered Value System",
+      "functional": "Functional Value",
+      "emotional": "Emotional Value",
+      "spiritual": "Spiritual/Social Value"
+    },
+    "team": {
+      "title": "Human-Worthy Work Builders",
+      "culture": "Our Company Culture"
+    },
+    "investors": {
+      "title": "Strong Ecosystem",
+      "description": "We create a strong ecosystem together with our investors and technology partners who trust us in Bravioo's growth."
+    }
   }
 }

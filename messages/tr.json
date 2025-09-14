@@ -24,8 +24,9 @@
     "pricing": "Fiyatlandırma",
     "customers": "Referanslar",
     "whyBravioo": "Neden Bravioo?",
-    "blog": "Blog",
     "contact": "İletişim",
+    "employerPricing": "İşveren Fiyatlandırması",
+    "brandPartnership": "Marka Partnerliği",
     "login": "Giriş Yap",
     "getDemo": "Demo Al",
     "recognition": "Takdir & Ödüller",
@@ -41,7 +42,17 @@
     "mobile": "Mobil Uygulama",
     "mobileDesc": "Her yerden takdir edin, iOS ve Android uygulamaları",
     "aboutUs": "Hakkımızda",
+    "aboutUsDesc": "Bravioo'nun hikayesi, vizyonu ve değerleri",
     "security": "Güvenlik",
+    "securityDesc": "Veri güvenliği, GDPR uyumluluğu ve güvenlik sertifikaları",
+    "differenceDesc": "Bravioo'yu rakiplerinden ayıran özellikler ve avantajlar",
+    "pressDesc": "Basında çıkan haberler, ödüller ve şirket duyuruları",
+    "whyBraviooCTATitle": "Neden binlerce şirket Bravioo'yu seçiyor?",
+    "whyBraviooCTADesc": "Bravioo'nun farklılıklarını keşfedin",
+    "learnMore": "Daha Fazla Bilgi",
+    "seriesADesc": "Bravioo, 5 milyon dolarlık A serisi yatırım turunu tamamladı",
+    "awardDesc": "Uzaktan çalışma kategorisinde mükemmellik ödülü aldık",
+    "companyNews": "Şirket Haberleri",
     "difference": "Bizi Farklı Kılan Ne?",
     "press": "Basında Biz",
     "successStories": "Başarı Hikayeleri",
@@ -237,5 +248,440 @@
   "customers": {
     "title": "Müşteri Hikayeleri",
     "subtitle": "Başarılı şirketlerin Bravioo ile elde ettiği sonuçlar"
+  },
+  "about": {
+    "title": "Hakkımızda",
+    "hero": {
+      "subtitle": "İnsana Yakışır İş İçin Teknoloji",
+      "description": "Bravioo olarak biz, rakamların ve raporların ardındaki insanı görüyoruz. Potansiyelin, ancak takdirle yeşerdiğine inanıyoruz."
+    },
+    "manifesto": {
+      "title": "Marka Manifestomuz",
+      "quote": "Bravioo olarak biz, rakamların ve raporların ardındaki insanı görüyoruz. Potansiyelin, ancak takdirle yeşerdiğine inanıyoruz."
+    },
+    "values": {
+      "title": "Üç Katmanlı Değer Sistemi",
+      "functional": "Fonksiyonel Değer",
+      "emotional": "Duygusal Değer",
+      "spiritual": "Ruhsal/Toplumsal Değer"
+    },
+    "team": {
+      "title": "İnsana Yakışır İş İnşa Edenler",
+      "culture": "Şirket Kültürümüz"
+    },
+    "investors": {
+      "title": "Güçlü Ekosistem",
+      "description": "Bravioo'nun büyümesinde bize güvenen yatırımcılar ve teknoloji ortaklarımızla birlikte güçlü bir ekosistem oluşturuyoruz."
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "İnsana Yakışır İş için Teknoloji",
+      "subtitle": "Rakamların ve raporların ardındaki insanı görüyoruz",
+      "description": "Bravioo olarak biz, her çalışanın potansiyelinin ancak takdir edildiği ve değerli hissettiği bir ortamda tam olarak ortaya çıkacağına inanıyoruz. İş yerindeki isimsizliğe ve görünmezliğe meydan okuyoruz."
+    },
+    "manifesto": {
+      "title": "Marka Manifestomuz",
+      "subtitle": "İnsan potansiyelini ortaya çıkarma misyonumuz",
+      "content": "Bravioo olarak biz, rakamların ve raporların ardındaki insanı görüyoruz. Potansiyelin, ancak takdirle yeşerdiğine inanıyoruz. Bu yüzden, iş yerlerini sadece daha verimli değil, daha insani kılmak için yola çıktık. Teknolojiyi, insanlar arasındaki bağları güçlendirmek için bir köprü olarak kullanıyoruz. Çünkü biliyoruz ki, harika bir iş, kendini değerli hisseden insanlar tarafından yapılır. Biz, o değeri görünür kılıyoruz.",
+      "tagline": "Değeri Görünür Kılıyoruz"
+    },
+    "values": {
+      "title": "Değer Yaratım Modelimiz",
+      "subtitle": "Kotler'in üç katmanlı değer sistemi ile şirketlere kapsamlı çözümler sunuyoruz",
+      "functional": {
+        "title": "Fonksiyonel Değer",
+        "subtitle": "Aklına Hitap Et",
+        "description": "Ölçülebilir sonuçlar ve operasyonel iyileştirmeler sağlayan temel fonksiyonlar",
+        "feature1": "Çalışanları elde tutma (retention) oranlarını artırmak",
+        "feature2": "Verimliliği ve üretkenliği yükseltmek", 
+        "feature3": "İK süreçlerini otomatize etmek ve veri sağlamak",
+        "feature4": "Geri bildirim döngüleri oluşturmak"
+      },
+      "emotional": {
+        "title": "Duygusal Değer",
+        "subtitle": "Kalbine Hitap Et",
+        "description": "Çalışanların ve yöneticilerin kendilerini değerli hissetmesini sağlayan deneyimler",
+        "feature1": "İK Yöneticisi için: Kültürü dönüştüren kahraman hissi",
+        "feature2": "Yenilikçi ve stratejik lider olarak görülme",
+        "feature3": "Çalışanların mutlu olduğunu görmenin tatmini",
+        "feature4": "Görülme, değerli hissetme ve ait olma duygusu"
+      },
+      "spiritual": {
+        "title": "Ruhsal/Toplumsal Değer", 
+        "subtitle": "Ruhuna Hitap Et",
+        "description": "Daha adil ve insani çalışma ortamları yaratma misyonuna ortak olma",
+        "feature1": "Daha adil, şeffaf çalışma ortamları yaratma",
+        "feature2": "Toksik iş yeri kültürleriyle mücadele",
+        "feature3": "Toplumda iyi şirket tanımını yeniden şekillendirme",
+        "feature4": "İnsan potansiyelini ortaya çıkarma misyonu"
+      },
+      "keyFeatures": "Temel Özellikler",
+      "cta": "Bu değer katmanlarının sizin şirketinizde nasıl uygulanacağını öğrenmek ister misiniz?",
+      "ctaButton": "Demo Alın"
+    },
+    "team": {
+      "title": "Liderlik Ekibimiz",
+      "subtitle": "İnsan odaklı teknoloji vizyonumuzu hayata geçiren deneyimli ekibimiz",
+      "member1": {
+        "name": "Mehmet Çelik",
+        "position": "Kurucu & CEO",
+        "bio": "15 yıllık teknoloji ve insan kaynakları deneyimi ile Bravioo'yu kuran vizyon lideri"
+      },
+      "member2": {
+        "name": "Ayşe Demir",
+        "position": "CTO",
+        "bio": "Ölçeklenebilir teknoloji altyapıları geliştiren, yapay zeka ve veri analitik uzmanı"
+      },
+      "member3": {
+        "name": "Emre Yılmaz",
+        "position": "CPO",
+        "bio": "Kullanıcı deneyimi ve ürün stratejisi konusunda uzman, insan odaklı tasarım savunucusu"
+      }
+    },
+    "culture": {
+      "title": "Şirket Kültürümüz",
+      "description": "Yaratmak istediğimiz değişimi önce kendi şirketimizde yaşıyoruz. Açık iletişim, sürekli öğrenme ve insana saygı değerlerimizin temelini oluşturuyor.",
+      "value1": {
+        "title": "İşbirliği",
+        "description": "Ekip olarak büyürüz, birlikte başarırız"
+      },
+      "value2": {
+        "title": "İnovasyon",
+        "description": "Sürekli öğrenir, gelişir ve yeniliği benimseriz"
+      },
+      "value3": {
+        "title": "Empati",
+        "description": "İnsanı merkeze alır, anlayışla yaklaşırız"
+      }
+    },
+    "partners": {
+      "title": "Yatırımcı & Ortaklarımız",
+      "subtitle": "Güçlü ortaklıklar kurup birlikte büyüyor, teknoloji ekosisteminin lider isimleriyle işbirliği yapıyoruz",
+      "investors": {
+        "title": "Yatırımcılarımız"
+      },
+      "tech": {
+        "title": "Teknoloji Ortaklarımız"
+      },
+      "security": {
+        "title": "Güvenlik & Uyumluluk"
+      },
+      "investor1": {
+        "description": "Küresel ölçekte startuplara yatırım yapan köklü fon"
+      },
+      "investor2": {
+        "description": "Teknoloji girişimlerine odaklanan erken aşama yatırım fonu"
+      },
+      "investor3": {
+        "description": "Dijital dönüşüm alanında uzman olan Pre-Seed yatırım ortağı"
+      },
+      "tech1": {
+        "description": "Cloud altyapı ve güvenilir hosting çözümleri"
+      },
+      "tech2": {
+        "description": "Güvenli ödeme işlemleri ve finansal entegrasyonlar"
+      },
+      "security1": {
+        "description": "Uluslararası bilgi güvenliği yönetim sistemi sertifikası"
+      },
+      "investor": "Yatırımcı",
+      "technology": "Teknoloji",
+      "security": "Güvenlik"
+    }
+  },
+  "pricing": {
+    "employer": {
+      "badgeText": "İşveren Paketleri",
+      "title": "Şirketiniz İçin",
+      "titleHighlight": "Doğru Çözüm",
+      "description": "Çalışan sayınıza ve ihtiyaçlarınıza göre tasarlanmış 4 farklı paket. Modül bazlı fiyatlandırma ile sadece kullandığınız özellikler için ödeme yapın.",
+      "feature1": "14 Gün Ücretsiz Deneme",
+      "feature2": "Kurulum Desteği Dahil",
+      "feature3": "7/24 Teknik Destek",
+      "ctaPrimary": "Ücretsiz Deneyin",
+      "ctaSecondary": "Demo Rezervasyonu",
+      "benefit1Title": "Çalışan Memnuniyeti",
+      "benefit1Desc": "Takdir sistemi ile çalışan memnuniyetini %85 artırın",
+      "benefit2Title": "Verimlilik Artışı",
+      "benefit2Desc": "Motivasyonu yüksek çalışanlarla %40 daha fazla verimlilik",
+      "benefit3Title": "Güvenli Platform",
+      "benefit3Desc": "GDPR uyumlu, ISO 27001 sertifikalı güvenli altyapı",
+      "plansTitle": "Şirket Büyüklüğünüze Uygun Paketler",
+      "plansSubtitle": "Başlangıçtan büyük ölçekli işletmelere kadar her büyüklükte şirket için çözüm",
+      "monthly": "Aylık",
+      "yearly": "Yıllık",
+      "off": "İndirim",
+      "month": "ay",
+      "year": "yıl",
+      "usersMax": "kullanıcıya kadar",
+      "custom": "Özel Fiyat",
+      "mostPopular": "En Popüler",
+      "includedModules": "Dahil Edilen Modüller",
+      "startTrial": "Ücretsiz Deneyin",
+      "getQuote": "Teklif Alın",
+      "contactSales": "Satış Ekibiyle İletişim",
+      "scheduleDemo": "Demo Planla",
+      "plans": {
+        "starter": {
+          "name": "Başlangıç",
+          "description": "Küçük ekipler için temel takdir özellikleri"
+        },
+        "growth": {
+          "name": "Büyüme",
+          "description": "Büyüyen şirketler için gelişmiş özellikler"
+        },
+        "scale": {
+          "name": "Ölçekleme",
+          "description": "Orta ölçekli şirketler için tam özellik seti"
+        },
+        "enterprise": {
+          "name": "Kurumsal",
+          "description": "Büyük şirketler için özel çözümler"
+        }
+      },
+      "modules": {
+        "recognition": "Takdir & Ödüller Sistemi",
+        "surveys": "Anketler & Geri Bildirim",
+        "analytics": "Temel Analitik & Raporlama",
+        "automation": "Süreç Otomasyonu",
+        "integrations": "Entegrasyonlar (Slack, Teams vs.)",
+        "mobile": "Mobil Uygulama",
+        "api": "API Erişimi",
+        "all": "Tüm Modüller Dahil",
+        "custom": "Özel Modül Geliştirme",
+        "support": "Öncelikli Teknik Destek",
+        "training": "Canlı Eğitim & Onboarding"
+      },
+      "enterpriseNote": {
+        "title": "500+ Çalışanınız mı var?",
+        "description": "Büyük ölçekli şirketler için özel fiyatlandırma ve çözümler sunuyoruz. Size özel teklifimiz için iletişime geçin."
+      },
+      "comparisonTitle": "Paket Karşılaştırması",
+      "comparisonSubtitle": "Hangi paketin size uygun olduğuna karar vermek için detaylı karşılaştırma tablosu",
+      "features": "Özellikler",
+      "popular": "Popüler",
+      "features": {
+        "core": "Temel Özellikler",
+        "advanced": "Gelişmiş Özellikler", 
+        "premium": "Premium Özellikler"
+      },
+      "featuresList": {
+        "userLimit": "Kullanıcı Limiti",
+        "recognition": "Takdir Sistemi",
+        "surveys": "Anket Modülü",
+        "basicAnalytics": "Temel Analitik",
+        "emailSupport": "E-posta Desteği",
+        "automation": "Süreç Otomasyonu",
+        "integrations": "Entegrasyonlar",
+        "advancedAnalytics": "Gelişmiş Analitik",
+        "customBranding": "Özel Marka Tasarımı",
+        "prioritySupport": "Öncelikli Destek",
+        "mobileApp": "Mobil Uygulama",
+        "apiAccess": "API Erişimi",
+        "ssoIntegration": "SSO Entegrasyonu",
+        "customModules": "Özel Modüller",
+        "dedicatedManager": "Özel Hesap Yöneticisi",
+        "onSiteTraining": "Yerinde Eğitim"
+      },
+      "guarantee": {
+        "title": "Para İade Garantisi",
+        "description": "14 gün içinde memnun kalmazsanız %100 iade"
+      },
+      "migration": {
+        "title": "Ücretsiz Geçiş",
+        "description": "Mevcut sistemden ücretsiz veri transferi"
+      },
+      "support": {
+        "title": "7/24 Destek",
+        "description": "Her zaman yanınızda teknik destek ekibi"
+      },
+      "faqTitle": "Sıkça Sorulan Sorular",
+      "faqSubtitle": "İşveren paketleri hakkında merak ettikleriniz",
+      "faq": {
+        "q1": {
+          "question": "Paket değişikliği nasıl yapılır?",
+          "answer": "İhtiyaçlarınız değiştiğinde paketinizi istediğiniz zaman değiştirebilirsiniz. Üst pakete geçişte fark tutarını ödeyerek anında yükseltme, alt pakete geçişte ise sonraki faturalandırma döneminde geçiş yapılır."
+        },
+        "q2": {
+          "question": "Kullanıcı sayısı limiti aşılırsa ne olur?",
+          "answer": "Kullanıcı sayınız paket limitinizi aştığında otomatik olarak bir üst pakete yönlendirilirsiniz. Bu durumda fark tutarı bir sonraki faturanıza yansıtılır."
+        },
+        "q3": {
+          "question": "Veri güvenliği nasıl sağlanıyor?",
+          "answer": "Tüm verileriniz ISO 27001 sertifikalı veri merkezlerinde şifrelenerek saklanır. GDPR uyumlu süreçler ile verileriniz maksimum güvenlik altındadır."
+        },
+        "q4": {
+          "question": "Entegrasyonlar nasıl çalışıyor?",
+          "answer": "Bravioo, Slack, Microsoft Teams, HRIS sistemleri ve 50+ popüler araçla entegre çalışır. API desteği ile özel entegrasyonlar da mümkündür."
+        },
+        "q5": {
+          "question": "Eğitim ve destek süreci nasıl işliyor?",
+          "answer": "Tüm paketlerde kurulum desteği dahildir. Growth ve üzeri paketlerde canlı eğitimler, Enterprise paketinde ise yerinde eğitim hizmeti sunulur."
+        },
+        "q6": {
+          "question": "İptal sürecim nasıl işler?",
+          "answer": "İstediğiniz zaman aboneliğinizi iptal edebilirsiniz. İptal sonrası 30 gün veri saklama süresi vardır, bu süre içinde tekrar aktifleştirme mümkündür."
+        }
+      },
+      "stillHaveQuestions": "Başka Sorularınız mı Var?",
+      "contactDescription": "Uzman ekibimiz size yardımcı olmaya hazır",
+      "bookDemo": "Demo Rezervasyonu"
+    },
+    "brands": {
+      "badgeText": "Marka Partnerliği Programı",
+      "title": "Markanızı Milyonlarca",
+      "titleHighlight": "Çalışana Ulaştırın",
+      "description": "Bravioo ödül sistemi ile markanızı hedef kitlenize doğrudan ulaştırın. Çalışan ödüllerinde yer alarak satışlarınızı artırın ve marka bilinirliğinizi güçlendirin.",
+      "ctaPrimary": "Partnerlik Başvurusu",
+      "ctaSecondary": "Bilgi Paketi İndirin",
+      "trustBadge1": "500+ Şirket Partneri",
+      "trustBadge2": "2M+ Aktif Kullanıcı",
+      "trustBadge3": "15+ Sektör Deneyimi",
+      "impactTitle": "Partnerlik Etkisi",
+      "impactSubtitle": "Bravioo partnerleri ortalama performans",
+      "stats": {
+        "employees": "2.5M+",
+        "employeesLabel": "Erişilebilir Çalışan",
+        "conversion": "%40",
+        "conversionLabel": "Daha Yüksek Dönüşüm",
+        "loyalty": "%85",
+        "loyaltyLabel": "Marka Sadakati Artışı"
+      },
+      "successStory": {
+        "title": "Partner Başarı Hikayesi",
+        "description": "\"Bravioo ile e-ticaret satışlarımız %250 arttı\""
+      },
+      "benefitsTitle": "Partnerlik Avantajları",
+      "benefitsSubtitle": "Markanız için özel tasarlanmış avantajlarla rekabette öne çıkın",
+      "benefits": {
+        "targeted": {
+          "title": "Hedefli Pazarlama",
+          "description": "Demografik veriler ile doğru hedef kitleye ulaşın. Çalışan profillerine göre özelleştirilmiş kampanyalar yapın."
+        },
+        "sales": {
+          "title": "Satış Artışı",
+          "description": "Ödül sisteminde yer alarak satışlarınızı artırın. Partner markalar ortalama %120 satış artışı görüyor."
+        },
+        "loyalty": {
+          "title": "Müşteri Sadakati",
+          "description": "Çalışanların size olan bağlılığını artırın. Düzenli ödül alımları ile uzun vadeli müşteri ilişkileri kurun."
+        },
+        "analytics": {
+          "title": "Detaylı Analitik",
+          "description": "Kampanya performansınızı gerçek zamanlı takip edin. ROI analizleri ile stratejinizi optimize edin."
+        },
+        "rewards": {
+          "title": "Ödül Sistemine Entegrasyon",
+          "description": "Bravioo ödül kataloğunda yer alın. Çalışanlar tarafından tercih edilen markalar arasına katılın."
+        },
+        "reputation": {
+          "title": "Marka İtibarı",
+          "description": "Çalışan memnuniyetine katkıda bulunarak B2B sektöründe marka itibarınızı güçlendirin."
+        }
+      },
+      "ctaSection": {
+        "title": "Hemen Partnerniz Olun",
+        "description": "Bravioo ekosisteminin bir parçası olun ve markanızı milyonlarca çalışana ulaştırın",
+        "feature1": "2.5M+ Çalışan Erişimi",
+        "feature2": "Anında Kampanya Kurulumu",
+        "feature3": "Global Ödül Ağı",
+        "primaryButton": "Partnership Başvurusu",
+        "secondaryButton": "İletişime Geçin"
+      },
+      "programsTitle": "Partnerlik Programları",
+      "programsSubtitle": "Markanızın büyüklüğüne ve hedeflerinize uygun partnerlik seçeneği",
+      "recommended": "Önerilen",
+      "commission": "Komisyon Oranı",
+      "programs": {
+        "bronze": {
+          "name": "Bronze Partner",
+          "description": "Yeni başlayan markalar için"
+        },
+        "silver": {
+          "name": "Silver Partner", 
+          "description": "Büyüyen markalar için"
+        },
+        "gold": {
+          "name": "Gold Partner",
+          "description": "Yerleşik markalar için"
+        },
+        "platinum": {
+          "name": "Platinum Partner",
+          "description": "Premium markalar için"
+        }
+      },
+      "programFeatures": {
+        "basic": "Temel Ödül Kataloğu Yerleşimi",
+        "support": "E-posta Desteği",
+        "marketing1": "Temel Pazarlama Desteği",
+        "marketing2": "Gelişmiş Pazarlama Araçları",
+        "analytics": "Detaylı Analitik Dashboard",
+        "priority": "Öncelikli Destek",
+        "custom": "Özel Kampanya Desteği",
+        "all": "Tüm Özellikler",
+        "dedicated": "Özel Hesap Yöneticisi",
+        "whiteboard": "Co-Marketing Fırsatları",
+        "events": "Etkinlik Sponsorlukları"
+      },
+      "joinProgram": "Programa Katıl",
+      "processTitle": "Partnerlik Süreci",
+      "processSubtitle": "4 basit adımda Bravioo partner ekosisteminin bir parçası olun",
+      "process": {
+        "step1": {
+          "title": "Başvuru",
+          "description": "Online başvuru formunu doldurun. Marka bilgilerinizi ve hedeflerinizi paylaşın."
+        },
+        "step2": {
+          "title": "Değerlendirme",
+          "description": "Ekibimiz başvurunuzu değerlendirir ve size uygun partnerlik programını belirler."
+        },
+        "step3": {
+          "title": "Kurulum",
+          "description": "Ödül kataloğuna ürünlerinizi ekleyin ve kampanya stratejinizi oluşturun."
+        },
+        "step4": {
+          "title": "Aktivasyon",
+          "description": "Canlı yayına alın ve satışlarınızı takip etmeye başlayın."
+        }
+      },
+      "successStoriesTitle": "Partner Başarı Hikayeleri",
+      "successStoriesSubtitle": "Bravioo partnerlerinin elde ettiği gerçek sonuçlar",
+      "story1": {
+        "metric": "Satış Artışı",
+        "brand": "E-ticaret Markası"
+      },
+      "story2": {
+        "metric": "Müşteri Artışı", 
+        "brand": "Teknoloji Şirketi"
+      },
+      "story3": {
+        "metric": "ROI Artışı",
+        "brand": "Perakende Zinciri"
+      },
+      "finalCTA": {
+        "title": "Markanızı Bir Sonraki Seviyeye Taşıyın",
+        "description": "Bravioo partnerlik programına katılın ve 2.5 milyondan fazla çalışana ulaşın",
+        "primaryButton": "Hemen Başvur",
+        "secondaryButton": "Daha Fazla Bilgi"
+      }
+    }
+  },
+  "whyBravioo": {
+    "comparison": {
+      "title": "Rekabet Karşılaştırması",
+      "subtitle": "Bravioo'yu diğer çözümlerle karşılaştırın ve neden en iyi seçenek olduğunu görün",
+      "categories": {
+        "features": "Özellikler",
+        "pricing": "Fiyatlandırma", 
+        "support": "Destek"
+      },
+      "featureColumn": "Özellik",
+      "startTrial": "Ücretsiz Deneyin",
+      "otherOption": "Alternatif",
+      "stat1": "Daha Düşük Maliyet",
+      "stat2": "Daha Hızlı Kurulum",
+      "stat3": "Müşteri Memnuniyeti"
+    }
   }
 }

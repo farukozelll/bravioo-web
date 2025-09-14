@@ -17,9 +17,9 @@ interface Milestone {
 const MILESTONES_TR: Milestone[] = [
   {
     id: '1',
-    title: 'Platform Kuruluşu',
-    description: 'İkas güçlü e-ticaret altyapısı ile iş dünyasına giriş yaptı',
-    year: '2020',
+    title: 'İkas Teknoloji A.Ş. Kuruluş',
+    description: '',
+    year: '2017',
     completed: true,
     icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2-2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -27,52 +27,112 @@ const MILESTONES_TR: Milestone[] = [
   },
   {
     id: '2',
-    title: '10.000+ Aktif Kullanıcı',
-    description: 'Başarılı işletme başarıya ulaştı ve %50 oranında artış elde etti',
-    year: '2021',
+    title: 'İlk Ürün Lansmanı (POS)',
+    description: '',
+    year: '2018',
     completed: true,
     icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
     </svg>
   },
   {
     id: '3',
-    title: 'İkas Start Paketi',
-    description: 'Ücretsiz oldu ve geniş kullanıcı kitlesi için erişilebilir hale geldi',
-    year: '2022',
+    title: 'Pazaryeri Entegrasyonu',
+    description: '',
+    year: '2019',
+    completed: true,
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+    </svg>
+  },
+  {
+    id: '4',
+    title: 'Tohum Öncesi Yatırım (ONBEYOND)',
+    description: '',
+    year: '2020',
     completed: true,
     icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>
   },
   {
-    id: '4',
-    title: 'G2 Market Movers Listesi',
-    description: 'G2 Market Movers listesinde yer alarak sektörde önemli bir kilometre taşı elde etti',
-    year: '2023',
+    id: '5',
+    title: 'E-Ticaret Altyapısı Lansmanı',
+    description: '',
+    year: '2021',
+    completed: true,
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+    </svg>
+  },
+  {
+    id: '6',
+    title: 'Tohum Yatırım (500 Global)',
+    description: '',
+    year: '2021',
     completed: true,
     icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
     </svg>
   },
   {
-    id: '5',
-    title: 'Great Place to Work Sertifikası',
-    description: 'Çalışan memnuniyetinde üstün başarı göstererek sertifika aldı',
-    year: '2024',
+    id: '7',
+    title: 'Mobil Uygulama Lansmanı',
+    description: '',
+    year: '2022',
     completed: true,
     icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
     </svg>
   },
   {
-    id: '6',
-    title: 'İkas Studio Duyuruldu',
-    description: 'Yeni gelişmiş özellikler ve kapasitelerle platform genişletildi',
+    id: '8',
+    title: 'AI Entegrasyonu',
+    description: '',
+    year: '2023',
+    completed: true,
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+    </svg>
+  },
+  {
+    id: '9',
+    title: 'Omnichannel Platform',
+    description: '',
+    year: '2024',
+    completed: true,
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+    </svg>
+  },
+  {
+    id: '10',
+    title: 'Küresel Genişleme',
+    description: '',
     year: '2025',
     completed: false,
     icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  },
+  {
+    id: '11',
+    title: 'B2B Marketplace',
+    description: '',
+    year: '2026',
+    completed: false,
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+    </svg>
+  },
+  {
+    id: '12',
+    title: 'Web3 ve Blockchain Entegrasyonu',
+    description: '',
+    year: '2027',
+    completed: false,
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
     </svg>
   }
 ];
@@ -80,9 +140,9 @@ const MILESTONES_TR: Milestone[] = [
 const MILESTONES_EN: Milestone[] = [
   {
     id: '1',
-    title: 'Platform Foundation',
-    description: 'İkas entered the business world with powerful e-commerce infrastructure',
-    year: '2020',
+    title: 'İkas Technology Inc. Foundation',
+    description: '',
+    year: '2017',
     completed: true,
     icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2-2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -90,52 +150,112 @@ const MILESTONES_EN: Milestone[] = [
   },
   {
     id: '2',
-    title: '+10,000 Active Users',
-    description: 'Successful businesses achieved success and gained 50% growth',
-    year: '2021',
+    title: 'First Product Launch (POS)',
+    description: '',
+    year: '2018',
     completed: true,
     icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
     </svg>
   },
   {
     id: '3',
-    title: 'İkas Start Package',
-    description: 'Became free and accessible to a wider user base',
-    year: '2022',
+    title: 'Marketplace Integration',
+    description: '',
+    year: '2019',
+    completed: true,
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+    </svg>
+  },
+  {
+    id: '4',
+    title: 'Pre-Seed Investment (ONBEYOND)',
+    description: '',
+    year: '2020',
     completed: true,
     icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>
   },
   {
-    id: '4',
-    title: 'G2 Market Movers List',
-    description: 'Achieved a significant milestone in the industry by being featured on G2 Market Movers list',
-    year: '2023',
+    id: '5',
+    title: 'E-commerce Infrastructure Launch',
+    description: '',
+    year: '2021',
+    completed: true,
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+    </svg>
+  },
+  {
+    id: '6',
+    title: 'Seed Investment (500 Global)',
+    description: '',
+    year: '2021',
     completed: true,
     icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
     </svg>
   },
   {
-    id: '5',
-    title: 'Great Place to Work Certificate',
-    description: 'Received certification for outstanding achievement in employee satisfaction',
-    year: '2024',
+    id: '7',
+    title: 'Mobile Application Launch',
+    description: '',
+    year: '2022',
     completed: true,
     icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
     </svg>
   },
   {
-    id: '6',
-    title: 'İkas Studio Announced',
-    description: 'Platform expanded with new advanced features and capabilities',
+    id: '8',
+    title: 'AI Integration',
+    description: '',
+    year: '2023',
+    completed: true,
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+    </svg>
+  },
+  {
+    id: '9',
+    title: 'Omnichannel Platform',
+    description: '',
+    year: '2024',
+    completed: true,
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+    </svg>
+  },
+  {
+    id: '10',
+    title: 'Global Expansion',
+    description: '',
     year: '2025',
     completed: false,
     icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  },
+  {
+    id: '11',
+    title: 'B2B Marketplace',
+    description: '',
+    year: '2026',
+    completed: false,
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+    </svg>
+  },
+  {
+    id: '12',
+    title: 'Web3 & Blockchain Integration',
+    description: '',
+    year: '2027',
+    completed: false,
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
     </svg>
   }
 ];
@@ -143,6 +263,26 @@ const MILESTONES_EN: Milestone[] = [
 export function JourneyMilestones() {
   const locale = useLocale();
   const milestones = locale === 'tr' ? MILESTONES_TR : MILESTONES_EN;
+  const [currentIndex, setCurrentIndex] = React.useState(0);
+  const [visibleStart, setVisibleStart] = React.useState(0);
+  
+  const itemsPerView = 5; // Desktop'ta 5 item göster
+  const canGoNext = visibleStart + itemsPerView < milestones.length;
+  const canGoPrev = visibleStart > 0;
+  
+  const goNext = () => {
+    if (canGoNext) {
+      setVisibleStart(prev => Math.min(prev + 1, milestones.length - itemsPerView));
+    }
+  };
+  
+  const goPrev = () => {
+    if (canGoPrev) {
+      setVisibleStart(prev => Math.max(prev - 1, 0));
+    }
+  };
+  
+  const progressPercentage = ((visibleStart + itemsPerView) / milestones.length) * 100;
 
   return (
     <section 
@@ -180,115 +320,186 @@ export function JourneyMilestones() {
           </p>
         </motion.div>
 
-        {/* Desktop Timeline */}
+        {/* Horizontal Timeline with Navigation */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="hidden lg:block"
+          className="relative"
         >
+          {/* Progress Bar */}
+          <div className="mb-8">
+            <div className="relative h-2 bg-slate-200 rounded-full overflow-hidden">
+              <motion.div
+                className="absolute top-0 left-0 h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full"
+                initial={{ width: "0%" }}
+                animate={{ width: `${Math.min(progressPercentage, 100)}%` }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+              />
+            </div>
+            <div className="flex justify-between items-center mt-2">
+              <span className="text-sm text-slate-500">
+                {locale === 'tr' ? 'Yolculuğumuzun' : 'Our journey'} {Math.round(progressPercentage)}%{locale === 'tr' ? "'i tamamlandı" : ' completed'}
+              </span>
+              
+              {/* Navigation Arrows */}
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={goPrev}
+                  disabled={!canGoPrev}
+                  className={`
+                    w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300
+                    ${canGoPrev 
+                      ? 'bg-emerald-500 text-white hover:bg-emerald-600 shadow-lg hover:shadow-xl' 
+                      : 'bg-slate-200 text-slate-400 cursor-not-allowed'
+                    }
+                  `}
+                  aria-label={locale === 'tr' ? 'Önceki' : 'Previous'}
+                >
+                  <ArrowRight className="w-5 h-5 rotate-180" />
+                </button>
+                <button
+                  onClick={goNext}
+                  disabled={!canGoNext}
+                  className={`
+                    w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300
+                    ${canGoNext 
+                      ? 'bg-emerald-500 text-white hover:bg-emerald-600 shadow-lg hover:shadow-xl' 
+                      : 'bg-slate-200 text-slate-400 cursor-not-allowed'
+                    }
+                  `}
+                  aria-label={locale === 'tr' ? 'Sonraki' : 'Next'}
+                >
+                  <ArrowRight className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+          </div>
+
           {/* Timeline Container */}
-          <div className="relative">
+          <div className="relative overflow-hidden">
             {/* Background Timeline Line */}
             <div className="absolute top-20 left-0 right-0 h-1 bg-gradient-to-r from-slate-200 via-emerald-200 to-slate-300"></div>
             
-            {/* Milestones */}
-            <div className="grid grid-cols-6 gap-4">
-              {milestones.map((milestone, index) => (
-                <motion.div
-                  key={milestone.id}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="relative"
-                >
-                  {/* Timeline Dot */}
-                  <div className="flex justify-center mb-8">
-                    <div className={`
-                      relative z-10 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300
-                      ${milestone.completed 
-                        ? 'bg-gradient-to-br from-emerald-500 to-emerald-600 text-white shadow-lg' 
-                        : 'bg-white border-2 border-slate-300 text-slate-400'
-                      }
-                    `}>
-                      {milestone.completed ? (
-                        <CheckCircle className="w-6 h-6" />
-                      ) : (
-                        <Circle className="w-6 h-6" />
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Milestone Card */}
+            {/* Milestones Container */}
+            <div className="relative">
+              <motion.div
+                className="flex gap-6"
+                animate={{ x: -visibleStart * (100 / itemsPerView) + '%' }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+                style={{ width: `${(milestones.length / itemsPerView) * 100}%` }}
+              >
+                {milestones.map((milestone, index) => (
                   <motion.div
-                    whileHover={{ y: -8, scale: 1.02 }}
-                    className={`
-                      relative bg-white rounded-2xl p-6 shadow-lg border transition-all duration-300
-                      ${milestone.completed 
-                        ? 'border-emerald-200 shadow-emerald-100/50' 
-                        : 'border-slate-200'
-                      }
-                    `}
+                    key={milestone.id}
+                    className="flex-shrink-0"
+                    style={{ width: `${100 / milestones.length}%` }}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
                   >
-                    {/* Year Badge */}
-                    <div className={`
-                      absolute -top-3 left-6 px-3 py-1 text-xs font-bold rounded-full
-                      ${milestone.completed 
-                        ? 'bg-emerald-500 text-white' 
-                        : 'bg-slate-300 text-slate-600'
-                      }
-                    `}>
-                      {milestone.year}
-                    </div>
-
-                    {/* Icon */}
-                    <div className={`
-                      mb-4 p-3 rounded-xl w-fit
-                      ${milestone.completed 
-                        ? 'bg-emerald-100 text-emerald-600' 
-                        : 'bg-slate-100 text-slate-400'
-                      }
-                    `}>
-                      {milestone.icon}
-                    </div>
-
-                    {/* Content */}
-                    <h3 className={`
-                      text-lg font-semibold mb-3 leading-tight
-                      ${milestone.completed ? 'text-slate-900' : 'text-slate-600'}
-                    `}>
-                      {milestone.title}
-                    </h3>
-                    
-                    <p className={`
-                      text-sm leading-relaxed
-                      ${milestone.completed ? 'text-slate-600' : 'text-slate-500'}
-                    `}>
-                      {milestone.description}
-                    </p>
-
-                    {/* Status Indicator */}
-                    <div className="mt-4 flex items-center gap-2">
+                    {/* Timeline Dot */}
+                    <div className="flex justify-center mb-8">
                       <div className={`
-                        w-2 h-2 rounded-full
-                        ${milestone.completed ? 'bg-emerald-500' : 'bg-slate-400'}
-                      `}></div>
-                      <span className={`
-                        text-xs font-medium
-                        ${milestone.completed ? 'text-emerald-600' : 'text-slate-500'}
-                      `}>
-                        {milestone.completed 
-                          ? (locale === 'tr' ? 'Tamamlandı' : 'Completed')
-                          : (locale === 'tr' ? 'Yakında' : 'Coming Soon')
+                        relative z-10 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300
+                        ${milestone.completed 
+                          ? 'bg-gradient-to-br from-emerald-500 to-emerald-600 text-white shadow-lg' 
+                          : 'bg-white border-2 border-slate-300 text-slate-400'
                         }
-                      </span>
+                      `}>
+                        {milestone.completed ? (
+                          <CheckCircle className="w-6 h-6" />
+                        ) : (
+                          <Circle className="w-6 h-6" />
+                        )}
+                      </div>
                     </div>
+
+                    {/* Milestone Card */}
+                    <motion.div
+                      whileHover={{ y: -8, scale: 1.02 }}
+                      className={`
+                        relative bg-white rounded-2xl p-6 shadow-lg border transition-all duration-300 h-48
+                        ${milestone.completed 
+                          ? 'border-emerald-200 shadow-emerald-100/50' 
+                          : 'border-slate-200'
+                        }
+                      `}
+                    >
+                      {/* Year Badge */}
+                      <div className={`
+                        absolute -top-3 left-6 px-3 py-1 text-xs font-bold rounded-full
+                        ${milestone.completed 
+                          ? 'bg-emerald-500 text-white' 
+                          : 'bg-slate-300 text-slate-600'
+                        }
+                      `}>
+                        {milestone.year}
+                      </div>
+
+                      {/* Icon */}
+                      <div className={`
+                        mb-4 p-3 rounded-xl w-fit
+                        ${milestone.completed 
+                          ? 'bg-emerald-100 text-emerald-600' 
+                          : 'bg-slate-100 text-slate-400'
+                        }
+                      `}>
+                        {milestone.icon}
+                      </div>
+
+                      {/* Content */}
+                      <h3 className={`
+                        text-lg font-semibold mb-3 leading-tight
+                        ${milestone.completed ? 'text-slate-900' : 'text-slate-600'}
+                      `}>
+                        {milestone.title}
+                      </h3>
+                      
+
+                      {/* Status Indicator */}
+                      <div className="absolute bottom-6 left-6 right-6">
+                        <div className="flex items-center gap-2">
+                          <div className={`
+                            w-2 h-2 rounded-full
+                            ${milestone.completed ? 'bg-emerald-500' : 'bg-slate-400'}
+                          `}></div>
+                          <span className={`
+                            text-xs font-medium
+                            ${milestone.completed ? 'text-emerald-600' : 'text-slate-500'}
+                          `}>
+                            {milestone.completed 
+                              ? (locale === 'tr' ? 'Tamamlandı' : 'Completed')
+                              : (locale === 'tr' ? 'Yakında' : 'Coming Soon')
+                            }
+                          </span>
+                        </div>
+                      </div>
+                    </motion.div>
                   </motion.div>
-                </motion.div>
-              ))}
+                ))}
+              </motion.div>
             </div>
+          </div>
+
+          {/* Timeline Indicators */}
+          <div className="flex justify-center mt-8 gap-2">
+            {Array.from({ length: Math.ceil(milestones.length / itemsPerView) }, (_, i) => (
+              <button
+                key={i}
+                onClick={() => setVisibleStart(i * itemsPerView)}
+                className={`
+                  w-2 h-2 rounded-full transition-all duration-300
+                  ${Math.floor(visibleStart / itemsPerView) === i 
+                    ? 'bg-emerald-500 w-6' 
+                    : 'bg-slate-300 hover:bg-slate-400'
+                  }
+                `}
+                aria-label={`${locale === 'tr' ? 'Sayfa' : 'Page'} ${i + 1}`}
+              />
+            ))}
           </div>
         </motion.div>
 
