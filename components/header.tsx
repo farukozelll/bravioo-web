@@ -6,7 +6,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { AnnouncementBar } from '@/components/announcement-bar';
-import { Menu, X, ChevronDown, Globe, Building } from 'lucide-react'; // Globe ikonunu ekledik
+import { Menu, X, ChevronDown, Building } from 'lucide-react';
 
 import Image from 'next/image';
 import { cn } from '@/lib/utils';

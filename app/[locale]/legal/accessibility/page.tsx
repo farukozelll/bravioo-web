@@ -79,7 +79,7 @@ export default async function AccessibilityPage({ params }: Props) {
           </div>
         </div>
         <p className="text-lg text-ink-600 leading-relaxed">
-          At Bravioo, we're committed to ensuring digital accessibility for people with disabilities. 
+          At Bravioo, we&apos;re committed to ensuring digital accessibility for people with disabilities. 
           We continually improve the user experience for everyone and apply relevant accessibility standards.
         </p>
       </div>
