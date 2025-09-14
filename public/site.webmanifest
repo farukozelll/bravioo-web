@@ -1,0 +1,17 @@
+{
+  "name": "Bravioo - Employee Recognition Platform",
+  "short_name": "Bravioo",
+  "description": "Transform your workplace culture with comprehensive employee recognition and rewards.",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ],
+  "theme_color": "#3A9355",
+  "background_color": "#F7F5F0",
+  "display": "standalone",
+  "start_url": "/",
+  "lang": "en"
+}

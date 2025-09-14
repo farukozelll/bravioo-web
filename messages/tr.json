@@ -1,0 +1,241 @@
+{
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu",
+    "success": "Başarılı!",
+    "close": "Kapat",
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "continue": "Devam Et",
+    "back": "Geri",
+    "next": "İleri",
+    "previous": "Önceki",
+    "submit": "Gönder",
+    "contact": "İletişim",
+    "learnMore": "Daha Fazla Bilgi",
+    "getStarted": "Başlayın",
+    "tryFree": "Ücretsiz Deneyin",
+    "bookDemo": "Demo Rezervasyonu",
+    "contactSales": "Satış Ekibi ile İletişim"
+  },
+  "navigation": {
+    "home": "Ana Sayfa",
+    "platform": "Platform",
+    "pricing": "Fiyatlandırma",
+    "customers": "Referanslar",
+    "whyBravioo": "Neden Bravioo?",
+    "blog": "Blog",
+    "contact": "İletişim",
+    "login": "Giriş Yap",
+    "getDemo": "Demo Al",
+    "recognition": "Takdir & Ödüller",
+    "recognitionDesc": "Çalışanların birbirlerini takdir etmesi için anlamlı sistem",
+    "surveys": "Anketler & Geri Bildirim",
+    "surveysDesc": "Anlık veri toplayın, sorunları anında tespit edin",
+    "analytics": "Gelişmiş Analitik",
+    "analyticsDesc": "Bağlılığı takip edin ve takdir programınızın etkisini ölçün",
+    "automation": "Otomatikleştirilmiş İş Akışları",
+    "automationDesc": "Takdir süreçlerini otomatikleştirin ve zaman kazanın",
+    "integrations": "Entegrasyonlar",
+    "integrationsDesc": "Slack, Teams ve 50+ araçla sorunsuz entegrasyon",
+    "mobile": "Mobil Uygulama",
+    "mobileDesc": "Her yerden takdir edin, iOS ve Android uygulamaları",
+    "aboutUs": "Hakkımızda",
+    "security": "Güvenlik",
+    "difference": "Bizi Farklı Kılan Ne?",
+    "press": "Basında Biz",
+    "successStories": "Başarı Hikayeleri",
+    "mugoSuccess": "İkas ile yıllık cirosu %285 artış gösterdi",
+    "proteinoceanSuccess": "Çalışan memnuniyetinde %50 verimlilik artışı",
+    "platformCTATitle": "Tek platform. Ölçülebilir mutluluk.",
+    "platformCTADesc": "Her katkının değerli olduğu bir çalışma kültürü inşa edin",
+    "startFree": "Ücretsiz Başlayın",
+    "viewAll": "Tümünü Görüntüle"
+  },
+  "hero": {
+    "title": "İş Yerinizi Anlamlı Takdirle Dönüştürün",
+    "subtitle": "Bravioo'nun kapsamlı takdir ve ödül platformuyla çalışan bağlılığını ve elde tutmayı artırın. Her başarının kutlandığı bir kültür oluşturun.",
+    "cta": "Ücretsiz Deneme Başlatın",
+    "watchDemo": "Demo İzleyin",
+    "trustedBy": "Dünya çapında 500+ şirket tarafından güveniliyor"
+  },
+  "features": {
+    "title": "Çalışan Takdiri İçin İhtiyacınız Olan Her Şey",
+    "subtitle": "Takdir kültürü oluşturmak için tasarlanmış güçlü özellikler",
+    "recognition": {
+      "title": "Meslektaştan Meslektaşa Takdir",
+      "description": "Çalışanların birbirlerinin katkılarını anlamlı ve açık takdirle fark etmelerini sağlayın."
+    },
+    "rewards": {
+      "title": "Global Ödül Kataloğu",
+      "description": "50+ ülkede binlerce ödül ve deneyim arasından seçim yapın."
+    },
+    "analytics": {
+      "title": "Gelişmiş Analitik",
+      "description": "Bağlılığı takip edin, en iyi performans gösterenleri belirleyin ve takdir programınızın etkisini ölçün."
+    },
+    "integrations": {
+      "title": "Sorunsuz Entegrasyonlar",
+      "description": "Ekibinizin zaten kullandığı Slack, Microsoft Teams, İK sistemleri ve 50+ diğer araçla bağlantı kurun."
+    }
+  },
+  "pricing": {
+    "title": "Basit, Şeffaf Fiyatlandırma",
+    "subtitle": "Organizasyonunuzun ihtiyaçlarına uygun planı seçin",
+    "monthly": "Aylık",
+    "annually": "Yıllık",
+    "save": "%20 Tasarruf",
+    "perUser": "kullanıcı/ay başına",
+    "contactUs": "Özel fiyatlandırma için bizimle iletişime geçin",
+    "freeTrial": "14 günlük ücretsiz deneme",
+    "noCredit": "Kredi kartı gerekli değil",
+    "plans": {
+      "starter": {
+        "name": "Başlangıç",
+        "price": "5",
+        "description": "Takdire başlayan küçük ekipler için mükemmel",
+        "features": [
+          "50 kullanıcıya kadar",
+          "Meslektaştan meslektaşa takdir",
+          "Temel ödül kataloğu",
+          "E-posta bildirimleri",
+          "Temel raporlama"
+        ]
+      },
+      "professional": {
+        "name": "Profesyonel",
+        "price": "12",
+        "description": "Büyüyen organizasyonlar için gelişmiş özellikler",
+        "features": [
+          "500 kullanıcıya kadar",
+          "Gelişmiş analitik",
+          "Özel takdir kategorileri",
+          "Slack ve Teams entegrasyonu",
+          "Yönetici paneli",
+          "API erişimi"
+        ]
+      },
+      "enterprise": {
+        "name": "Kurumsal",
+        "price": "Özel",
+        "description": "Büyük organizasyonlar için özelleştirilmiş çözümler",
+        "features": [
+          "Sınırsız kullanıcı",
+          "Özel entegrasyonlar",
+          "Özel başarı yöneticisi",
+          "Gelişmiş güvenlik (SSO, SAML)",
+          "Özel markalama",
+          "Öncelikli destek"
+        ]
+      }
+    }
+  },
+  "contact": {
+    "title": "Bugün Başlayın",
+    "subtitle": "İş yeri kültürünüzü dönüştürmeye hazır mısınız? Bravioo'nun organizasyonunuzun gelişmesine nasıl yardımcı olabileceği hakkında konuşalım.",
+    "tabs": {
+      "contact": "İletişim Bilgileri",
+      "contactDesc": "Sizin ve şirketiniz hakkında temel bilgiler",
+      "details": "Proje Detayları",
+      "detailsDesc": "İhtiyaçlarınız ve hedefleriniz hakkında daha fazla bilgi"
+    },
+    "steps": {
+      "contact": {
+        "title": "Tanışalım",
+        "subtitle": "Bu bilgileri deneyiminizi kişiselleştirmek için kullanacağız"
+      },
+      "details": {
+        "title": "Projeniz hakkında bilgi verin",
+        "subtitle": "Bu bilgiler size daha uygun bir demo hazırlamamıza yardımcı olur"
+      }
+    },
+    "form": {
+      "name": "Ad Soyad",
+      "namePlaceholder": "Adınızı ve soyadınızı girin",
+      "email": "İş E-postası",
+      "emailPlaceholder": "İş e-postanızı girin",
+      "company": "Şirket Adı",
+      "companyPlaceholder": "Şirket adınızı girin",
+      "employees": "Şirket Büyüklüğü",
+      "employeesPlaceholder": "Şirket büyüklüğünü seçin",
+      "phone": "Telefon",
+      "phonePlaceholder": "Telefon numaranızı girin",
+      "jobTitle": "Pozisyon",
+      "jobTitlePlaceholder": "İş unvanınızı girin",
+      "industry": "Sektör",
+      "industryPlaceholder": "Sektörünüzü seçin",
+      "timeline": "Zaman Çizelgesi",
+      "timelinePlaceholder": "Uygulama zamanını seçin",
+      "budget": "Bütçe",
+      "budgetPlaceholder": "Tahmini bütçenizi girin",
+      "painPoints": "Mevcut Zorluklar",
+      "painPointsPlaceholder": "Şu anda karşılaştığınız zorlukları açıklayın",
+      "currentSolution": "Mevcut Çözüm",
+      "currentSolutionPlaceholder": "Şu anda kullandığınız sistem varsa belirtin",
+      "message": "Mesaj",
+      "messagePlaceholder": "Takdir ihtiyaçlarınız hakkında bize bilgi verin...",
+      "agree": "Gizlilik politikası ve hizmet şartlarını kabul ediyorum",
+      "next": "Sonraki Adım",
+      "previous": "Önceki",
+      "submit": "Mesaj Gönder",
+      "success": "Teşekkürler! 24 saat içinde size geri döneceğiz.",
+      "error": "Bir şeyler yanlış gitti. Lütfen tekrar deneyin."
+    },
+    "employeeOptions": {
+      "1-50": "1-50 çalışan",
+      "51-200": "51-200 çalışan",
+      "201-1000": "201-1000 çalışan",
+      "1000+": "1000+ çalışan"
+    }
+  },
+  "footer": {
+    "description": "Bravioo, anlamlı takdir ve ödüller aracılığıyla organizasyonların daha güçlü iş yeri kültürleri oluşturmasına yardımcı olur.",
+    "product": "Ürün",
+    "company": "Şirket",
+    "legal": "Yasal",
+    "support": "Destek"
+  },
+  "cookies": {
+    "banner": {
+      "title": "Çerez kullanıyoruz",
+      "description": "Tarama deneyiminizi geliştirmek, kişiselleştirilmiş içerik sunmak ve trafiğimizi analiz etmek için çerezler kullanıyoruz. 'Tümünü Kabul Et'e tıklayarak çerez kullanımımıza onay verirsiniz.",
+      "acceptAll": "Tümünü Kabul Et",
+      "rejectAll": "Tümünü Reddet",
+      "managePreferences": "Tercihleri Yönet"
+    },
+    "modal": {
+      "title": "Çerez Tercihleri",
+      "description": "Hangi çerezlere izin vermek istediğinizi seçin. Bu ayarları istediğiniz zaman değiştirebilirsiniz.",
+      "necessary": {
+        "title": "Gerekli Çerezler",
+        "description": "Bu çerezler web sitesinin düzgün çalışması için gereklidir ve devre dışı bırakılamaz."
+      },
+      "analytics": {
+        "title": "Analitik Çerezler",
+        "description": "Bu çerezler, ziyaretçilerin web sitemizle nasıl etkileşim kurduğunu anonim olarak bilgi toplayarak ve raporlayarak anlamamıza yardımcı olur."
+      },
+      "marketing": {
+        "title": "Pazarlama Çerezleri",
+        "description": "Bu çerezler kişiselleştirilmiş reklamlar sunmak ve pazarlama kampanyalarımızın etkinliğini takip etmek için kullanılır."
+      },
+      "functional": {
+        "title": "İşlevsel Çerezler",
+        "description": "Bu çerezler, tercihlerinizi hatırlamak gibi gelişmiş işlevsellik ve kişiselleştirmeyi etkinleştirir."
+      },
+      "savePreferences": "Tercihleri Kaydet",
+      "acceptSelected": "Seçilenleri Kabul Et"
+    }
+  },
+  "legal": {
+    "title": "Yasal Belgeler",
+    "description": "Gizlilik politikası, kullanım koşulları ve diğer yasal belgelerimiz"
+  },
+  "howItWorks": {
+    "title": "Nasıl Çalışır",
+    "subtitle": "4 basit adımda çalışan deneyiminizi dönüştürün"
+  },
+  "customers": {
+    "title": "Müşteri Hikayeleri",
+    "subtitle": "Başarılı şirketlerin Bravioo ile elde ettiği sonuçlar"
+  }
+}

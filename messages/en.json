@@ -1,0 +1,241 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success!",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "continue": "Continue",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "contact": "Contact",
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "tryFree": "Try Free",
+    "bookDemo": "Book a Demo",
+    "contactSales": "Contact Sales"
+  },
+  "navigation": {
+    "home": "Home",
+    "platform": "Platform",
+    "pricing": "Pricing",
+    "customers": "Customers",
+    "whyBravioo": "Why Bravioo?",
+    "blog": "Blog",
+    "contact": "Contact",
+    "login": "Login",
+    "getDemo": "Get Demo",
+    "recognition": "Recognition & Rewards",
+    "recognitionDesc": "Meaningful system for employees to recognize each other",
+    "surveys": "Surveys & Feedback",
+    "surveysDesc": "Collect real-time data, identify issues instantly",
+    "analytics": "Advanced Analytics",
+    "analyticsDesc": "Track engagement and measure recognition program impact",
+    "automation": "Automated Workflows",
+    "automationDesc": "Automate recognition processes and save time",
+    "integrations": "Integrations",
+    "integrationsDesc": "Seamless integration with Slack, Teams and 50+ tools",
+    "mobile": "Mobile App",
+    "mobileDesc": "Recognize from anywhere with iOS and Android apps",
+    "aboutUs": "About Us",
+    "security": "Security",
+    "difference": "What Makes Us Different?",
+    "press": "Press & Media",
+    "successStories": "Success Stories",
+    "mugoSuccess": "İkas achieved 285% annual revenue growth",
+    "proteinoceanSuccess": "50% efficiency increase in employee satisfaction",
+    "platformCTATitle": "One platform. Measurable happiness.",
+    "platformCTADesc": "Build a work culture where every contribution matters",
+    "startFree": "Start Free",
+    "viewAll": "View All"
+  },
+  "hero": {
+    "title": "Transform Your Workplace with Recognition That Matters",
+    "subtitle": "Boost employee engagement and retention with Bravioo's comprehensive recognition and rewards platform. Build a culture where every achievement is celebrated.",
+    "cta": "Start Your Free Trial",
+    "watchDemo": "Watch Demo",
+    "trustedBy": "Trusted by 500+ companies worldwide"
+  },
+  "features": {
+    "title": "Everything You Need for Employee Recognition",
+    "subtitle": "Powerful features designed to create a culture of appreciation",
+    "recognition": {
+      "title": "Peer-to-Peer Recognition",
+      "description": "Enable employees to recognize each other's contributions with meaningful, public appreciation."
+    },
+    "rewards": {
+      "title": "Global Rewards Catalog",
+      "description": "Choose from thousands of rewards and experiences across 50+ countries."
+    },
+    "analytics": {
+      "title": "Advanced Analytics",
+      "description": "Track engagement, identify top performers, and measure the impact of your recognition program."
+    },
+    "integrations": {
+      "title": "Seamless Integrations",
+      "description": "Connect with Slack, Microsoft Teams, HRIS systems, and 50+ other tools your team already uses."
+    }
+  },
+  "pricing": {
+    "title": "Simple, Transparent Pricing",
+    "subtitle": "Choose the plan that fits your organization's needs",
+    "monthly": "Monthly",
+    "annually": "Annually",
+    "save": "Save 20%",
+    "perUser": "per user/month",
+    "contactUs": "Contact us for custom pricing",
+    "freeTrial": "14-day free trial",
+    "noCredit": "No credit card required",
+    "plans": {
+      "starter": {
+        "name": "Starter",
+        "price": "5",
+        "description": "Perfect for small teams getting started with recognition",
+        "features": [
+          "Up to 50 users",
+          "Peer-to-peer recognition",
+          "Basic rewards catalog",
+          "Email notifications",
+          "Basic reporting"
+        ]
+      },
+      "professional": {
+        "name": "Professional",
+        "price": "12",
+        "description": "Advanced features for growing organizations",
+        "features": [
+          "Up to 500 users",
+          "Advanced analytics",
+          "Custom recognition categories",
+          "Slack & Teams integration",
+          "Manager dashboard",
+          "API access"
+        ]
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "price": "Custom",
+        "description": "Tailored solutions for large organizations",
+        "features": [
+          "Unlimited users",
+          "Custom integrations",
+          "Dedicated success manager",
+          "Advanced security (SSO, SAML)",
+          "Custom branding",
+          "Priority support"
+        ]
+      }
+    }
+  },
+  "contact": {
+    "title": "Get Started Today",
+    "subtitle": "Ready to transform your workplace culture? Let's talk about how Bravioo can help your organization thrive.",
+    "tabs": {
+      "contact": "Contact Info",
+      "contactDesc": "Basic information about you and your company",
+      "details": "Project Details",
+      "detailsDesc": "Tell us more about your needs and goals"
+    },
+    "steps": {
+      "contact": {
+        "title": "Let's get to know you",
+        "subtitle": "We'll use this information to personalize your experience"
+      },
+      "details": {
+        "title": "Tell us about your project",
+        "subtitle": "This helps us prepare a more relevant demo for you"
+      }
+    },
+    "form": {
+      "name": "Full Name",
+      "namePlaceholder": "Enter your full name",
+      "email": "Work Email",
+      "emailPlaceholder": "Enter your work email",
+      "company": "Company Name",
+      "companyPlaceholder": "Enter your company name",
+      "employees": "Company Size",
+      "employeesPlaceholder": "Select company size",
+      "phone": "Phone",
+      "phonePlaceholder": "Enter your phone number",
+      "jobTitle": "Job Title",
+      "jobTitlePlaceholder": "Enter your job title",
+      "industry": "Industry",
+      "industryPlaceholder": "Select your industry",
+      "timeline": "Timeline",
+      "timelinePlaceholder": "Select implementation timeline",
+      "budget": "Budget",
+      "budgetPlaceholder": "Enter estimated budget",
+      "painPoints": "Current Challenges",
+      "painPointsPlaceholder": "Describe the challenges you're currently facing",
+      "currentSolution": "Current Solution",
+      "currentSolutionPlaceholder": "Specify current system if any",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your recognition needs...",
+      "agree": "I agree to the privacy policy and terms of service",
+      "next": "Next Step",
+      "previous": "Previous",
+      "submit": "Send Message",
+      "success": "Thank you! We'll get back to you within 24 hours.",
+      "error": "Something went wrong. Please try again."
+    },
+    "employeeOptions": {
+      "1-50": "1-50 employees",
+      "51-200": "51-200 employees",
+      "201-1000": "201-1000 employees",
+      "1000+": "1000+ employees"
+    }
+  },
+  "footer": {
+    "description": "Bravioo helps organizations build stronger workplace cultures through meaningful recognition and rewards.",
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "support": "Support"
+  },
+  "cookies": {
+    "banner": {
+      "title": "We use cookies",
+      "description": "We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking 'Accept All', you consent to our use of cookies.",
+      "acceptAll": "Accept All",
+      "rejectAll": "Reject All",
+      "managePreferences": "Manage Preferences"
+    },
+    "modal": {
+      "title": "Cookie Preferences",
+      "description": "Choose which cookies you want to allow. You can change these settings at any time.",
+      "necessary": {
+        "title": "Necessary Cookies",
+        "description": "These cookies are essential for the website to function properly and cannot be disabled."
+      },
+      "analytics": {
+        "title": "Analytics Cookies",
+        "description": "These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously."
+      },
+      "marketing": {
+        "title": "Marketing Cookies",
+        "description": "These cookies are used to deliver personalized advertisements and track the effectiveness of our marketing campaigns."
+      },
+      "functional": {
+        "title": "Functional Cookies",
+        "description": "These cookies enable enhanced functionality and personalization, such as remembering your preferences."
+      },
+      "savePreferences": "Save Preferences",
+      "acceptSelected": "Accept Selected"
+    }
+  },
+  "legal": {
+    "title": "Legal Documents",
+    "description": "Privacy policy, terms of use and other legal documents"
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "subtitle": "Transform your employee experience in 4 simple steps"
+  },
+  "customers": {
+    "title": "Customer Stories",
+    "subtitle": "Results achieved by successful companies with Bravioo"
+  }
+}

@@ -1,0 +1,17 @@
+<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Bravioo Logo - Green Version -->
+  
+  <!-- Icon -->
+  <rect x="0" y="4" width="32" height="32" rx="8" fill="#3A9355"/>
+  <path d="M8 10h8c2.5 0 4.5 1 4.5 3.5 0 1.5-1 2.5-2 3 1.5 0.5 2.5 1.5 2.5 3.5 0 2.5-2 4-4.5 4H8V10z" fill="white"/>
+  <path d="M11 13v3h4c1 0 1.5-0.5 1.5-1.5S16 13 15 13h-4z" fill="#3A9355"/>
+  <path d="M11 18.5v3.5h5c1 0 1.5-0.5 1.5-1.75S17 18.5 16 18.5h-5z" fill="#3A9355"/>
+  
+  <!-- Connection elements -->
+  <circle cx="28" cy="14" r="2" fill="#C8A96A"/>
+  <circle cx="28" cy="20" r="1.5" fill="#C8A96A" opacity="0.8"/>
+  <circle cx="28" cy="26" r="1" fill="#C8A96A" opacity="0.6"/>
+  
+  <!-- Text -->
+  <text x="44" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#3A9355">Bravioo</text>
+</svg>
