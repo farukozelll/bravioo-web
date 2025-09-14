@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props) {
     description: locale === 'tr' 
       ? 'Bravioo\'nun kapsamlı çalışan takdir ve ödül platform özelliklerini keşfedin.'
       : 'Discover Bravioo\'s comprehensive employee recognition and rewards platform features.',
-    path: `/${locale}/features`,
+    url: `https://bravioo.com/${locale}/features`,
   });
 }
 
