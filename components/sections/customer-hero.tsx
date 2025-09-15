@@ -31,13 +31,13 @@ export function CustomerHero() {
       id: 'proteinocean',
       brand: 'ProteinOcean',
       logo: '/images/brands/proteinocean.png',
-      title: 'İkas\'ın Hızlı Sayesinde Dönüşüm Oranlarını %10 Artırdı',
-      description: 'Protein Ocean, İkas e-ticaret altyapısı ile satış süreçlerini optimize etti ve müşteri deneyimini geliştirildi.',
+      title: 'Bravioo\'ın Hızlı Sayesinde Dönüşüm Oranlarını %10 Artırdı',
+      description: 'Protein Ocean, Bravioo e-ticaret altyapısı ile satış süreçlerini optimize etti ve müşteri deneyimini geliştirildi.',
       metrics: '%10 Dönüşüm Artışı',
       image: '/images/cases/proteinocean-hero.jpg',
       category: 'Gıda Ürünleri',
       videoUrl: '/videos/proteinocean-success.mp4',
-      testimonial: 'İkas ile e-ticaret süreçlerimiz çok daha hızlı ve etkili hale geldi.',
+      testimonial: 'Bravioo ile e-ticaret süreçlerimiz çok daha hızlı ve etkili hale geldi.',
       author: 'Ahmet Kaya',
       position: 'E-ticaret Müdürü'
     },
@@ -60,7 +60,7 @@ export function CustomerHero() {
       brand: 'Miniso',
       logo: '/images/brands/miniso.png',
       title: 'Çoklu Kanal Yönetimi ile Verimlilik Arttı',
-      description: 'Miniso, İkas\'ın gelişmiş özelliklerini kullanarak çoklu kanal satışlarını entegre etti.',
+      description: 'Miniso, Bravioo\'ın gelişmiş özelliklerini kullanarak çoklu kanal satışlarını entegre etti.',
       metrics: '%35 Verimlilik Artışı',
       image: '/images/cases/miniso-hero.jpg',
       category: 'Kozmetik',
@@ -74,7 +74,7 @@ export function CustomerHero() {
       brand: 'Online Çiftçi',
       logo: '/images/brands/online-ciftci.png',
       title: 'Tarım Ürünlerinde Dijital Dönüşüm Başarısı',
-      description: 'Online Çiftçi, tarım ürünlerini dijital ortamda satmaya İkas ile başladı ve hızla büyüdü.',
+      description: 'Online Çiftçi, tarım ürünlerini dijital ortamda satmaya Bravioo ile başladı ve hızla büyüdü.',
       metrics: '%40 Büyüme',
       image: '/images/cases/online-ciftci-hero.jpg',
       category: 'Gıda Ürünleri',
@@ -88,12 +88,12 @@ export function CustomerHero() {
       brand: 'Mugo',
       logo: '/images/brands/mugo.png',
       title: 'Yıllık Ciroda %397 Büyüme Başarısı',
-      description: 'Mugo, İkas e-ticaret çözümleri ile olağanüstü büyüme performansı gösterdi.',
+      description: 'Mugo, Bravioo e-ticaret çözümleri ile olağanüstü büyüme performansı gösterdi.',
       metrics: '%397 Ciro Artışı',
       image: '/images/cases/mugo-hero.jpg',
       category: 'Tekstil & Giyim',
       videoUrl: '/videos/mugo-success.mp4',
-      testimonial: 'İkas sayesinde hayallerimizden daha büyük başarıya ulaştık.',
+      testimonial: 'Bravioo sayesinde hayallerimizden daha büyük başarıya ulaştık.',
       author: 'Ayşe Kılıç',
       position: 'CEO'
     },
@@ -102,7 +102,7 @@ export function CustomerHero() {
       brand: 'SM Bebek',
       logo: '/images/brands/sm-bebek.png',
       title: 'Anne Bebek Kategorisinde Güvenli Büyüme',
-      description: 'SM Bebek, İkas\'ın güvenli altyapısı ile hassas müşteri segmentinde büyüdü.',
+      description: 'SM Bebek, Bravioo\'ın güvenli altyapısı ile hassas müşteri segmentinde büyüdü.',
       metrics: '%40 Satış Artışı',
       image: '/images/cases/sm-bebek-hero.jpg',
       category: 'Anne & Bebek Ürünleri',
@@ -158,7 +158,7 @@ export function CustomerHero() {
 
             {/* Description */}
             <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-              İkas'ın güçlü e-ticaret altyapısı ile{' '}
+              Bravioo'ın güçlü e-ticaret altyapısı ile{' '}
               <span className="font-semibold text-emerald-600">10.000+</span> işletme 
               büyüme hedeflerine ulaştı. Onların başarı hikayelerini keşfedin.
             </p>

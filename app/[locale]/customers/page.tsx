@@ -6,8 +6,8 @@ import { CustomerHero } from '@/components/sections/customer-hero';
 import { CustomerShowcase } from '@/components/sections/customer-showcase';
 
 export const metadata: Metadata = {
-  title: 'Müşteri Başarı Hikayeleri | Customer Success Stories - İkas',
-  description: 'İkas e-ticaret altyapısı ile başarıya ulaşan 10.000+ işletmenin hikayelerini keşfedin. Her sektörden başarı örnekleri.',
+  title: 'Müşteri Başarı Hikayeleri | Customer Success Stories - Bravioo',
+  description: 'Bravioo e-ticaret altyapısı ile başarıya ulaşan 10.000+ işletmenin hikayelerini keşfedin. Her sektörden başarı örnekleri.',
 };
 
 export default function CustomersPage() {

@@ -33,14 +33,14 @@ export function CompanyShowcaseSection() {
       name: 'ProteinOcean',
       logo: '/images/brands/proteinocean.png',
       category: 'Gıda Ürünleri',
-      description: 'İkas\'ın Hızlı Sayesinde Dönüşüm Oranlarını %10',
+      description: 'Bravioo\'ın Hızlı Sayesinde Dönüşüm Oranlarını %10',
       metrics: {
         primary: '%10 Dönüşüm Artışı',
         secondary: '3 Aylık Süreçte'
       },
       details: {
         challenge: 'E-ticaret sitesinde düşük dönüşüm oranları ve yavaş yükleme süreleri',
-        solution: 'İkas altyapısı ile hızlı ve optimize edilmiş e-ticaret deneyimi',
+        solution: 'Bravioo altyapısı ile hızlı ve optimize edilmiş e-ticaret deneyimi',
         results: ['%10 dönüşüm artışı', '%40 sayfa hızı iyileştirmesi', '%25 sepet terk oranı azalması']
       }
     },
@@ -56,7 +56,7 @@ export function CompanyShowcaseSection() {
       },
       details: {
         challenge: 'Teknik bilgi eksikliği ve karmaşık e-ticaret kurulum süreçleri',
-        solution: 'İkas\'ın kullanıcı dostu arayüzü ile kolay site kurulumu',
+        solution: 'Bravioo\'ın kullanıcı dostu arayüzü ile kolay site kurulumu',
         results: ['%250 satış artışı', 'Teknik bilgi gerektirmeden kurulum', '%90 zaman tasarrufu']
       }
     },
@@ -65,14 +65,14 @@ export function CompanyShowcaseSection() {
       name: 'Miniso',
       logo: '/images/brands/miniso.png',
       category: 'Kozmetik',
-      description: 'İkas Özellikleri Sayesinde Dönüşüm Oranlarını %10',
+      description: 'Bravioo Özellikleri Sayesinde Dönüşüm Oranlarını %10',
       metrics: {
         primary: '%10 Dönüşüm Artışı',
         secondary: '2 Aylık Süreçte'
       },
       details: {
         challenge: 'Çok kanallı satış yönetimi ve stok entegrasyonu zorlukları',
-        solution: 'İkas\'ın entegre çözümleri ile unified commerce deneyimi',
+        solution: 'Bravioo\'ın entegre çözümleri ile unified commerce deneyimi',
         results: ['%10 dönüşüm artışı', 'Çoklu kanal entegrasyonu', '%35 operasyonel verimlilik']
       }
     },
@@ -81,14 +81,14 @@ export function CompanyShowcaseSection() {
       name: 'Online Çiftçi',
       logo: '/images/brands/online-ciftci.png',
       category: 'Gıda Ürünleri',
-      description: 'E-Ticaret Yolculuğuna İkas ile Devam Ediyor!',
+      description: 'E-Ticaret Yolculuğuna Bravioo ile Devam Ediyor!',
       metrics: {
         primary: '%40 Büyüme',
         secondary: '4 Aylık Süreçte'
       },
       details: {
         challenge: 'Tarım ürünlerinin online satışında lojistik ve pazarlama zorlukları',
-        solution: 'İkas\'ın sektöre özel çözümleri ve lojistik entegrasyonları',
+        solution: 'Bravioo\'ın sektöre özel çözümleri ve lojistik entegrasyonları',
         results: ['%40 büyüme', 'Nationwide teslimat ağı', '%60 müşteri memnuniyeti artışı']
       }
     },
@@ -97,14 +97,14 @@ export function CompanyShowcaseSection() {
       name: 'Mugo',
       logo: '/images/brands/mugo.png',
       category: 'Tekstil & Giyim',
-      description: 'İkas\'a geçişimiz ile birlikte yıllık ciromuz %397 arttı.',
+      description: 'Bravioo\'a geçişimiz ile birlikte yıllık ciromuz %397 arttı.',
       metrics: {
         primary: '%397 Ciro Artışı',
         secondary: '12 Aylık Süreçte'
       },
       details: {
         challenge: 'Eski e-ticaret sisteminin sınırlamaları ve ölçeklenebilirlik sorunları',
-        solution: 'İkas\'ın güçlü altyapısı ile tam ölçeklenebilir e-ticaret çözümü',
+        solution: 'Bravioo\'ın güçlü altyapısı ile tam ölçeklenebilir e-ticaret çözümü',
         results: ['%397 ciro artışı', 'Sınırsız ürün yönetimi', '%80 mobil satış artışı']
       }
     },
@@ -113,14 +113,14 @@ export function CompanyShowcaseSection() {
       name: 'SM Bebek',
       logo: '/images/brands/sm-bebek.png',
       category: 'Anne & Bebek Ürünleri',
-      description: 'İkas Altyapısına Geçitkten Sonra Satışlarımızda %40 Orranında Artış Oldu',
+      description: 'Bravioo Altyapısına Geçitkten Sonra Satışlarımızda %40 Orranında Artış Oldu',
       metrics: {
         primary: '%40 Satış Artışı',
         secondary: '5 Aylık Süreçte'
       },
       details: {
         challenge: 'Hassas müşteri segmentinde güven ve kullanıcı deneyimi sorunları',
-        solution: 'İkas\'ın güvenli ve kullanıcı dostu e-ticaret deneyimi',
+        solution: 'Bravioo\'ın güvenli ve kullanıcı dostu e-ticaret deneyimi',
         results: ['%40 satış artışı', '%95 müşteri güven puanı', '%50 tekrar satın alma oranı']
       }
     }

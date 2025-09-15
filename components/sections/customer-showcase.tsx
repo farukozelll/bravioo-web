@@ -39,18 +39,18 @@ export function CustomerShowcase() {
       name: 'ProteinOcean',
       logo: '/images/brands/proteinocean.png',
       category: 'Gıda Ürünleri',
-      description: 'İkas\'ın Hızlı Sayesinde Dönüşüm Oranlarını %10 Artırdı',
+      description: 'Bravioo\'ın Hızlı Sayesinde Dönüşüm Oranlarını %10 Artırdı',
       metrics: {
         primary: '%10 Dönüşüm Artışı',
         secondary: '3 Aylık Süreçte'
       },
       details: {
         challenge: 'E-ticaret sitesinde düşük dönüşüm oranları ve yavaş yükleme süreleri',
-        solution: 'İkas altyapısı ile hızlı ve optimize edilmiş e-ticaret deneyimi',
+        solution: 'Bravioo altyapısı ile hızlı ve optimize edilmiş e-ticaret deneyimi',
         results: ['%10 dönüşüm artışı', '%40 sayfa hızı iyileştirmesi', '%25 sepet terk oranı azalması']
       },
       testimonial: {
-        text: 'İkas ile e-ticaret süreçlerimiz çok daha hızlı ve etkili hale geldi.',
+        text: 'Bravioo ile e-ticaret süreçlerimiz çok daha hızlı ve etkili hale geldi.',
         author: 'Ahmet Kaya',
         position: 'E-ticaret Müdürü'
       }
@@ -67,7 +67,7 @@ export function CustomerShowcase() {
       },
       details: {
         challenge: 'Teknik bilgi eksikliği ve karmaşık e-ticaret kurulum süreçleri',
-        solution: 'İkas\'ın kullanıcı dostu arayüzü ile kolay site kurulumu',
+        solution: 'Bravioo\'ın kullanıcı dostu arayüzü ile kolay site kurulumu',
         results: ['%250 satış artışı', 'Teknik bilgi gerektirmeden kurulum', '%90 zaman tasarrufu']
       },
       testimonial: {
@@ -81,14 +81,14 @@ export function CustomerShowcase() {
       name: 'Miniso',
       logo: '/images/brands/miniso.png',
       category: 'Kozmetik',
-      description: 'İkas Özellikleri Sayesinde Dönüşüm Oranlarını %10 Artırdı',
+      description: 'Bravioo Özellikleri Sayesinde Dönüşüm Oranlarını %10 Artırdı',
       metrics: {
         primary: '%35 Verimlilik Artışı',
         secondary: '2 Aylık Süreçte'
       },
       details: {
         challenge: 'Çok kanallı satış yönetimi ve stok entegrasyonu zorlukları',
-        solution: 'İkas\'ın entegre çözümleri ile unified commerce deneyimi',
+        solution: 'Bravioo\'ın entegre çözümleri ile unified commerce deneyimi',
         results: ['%35 operasyonel verimlilik', 'Çoklu kanal entegrasyonu', '%15 stok yönetimi iyileştirmesi']
       },
       testimonial: {
@@ -102,14 +102,14 @@ export function CustomerShowcase() {
       name: 'Online Çiftçi',
       logo: '/images/brands/online-ciftci.png',
       category: 'Gıda Ürünleri',
-      description: 'E-Ticaret Yolculuğuna İkas ile Devam Ediyor!',
+      description: 'E-Ticaret Yolculuğuna Bravioo ile Devam Ediyor!',
       metrics: {
         primary: '%40 Büyüme',
         secondary: '4 Aylık Süreçte'
       },
       details: {
         challenge: 'Tarım ürünlerinin online satışında lojistik ve pazarlama zorlukları',
-        solution: 'İkas\'ın sektöre özel çözümleri ve lojistik entegrasyonları',
+        solution: 'Bravioo\'ın sektöre özel çözümleri ve lojistik entegrasyonları',
         results: ['%40 büyüme', 'Nationwide teslimat ağı', '%60 müşteri memnuniyeti artışı']
       },
       testimonial: {
@@ -123,18 +123,18 @@ export function CustomerShowcase() {
       name: 'Mugo',
       logo: '/images/brands/mugo.png',
       category: 'Tekstil & Giyim',
-      description: 'İkas\'a geçişimiz ile birlikte yıllık ciromuz %397 arttı.',
+      description: 'Bravioo\'a geçişimiz ile birlikte yıllık ciromuz %397 arttı.',
       metrics: {
         primary: '%397 Ciro Artışı',
         secondary: '12 Aylık Süreçte'
       },
       details: {
         challenge: 'Eski e-ticaret sisteminin sınırlamaları ve ölçeklenebilirlik sorunları',
-        solution: 'İkas\'ın güçlü altyapısı ile tam ölçeklenebilir e-ticaret çözümü',
+        solution: 'Bravioo\'ın güçlü altyapısı ile tam ölçeklenebilir e-ticaret çözümü',
         results: ['%397 ciro artışı', 'Sınırsız ürün yönetimi', '%80 mobil satış artışı']
       },
       testimonial: {
-        text: 'İkas sayesinde hayallerimizden daha büyük başarıya ulaştık.',
+        text: 'Bravioo sayesinde hayallerimizden daha büyük başarıya ulaştık.',
         author: 'Ayşe Kılıç',
         position: 'CEO'
       }
@@ -144,14 +144,14 @@ export function CustomerShowcase() {
       name: 'SM Bebek',
       logo: '/images/brands/sm-bebek.png',
       category: 'Anne & Bebek Ürünleri',
-      description: 'İkas Altyapısına Geçitkten Sonra Satışlarımızda %40 Artış Oldu',
+      description: 'Bravioo Altyapısına Geçitkten Sonra Satışlarımızda %40 Artış Oldu',
       metrics: {
         primary: '%40 Satış Artışı',
         secondary: '5 Aylık Süreçte'
       },
       details: {
         challenge: 'Hassas müşteri segmentinde güven ve kullanıcı deneyimi sorunları',
-        solution: 'İkas\'ın güvenli ve kullanıcı dostu e-ticaret deneyimi',
+        solution: 'Bravioo\'ın güvenli ve kullanıcı dostu e-ticaret deneyimi',
         results: ['%40 satış artışı', '%95 müşteri güven puanı', '%50 tekrar satın alma oranı']
       },
       testimonial: {
@@ -172,7 +172,7 @@ export function CustomerShowcase() {
       },
       details: {
         challenge: 'Mobil e-ticaret deneyiminde eksiklikler ve düşük mobil dönüşüm',
-        solution: 'İkas\'ın mobil-first yaklaşımı ile optimize edilmiş mobil deneyim',
+        solution: 'Bravioo\'ın mobil-first yaklaşımı ile optimize edilmiş mobil deneyim',
         results: ['%180 mobil satış artışı', '%65 mobil dönüşüm iyileştirmesi', '%45 uygulama indirme artışı']
       },
       testimonial: {
@@ -193,7 +193,7 @@ export function CustomerShowcase() {
       },
       details: {
         challenge: 'Online ve offline satış kanallarının entegrasyonu sorunu',
-        solution: 'İkas\'ın omnichannel çözümleri ile birleşik müşteri deneyimi',
+        solution: 'Bravioo\'ın omnichannel çözümleri ile birleşik müşteri deneyimi',
         results: ['%120 omnichannel satış', '%50 müşteri yaşam değeri artışı', '%30 stok devir hızı']
       },
       testimonial: {
@@ -233,7 +233,7 @@ export function CustomerShowcase() {
         >
           <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6 leading-tight">
             Her sektörden işletme için<br />
-            <span className="text-emerald-600">Yeni Nesil İkas Altyapısı</span>
+            <span className="text-emerald-600">Yeni Nesil Bravioo Altyapısı</span>
           </h2>
           
           <motion.button
@@ -445,7 +445,7 @@ export function CustomerShowcase() {
             Sizin de başarı hikayenizi yazalım
           </h3>
           <p className="text-slate-600 mb-8 max-w-2xl mx-auto">
-            İkas'ın güçlü e-ticaret altyapısı ile siz de bu başarılı markalar arasına katılın.
+            Bravioo'ın güçlü e-ticaret altyapısı ile siz de bu başarılı markalar arasına katılın.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <motion.button

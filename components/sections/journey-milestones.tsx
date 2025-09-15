@@ -17,7 +17,7 @@ interface Milestone {
 const MILESTONES_TR: Milestone[] = [
   {
     id: '1',
-    title: 'İkas Teknoloji A.Ş. Kuruluş',
+    title: 'Bravioo Teknoloji A.Ş. Kuruluş',
     description: '',
     year: '2017',
     completed: true,
@@ -140,7 +140,7 @@ const MILESTONES_TR: Milestone[] = [
 const MILESTONES_EN: Milestone[] = [
   {
     id: '1',
-    title: 'İkas Technology Inc. Foundation',
+    title: 'Bravioo Technology Inc. Foundation',
     description: '',
     year: '2017',
     completed: true,
@@ -313,8 +313,8 @@ export function JourneyMilestones() {
           
           <p className="max-w-3xl mx-auto text-xl text-slate-600 leading-relaxed">
             {locale === 'tr'
-              ? 'İlk günden bu yana ikası güçlü ve kullanıcı dostu bir e-ticaret altyapısı haline getirmek için çalışıyoruz.'
-              : 'From day one, we\'ve been working to make İkas a powerful and user-friendly e-commerce infrastructure for businesses.'
+              ? 'İlk günden bu yana Braviooı güçlü ve kullanıcı dostu bir e-ticaret altyapısı haline getirmek için çalışıyoruz.'
+              : 'From day one, we\'ve been working to make Bravioo a powerful and user-friendly e-commerce infrastructure for businesses.'
             }
           </p>
         </motion.div>
