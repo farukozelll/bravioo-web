@@ -14,12 +14,9 @@ export function Footer() {
       { name: 'Features', href: `/${locale}#features` },
       { name: 'Integrations', href: `/${locale}#integrations` },
       { name: t('navigation.pricing'), href: `/${locale}/pricing` },
-      { name: 'API', href: `/${locale}/api` },
     ],
     company: [
       { name: 'About Us', href: `/${locale}/about` },
-      { name: 'Careers', href: `/${locale}/careers` },
-      { name: 'Blog', href: `/${locale}/blog` },
       { name: t('navigation.contact'), href: `/${locale}/contact` },
     ],
     legal: [
@@ -240,44 +237,15 @@ export function Footer() {
             {/* Status & Version */}
             <div className="flex items-center justify-center md:justify-end gap-4">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
                 <span className="text-xs text-sand-400">
-                  {locale === 'tr' ? 'Tüm sistemler çalışıyor' : 'All systems operational'}
+                  {locale === 'tr' ? 'Dotnet Consulting' : 'Dotnet Consulting'}
                 </span>
               </div>
-              <div className="text-xs text-sand-500">v2.0.1</div>
             </div>
           </div>
 
-          {/* Trust badges */}
-          <div className="mt-8 pt-6 border-t border-white/5">
-            <div className="flex flex-wrap items-center justify-center gap-6 opacity-60">
-              <div className="flex items-center gap-2 text-xs text-sand-500">
-                <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
-                  <span className="text-[8px] text-white font-bold">✓</span>
-                </div>
-                ISO 27001
-              </div>
-              <div className="flex items-center gap-2 text-xs text-sand-500">
-                <div className="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
-                  <span className="text-[8px] text-white font-bold">✓</span>
-                </div>
-                SOC 2 Type II
-              </div>
-              <div className="flex items-center gap-2 text-xs text-sand-500">
-                <div className="w-4 h-4 bg-purple-500 rounded-full flex items-center justify-center">
-                  <span className="text-[8px] text-white font-bold">✓</span>
-                </div>
-                GDPR Compliant
-              </div>
-              <div className="flex items-center gap-2 text-xs text-sand-500">
-                <div className="w-4 h-4 bg-orange-500 rounded-full flex items-center justify-center">
-                  <span className="text-[8px] text-white font-bold">✓</span>
-                </div>
-                KVKK Uyumlu
-              </div>
-            </div>
-          </div>
+      
         </div>
       </div>
     </footer>
