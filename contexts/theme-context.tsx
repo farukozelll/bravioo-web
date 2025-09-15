@@ -8,6 +8,7 @@ interface ThemeContextType {
   theme: Theme;
   toggleTheme: () => void;
   setTheme: (theme: Theme) => void;
+  mounted: boolean;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -16,18 +17,25 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>('light');
   const [mounted, setMounted] = useState(false);
 
-  // Prevent hydration mismatch
+  // Initialize theme
   useEffect(() => {
-    setMounted(true);
     const savedTheme = localStorage.getItem('theme') as Theme;
     const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     const initialTheme = savedTheme || systemTheme;
+    
     setThemeState(initialTheme);
+    setMounted(true);
+    
+    // Apply theme immediately to prevent flash
+    const root = document.documentElement;
+    root.classList.remove('light', 'dark');
+    root.classList.add(initialTheme);
   }, []);
 
+  // Update theme when it changes
   useEffect(() => {
     if (mounted) {
-      const root = window.document.documentElement;
+      const root = document.documentElement;
       root.classList.remove('light', 'dark');
       root.classList.add(theme);
       localStorage.setItem('theme', theme);
@@ -42,12 +50,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setThemeState(newTheme);
   };
 
-  if (!mounted) {
-    return <>{children}</>;
-  }
-
+  // Always provide context, but track mounting state
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, setTheme, mounted }}>
       {children}
     </ThemeContext.Provider>
   );

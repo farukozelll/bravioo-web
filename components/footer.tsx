@@ -11,7 +11,7 @@ import Image from 'next/image';
 export function Footer() {
   const t = useTranslations();
   const locale = useLocale();
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme, mounted } = useTheme();
 
   return (
     <footer className="relative bg-gradient-to-br from-ink-900 via-ink-800 to-brand-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-white overflow-hidden transition-colors duration-300">
@@ -75,28 +75,30 @@ export function Footer() {
             </div>
 
             {/* Dark Mode Toggle */}
-            <div>
-              <h4 className="text-sm font-semibold text-white mb-4">
-                {t('footer.theme.title')}
-              </h4>
-              <button
-                onClick={toggleTheme}
-                className="flex items-center gap-3 px-4 py-2 bg-white/10 dark:bg-white/5 rounded-2xl text-sand-300 dark:text-gray-300 hover:text-white hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 group"
-                aria-label={theme === 'light' ? t('footer.theme.switchToDark') : t('footer.theme.switchToLight')}
-              >
-                {theme === 'light' ? (
-                  <>
-                    <Moon className="h-4 w-4" />
-                    <span className="text-sm">{t('footer.theme.dark')}</span>
-                  </>
-                ) : (
-                  <>
-                    <Sun className="h-4 w-4" />
-                    <span className="text-sm">{t('footer.theme.light')}</span>
-                  </>
-                )}
-              </button>
-            </div>
+            {mounted && (
+              <div>
+                <h4 className="text-sm font-semibold text-white mb-4">
+                  {t('footer.theme.title')}
+                </h4>
+                <button
+                  onClick={toggleTheme}
+                  className="flex items-center gap-3 px-4 py-2 bg-white/10 dark:bg-white/5 rounded-2xl text-sand-300 dark:text-gray-300 hover:text-white hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 group"
+                  aria-label={theme === 'light' ? t('footer.theme.switchToDark') : t('footer.theme.switchToLight')}
+                >
+                  {theme === 'light' ? (
+                    <>
+                      <Moon className="h-4 w-4" />
+                      <span className="text-sm">{t('footer.theme.dark')}</span>
+                    </>
+                  ) : (
+                    <>
+                      <Sun className="h-4 w-4" />
+                      <span className="text-sm">{t('footer.theme.light')}</span>
+                    </>
+                  )}
+                </button>
+              </div>
+            )}
           </div>
 
           {/* Middle & Right Columns - Links */}

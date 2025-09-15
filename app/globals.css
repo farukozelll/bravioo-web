@@ -10,6 +10,12 @@
   --brand-secondary: #C8A96A;
 }
 
+/* Dark mode variables */
+:root.dark {
+  --background: #111827;
+  --foreground: #F9FAFB;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
