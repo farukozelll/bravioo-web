@@ -187,7 +187,7 @@ export function Header() {
                             <p className="text-gray-600 text-lg leading-relaxed">
                               {locale === 'tr'
                                 ? 'İnsana yakışır iş yerlerini inşa eden teknoloji. Güvenlik, verimlilik ve çalışan memnuniyetinde lider.'
-                                : 'Technology that builds workplaces worthy of humans. Leader in security, efficiency and employee satisfaction.'
+                                : 'Technology that builds workplaces worthy of humans. Leader in brands, efficiency and employee satisfaction.'
                               }
                             </p>
                           </div>
@@ -236,10 +236,10 @@ export function Header() {
                         {/* CTA Button */}
                         <div className="pt-4 border-t border-gray-200">
                           <Link
-                            href={`/${locale}/why-bravioo`}
+                            href={`/${locale}/brands`}
                             className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white rounded-xl font-semibold transition-all hover:scale-105 shadow-lg"
                           >
-                            {locale === 'tr' ? 'Tümünü Keşfet' : 'Explore All'}
+                            {locale === 'tr' ? 'Tüm Markaları Keşfet' : 'Explore All Brands'}
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>

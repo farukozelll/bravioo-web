@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, TrendingUp, Users, Award, Building } from 'lucide-react';
-import brandsData from '@/app/[locale]/brands/brands.json';
+import { LogoImage } from '@/components/ui/logo-image';
+import brandsData from '@/data/brands.json';
 
 interface Brand {
   id: string;
@@ -11,20 +12,6 @@ interface Brand {
   logo: string;
   category: string;
   description: string;
-  metrics: {
-    primary: string;
-    secondary: string;
-  };
-  details: {
-    challenge: string;
-    solution: string;
-    results: string[];
-  };
-  testimonial: {
-    text: string;
-    author: string;
-    position: string;
-  };
 }
 
 export function BrandsShowcase() {
@@ -33,18 +20,31 @@ export function BrandsShowcase() {
 
   const brands: Brand[] = brandsData;
 
-  const categories = [
-    { name: 'Tümü', count: brands.length },
-    { name: 'Spor & Ayakkabı', count: brands.filter(b => b.category === 'Spor & Ayakkabı').length },
-    { name: 'Teknoloji', count: brands.filter(b => b.category === 'Teknoloji').length },
-    { name: 'Moda & Giyim', count: brands.filter(b => b.category === 'Moda & Giyim').length },
-    { name: 'Mobilya & Ev', count: brands.filter(b => b.category === 'Mobilya & Ev').length },
-    { name: 'Gıda & İçecek', count: brands.filter(b => b.category === 'Gıda & İçecek').length }
-  ];
+  // Generate categories dynamically from data
+  const categories = useMemo(() => {
+    const categoryMap = new Map<string, number>();
+    
+    brands.forEach(brand => {
+      const current = categoryMap.get(brand.category) || 0;
+      categoryMap.set(brand.category, current + 1);
+    });
 
-  const filteredBrands = activeCategory === 'Tümü' 
-    ? brands 
-    : brands.filter(b => b.category === activeCategory);
+    const categoriesArray = [
+      { name: 'Tümü', count: brands.length },
+      ...Array.from(categoryMap.entries())
+        .sort(([, a], [, b]) => b - a) // Sort by count, descending
+        .slice(0, 12) // Take top 12 categories for better coverage
+        .map(([name, count]) => ({ name, count }))
+    ];
+
+    return categoriesArray;
+  }, [brands]);
+
+  const filteredBrands = useMemo(() => {
+    return activeCategory === 'Tümü' 
+      ? brands 
+      : brands.filter(b => b.category === activeCategory);
+  }, [brands, activeCategory]);
 
   return (
     <section className="bg-white py-20 lg:py-24">
@@ -81,7 +81,7 @@ export function BrandsShowcase() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="flex flex-wrap items-center justify-center gap-3 mb-12"
         >
-          {categories.map((category, index) => (
+          {categories.map((category) => (
             <motion.button
               key={category.name}
               whileHover={{ scale: 1.05 }}
@@ -113,25 +113,18 @@ export function BrandsShowcase() {
               onHoverEnd={() => setHoveredBrand(null)}
               className="group relative cursor-pointer"
             >
-              <div className="relative bg-white rounded-2xl p-6 border border-slate-200 transition-all duration-300 group-hover:border-emerald-300 group-hover:shadow-xl group-hover:-translate-y-2 overflow-hidden h-48">
+              <div className="relative bg-white rounded-2xl p-6 border border-slate-200 transition-all duration-300 group-hover:border-emerald-300 group-hover:shadow-xl group-hover:-translate-y-2 overflow-hidden h-52">
                 
-                {/* Brand Logo */}
-                <div className="w-16 h-16 mx-auto mb-4 bg-slate-100 rounded-xl flex items-center justify-center group-hover:bg-emerald-50 transition-colors duration-300 overflow-hidden">
-                  {brand.logo ? (
-                    <img 
-                      src={brand.logo} 
-                      alt={`${brand.name} logo`}
-                      className="w-12 h-12 object-contain"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        target.nextElementSibling!.classList.remove('hidden');
-                      }}
-                    />
-                  ) : null}
-                  <span className="text-slate-600 group-hover:text-emerald-600 font-bold text-lg transition-colors duration-300 hidden">
-                    {brand.name.charAt(0)}
-                  </span>
+                {/* Brand Logo - Enhanced with multiple format support and grayscale filter */}
+                <div className="flex justify-center mb-4">
+                  <LogoImage
+                    src={brand.logo}
+                    alt={`${brand.name} logo`}
+                    name={brand.name}
+                    size="xl"
+                    grayscale={true}
+                    className="group-hover:bg-emerald-50 bg-slate-50 rounded-xl transition-colors duration-300"
+                  />
                 </div>
 
                 {/* Brand Name */}
@@ -139,17 +132,10 @@ export function BrandsShowcase() {
                   {brand.name}
                 </h3>
 
-                {/* Category */}
-                <p className="text-xs text-slate-500 text-center mb-4">
-                  {brand.category}
-                </p>
+         
 
                 {/* Primary Metric */}
-                <div className="text-center">
-                  <div className="text-sm font-bold text-emerald-600">
-                    {brand.metrics.primary}
-                  </div>
-                </div>
+              
 
                 {/* Hover Card - Success Story */}
                 <AnimatePresence>
@@ -164,45 +150,29 @@ export function BrandsShowcase() {
                       <div className="h-full flex flex-col">
                         
                         {/* Brand Header */}
-                        <div className="flex items-center gap-3 mb-2">
-                          <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center overflow-hidden">
-                            {brand.logo ? (
-                              <img 
-                                src={brand.logo} 
-                                alt={`${brand.name} logo`}
-                                className="w-8 h-8 object-contain"
-                                onError={(e) => {
-                                  const target = e.target as HTMLImageElement;
-                                  target.style.display = 'none';
-                                  target.nextElementSibling!.classList.remove('hidden');
-                                }}
-                              />
-                            ) : null}
-                            <span className="text-emerald-600 font-bold hidden">
-                              {brand.name.charAt(0)}
-                            </span>
-                          </div>
-                          <div>
-                            <h4 className="font-bold text-slate-900 text-sm">{brand.name}</h4>
-                            <p className="text-xs text-slate-500">{brand.category}</p>
+                        <div className="flex items-center gap-3 mb-4">
+                          <LogoImage
+                            src={brand.logo}
+                            alt={`${brand.name} logo`}
+                            name={brand.name}
+                            size="lg"
+                            grayscale={false}
+                            className="bg-emerald-50 rounded-xl flex-shrink-0"
+                          />
+                          <div className="min-w-0 flex-1">
+                            <h4 className="font-bold text-slate-900 text-sm truncate">{brand.name}</h4>
+                            <p className="text-xs text-slate-500 truncate">{brand.category}</p>
                           </div>
                         </div>
 
-                        {/* Primary Metric */}
-                        <div className="text-center mb-2">
-                          <div className="text-xl font-bold text-emerald-600 mb-1">
-                            {brand.metrics.primary}
-                          </div>
-                      
-                        </div>
+                     
 
 
-                        {/* Testimonial */}
+                        {/* Description */}
                         <div className="bg-emerald-50 p-3 rounded-lg mb-4">
-                          <p className="text-xs text-slate-700 italic mb-2">
-                            "{brand.testimonial.text}"
+                          <p className="text-xs text-slate-700 leading-relaxed">
+                            {brand.description}
                           </p>
-                        
                         </div>
 
                 

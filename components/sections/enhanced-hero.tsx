@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useLocale } from 'next-intl';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { 
   ArrowRight, 
@@ -10,7 +10,6 @@ import {
   Users, 
   Award, 
   BarChart3, 
-  Zap, 
   Star,
   TrendingUp,
   Shield,
@@ -18,57 +17,39 @@ import {
   Heart,
   CheckCircle,
   Sparkles,
-  Building
+  Building,
+  Gift,
+  Zap
 } from 'lucide-react';
-import Image from 'next/image';
 
 export function EnhancedHero() {
   const locale = useLocale();
   const [currentFeature, setCurrentFeature] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+  const shouldReduceMotion = useReducedMotion();
 
   const features = [
     {
       icon: Users,
       title: locale === 'tr' ? 'Peer-to-Peer Takdir' : 'Peer-to-Peer Recognition',
-      description: locale === 'tr' ? 'Çalışanlar birbirini takdir ediyor' : 'Employees recognize each other',
+      description: locale === 'tr' ? 'Çalışanlar birbirini takdir ediyor ve güçlü takım bağları oluşturuyor' : 'Employees recognize each other and build stronger team bonds',
       color: 'from-brand-500 to-emerald-600'
     },
     {
       icon: Award,
       title: locale === 'tr' ? 'Global Ödüller' : 'Global Rewards',
-      description: locale === 'tr' ? '190+ ülkede milyonlarca seçenek' : 'Millions of options in 190+ countries',
+      description: locale === 'tr' ? '190+ ülkede milyonlarca ödül seçeneği ile motivasyonu artırın' : 'Boost motivation with millions of reward options in 190+ countries',
       color: 'from-purple-500 to-pink-600'
     },
     {
       icon: BarChart3,
       title: locale === 'tr' ? 'AI Analitik' : 'AI Analytics',
-      description: locale === 'tr' ? 'Akıllı raporlar ve öneriler' : 'Smart reports and recommendations',
+      description: locale === 'tr' ? 'Yapay zeka destekli raporlar ve akıllı önerilerle veri odaklı kararlar alın' : 'Make data-driven decisions with AI-powered reports and smart recommendations',
       color: 'from-blue-500 to-indigo-600'
     }
   ];
 
-  const stats = [
-    {
-      number: '500+',
-      label: locale === 'tr' ? 'Mutlu Şirket' : 'Happy Companies',
-      icon: Building
-    },
-    {
-      number: '2M+',
-      label: locale === 'tr' ? 'Aktif Kullanıcı' : 'Active Users',
-      icon: Users
-    },
-    {
-      number: '95%',
-      label: locale === 'tr' ? 'Müşteri Memnuniyeti' : 'Customer Satisfaction',
-      icon: Heart
-    },
-    {
-      number: '450%',
-      label: locale === 'tr' ? 'Ortalama ROI' : 'Average ROI',
-      icon: TrendingUp
-    }
-  ];
+
 
   const trustBadges = [
     {
@@ -88,87 +69,35 @@ export function EnhancedHero() {
     }
   ];
 
-  const companyLogos = [
-    'AKMERCAN', 'AGT', 'TÜRKSAT', 'Acıbadem', 'Karaca', 'Liv Hospital'
-  ];
 
-  // Auto-rotate features
+
+  // Auto-rotate features with visibility control
   useEffect(() => {
+    if (shouldReduceMotion || !isVisible) return;
+    
     const interval = setInterval(() => {
       setCurrentFeature((prev) => (prev + 1) % features.length);
-    }, 3000);
+    }, 4000); // Increased to 4s for better UX
     return () => clearInterval(interval);
-  }, [features.length]);
+  }, [features.length, shouldReduceMotion, isVisible]);
+
+  // Handle visibility change to pause animations when tab is not active
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      setIsVisible(!document.hidden);
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }, []);
+
 
   return (
-    <section >
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0">
-        {/* Primary gradient blobs */}
-    
-        <motion.div
-          animate={{ 
-            x: [0, 50, 0],
-            y: [0, -30, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{ 
-            duration: 30,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 10
-          }}
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-radial from-gold-300/20 to-transparent rounded-full blur-3xl"
-        />
-
-        {/* Floating geometric shapes */}
-        <motion.div
-          animate={{ 
-            rotate: [0, 360],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{ 
-            duration: 40,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-          className="absolute top-32 left-1/4 w-32 h-32 border border-brand-200/30 rounded-full"
-        />
-        <motion.div
-          animate={{ 
-            rotate: [360, 0],
-            x: [0, 20, 0],
-          }}
-          transition={{ 
-            duration: 35,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="absolute bottom-32 right-1/4 w-24 h-24 border border-emerald-200/30 rounded-lg"
-        />
-
-        {/* Particle effect simulation */}
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            animate={{
-              y: [0, -100, 0],
-              x: [0, Math.sin(i) * 50, 0],
-              opacity: [0.3, 0.8, 0.3],
-            }}
-            transition={{
-              duration: 8 + i * 0.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.3,
-            }}
-            className="absolute w-1 h-1 bg-brand-400/40 rounded-full"
-            style={{
-              top: `${20 + (i * 4)}%`,
-              left: `${10 + (i * 4)}%`,
-            }}
-          />
-        ))}
+    <section className="relative min-h-screen bg-gradient-to-br from-sand-50 via-white to-emerald-50 overflow-hidden">
+      {/* Minimal Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Single gradient blob for subtle background */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-radial from-brand-100/5 to-transparent rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -190,8 +119,8 @@ export function EnhancedHero() {
               <Sparkles className="h-4 w-4 text-brand-600" />
               <span className="text-sm font-semibold text-brand-700">
                 {locale === 'tr' 
-                  ? '🎉 2024\'ün En İyi HR Tech Ürünü Seçildik!'
-                  : '🎉 Winner of Best HR Tech Product 2024!'
+                  ? '🎉 2025\'ün En İyi HR Tech Ürünü Seçildik!'
+                  : '🎉 Winner of Best HR Tech Product 2025!'
                 }
               </span>
             </motion.div>
@@ -199,29 +128,29 @@ export function EnhancedHero() {
             {/* Main Heading */}
             <div>
               <motion.h1 
-                className="text-5xl md:text-6xl lg:text-7xl font-bold text-ink-900 mb-6 font-display leading-tight"
+                className="text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 mb-6 font-display leading-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                {locale === 'tr' ? 'Çalışan Deneyimini' : 'Transform Employee'}
-                <br />
-                <span className="bg-gradient-to-r from-brand-600 via-emerald-600 to-gold-600 bg-clip-text text-transparent animate-gradient">
-                  {locale === 'tr' ? 'Dönüştürün' : 'Experience'}
-                </span>
+                {locale === 'tr' 
+                  ? <>Çalışan Motivasyonunu <span className="bg-gradient-to-r from-brand-600 via-emerald-600 to-gold-600 bg-clip-text text-transparent">%450 Artırın</span></>
+                  : <>Increase Employee Motivation by <span className="bg-gradient-to-r from-brand-600 via-emerald-600 to-gold-600 bg-clip-text text-transparent">450%</span></>
+                }
               </motion.h1>
 
               <motion.p 
-                className="text-xl md:text-2xl text-ink-600 leading-relaxed max-w-2xl"
+                className="text-lg md:text-xl text-ink-600 leading-relaxed max-w-2xl mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
                 {locale === 'tr'
-                  ? 'Peer-to-peer takdir, global ödüller ve AI destekli analitiklerle çalışan motivasyonunu artırın. 500+ şirketin tercihi.'
-                  : 'Boost employee motivation with peer-to-peer recognition, global rewards, and AI-powered analytics. Trusted by 500+ companies.'
+                  ? 'Peer-to-peer takdir sistemi, 190+ ülkede ödül seçenekleri ve AI destekli performans analitiği ile 30 gün içinde sonuç alın.'
+                  : 'Get results in 30 days with peer-to-peer recognition, rewards in 190+ countries, and AI-powered performance analytics.'
                 }
               </motion.p>
+
             </div>
 
             {/* Action Buttons */}
@@ -272,81 +201,99 @@ export function EnhancedHero() {
 
           {/* Right Visual Content */}
           <motion.div 
-            className="relative"
-            initial={{ opacity: 0, x: 50 }}
+            className="relative order-first lg:order-last"
+            initial={{ opacity: 0, x: shouldReduceMotion ? 0 : 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            transition={{ duration: shouldReduceMotion ? 0.3 : 0.8, ease: "easeOut", delay: shouldReduceMotion ? 0 : 0.2 }}
           >
-            {/* Main Feature Card */}
+            {/* Video Container - Using Direct Wistia Embed */}
+            <div className="relative aspect-video mb-6 rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-brand-50 to-emerald-50">
+              <div className="wistia_responsive_padding" style={{padding:'56.25% 0 0 0', position:'relative'}}>
+                <div className="wistia_responsive_wrapper" style={{height:'100%', left:0, position:'absolute', top:0, width:'100%'}}>
+                  <iframe 
+                    src="https://fast.wistia.net/embed/iframe/bw635quxae?seo=false&videoFoam=true" 
+                    title={locale === 'tr' ? 'Bravioo Platformu Demo Videosu' : 'Bravioo Platform Demo Video'}
+                    allow="autoplay; fullscreen" 
+                    allowFullScreen 
+                    frameBorder="0" 
+                    className="wistia_embed w-full h-full rounded-3xl"
+                    name="wistia_embed"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Feature Cards */}
             <div className="relative">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentFeature}
-                  initial={{ opacity: 0, scale: 0.9, rotateY: -10 }}
-                  animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-                  exit={{ opacity: 0, scale: 0.9, rotateY: 10 }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
-                  className={`relative h-96 md:h-[500px] rounded-3xl bg-gradient-to-br ${features[currentFeature].color} p-8 overflow-hidden shadow-2xl`}
+                  initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.95 }}
+                  transition={{ duration: shouldReduceMotion ? 0.2 : 0.6, ease: "easeInOut" }}
+                  className={`relative h-80 md:h-96 rounded-3xl bg-gradient-to-br ${features[currentFeature].color} p-6 overflow-hidden shadow-xl`}
                 >
-                  {/* Background Pattern */}
-                  <div className="absolute inset-0 opacity-20">
-                    <div className="absolute top-8 left-8 w-32 h-32 border border-white/30 rounded-full"></div>
-                    <div className="absolute top-20 right-12 w-24 h-24 border border-white/30 rounded-full"></div>
-                    <div className="absolute bottom-12 left-16 w-40 h-40 border border-white/30 rounded-full"></div>
+                  {/* Simplified Background Pattern */}
+                  <div className="absolute inset-0">
+                    {/* Base gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/5"></div>
                   </div>
 
                   {/* Content */}
-                  <div className="relative z-10 h-full flex flex-col justify-between">
+                  <div className="relative z-20 h-full flex flex-col justify-between">
                     <div>
-                      <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+                      <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 shadow-lg">
                         {React.createElement(features[currentFeature].icon, {
                           className: "h-10 w-10 text-white"
                         })}
                       </div>
-                      <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                      <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
                         {features[currentFeature].title}
                       </h3>
-                      <p className="text-white/90 text-lg leading-relaxed">
+                      <p className="text-white/95 text-lg leading-relaxed max-w-sm">
                         {features[currentFeature].description}
                       </p>
                     </div>
 
-                    {/* Play Button */}
-                    <motion.button
-                      className="self-center w-16 h-16 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center group transition-all duration-300"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Play className="h-6 w-6 text-white ml-1 group-hover:scale-110 transition-transform" />
-                    </motion.button>
+                    {/* Feature highlight badge */}
+                    <div className="mt-6">
+                      <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full">
+                        <Zap className="h-4 w-4 text-white" />
+                        <span className="text-white text-sm font-medium">
+                          {locale === 'tr' ? 'Popüler Özellik' : 'Popular Feature'}
+                        </span>
+                      </div>
+                    </div>
                   </div>
 
-                  {/* Floating Elements */}
-                  <motion.div
-                    animate={{ 
-                      y: [0, -20, 0],
-                      rotate: [0, 5, 0]
-                    }}
-                    transition={{ 
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
-                    className="absolute top-16 right-8 w-12 h-12 bg-white/20 rounded-xl"
-                  />
-                  <motion.div
-                    animate={{ 
-                      y: [0, 15, 0],
-                      rotate: [0, -3, 0]
-                    }}
-                    transition={{ 
-                      duration: 5,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: 1
-                    }}
-                    className="absolute bottom-20 right-16 w-8 h-8 bg-white/20 rounded-full"
-                  />
+                  {/* Stock Image Overlay */}
+                  <div className="absolute bottom-4 right-4 w-32 h-32 rounded-2xl overflow-hidden shadow-lg opacity-90">
+                    {currentFeature === 0 && (
+                      <div className="w-full h-full bg-gradient-to-br from-emerald-100 to-teal-200 flex items-center justify-center">
+                        <div className="text-center">
+                          <Users className="h-8 w-8 text-emerald-600 mx-auto mb-2" />
+                          <div className="text-xs font-semibold text-emerald-700">Team Work</div>
+                        </div>
+                      </div>
+                    )}
+                    {currentFeature === 1 && (
+                      <div className="w-full h-full bg-gradient-to-br from-purple-100 to-pink-200 flex items-center justify-center">
+                        <div className="text-center">
+                          <Gift className="h-8 w-8 text-purple-600 mx-auto mb-2" />
+                          <div className="text-xs font-semibold text-purple-700">Rewards</div>
+                        </div>
+                      </div>
+                    )}
+                    {currentFeature === 2 && (
+                      <div className="w-full h-full bg-gradient-to-br from-blue-100 to-indigo-200 flex items-center justify-center">
+                        <div className="text-center">
+                          <BarChart3 className="h-8 w-8 text-blue-600 mx-auto mb-2" />
+                          <div className="text-xs font-semibold text-blue-700">Analytics</div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </motion.div>
               </AnimatePresence>
 
@@ -366,39 +313,39 @@ export function EnhancedHero() {
               </div>
             </div>
 
-            {/* Floating Cards */}
+            {/* Floating Cards - Hidden on mobile for better performance */}
             <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-8 -left-8 bg-white rounded-2xl p-4 shadow-xl border border-sand-200"
+              animate={{ y: shouldReduceMotion ? 0 : [0, -10, 0] }}
+              transition={{ duration: shouldReduceMotion ? 0 : 3, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -top-6 -left-6 bg-white rounded-2xl p-3 shadow-lg border border-sand-200 hidden lg:block"
             >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center">
-                  <CheckCircle className="h-5 w-5 text-white" />
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center">
+                  <CheckCircle className="h-4 w-4 text-white" />
                 </div>
                 <div>
-                  <div className="font-semibold text-ink-900 text-sm">
+                  <div className="font-semibold text-ink-900 text-xs">
                     {locale === 'tr' ? 'Ahmet Yılmaz' : 'John Smith'}
                   </div>
                   <div className="text-xs text-ink-600">
-                    {locale === 'tr' ? 'Mükemmel iş için takdir aldı!' : 'Recognized for excellent work!'}
+                    {locale === 'tr' ? 'Takdir aldı!' : 'Recognized!'}
                   </div>
                 </div>
               </div>
             </motion.div>
 
             <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -bottom-8 -right-8 bg-white rounded-2xl p-4 shadow-xl border border-sand-200"
+              animate={{ y: shouldReduceMotion ? 0 : [0, 10, 0] }}
+              transition={{ duration: shouldReduceMotion ? 0 : 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-3 shadow-lg border border-sand-200 hidden lg:block"
             >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center">
-                  <Award className="h-5 w-5 text-white" />
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center">
+                  <TrendingUp className="h-4 w-4 text-white" />
                 </div>
                 <div>
-                  <div className="font-semibold text-ink-900 text-sm">
-                    {locale === 'tr' ? '+185% Motivasyon' : '+185% Motivation'}
+                  <div className="font-semibold text-ink-900 text-xs">
+                    {locale === 'tr' ? '+185% ROI' : '+185% ROI'}
                   </div>
                   <div className="text-xs text-ink-600">
                     {locale === 'tr' ? 'Bu ay' : 'This month'}

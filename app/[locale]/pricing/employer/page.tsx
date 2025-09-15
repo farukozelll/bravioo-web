@@ -7,7 +7,7 @@ import { EmployerPricingComparison } from '@/components/sections/employer-pricin
 import { EmployerPricingFAQ } from '@/components/sections/employer-pricing-faq';
 
 export const metadata: Metadata = {
-  title: 'İşveren Fiyatlandırması | Employer Pricing - Bravioo',
+  title: 'İşveren Partnerlik | Employer Partnership - Bravioo',
   description: 'Bravioo işveren paketleri ve fiyatlandırması. 4 farklı plan, modül bazlı çözümler, aylık ve yıllık abonelik seçenekleri.',
 };
 

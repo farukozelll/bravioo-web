@@ -25,7 +25,7 @@
     "customers": "Referanslar",
     "whyBravioo": "Neden Bravioo?",
     "contact": "İletişim",
-    "employerPricing": "İşveren Fiyatlandırması",
+    "employerPricing": "İşveren Partnerliği",
     "brandPartnership": "Marka Partnerliği",
     "login": "Giriş Yap",
     "getDemo": "Demo Al",
@@ -43,8 +43,8 @@
     "mobileDesc": "Her yerden takdir edin, iOS ve Android uygulamaları",
     "aboutUs": "Hakkımızda",
     "aboutUsDesc": "Bravioo'nun hikayesi, vizyonu ve değerleri",
-    "security": "Güvenlik",
-    "securityDesc": "Veri güvenliği, GDPR uyumluluğu ve güvenlik sertifikaları",
+    "brands": "Markalar",
+    "brandsDesc": "Veri güvenliği, GDPR uyumluluğu ve güvenlik sertifikaları",
     "differenceDesc": "Bravioo'yu rakiplerinden ayıran özellikler ve avantajlar",
     "pressDesc": "Basında çıkan haberler, ödüller ve şirket duyuruları",
     "whyBraviooCTATitle": "Neden binlerce şirket Bravioo'yu seçiyor?",
@@ -364,7 +364,7 @@
       "tech": {
         "title": "Teknoloji Ortaklarımız"
       },
-      "security": {
+      "brands": {
         "title": "Güvenlik & Uyumluluk"
       },
       "investor1": {
@@ -382,12 +382,12 @@
       "tech2": {
         "description": "Güvenli ödeme işlemleri ve finansal entegrasyonlar"
       },
-      "security1": {
+      "brands1": {
         "description": "Uluslararası bilgi güvenliği yönetim sistemi sertifikası"
       },
       "investor": "Yatırımcı",
       "technology": "Teknoloji",
-      "security": "Güvenlik"
+      "brands": "Güvenlik"
     }
   },
   "pricing": {
@@ -737,7 +737,7 @@
         "button": "Ücretsiz Deneme Başlat"
       }
     },
-    "security": {
+    "brands": {
       "title": "Güvenlik & Uyumluluk",
       "subtitle": "Verileriniz en yüksek güvenlik standartlarıyla korunur",
       "certifications": {

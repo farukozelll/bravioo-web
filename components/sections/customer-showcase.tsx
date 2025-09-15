@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, TrendingUp, Users, Award, Building } from 'lucide-react';
-import companiesData from '@/app/[locale]/customers/companies.json';
+import companiesData from '@/data/companies.json';
 
 interface Company {
   id: string;

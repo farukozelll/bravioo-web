@@ -41,7 +41,7 @@
     "mobile": "Mobile App",
     "mobileDesc": "Recognize from anywhere with iOS and Android apps",
     "aboutUs": "About Us",
-    "security": "Security",
+    "brands": "brands",
     "difference": "What Makes Us Different?",
     "press": "Press & Media",
     "successStories": "Success Stories",
@@ -123,7 +123,7 @@
           "Unlimited users",
           "Custom integrations",
           "Dedicated success manager",
-          "Advanced security (SSO, SAML)",
+          "Advanced brands (SSO, SAML)",
           "Custom branding",
           "Priority support"
         ]

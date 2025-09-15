@@ -3,7 +3,8 @@ import { BrandsShowcase } from '@/components/sections/brands-showcase';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { getTranslations } from 'next-intl/server';
-
+import { BrandBar } from '@/components/sections/brand-bar';
+  
 interface BrandsPageProps {
   params: {
     locale: string;
@@ -18,6 +19,7 @@ export default async function BrandsPage({ params: { locale } }: BrandsPageProps
       <Header />
       <main className="min-h-screen">
         <BrandsHero />
+        <BrandBar />
         <BrandsShowcase />
       </main>
       <Footer />

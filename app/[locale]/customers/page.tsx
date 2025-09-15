@@ -4,6 +4,7 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { CustomerHero } from '@/components/sections/customer-hero';
 import { CustomerShowcase } from '@/components/sections/customer-showcase';
+import { CompanyBar } from '@/components/sections/company-bar';
 
 export const metadata: Metadata = {
   title: 'Müşteri Başarı Hikayeleri | Customer Success Stories - Bravioo',
@@ -16,6 +17,7 @@ export default function CustomersPage() {
       <Header />
       <main className="min-h-screen">
         <CustomerHero />
+        <CompanyBar />
         <CustomerShowcase />
       </main>
       <Footer />

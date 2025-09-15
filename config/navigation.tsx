@@ -166,19 +166,13 @@ export const navigationData: NavItem[] = [
           isNew: false
         },
         {
-          nameKey: 'security',
-          descriptionKey: 'securityDesc',
-          href: '/security',
+          nameKey: 'brands',
+          descriptionKey: 'brandsDesc',
+          href: '/brands',
           icon: <Shield className="w-6 h-6" />,
           isNew: false
         },
-        {
-          nameKey: 'press',
-          descriptionKey: 'pressDesc',
-          href: '/press',
-          icon: <Newspaper className="w-6 h-6" />,
-          isNew: false
-        }
+    
       ],
       featuredContent: {
         titleKey: 'companyNews',

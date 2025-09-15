@@ -2,8 +2,8 @@
 
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, ArrowRight, Globe } from 'lucide-react';
-import brandsData from '@/app/[locale]/brands/brands.json';
+import { ArrowRight, Globe } from 'lucide-react';
+import brandsData from '@/data/brands.json';
 
 interface Brand {
   id: string;
@@ -11,24 +11,11 @@ interface Brand {
   logo: string;
   category: string;
   description: string;
-  metrics: {
-    primary: string;
-    secondary: string;
-  };
-  details: {
-    challenge: string;
-    solution: string;
-    results: string[];
-  };
-  testimonial: {
-    text: string;
-    author: string;
-    position: string;
-  };
 }
 
 export function BrandsHero() {
   const [hoveredBrand, setHoveredBrand] = useState<string | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
   
   const brands: Brand[] = brandsData;
   
@@ -97,15 +84,15 @@ export function BrandsHero() {
                 >
                   {/* Brand Header */}
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center overflow-hidden">
+                    <div className="w-20 h-20 bg-white rounded-xl flex items-center justify-center overflow-hidden">
                       {currentBrand.logo ? (
                         <img 
                           src={currentBrand.logo} 
                           alt={`${currentBrand.name} logo`}
-                          className="w-12 h-12 object-contain"
+                          className="w-16 h-16 object-contain"
                         />
                       ) : (
-                        <span className="text-slate-800 font-bold text-xl">
+                        <span className="text-slate-800 font-bold text-2xl">
                           {currentBrand.name.charAt(0)}
                         </span>
                       )}
@@ -116,21 +103,14 @@ export function BrandsHero() {
                     </div>
                   </div>
 
-                  {/* Metric */}
-                  <div className="text-center mb-6">
-                    <div className="text-3xl font-bold text-emerald-400 mb-2">
-                      {currentBrand.metrics.primary}
-                    </div>
-                    <p className="text-slate-300">{currentBrand.description}</p>
-                  </div>
+              
 
-                  {/* Testimonial */}
-                  <blockquote className="border-l-4 border-emerald-500 pl-6 mb-6">
-                    <p className="text-slate-200 italic mb-3">&ldquo;{currentBrand.testimonial.text}&rdquo;</p>
-                    <footer className="text-sm text-slate-400">
-                      <strong>{currentBrand.testimonial.author}</strong>, {currentBrand.testimonial.position}
-                    </footer>
-                  </blockquote>
+                  {/* Description */}
+                  <div className="bg-slate-700/50 p-4 rounded-xl mb-6">
+                    <p className="text-slate-200 text-sm leading-relaxed">
+                      {currentBrand.description}
+                    </p>
+                  </div>
 
                   {/* CTA */}
                   <motion.button
@@ -138,8 +118,8 @@ export function BrandsHero() {
                     whileTap={{ scale: 0.98 }}
                     className="w-full bg-emerald-600 text-white py-3 rounded-xl font-semibold hover:bg-emerald-700 transition-colors duration-300 flex items-center justify-center gap-2"
                   >
-                    <span>Case Study İzle</span>
-                    <Play className="w-5 h-5" fill="currentColor" />
+                    <span>Marka Detayları</span>
+                    <ArrowRight className="w-5 h-5" />
                   </motion.button>
                 </motion.div>
               ) : (
@@ -180,7 +160,7 @@ export function BrandsHero() {
               {/* Left Column - Scrolling Up */}
               <div className="relative overflow-hidden">
                 <motion.div
-                  animate={{ y: ['0%', '-50%'] }}
+                  animate={isPaused ? {} : { y: ['0%', '-50%'] }}
                   transition={{ 
                     duration: 35, 
                     repeat: Infinity, 
@@ -195,6 +175,7 @@ export function BrandsHero() {
                       height={brand.height}
                       onHover={() => setHoveredBrand(brand.id)}
                       onLeave={() => setHoveredBrand(null)}
+                      onClick={() => setIsPaused(!isPaused)}
                       gradientFrom="emerald-400/20"
                       gradientTo="blue-500/20"
                     />
@@ -205,7 +186,7 @@ export function BrandsHero() {
               {/* Right Column - Scrolling Down */}
               <div className="relative overflow-hidden">
                 <motion.div
-                  animate={{ y: ['-50%', '0%'] }}
+                  animate={isPaused ? {} : { y: ['-50%', '0%'] }}
                   transition={{ 
                     duration: 35, 
                     repeat: Infinity, 
@@ -220,6 +201,7 @@ export function BrandsHero() {
                       height={brand.height}
                       onHover={() => setHoveredBrand(brand.id)}
                       onLeave={() => setHoveredBrand(null)}
+                      onClick={() => setIsPaused(!isPaused)}
                       gradientFrom="purple-400/20"
                       gradientTo="pink-500/20"
                     />
@@ -244,20 +226,41 @@ interface BrandCardProps {
   height: number;
   onHover: () => void;
   onLeave: () => void;
+  onClick: () => void;
   gradientFrom: string;
   gradientTo: string;
 }
 
-function BrandCard({ brand, height, onHover, onLeave, gradientFrom, gradientTo }: BrandCardProps) {
+function BrandCard({ brand, height, onHover, onLeave, onClick, gradientFrom, gradientTo }: BrandCardProps) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <motion.div
-      onHoverStart={onHover}
-      onHoverEnd={onLeave}
+      onHoverStart={() => {
+        onHover();
+        setIsHovered(true);
+      }}
+      onHoverEnd={() => {
+        onLeave();
+        setIsHovered(false);
+      }}
+      onClick={onClick}
       whileHover={{ scale: 1.03, zIndex: 10 }}
       className="group relative cursor-pointer"
       style={{ height: `${height}px` }}
     >
       <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 shadow-lg border border-slate-700/50">
+        
+        {/* Background Image */}
+        {brand.logo && (
+          <div 
+            className="absolute inset-0 bg-cover bg-center opacity-20"
+            style={{
+              backgroundImage: `url(${brand.logo})`,
+              filter: 'blur(20px)',
+            }}
+          />
+        )}
         
         {/* Background Gradient */}
         <div className={`absolute inset-0 bg-gradient-to-br from-${gradientFrom} to-${gradientTo}`}></div>
@@ -267,35 +270,37 @@ function BrandCard({ brand, height, onHover, onLeave, gradientFrom, gradientTo }
           
           {/* Top Section */}
           <div className="flex items-start justify-between">
-            {/* Brand Logo */}
-            <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center overflow-hidden shadow-sm">
+            {/* Brand Logo - Hidden by default, shown on hover */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: isHovered ? 1 : 0, scale: isHovered ? 1 : 0.8 }}
+              transition={{ duration: 0.3 }}
+              className="w-20 h-20 bg-white/95 rounded-xl flex items-center justify-center overflow-hidden shadow-lg backdrop-blur-sm"
+            >
               {brand.logo ? (
                 <img 
                   src={brand.logo} 
                   alt={`${brand.name} logo`}
-                  className="w-8 h-8 object-contain"
+                  className="w-16 h-16 object-contain"
                 />
               ) : (
-                <span className="text-slate-800 font-bold text-lg">
+                <span className="text-slate-800 font-bold text-xl">
                   {brand.name.charAt(0)}
                 </span>
               )}
-            </div>
+            </motion.div>
             
             {/* Enterprise Badge */}
-            <div className="bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded-md text-xs font-medium">
-              Enterprise
+            <div className="bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded-md text-xs font-medium backdrop-blur-sm">
+              {brand.category}
             </div>
           </div>
 
           {/* Bottom Section */}
           <div>
-            {/* Metric */}
-            <div className="text-xl font-bold mb-2 text-emerald-400">{brand.metrics.primary}</div>
-            
             {/* Brand Name & Category */}
-            <div className="text-white font-medium text-sm">{brand.name}</div>
-            <div className="text-white/70 text-xs">{brand.category}</div>
+            <div className="text-white font-bold text-sm mb-1">{brand.name}</div>
+            <div className="text-white/80 text-xs line-clamp-2">{brand.description}</div>
           </div>
         </div>
 
@@ -303,7 +308,7 @@ function BrandCard({ brand, height, onHover, onLeave, gradientFrom, gradientTo }
         <motion.div
           initial={{ opacity: 0 }}
           whileHover={{ opacity: 1 }}
-          className="absolute inset-0 bg-gradient-to-t from-emerald-600/20 to-transparent"
+          className="absolute inset-0 bg-gradient-to-t from-emerald-600/30 to-transparent"
         />
       </div>
     </motion.div>

@@ -9,6 +9,7 @@ import { ProfessionalCustomerResults } from '@/components/sections/professional-
 import { HowItWorksSection } from '@/components/sections/how-it-works';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import { generateOrganizationJsonLd, generateWebsiteJsonLd, generateProductJsonLd } from '@/lib/seo';
+import { BrandBar } from '@/components/sections/brand-bar';
 
 export async function generateMetadata({
   params,
@@ -62,7 +63,7 @@ export default async function HomePage({
           <AnimatedFeaturesSection />
 
           <ProfessionalCustomerResults />
-          
+          <BrandBar />
           <HowItWorksSection />
           <TestimonialsSlider />
 

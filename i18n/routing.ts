@@ -20,9 +20,9 @@ export const routing = defineRouting({
       en: '/contact',
       tr: '/iletisim'
     },
-    '/security': {
-      en: '/security',
-      tr: '/guvenlik'
+    '/brands': {
+      en: '/brands',
+      tr: '/markalar'
     },
     '/privacy': {
       en: '/privacy',

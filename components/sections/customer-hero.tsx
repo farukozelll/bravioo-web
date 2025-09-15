@@ -3,7 +3,7 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, ArrowRight } from 'lucide-react';
-import companiesData from '@/app/[locale]/customers/companies.json';
+import companiesData from '@/data/companies.json';
 
 interface Company {
   id: string;
@@ -29,6 +29,7 @@ interface Company {
 
 export function CustomerHero() {
   const [hoveredCompany, setHoveredCompany] = useState<string | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
   
   const companies: Company[] = companiesData;
   
@@ -196,7 +197,7 @@ export function CustomerHero() {
               {/* Left Column - Scrolling Up */}
               <div className="relative overflow-hidden">
                 <motion.div
-                  animate={{ y: ['0%', '-50%'] }}
+                  animate={isPaused ? {} : { y: ['0%', '-50%'] }}
                   transition={{ 
                     duration: 30, 
                     repeat: Infinity, 
@@ -211,6 +212,7 @@ export function CustomerHero() {
                       height={company.height}
                       onHover={() => setHoveredCompany(company.id)}
                       onLeave={() => setHoveredCompany(null)}
+                      onClick={() => setIsPaused(!isPaused)}
                       gradientFrom="emerald-600/20"
                       gradientTo="blue-600/20"
                     />
@@ -221,7 +223,7 @@ export function CustomerHero() {
               {/* Right Column - Scrolling Down */}
               <div className="relative overflow-hidden">
                 <motion.div
-                  animate={{ y: ['-50%', '0%'] }}
+                  animate={isPaused ? {} : { y: ['-50%', '0%'] }}
                   transition={{ 
                     duration: 30, 
                     repeat: Infinity, 
@@ -236,6 +238,7 @@ export function CustomerHero() {
                       height={company.height}
                       onHover={() => setHoveredCompany(company.id)}
                       onLeave={() => setHoveredCompany(null)}
+                      onClick={() => setIsPaused(!isPaused)}
                       gradientFrom="purple-600/20"
                       gradientTo="pink-600/20"
                     />
@@ -245,8 +248,8 @@ export function CustomerHero() {
             </div>
 
             {/* Gradient Overlays for Fade Effect */}
-            <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-slate-50 to-transparent z-10 pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-slate-50 to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-b from-slate-50 to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-slate-50 to-transparent z-10 pointer-events-none"></div>
           </motion.div>
         </div>
       </div>
@@ -260,15 +263,17 @@ interface CompanyCardProps {
   height: number;
   onHover: () => void;
   onLeave: () => void;
+  onClick: () => void;
   gradientFrom: string;
   gradientTo: string;
 }
 
-function CompanyCard({ company, height, onHover, onLeave, gradientFrom, gradientTo }: CompanyCardProps) {
+function CompanyCard({ company, height, onHover, onLeave, onClick, gradientFrom, gradientTo }: CompanyCardProps) {
   return (
     <motion.div
       onHoverStart={onHover}
       onHoverEnd={onLeave}
+      onClick={onClick}
       whileHover={{ scale: 1.03, zIndex: 10 }}
       className="group relative cursor-pointer"
       style={{ height: `${height}px` }}
