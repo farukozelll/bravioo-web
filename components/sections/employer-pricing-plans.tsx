@@ -96,7 +96,7 @@ export function EmployerPricingPlans() {
   };
 
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-16 lg:py-20 xl:py-24 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -104,7 +104,7 @@ export function EmployerPricingPlans() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4 lg:mb-6"
           >
             {t('plansTitle')}
           </motion.h2>
@@ -113,7 +113,7 @@ export function EmployerPricingPlans() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-gray-600 mb-8"
+            className="text-lg lg:text-xl text-gray-600 dark:text-gray-300 mb-6 lg:mb-8"
           >
             {t('plansSubtitle')}
           </motion.p>
@@ -124,7 +124,7 @@ export function EmployerPricingPlans() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="inline-flex items-center bg-white p-1 rounded-full shadow-lg border"
+            className="inline-flex items-center bg-white dark:bg-gray-800 p-1 rounded-full shadow-lg border border-gray-200 dark:border-gray-700"
           >
             <button
               onClick={() => setBillingCycle('monthly')}
@@ -153,7 +153,7 @@ export function EmployerPricingPlans() {
         </div>
 
         {/* Plans Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {plans.map((plan, index) => {
             const colors = getColorClasses(plan.color, plan.popular);
             const price = billingCycle === 'yearly' ? plan.yearlyPrice : plan.monthlyPrice;

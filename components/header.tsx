@@ -20,6 +20,7 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [announcementClosed, setAnnouncementClosed] = useState(false);
 
   const currentLang = languages.find(lang => lang.code === locale);
   const otherLang = languages.find(lang => lang.code !== locale);
@@ -28,12 +29,19 @@ export function Header() {
     return pathname.startsWith(`/${locale}${href}`);
   };
 
+  const handleAnnouncementClose = () => {
+    setAnnouncementClosed(true);
+  };
+
   return (
     <>
-      <AnnouncementBar />
+      {!announcementClosed && <AnnouncementBar onClose={handleAnnouncementClose} />}
       <header 
         onMouseLeave={() => setActiveDropdown(null)}
-        className="sticky top-12 z-40 w-full border-b border-gray-200 bg-white/95 backdrop-blur-sm"
+        className={cn(
+          "sticky z-50 w-full border-b border-gray-200 dark:border-gray-700 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm transition-all duration-300",
+          announcementClosed ? "top-0" : "top-12"
+        )}
       >
         <nav className="mx-auto flex max-w-7xl items-center p-4 lg:px-8">
           {/* Left side - Logo + Navigation */}
@@ -67,8 +75,8 @@ export function Header() {
                   <Link
                     href={`/${locale}${item.href}`}
                     className={cn(
-                      "text-sm font-semibold transition-colors hover:text-emerald-600 flex items-center gap-1",
-                      isActiveRoute(item.href) ? "text-emerald-600" : "text-gray-900"
+                      "text-sm font-semibold transition-colors hover:text-emerald-600 dark:hover:text-emerald-400 flex items-center gap-1",
+                      isActiveRoute(item.href) ? "text-emerald-600 dark:text-emerald-400" : "text-gray-900 dark:text-gray-100"
                     )}
                   >
                     {t(item.nameKey)}
@@ -88,7 +96,7 @@ export function Header() {
           <div className="flex lg:hidden ml-auto">
             <button
               type="button"
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 dark:text-gray-300"
               onClick={() => setIsMenuOpen(true)}
             >
               <span className="sr-only">Open main menu</span>
@@ -196,7 +204,7 @@ export function Header() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm lg:hidden"
+                className="fixed inset-0 z-[100] bg-black/20 backdrop-blur-sm lg:hidden"
                 onClick={() => setIsMenuOpen(false)}
               />
               <motion.div
@@ -204,7 +212,7 @@ export function Header() {
                 animate={{ x: 0 }}
                 exit={{ x: '100%' }}
                 transition={{ type: 'spring', damping: 25, stiffness: 120 }}
-                className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm shadow-2xl"
+                className="fixed inset-y-0 right-0 z-[110] w-full overflow-y-auto bg-white dark:bg-gray-900 px-6 py-6 sm:max-w-sm shadow-2xl transition-colors duration-300"
               >
                 <div className="flex items-center justify-between">
                   <Link href={`/${locale}`} className="-m-1.5 p-1.5 flex items-center gap-2">
@@ -215,13 +223,13 @@ export function Header() {
                       height={32}
                       className="w-8 h-8"
                     />
-                    <span className="text-xl font-bold text-emerald-600 font-display">
+                    <span className="text-xl font-bold text-emerald-600 dark:text-emerald-400 font-display">
                       Bravioo
                     </span>
                   </Link>
                   <button
                     type="button"
-                    className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                    className="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-gray-300"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     <span className="sr-only">Close menu</span>

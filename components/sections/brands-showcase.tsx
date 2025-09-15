@@ -47,8 +47,8 @@ export function BrandsShowcase() {
   }, [brands, activeCategory]);
 
   return (
-    <section className="bg-white py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="bg-white dark:bg-gray-900 py-16 lg:py-20 xl:py-24 transition-colors duration-300">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <motion.div
@@ -58,7 +58,7 @@ export function BrandsShowcase() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-gray-100 mb-4 lg:mb-6 leading-tight">
             Dünya markalarının tercih ettiği<br />
             <span className="text-emerald-600">E-ticaret Altyapısı</span>
           </h2>
@@ -66,7 +66,7 @@ export function BrandsShowcase() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 px-6 py-3 rounded-xl border border-emerald-200 hover:border-emerald-300 font-medium transition-all duration-300 shadow-sm hover:shadow-md"
+            className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 px-4 sm:px-6 py-2 sm:py-3 rounded-xl border border-emerald-200 dark:border-emerald-600 hover:border-emerald-300 dark:hover:border-emerald-500 font-medium transition-all duration-300 shadow-sm hover:shadow-md"
           >
             <span>Global Marka Deneyimlerimizi İncele</span>
             <ArrowRight className="w-4 h-4" />
@@ -79,7 +79,7 @@ export function BrandsShowcase() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex flex-wrap items-center justify-center gap-3 mb-12"
+          className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 lg:mb-12"
         >
           {categories.map((category) => (
             <motion.button
@@ -88,10 +88,10 @@ export function BrandsShowcase() {
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveCategory(category.name)}
               className={`
-                px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300
+                px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-sm font-medium transition-all duration-300
                 ${activeCategory === category.name
                   ? 'bg-emerald-600 text-white shadow-lg' 
-                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900'
+                  : 'bg-slate-100 dark:bg-gray-700 text-slate-600 dark:text-gray-300 hover:bg-slate-200 dark:hover:bg-gray-600 hover:text-slate-900 dark:hover:text-gray-100'
                 }
               `}
             >
@@ -101,7 +101,7 @@ export function BrandsShowcase() {
         </motion.div>
 
         {/* Brand Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 lg:gap-6">
           {filteredBrands.map((brand, index) => (
             <motion.div
               key={brand.id}
@@ -113,7 +113,7 @@ export function BrandsShowcase() {
               onHoverEnd={() => setHoveredBrand(null)}
               className="group relative cursor-pointer"
             >
-              <div className="relative bg-white rounded-2xl p-6 border border-slate-200 transition-all duration-300 group-hover:border-emerald-300 group-hover:shadow-xl group-hover:-translate-y-2 overflow-hidden h-52">
+              <div className="relative bg-white dark:bg-gray-800 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-gray-700 transition-all duration-300 group-hover:border-emerald-300 dark:group-hover:border-emerald-500 group-hover:shadow-xl group-hover:-translate-y-2 overflow-hidden h-44 sm:h-52">
                 
                 {/* Brand Logo - Enhanced with multiple format support and grayscale filter */}
                 <div className="flex justify-center mb-4">
@@ -123,12 +123,12 @@ export function BrandsShowcase() {
                     name={brand.name}
                     size="xl"
                     grayscale={true}
-                    className="group-hover:bg-emerald-50 bg-slate-50 rounded-xl transition-colors duration-300"
+                    className="group-hover:bg-emerald-50 dark:group-hover:bg-emerald-900/30 bg-slate-50 dark:bg-gray-700 rounded-xl transition-colors duration-300"
                   />
                 </div>
 
                 {/* Brand Name */}
-                <h3 className="font-semibold text-slate-900 text-center mb-2 group-hover:text-emerald-600 transition-colors duration-300">
+                <h3 className="font-semibold text-slate-900 dark:text-gray-100 text-center mb-2 text-sm sm:text-base group-hover:text-emerald-600 transition-colors duration-300">
                   {brand.name}
                 </h3>
 
@@ -145,7 +145,7 @@ export function BrandsShowcase() {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: -20, scale: 0.9 }}
                       transition={{ duration: 0.4 }}
-                      className="absolute inset-0 bg-white rounded-2xl p-6 border border-emerald-200 shadow-2xl z-10"
+                      className="absolute inset-0 bg-white dark:bg-gray-800 rounded-2xl p-4 sm:p-6 border border-emerald-200 dark:border-emerald-600 shadow-2xl z-10"
                     >
                       <div className="h-full flex flex-col">
                         
@@ -157,11 +157,11 @@ export function BrandsShowcase() {
                             name={brand.name}
                             size="lg"
                             grayscale={false}
-                            className="bg-emerald-50 rounded-xl flex-shrink-0"
+                            className="bg-emerald-50 dark:bg-emerald-900/30 rounded-xl flex-shrink-0"
                           />
                           <div className="min-w-0 flex-1">
-                            <h4 className="font-bold text-slate-900 text-sm truncate">{brand.name}</h4>
-                            <p className="text-xs text-slate-500 truncate">{brand.category}</p>
+                            <h4 className="font-bold text-slate-900 dark:text-gray-100 text-sm truncate">{brand.name}</h4>
+                            <p className="text-xs text-slate-500 dark:text-gray-400 truncate">{brand.category}</p>
                           </div>
                         </div>
 
@@ -169,8 +169,8 @@ export function BrandsShowcase() {
 
 
                         {/* Description */}
-                        <div className="bg-emerald-50 p-3 rounded-lg mb-4">
-                          <p className="text-xs text-slate-700 leading-relaxed">
+                        <div className="bg-emerald-50 dark:bg-emerald-900/20 p-3 rounded-lg mb-4">
+                          <p className="text-xs text-slate-700 dark:text-gray-300 leading-relaxed">
                             {brand.description}
                           </p>
                         </div>

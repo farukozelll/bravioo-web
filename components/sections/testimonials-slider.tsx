@@ -160,7 +160,7 @@ export function TestimonialsSlider() {
   const currentTestimonial = testimonials[activeTestimonial];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-ink-900 via-ink-800 to-brand-900 text-white overflow-hidden relative">
+    <section className="py-24 bg-gradient-to-br from-ink-900 via-ink-800 to-brand-900 dark:from-gray-950 dark:via-gray-900 dark:to-gray-800 text-white overflow-hidden relative transition-colors duration-300">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-full h-full opacity-20">
@@ -181,20 +181,20 @@ export function TestimonialsSlider() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -50 }}
               transition={{ duration: 0.7, ease: "easeInOut" }}
-              className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start"
+              className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 items-start"
             >
               {/* Left - Testimonial Content */}
               <div className="lg:col-span-2 space-y-8">
                 {/* Quote */}
                 <div className="relative">
                   <Quote className="absolute -top-6 -left-6 h-16 w-16 text-brand-400/30" />
-                  <blockquote className="text-2xl md:text-3xl leading-relaxed text-gray-100 font-light pl-8">
+                  <blockquote className="text-xl md:text-2xl lg:text-3xl leading-relaxed text-gray-100 dark:text-gray-50 font-light pl-4 md:pl-8">
                     {currentTestimonial.testimonial}
                   </blockquote>
                 </div>
 
                 {/* Author Info */}
-                <div className="flex items-center gap-6">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
                   <div className="relative">
                     <div className="w-20 h-20 bg-gradient-to-r from-brand-500 to-emerald-500 rounded-2xl flex items-center justify-center">
                       <span className="text-lg font-bold text-white">
@@ -219,7 +219,7 @@ export function TestimonialsSlider() {
                     <p className="text-brand-300 font-medium mb-2">
                       {currentTestimonial.title}
                     </p>
-                    <div className="flex items-center gap-4 text-sm text-gray-400">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-gray-400">
                       <div className="flex items-center gap-1">
                         <Building className="h-4 w-4" />
                         {currentTestimonial.company}
@@ -264,7 +264,7 @@ export function TestimonialsSlider() {
 
                 {/* Company Visual */}
                 <motion.div 
-                  className={`relative h-48 rounded-2xl bg-gradient-to-br ${currentTestimonial.background} p-6 overflow-hidden group cursor-pointer`}
+                  className={`relative h-40 sm:h-48 rounded-2xl bg-gradient-to-br ${currentTestimonial.background} p-4 sm:p-6 overflow-hidden group cursor-pointer`}
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.5 }}
@@ -341,7 +341,7 @@ export function TestimonialsSlider() {
           </div>
 
           {/* Testimonial Thumbnails */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {testimonials.map((testimonial, index) => (
               <motion.button
                 key={testimonial.id}

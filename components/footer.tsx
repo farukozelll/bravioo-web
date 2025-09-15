@@ -13,6 +13,7 @@ export function Footer() {
   const locale = useLocale();
   const { theme, toggleTheme, mounted } = useTheme();
 
+
   return (
     <footer className="relative bg-gradient-to-br from-ink-900 via-ink-800 to-brand-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-white overflow-hidden transition-colors duration-300">
       {/* Background Pattern */}

@@ -79,23 +79,23 @@ export default async function ContactPage({ params }: Props) {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 transition-colors duration-300">
       <Header />
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-br from-sand-50 to-white overflow-hidden">
+      <section className="relative py-24 bg-gradient-to-br from-sand-50 to-white dark:from-gray-800 dark:to-gray-900 overflow-hidden transition-colors duration-300">
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-brand-200 to-gold-200 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
           <div className="absolute top-40 right-10 w-72 h-72 bg-gradient-to-r from-purple-200 to-pink-200 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
             <div>
               <span className="inline-block px-4 py-2 bg-brand-100 text-brand-700 rounded-full text-sm font-semibold mb-4">
                 {locale === 'tr' ? 'İletişime Geçin' : 'Get In Touch'}
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 mb-6 font-display">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-ink-900 dark:text-gray-100 mb-6 font-display">
                 {locale === 'tr' 
                   ? 'Çalışan Deneyimi Dönüşümünüzü' 
                   : 'Start Your Employee Experience'
@@ -104,7 +104,7 @@ export default async function ContactPage({ params }: Props) {
                   {locale === 'tr' ? 'Başlatalım' : 'Transformation'}
                 </span>
               </h1>
-              <p className="text-xl text-ink-600 mb-8 leading-relaxed">
+              <p className="text-lg md:text-xl text-ink-600 dark:text-gray-300 mb-8 leading-relaxed">
                 {locale === 'tr'
                   ? 'Bravioo uzmanları ile konuşun, sorularınızın yanıtlarını alın ve işletmeniz için en uygun çözümü keşfedin.'
                   : 'Talk to Bravioo experts, get answers to your questions, and discover the best solution for your business.'
@@ -118,13 +118,13 @@ export default async function ContactPage({ params }: Props) {
                   return (
                     <div
                       key={index}
-                      className="group p-4 bg-white rounded-2xl border border-sand-200 hover:border-brand-300 transition-all duration-300 hover:shadow-lg cursor-pointer"
+                      className="group p-4 bg-white dark:bg-gray-800 rounded-2xl border border-sand-200 dark:border-gray-700 hover:border-brand-300 dark:hover:border-brand-500 transition-all duration-300 hover:shadow-lg cursor-pointer"
                     >
                       <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${method.color} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}>
                         <Icon className="h-6 w-6 text-white" />
                       </div>
-                      <h3 className="font-semibold text-ink-900 mb-1">{method.title}</h3>
-                      <p className="text-sm text-ink-600 mb-3">{method.description}</p>
+                      <h3 className="font-semibold text-ink-900 dark:text-gray-100 mb-1">{method.title}</h3>
+                      <p className="text-sm text-ink-600 dark:text-gray-300 mb-3">{method.description}</p>
                       <span className="text-sm font-medium text-brand-600 group-hover:text-brand-700 transition-colors">
                         {method.action} →
                       </span>
@@ -135,12 +135,12 @@ export default async function ContactPage({ params }: Props) {
             </div>
 
             {/* Right Form */}
-            <div className="bg-white rounded-3xl shadow-2xl border border-sand-200 p-8">
+            <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-sand-200 dark:border-gray-700 p-6 lg:p-8">
               <div className="mb-6">
-                <h2 className="text-2xl font-bold text-ink-900 mb-2">
+                <h2 className="text-xl md:text-2xl font-bold text-ink-900 dark:text-gray-100 mb-2">
                   {locale === 'tr' ? 'Hemen İletişime Geçin' : 'Contact Us Now'}
                 </h2>
-                <p className="text-ink-600">
+                <p className="text-ink-600 dark:text-gray-300">
                   {locale === 'tr'
                     ? 'Formu doldurun, 24 saat içinde size geri dönelim.'
                     : 'Fill out the form and we\'ll get back to you within 24 hours.'
@@ -154,13 +154,13 @@ export default async function ContactPage({ params }: Props) {
       </section>
 
       {/* Office Locations */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white dark:bg-gray-900 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-ink-900 mb-4 font-display">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-ink-900 dark:text-gray-100 mb-4 font-display">
               {locale === 'tr' ? 'Ofislerimiz' : 'Our Offices'}
             </h2>
-            <p className="text-xl text-ink-600">
+            <p className="text-lg md:text-xl text-ink-600 dark:text-gray-300">
               {locale === 'tr'
                 ? 'Dünya çapında ekibimizle tanışın'
                 : 'Meet our team around the world'
@@ -170,21 +170,21 @@ export default async function ContactPage({ params }: Props) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {officeInfo.map((office, index) => (
-              <div key={index} className="bg-sand-50 rounded-2xl p-8 border border-sand-200">
+              <div key={index} className="bg-sand-50 dark:bg-gray-800 rounded-2xl p-6 md:p-8 border border-sand-200 dark:border-gray-700">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-brand-500 rounded-xl flex items-center justify-center">
                     <MapPin className="h-6 w-6 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-ink-900 mb-3">{office.title}</h3>
+                    <h3 className="text-lg md:text-xl font-bold text-ink-900 dark:text-gray-100 mb-3">{office.title}</h3>
                     <div className="space-y-3">
                       <div className="flex items-start gap-3">
-                        <MapPin className="h-5 w-5 text-ink-500 mt-0.5" />
-                        <p className="text-ink-700 whitespace-pre-line">{office.address}</p>
+                        <MapPin className="h-5 w-5 text-ink-500 dark:text-gray-400 mt-0.5" />
+                        <p className="text-ink-700 dark:text-gray-300 whitespace-pre-line">{office.address}</p>
                       </div>
                       <div className="flex items-center gap-3">
-                        <Clock className="h-5 w-5 text-ink-500" />
-                        <p className="text-ink-700">{office.hours}</p>
+                        <Clock className="h-5 w-5 text-ink-500 dark:text-gray-400" />
+                        <p className="text-ink-700 dark:text-gray-300">{office.hours}</p>
                       </div>
                     </div>
                   </div>

@@ -17,7 +17,7 @@ export default async function BrandsPage({ params: { locale } }: BrandsPageProps
   return (
     <>
       <Header />
-      <main className="min-h-screen">
+      <main className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
         <BrandsHero />
         <BrandBar />
         <BrandsShowcase />

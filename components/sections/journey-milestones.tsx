@@ -333,24 +333,24 @@ export function JourneyMilestones() {
   return (
     <section 
       aria-labelledby="journey-milestones-title" 
-      className="bg-gradient-to-br from-slate-50 to-white py-20 lg:py-24"
+      className="bg-gradient-to-br from-slate-50 to-white dark:from-gray-900 dark:to-gray-800 py-16 lg:py-20 xl:py-24 transition-colors duration-300"
     >
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 lg:mb-16"
         >
-          <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-4">
+          <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-gray-400 mb-4">
             {locale === 'tr' ? 'Yolculuğumuz' : 'Our Journey'}
           </p>
           
           <h2 
             id="journey-milestones-title"
-            className="font-display text-4xl font-light leading-tight text-slate-900 sm:text-5xl lg:text-6xl mb-6"
+            className="font-display text-3xl sm:text-4xl font-light leading-tight text-slate-900 dark:text-gray-100 md:text-5xl lg:text-6xl mb-4 lg:mb-6"
           >
             {locale === 'tr' ? 'İşletmeler İçin Daha İyi Bir' : 'Designing a Better'}{' '}
             <span className="font-normal">
@@ -358,7 +358,7 @@ export function JourneyMilestones() {
             </span>
           </h2>
           
-          <p className="max-w-3xl mx-auto text-xl text-slate-600 leading-relaxed">
+          <p className="max-w-3xl mx-auto text-lg lg:text-xl text-slate-600 dark:text-gray-300 leading-relaxed">
             {locale === 'tr'
               ? 'İlk günden bu yana Braviooı güçlü ve kullanıcı dostu bir e-ticaret altyapısı haline getirmek için çalışıyoruz.'
               : 'From day one, we\'ve been working to make Bravioo a powerful and user-friendly e-commerce infrastructure for businesses.'
@@ -375,8 +375,8 @@ export function JourneyMilestones() {
           className="relative"
         >
           {/* Progress Bar */}
-          <div className="mb-8">
-            <div className="relative h-2 bg-slate-200 rounded-full overflow-hidden">
+          <div className="mb-6 lg:mb-8">
+            <div className="relative h-2 bg-slate-200 dark:bg-gray-700 rounded-full overflow-hidden">
               <motion.div
                 className="absolute top-0 left-0 h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full"
                 initial={{ width: "0%" }}
@@ -384,8 +384,8 @@ export function JourneyMilestones() {
                 transition={{ duration: 0.8, ease: "easeInOut" }}
               />
             </div>
-            <div className="flex justify-between items-center mt-2">
-              <span className="text-sm text-slate-500">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mt-2 gap-2 sm:gap-0">
+              <span className="text-sm text-slate-500 dark:text-gray-400">
                 {locale === 'tr' ? 'Yolculuğumuzun' : 'Our journey'} {Math.round(progressPercentage)}%{locale === 'tr' ? "'i tamamlandı" : ' completed'} 
                 ({currentStep}/{config.totalScrollSteps} {locale === 'tr' ? 'adım' : 'steps'})
               </span>
@@ -399,7 +399,7 @@ export function JourneyMilestones() {
                     w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300
                     ${canGoPrev 
                       ? 'bg-emerald-500 text-white hover:bg-emerald-600 shadow-lg hover:shadow-xl' 
-                      : 'bg-slate-200 text-slate-400 cursor-not-allowed'
+                      : 'bg-slate-200 dark:bg-gray-700 text-slate-400 dark:text-gray-500 cursor-not-allowed'
                     }
                   `}
                   aria-label={locale === 'tr' ? 'Önceki' : 'Previous'}
@@ -413,7 +413,7 @@ export function JourneyMilestones() {
                     w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300
                     ${canGoNext 
                       ? 'bg-emerald-500 text-white hover:bg-emerald-600 shadow-lg hover:shadow-xl' 
-                      : 'bg-slate-200 text-slate-400 cursor-not-allowed'
+                      : 'bg-slate-200 dark:bg-gray-700 text-slate-400 dark:text-gray-500 cursor-not-allowed'
                     }
                   `}
                   aria-label={locale === 'tr' ? 'Sonraki' : 'Next'}
@@ -464,19 +464,19 @@ export function JourneyMilestones() {
                     <motion.div
                       whileHover={{ y: -8, scale: 1.02 }}
                       className={`
-                        relative bg-white rounded-2xl p-6 shadow-lg border transition-all duration-300 h-48
+                        relative bg-white dark:bg-gray-800 rounded-2xl p-4 sm:p-6 shadow-lg border transition-all duration-300 h-44 sm:h-48
                         ${milestone.completed 
-                          ? 'border-emerald-200 shadow-emerald-100/50' 
-                          : 'border-slate-200'
+                          ? 'border-emerald-200 dark:border-emerald-600 shadow-emerald-100/50 dark:shadow-emerald-900/20' 
+                          : 'border-slate-200 dark:border-gray-700'
                         }
                       `}
                     >
                       {/* Year Badge */}
                       <div className={`
-                        absolute -top-3 left-6 px-3 py-1 text-xs font-bold rounded-full
+                        absolute -top-3 left-4 sm:left-6 px-2 sm:px-3 py-1 text-xs font-bold rounded-full
                         ${milestone.completed 
                           ? 'bg-emerald-500 text-white' 
-                          : 'bg-slate-300 text-slate-600'
+                          : 'bg-slate-300 dark:bg-gray-600 text-slate-600 dark:text-gray-300'
                         }
                       `}>
                         {milestone.year}
@@ -484,10 +484,10 @@ export function JourneyMilestones() {
 
                       {/* Icon */}
                       <div className={`
-                        mb-4 p-3 rounded-xl w-fit
+                        mb-3 sm:mb-4 p-2 sm:p-3 rounded-xl w-fit
                         ${milestone.completed 
-                          ? 'bg-emerald-100 text-emerald-600' 
-                          : 'bg-slate-100 text-slate-400'
+                          ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400' 
+                          : 'bg-slate-100 dark:bg-gray-700 text-slate-400 dark:text-gray-500'
                         }
                       `}>
                         {milestone.icon}
@@ -495,15 +495,15 @@ export function JourneyMilestones() {
 
                       {/* Content */}
                       <h3 className={`
-                        text-lg font-semibold mb-3 leading-tight
-                        ${milestone.completed ? 'text-slate-900' : 'text-slate-600'}
+                        text-base sm:text-lg font-semibold mb-2 sm:mb-3 leading-tight
+                        ${milestone.completed ? 'text-slate-900 dark:text-gray-100' : 'text-slate-600 dark:text-gray-400'}
                       `}>
                         {milestone.title}
                       </h3>
                       
 
                       {/* Status Indicator */}
-                      <div className="absolute bottom-6 left-6 right-6">
+                      <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
                         <div className="flex items-center gap-2">
                           <div className={`
                             w-2 h-2 rounded-full
@@ -511,7 +511,7 @@ export function JourneyMilestones() {
                           `}></div>
                           <span className={`
                             text-xs font-medium
-                            ${milestone.completed ? 'text-emerald-600' : 'text-slate-500'}
+                            ${milestone.completed ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-500 dark:text-gray-400'}
                           `}>
                             {milestone.completed 
                               ? (locale === 'tr' ? 'Tamamlandı' : 'Completed')
@@ -537,7 +537,7 @@ export function JourneyMilestones() {
                   w-2 h-2 rounded-full transition-all duration-300
                   ${constrainedVisibleStart === i 
                     ? 'bg-emerald-500 w-6' 
-                    : 'bg-slate-300 hover:bg-slate-400'
+                    : 'bg-slate-300 dark:bg-gray-600 hover:bg-slate-400 dark:hover:bg-gray-500'
                   }
                 `}
                 aria-label={`${locale === 'tr' ? 'Sayfa' : 'Page'} ${i + 1}`}
@@ -556,7 +556,7 @@ export function JourneyMilestones() {
         >
           <div className="relative">
             {/* Vertical Timeline Line */}
-            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-200 via-emerald-300 to-slate-300"></div>
+            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-200 via-emerald-300 to-slate-300 dark:from-emerald-600 dark:via-emerald-500 dark:to-gray-600"></div>
             
             {/* Milestones */}
             <div className="space-y-8">
@@ -574,7 +574,7 @@ export function JourneyMilestones() {
                     relative z-10 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0
                     ${milestone.completed 
                       ? 'bg-gradient-to-br from-emerald-500 to-emerald-600 text-white shadow-lg' 
-                      : 'bg-white border-2 border-slate-300 text-slate-400'
+                      : 'bg-white dark:bg-gray-800 border-2 border-slate-300 dark:border-gray-600 text-slate-400 dark:text-gray-500'
                     }
                   `}>
                     {milestone.completed ? (
@@ -586,10 +586,10 @@ export function JourneyMilestones() {
 
                   {/* Milestone Card */}
                   <div className={`
-                    flex-1 bg-white rounded-2xl p-6 shadow-lg border
+                    flex-1 bg-white dark:bg-gray-800 rounded-2xl p-4 sm:p-6 shadow-lg border
                     ${milestone.completed 
-                      ? 'border-emerald-200 shadow-emerald-100/50' 
-                      : 'border-slate-200'
+                      ? 'border-emerald-200 dark:border-emerald-600 shadow-emerald-100/50 dark:shadow-emerald-900/20' 
+                      : 'border-slate-200 dark:border-gray-700'
                     }
                   `}>
                     {/* Year Badge */}
@@ -597,7 +597,7 @@ export function JourneyMilestones() {
                       inline-block px-3 py-1 text-xs font-bold rounded-full mb-4
                       ${milestone.completed 
                         ? 'bg-emerald-500 text-white' 
-                        : 'bg-slate-300 text-slate-600'
+                        : 'bg-slate-300 dark:bg-gray-600 text-slate-600 dark:text-gray-300'
                       }
                     `}>
                       {milestone.year}
@@ -606,14 +606,14 @@ export function JourneyMilestones() {
                     {/* Content */}
                     <h3 className={`
                       text-lg font-semibold mb-3
-                      ${milestone.completed ? 'text-slate-900' : 'text-slate-600'}
+                      ${milestone.completed ? 'text-slate-900 dark:text-gray-100' : 'text-slate-600 dark:text-gray-400'}
                     `}>
                       {milestone.title}
                     </h3>
                     
                     <p className={`
                       text-sm leading-relaxed mb-4
-                      ${milestone.completed ? 'text-slate-600' : 'text-slate-500'}
+                      ${milestone.completed ? 'text-slate-600 dark:text-gray-300' : 'text-slate-500 dark:text-gray-400'}
                     `}>
                       {milestone.description}
                     </p>
@@ -626,7 +626,7 @@ export function JourneyMilestones() {
                       `}></div>
                       <span className={`
                         text-xs font-medium
-                        ${milestone.completed ? 'text-emerald-600' : 'text-slate-500'}
+                        ${milestone.completed ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-500 dark:text-gray-400'}
                       `}>
                         {milestone.completed 
                           ? (locale === 'tr' ? 'Tamamlandı' : 'Completed')
@@ -647,27 +647,27 @@ export function JourneyMilestones() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-center mt-16"
+          className="text-center mt-12 lg:mt-16"
         >
-          <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-3xl p-8 lg:p-12 text-white">
-            <h3 className="text-2xl lg:text-3xl font-bold mb-4">
+          <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl lg:rounded-3xl p-6 sm:p-8 lg:p-12 text-white">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4">
               {locale === 'tr' 
                 ? 'Bizimle yolculuğa başlayın' 
                 : 'Start your journey with us'
               }
             </h3>
-            <p className="text-lg text-emerald-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-emerald-100 mb-6 lg:mb-8 max-w-2xl mx-auto">
               {locale === 'tr'
                 ? 'İşletmenizi bir sonraki seviyeye taşımak için bugün başlayın'
                 : 'Start today to take your business to the next level'
               }
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-emerald-600 hover:bg-emerald-50 px-8 py-4 rounded-full font-semibold transition-all hover:scale-105 flex items-center gap-2 justify-center">
+              <button className="bg-white text-emerald-600 hover:bg-emerald-50 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition-all hover:scale-105 flex items-center gap-2 justify-center">
                 {locale === 'tr' ? 'Hemen E-Ticarete Başlayın' : 'Start E-Commerce Now'}
                 <ArrowRight className="w-5 h-5" />
               </button>
-              <button className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 px-8 py-4 rounded-full font-semibold transition-all">
+              <button className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition-all">
                 {locale === 'tr' ? 'Demo Al' : 'Get Demo'}
               </button>
             </div>

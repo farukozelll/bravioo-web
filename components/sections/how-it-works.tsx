@@ -103,7 +103,7 @@ export function HowItWorksSection() {
   const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
 
   return (
-    <section className="relative py-24 bg-gradient-to-br from-white to-sand-50 overflow-hidden">
+    <section className="relative py-24 bg-gradient-to-br from-white to-sand-50 dark:from-gray-900 dark:to-gray-800 overflow-hidden transition-colors duration-300">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-20 right-10 w-96 h-96 bg-gradient-to-r from-brand-200 to-emerald-200 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
@@ -128,14 +128,14 @@ export function HowItWorksSection() {
           >
             How It Works
           </motion.span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 mb-6 font-display">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 dark:text-gray-100 mb-6 font-display">
             Sadece{' '}
             <span className="bg-gradient-to-r from-brand-600 to-emerald-600 bg-clip-text text-transparent">
               4 Adımda
             </span>{' '}
             Başlayın
           </h2>
-          <p className="text-xl text-ink-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-ink-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Bravioo ile çalışan deneyiminizi dönüştürmek hiç bu kadar kolay olmamıştı. 
             Kurulumdan sonuçlara kadar tüm süreç.
           </p>
@@ -145,7 +145,7 @@ export function HowItWorksSection() {
         <div className="mb-20">
           {/* Step Navigation */}
           <div className="flex justify-center mb-12">
-            <div className="flex items-center gap-4 bg-white/80 backdrop-blur-sm rounded-full p-2 shadow-lg border border-white/20">
+            <div className="flex items-center gap-2 md:gap-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full p-2 shadow-lg border border-white/20 dark:border-gray-700/20">
               {steps.map((step, index) => {
                 const Icon = step.icon;
                 return (
@@ -153,10 +153,10 @@ export function HowItWorksSection() {
                     key={step.id}
                     onClick={() => setActiveStep(index)}
                     className={`
-                      flex items-center gap-3 px-6 py-3 rounded-full transition-all duration-300
+                      flex items-center gap-2 md:gap-3 px-3 md:px-6 py-2 md:py-3 rounded-full transition-all duration-300
                       ${index === activeStep 
                         ? 'bg-gradient-to-r from-brand-500 to-emerald-600 text-white shadow-lg' 
-                        : 'text-ink-600 hover:bg-white/50'
+                        : 'text-ink-600 dark:text-gray-300 hover:bg-white/50 dark:hover:bg-gray-700/50'
                       }
                     `}
                   >
@@ -192,13 +192,13 @@ export function HowItWorksSection() {
                       <div className="text-sm text-brand-600 font-semibold">
                         Adım {activeStep + 1}
                       </div>
-                      <h3 className="text-3xl font-bold text-ink-900">
+                      <h3 className="text-2xl md:text-3xl font-bold text-ink-900 dark:text-gray-100">
                         {steps[activeStep].title}
                       </h3>
                     </div>
                   </div>
 
-                  <p className="text-xl text-ink-600 mb-8 leading-relaxed">
+                  <p className="text-lg md:text-xl text-ink-600 dark:text-gray-300 mb-8 leading-relaxed">
                     {steps[activeStep].description}
                   </p>
 
@@ -212,13 +212,13 @@ export function HowItWorksSection() {
                         className="flex items-center gap-3"
                       >
                         <CheckCircle className="h-5 w-5 text-brand-500 flex-shrink-0" />
-                        <span className="text-ink-700">{feature}</span>
+                        <span className="text-ink-700 dark:text-gray-300">{feature}</span>
                       </motion.li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="flex gap-4">
+                <div className="flex flex-col sm:flex-row gap-4">
                   <Button 
                     className="bg-gradient-to-r from-brand-500 to-emerald-600 hover:from-brand-600 hover:to-emerald-700 rounded-full px-8"
                   >
@@ -227,7 +227,7 @@ export function HowItWorksSection() {
                   </Button>
                   <Button 
                     variant="outline" 
-                    className="border-2 border-brand-200 text-brand-700 hover:bg-brand-50 rounded-full px-8"
+                    className="border-2 border-brand-200 dark:border-brand-600 text-brand-700 dark:text-brand-300 hover:bg-brand-50 dark:hover:bg-brand-900/20 rounded-full px-8"
                   >
                     Daha Fazla Bilgi
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -242,7 +242,7 @@ export function HowItWorksSection() {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.3 }}
               >
-                <div className={`relative h-96 rounded-3xl bg-gradient-to-br ${steps[activeStep].color} p-8 overflow-hidden`}>
+                <div className={`relative h-80 md:h-96 rounded-3xl bg-gradient-to-br ${steps[activeStep].color} p-6 md:p-8 overflow-hidden`}>
                   {/* Mockup Content */}
                   <div className="absolute inset-0 bg-black/10"></div>
                   <div 
@@ -259,7 +259,7 @@ export function HowItWorksSection() {
                           className: "h-12 w-12 text-white" 
                         })}
                       </div>
-                      <h4 className="text-2xl font-bold mb-2">{steps[activeStep].title}</h4>
+                      <h4 className="text-xl md:text-2xl font-bold mb-2">{steps[activeStep].title}</h4>
                       <p className="text-white/80">Mockup - {steps[activeStep].mockup}</p>
                     </div>
                   </div>

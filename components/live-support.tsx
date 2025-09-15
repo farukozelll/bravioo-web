@@ -79,9 +79,9 @@ export function LiveSupport() {
           <Bot className="h-6 w-6 text-white" />
           
           {/* Tooltip - Responsive */}
-          <div className="absolute right-16 md:right-16 md:left-auto left-auto top-1/2 -translate-y-1/2 bg-ink-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden sm:block">
+          <div className="absolute right-16 md:left-16 top-1/2 -translate-y-1/2 bg-ink-900 dark:bg-gray-800 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden sm:block">
             AI Asistan
-            <div className="absolute left-full md:left-full md:right-auto right-auto top-1/2 -translate-y-1/2 border-4 border-transparent border-l-ink-900 md:border-l-ink-900 md:border-r-transparent border-r-transparent"></div>
+            <div className="absolute left-full md:right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-ink-900 dark:border-l-gray-800 md:border-l-transparent md:border-r-ink-900 md:dark:border-r-gray-800"></div>
           </div>
 
           {/* Pulse animation */}
@@ -114,9 +114,9 @@ export function LiveSupport() {
           </div>
 
           {/* Tooltip */}
-          <div className="absolute right-16 top-1/2 -translate-y-1/2 bg-ink-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+          <div className="absolute right-16 md:left-16 top-1/2 -translate-y-1/2 bg-ink-900 dark:bg-gray-800 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden sm:block">
             Canlı Destek
-            <div className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-ink-900"></div>
+            <div className="absolute left-full md:right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-ink-900 dark:border-l-gray-800 md:border-l-transparent md:border-r-ink-900 md:dark:border-r-gray-800"></div>
           </div>
         </motion.button>
       </div>
@@ -128,7 +128,7 @@ export function LiveSupport() {
           setTimeout(() => resetChat(), 300);
         }
       }}>
-        <DialogContent className="max-w-md w-[95vw] h-[600px] max-h-[85vh] p-0 overflow-hidden">
+        <DialogContent className="max-w-md w-[95vw] h-[600px] max-h-[85vh] p-0 overflow-hidden bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700">
           {/* Header */}
           <DialogHeader className={`p-4 ${
             supportType === 'ai' 
@@ -161,7 +161,7 @@ export function LiveSupport() {
 
           {/* Support Type Info */}
           {supportType && (
-            <div className="p-4 bg-sand-50 border-b border-sand-200">
+            <div className="p-4 bg-sand-50 dark:bg-gray-800 border-b border-sand-200 dark:border-gray-700">
               <div className="flex items-start gap-3">
                 {supportType === 'ai' ? (
                   <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
@@ -175,13 +175,13 @@ export function LiveSupport() {
                 <div className="text-sm">
                   {supportType === 'ai' ? (
                     <div>
-                      <div className="font-medium text-ink-900">AI Asistan</div>
-                      <div className="text-ink-600">Ürün bilgileri, fiyatlar, özellikler</div>
+                      <div className="font-medium text-ink-900 dark:text-gray-100">AI Asistan</div>
+                      <div className="text-ink-600 dark:text-gray-300">Ürün bilgileri, fiyatlar, özellikler</div>
                     </div>
                   ) : (
                     <div>
-                      <div className="font-medium text-ink-900">İnsan Destek</div>
-                      <div className="text-ink-600">Teknik sorunlar, hesap yönetimi</div>
+                      <div className="font-medium text-ink-900 dark:text-gray-100">İnsan Destek</div>
+                      <div className="text-ink-600 dark:text-gray-300">Teknik sorunlar, hesap yönetimi</div>
                     </div>
                   )}
                 </div>
@@ -222,7 +222,7 @@ export function LiveSupport() {
           </div>
 
           {/* Input */}
-          <div className="p-4 border-t border-sand-200 bg-white">
+          <div className="p-4 border-t border-sand-200 dark:border-gray-700 bg-white dark:bg-gray-900">
             <div className="flex gap-2">
               <input
                 type="text"
@@ -230,7 +230,7 @@ export function LiveSupport() {
                 onChange={(e) => setMessage(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
                 placeholder="Mesajınızı yazın..."
-                className="flex-1 px-3 py-2 border border-sand-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
+                className="flex-1 px-3 py-2 border border-sand-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
               />
               <Button
                 onClick={handleSendMessage}
@@ -253,7 +253,7 @@ export function LiveSupport() {
                   setSupportType(supportType === 'ai' ? 'human' : 'ai');
                   resetChat();
                 }}
-                className="text-xs text-ink-500 hover:text-brand-600 transition-colors"
+                className="text-xs text-ink-500 dark:text-gray-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
               >
                 {supportType === 'ai' ? 'Canlı desteğe geç →' : '← AI asistana geç'}
               </button>

@@ -25,7 +25,7 @@ export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Cinematic Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-sand-50 via-white to-brand-50/20">
+      <div className="absolute inset-0 bg-gradient-to-br from-sand-50 via-white to-brand-50/20 dark:from-gray-900 dark:via-gray-800 dark:to-brand-900/20 transition-colors duration-300">
         {/* Animated Gradient Orbs */}
         <motion.div
           animate={{ 
@@ -98,7 +98,7 @@ export function HeroSection() {
                   <Star key={i} className="h-4 w-4 fill-gold-400 text-gold-400" />
                 ))}
               </div>
-              <span className="text-sm font-medium text-ink-700">4.9/5 • 127+ reviews</span>
+              <span className="text-sm font-medium text-ink-700 dark:text-gray-300">4.9/5 • 127+ reviews</span>
             </motion.div>
 
             {/* Kinetic Typography */}
@@ -114,7 +114,7 @@ export function HeroSection() {
                   initial={{ opacity: 0, y: 100 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.5 }}
-                  className="block text-ink-900"
+                  className="block text-ink-900 dark:text-gray-100"
                 >
                   Bağlantı
                 </motion.span>
@@ -130,7 +130,7 @@ export function HeroSection() {
                   initial={{ opacity: 0, y: 100 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 }}
-                  className="block text-ink-900"
+                  className="block text-ink-900 dark:text-gray-100"
                 >
                   Büyü.
                 </motion.span>
@@ -149,7 +149,7 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.3 }}
-                className="text-xl lg:text-2xl text-ink-600 font-light leading-relaxed max-w-2xl"
+                className="text-xl lg:text-2xl text-ink-600 dark:text-gray-300 font-light leading-relaxed max-w-2xl"
               >
                 {locale === 'tr' 
                   ? 'İş yerinizdeki her başarıyı kutlayın, takdir edin, ödüllendirin.'

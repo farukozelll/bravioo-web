@@ -102,11 +102,11 @@ export function CustomerHero() {
   };
 
   return (
-    <section className="bg-gradient-to-br from-slate-50 via-white to-slate-50 py-20 lg:py-24 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-16 lg:py-20 xl:py-24 overflow-hidden transition-colors duration-300">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Main Layout */}
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-start">
           
           {/* Left Side - Content */}
           <motion.div
@@ -114,38 +114,38 @@ export function CustomerHero() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:pr-8 lg:sticky lg:top-8"
+            className="lg:pr-4 xl:pr-8 lg:sticky lg:top-8"
           >
             {/* Stats Row */}
-            <div className="flex items-center gap-6 mb-8">
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6 mb-6 lg:mb-8">
               <div className="flex items-center gap-2">
-                <div className="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center">
-                  <span className="text-emerald-600 text-xs font-bold">G</span>
+                <div className="w-6 h-6 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center">
+                  <span className="text-emerald-600 dark:text-emerald-400 text-xs font-bold">G</span>
                 </div>
-                <span className="font-semibold text-slate-900">4,9 / 5</span>
+                <span className="font-semibold text-slate-900 dark:text-gray-100 text-sm">4,9 / 5</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
-                  <span className="text-blue-600 text-xs font-bold">Ş</span>
+                <div className="w-6 h-6 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center">
+                  <span className="text-blue-600 dark:text-blue-400 text-xs font-bold">Ş</span>
                 </div>
-                <span className="font-semibold text-slate-900">96 / 100</span>
+                <span className="font-semibold text-slate-900 dark:text-gray-100 text-sm">96 / 100</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center">
-                  <span className="text-purple-600 text-xs font-bold">G2</span>
+                <div className="w-6 h-6 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center">
+                  <span className="text-purple-600 dark:text-purple-400 text-xs font-bold">G2</span>
                 </div>
-                <span className="font-semibold text-slate-900">4,8 / 5</span>
+                <span className="font-semibold text-slate-900 dark:text-gray-100 text-sm">4,8 / 5</span>
               </div>
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-gray-100 mb-4 lg:mb-6 leading-tight">
               Başarılı Markaların<br />
               <span className="text-emerald-600">E-Ticaret Hikayesi</span>
             </h1>
 
             {/* Description */}
-            <p className="text-xl text-slate-600 mb-8 leading-relaxed">
+            <p className="text-lg lg:text-xl text-slate-600 dark:text-gray-300 mb-6 lg:mb-8 leading-relaxed">
               Bravioo&apos;ın güçlü e-ticaret altyapısı ile{' '}
               <span className="font-semibold text-emerald-600">10.000+</span> işletme 
               büyüme hedeflerine ulaştı. Onların başarı hikayelerini keşfedin.
@@ -160,43 +160,43 @@ export function CustomerHero() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.4 }}
-                  className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm"
+                  className="bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-2xl border border-slate-200 dark:border-gray-700 shadow-sm"
                 >
                   {/* Brand Header */}
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 bg-slate-100 rounded-xl flex items-center justify-center overflow-hidden">
+                  <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                    <div className="w-12 sm:w-16 h-12 sm:h-16 bg-slate-100 dark:bg-gray-700 rounded-xl flex items-center justify-center overflow-hidden">
                       {currentCompany.logo ? (
                         <Image 
                           src={currentCompany.logo} 
                           alt={`${currentCompany.name} logo`}
                           width={48}
                           height={48}
-                          className="w-12 h-12 object-contain"
+                          className="w-8 sm:w-12 h-8 sm:h-12 object-contain"
                         />
                       ) : (
-                        <span className="text-slate-600 font-bold text-xl">
+                        <span className="text-slate-600 dark:text-gray-300 font-bold text-lg sm:text-xl">
                           {currentCompany.name.charAt(0)}
                         </span>
                       )}
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-slate-900">{currentCompany.name}</h3>
-                      <p className="text-emerald-600 font-medium">{currentCompany.category}</p>
+                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-gray-100">{currentCompany.name}</h3>
+                      <p className="text-emerald-600 dark:text-emerald-400 font-medium text-sm sm:text-base">{currentCompany.category}</p>
                     </div>
                   </div>
 
                   {/* Metric */}
-                  <div className="text-center mb-6">
-                    <div className="text-3xl font-bold text-emerald-600 mb-2">
+                  <div className="text-center mb-4 sm:mb-6">
+                    <div className="text-2xl sm:text-3xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">
                       {currentCompany.metrics.primary}
                     </div>
-                    <p className="text-slate-600">{currentCompany.description}</p>
+                    <p className="text-slate-600 dark:text-gray-300 text-sm sm:text-base">{currentCompany.description}</p>
                   </div>
 
                   {/* Testimonial */}
-                  <blockquote className="border-l-4 border-emerald-500 pl-6 mb-6">
-                    <p className="text-slate-700 italic mb-3">&ldquo;{currentCompany.testimonial.text}&rdquo;</p>
-                    <footer className="text-sm text-slate-500">
+                  <blockquote className="border-l-4 border-emerald-500 dark:border-emerald-400 pl-4 sm:pl-6 mb-4 sm:mb-6">
+                    <p className="text-slate-700 dark:text-gray-300 italic mb-3 text-sm sm:text-base">&ldquo;{currentCompany.testimonial.text}&rdquo;</p>
+                    <footer className="text-sm text-slate-500 dark:text-gray-400">
                       <strong>{currentCompany.testimonial.author}</strong>, {currentCompany.testimonial.position}
                     </footer>
                   </blockquote>
@@ -205,7 +205,7 @@ export function CustomerHero() {
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full bg-emerald-600 text-white py-3 rounded-xl font-semibold hover:bg-emerald-700 transition-colors duration-300 flex items-center justify-center gap-2"
+                    className="w-full bg-emerald-600 text-white py-2.5 sm:py-3 rounded-xl font-semibold hover:bg-emerald-700 transition-colors duration-300 flex items-center justify-center gap-2"
                   >
                     <span>Detayları Gör</span>
                     <ArrowRight className="w-5 h-5" />
@@ -215,18 +215,18 @@ export function CustomerHero() {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="bg-gradient-to-br from-emerald-50 to-white p-8 rounded-2xl border border-emerald-100"
+                  className="bg-gradient-to-br from-emerald-50 to-white dark:from-emerald-900/20 dark:to-gray-800 p-6 lg:p-8 rounded-2xl border border-emerald-100 dark:border-emerald-800"
                 >
-                  <h3 className="text-xl font-bold text-slate-900 mb-4">
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-gray-100 mb-4">
                     Başarı Hikayelerini Keşfedin
                   </h3>
-                  <p className="text-slate-600 mb-6">
+                  <p className="text-slate-600 dark:text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base">
                     Sağdaki kartların üzerine gelerek her markanın detaylı başarı hikayesini öğrenin.
                   </p>
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="bg-emerald-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-emerald-700 transition-colors duration-300 inline-flex items-center gap-2"
+                    className="bg-emerald-600 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-semibold hover:bg-emerald-700 transition-colors duration-300 inline-flex items-center gap-2"
                   >
                     <span>Tümünü Gör</span>
                     <ArrowRight className="w-5 h-5" />
@@ -242,23 +242,23 @@ export function CustomerHero() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative h-[700px] overflow-hidden"
+            className="relative h-[500px] sm:h-[600px] lg:h-[700px] overflow-hidden"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
-            <div className="grid grid-cols-2 gap-4 h-full">
+            <div className="grid grid-cols-2 gap-2 sm:gap-4 h-full">
               
               {/* Left Column - Scrolling Up with Enhanced Animation */}
               <div className="relative overflow-hidden">
                 <motion.div
                   animate={isPaused ? {} : { y: ['0%', '-50%'] }}
                   transition={{ 
-                    duration: 25, 
+                    duration: 80, 
                     repeat: Infinity, 
                     ease: 'linear',
                     type: 'tween'
                   }}
-                  className="space-y-4"
+                  className="space-y-2 sm:space-y-4"
                   style={{ 
                     animationPlayState: isPaused ? 'paused' : 'running' 
                   }}
@@ -282,12 +282,12 @@ export function CustomerHero() {
                 <motion.div
                   animate={isPaused ? {} : { y: ['-50%', '0%'] }}
                   transition={{ 
-                    duration: 28, 
+                    duration: 95, 
                     repeat: Infinity, 
                     ease: 'linear',
                     type: 'tween'
                   }}
-                  className="space-y-4"
+                  className="space-y-2 sm:space-y-4"
                   style={{ 
                     animationPlayState: isPaused ? 'paused' : 'running' 
                   }}
@@ -308,8 +308,8 @@ export function CustomerHero() {
             </div>
 
             {/* Enhanced Gradient Overlays for Better Fade Effect */}
-            <div className="absolute top-0 left-0 right-0 h-12 bg-gradient-to-b from-slate-50 via-slate-50/80 to-transparent z-10 pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-slate-50 via-slate-50/80 to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute top-0 left-0 right-0 h-8 sm:h-12 bg-gradient-to-b from-slate-50 dark:from-gray-900 via-slate-50/80 dark:via-gray-900/80 to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-12 sm:h-16 bg-gradient-to-t from-slate-50 dark:from-gray-900 via-slate-50/80 dark:via-gray-900/80 to-transparent z-10 pointer-events-none"></div>
             
             {/* Pause Indicator */}
             <motion.div
@@ -319,7 +319,7 @@ export function CustomerHero() {
                 scale: isPaused ? 1 : 0.8 
               }}
               transition={{ duration: 0.3 }}
-              className="absolute top-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-medium z-20"
+              className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-black/50 backdrop-blur-sm text-white px-2 sm:px-3 py-1 rounded-full text-xs font-medium z-20"
             >
               Duraklatıldı
             </motion.div>
@@ -346,7 +346,7 @@ function CompanyCard({ company, height, onHover, onLeave, onClick, backgroundGra
       onHoverStart={onHover}
       onHoverEnd={onLeave}
       onClick={onClick}
-      whileHover={{ scale: 1.02, y: -8 }}
+      whileHover={{ scale: 1.02}}
       className="group relative cursor-pointer"
       style={{ height: `${height}px` }}
     >
@@ -370,13 +370,13 @@ function CompanyCard({ company, height, onHover, onLeave, onClick, backgroundGra
         </div>
 
         {/* Content Layer */}
-        <div className="absolute inset-0 p-4 flex flex-col justify-between text-white">
+        <div className="absolute inset-0 p-2 sm:p-4 flex flex-col justify-between text-white">
           
           {/* Top Section */}
           <div className="flex items-start justify-between">
             {/* Brand Logo with Enhanced Styling */}
             <motion.div 
-              className="w-12 h-12 bg-white/95 backdrop-blur-sm rounded-xl flex items-center justify-center overflow-hidden shadow-lg border border-white/20"
+              className="w-8 sm:w-12 h-8 sm:h-12 bg-white/95 backdrop-blur-sm rounded-lg sm:rounded-xl flex items-center justify-center overflow-hidden shadow-lg border border-white/20"
               whileHover={{ scale: 1.1, rotate: 5 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
@@ -386,10 +386,10 @@ function CompanyCard({ company, height, onHover, onLeave, onClick, backgroundGra
                   alt={`${company.name} logo`}
                   width={32}
                   height={32}
-                  className="w-8 h-8 object-contain"
+                  className="w-6 sm:w-8 h-6 sm:h-8 object-contain"
                 />
               ) : (
-                <span className="text-slate-800 font-bold text-lg">
+                <span className="text-slate-800 font-bold text-sm sm:text-lg">
                   {company.name.charAt(0)}
                 </span>
               )}
@@ -398,7 +398,7 @@ function CompanyCard({ company, height, onHover, onLeave, onClick, backgroundGra
             {/* Success Badge */}
             <motion.div
               whileHover={{ scale: 1.1, rotate: 15 }}
-              className="w-8 h-8 bg-emerald-500/90 rounded-full backdrop-blur-sm flex items-center justify-center shadow-lg border border-emerald-300/30"
+              className="w-6 sm:w-8 h-6 sm:h-8 bg-emerald-500/90 rounded-full backdrop-blur-sm flex items-center justify-center shadow-lg border border-emerald-300/30"
               transition={{ type: "spring", stiffness: 400 }}
             >
               <span className="text-white text-xs font-bold">✓</span>
@@ -412,12 +412,12 @@ function CompanyCard({ company, height, onHover, onLeave, onClick, backgroundGra
             transition={{ duration: 0.3 }}
           >
             {/* Metric with Enhanced Typography */}
-            <div className="text-xl font-bold mb-3 drop-shadow-lg text-white">
+            <div className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 drop-shadow-lg text-white">
               {company.metrics.primary}
             </div>
             
             {/* Brand Name & Category */}
-            <div className="text-white/95 font-semibold text-sm mb-1 drop-shadow-md">
+            <div className="text-white/95 font-semibold text-xs sm:text-sm mb-1 drop-shadow-md">
               {company.name}
             </div>
             <div className="text-white/80 text-xs font-medium">
@@ -438,15 +438,15 @@ function CompanyCard({ company, height, onHover, onLeave, onClick, backgroundGra
             initial={{ opacity: 0, y: 20 }}
             whileHover={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.1 }}
-            className="absolute bottom-4 left-4 right-4"
+            className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 right-2 sm:right-4"
           >
-            <div className="bg-white/10 backdrop-blur-md rounded-xl px-4 py-2 border border-white/20">
+            <div className="bg-white/10 backdrop-blur-md rounded-lg sm:rounded-xl px-2 sm:px-4 py-1.5 sm:py-2 border border-white/20">
               <div className="flex items-center justify-between">
-                <span className="text-white/90 text-sm font-medium">
+                <span className="text-white/90 text-xs sm:text-sm font-medium">
                   Devamını Oku
                 </span>
                 <motion.svg 
-                  className="w-4 h-4 text-white/90"
+                  className="w-3 sm:w-4 h-3 sm:h-4 text-white/90"
                   whileHover={{ x: 3 }}
                   transition={{ type: "spring", stiffness: 400 }}
                   fill="none" 

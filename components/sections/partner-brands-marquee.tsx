@@ -144,7 +144,7 @@ export function PartnerBrandsMarquee() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-sand-50 to-white overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-sand-50 to-white dark:from-gray-900 dark:to-gray-800 overflow-hidden transition-colors duration-300">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -160,7 +160,7 @@ export function PartnerBrandsMarquee() {
             </div>
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-ink-900 mb-6 font-display">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-ink-900 dark:text-gray-100 mb-6 font-display">
             {locale === 'tr' 
               ? 'Anlaşmalı Markalarımızdan'
               : 'Exclusive Discounts from'
@@ -171,7 +171,7 @@ export function PartnerBrandsMarquee() {
             </span>
           </h2>
           
-          <p className="text-xl text-ink-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-ink-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
             {locale === 'tr'
               ? 'Çalışanlarınız 500+ markayla anlaşmalı özel indirimlerden faydalanabilir. Sağlıktan teknolojiye, eğitimden eğlenceye kadar her alanda avantajlar.'
               : 'Your employees can benefit from exclusive discounts with 500+ partner brands. Advantages in every field from healthcare to technology, education to entertainment.'
@@ -190,7 +190,7 @@ export function PartnerBrandsMarquee() {
                 <div className="text-2xl md:text-3xl font-bold text-gold-600 mb-1 font-display">
                   {stat.number}
                 </div>
-                <div className="text-sm text-ink-600">{stat.label}</div>
+                <div className="text-sm text-ink-600 dark:text-gray-400">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -199,8 +199,8 @@ export function PartnerBrandsMarquee() {
         {/* Marquee Container */}
         <div className="relative overflow-hidden">
           {/* Gradient Overlays */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-sand-50 to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-sand-50 to-transparent z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-sand-50 dark:from-gray-900 to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-sand-50 dark:from-gray-900 to-transparent z-10" />
           
           {/* Scrolling Brands */}
           <div className="flex overflow-hidden">
@@ -221,15 +221,15 @@ export function PartnerBrandsMarquee() {
               {duplicatedBrands.map((brand, index) => (
                 <motion.div
                   key={`${brand.name}-${index}`}
-                  className="group relative flex-shrink-0 w-80"
+                  className="group relative flex-shrink-0 w-72 sm:w-80"
                   onMouseEnter={() => setHoveredBrand(`${brand.name}-${index}`)}
                   onMouseLeave={() => setHoveredBrand(null)}
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="relative h-48 bg-white rounded-2xl border-2 border-sand-200 hover:border-gold-300 transition-all duration-300 hover:shadow-2xl overflow-hidden">
+                  <div className="relative h-40 sm:h-48 bg-white dark:bg-gray-800 rounded-2xl border-2 border-sand-200 dark:border-gray-700 hover:border-gold-300 dark:hover:border-gold-400 transition-all duration-300 hover:shadow-2xl overflow-hidden">
                     {/* Brand Logo Section */}
-                    <div className="h-32 flex items-center justify-center p-6 bg-gradient-to-br from-white to-sand-50">
+                    <div className="h-24 sm:h-32 flex items-center justify-center p-4 sm:p-6 bg-gradient-to-br from-white to-sand-50 dark:from-gray-800 dark:to-gray-700">
                       <div className="relative w-full h-full">
                         <Image
                           src={brand.logo}
@@ -242,15 +242,15 @@ export function PartnerBrandsMarquee() {
                     </div>
 
                     {/* Info Section */}
-                    <div className="h-16 px-4 py-3 bg-white border-t border-sand-100">
+                    <div className="h-16 px-4 py-3 bg-white dark:bg-gray-800 border-t border-sand-100 dark:border-gray-700">
                       <div className="flex items-center justify-between">
                         <div className="flex-1">
-                          <h3 className="font-semibold text-ink-900 text-sm truncate">
+                          <h3 className="font-semibold text-ink-900 dark:text-gray-100 text-sm truncate">
                             {brand.name}
                           </h3>
                           <div className="flex items-center gap-1 mt-1">
                             <span className="text-xs">{getCategoryIcon(brand.category)}</span>
-                            <span className="text-xs text-ink-500">{brand.category}</span>
+                            <span className="text-xs text-ink-500 dark:text-gray-400">{brand.category}</span>
                           </div>
                         </div>
                         <div className="text-right">
@@ -283,7 +283,7 @@ export function PartnerBrandsMarquee() {
                         <span className="text-gold-400 font-semibold">{brand.discount} {locale === 'tr' ? 'İndirim' : 'Discount'}</span>
                       </div>
                       
-                      <p className="text-sand-200 text-sm leading-relaxed">
+                      <p className="text-sand-200 dark:text-gray-300 text-sm leading-relaxed">
                         {brand.description}
                       </p>
                       
@@ -321,14 +321,14 @@ export function PartnerBrandsMarquee() {
                 </div>
               </div>
               
-              <h3 className="text-3xl md:text-4xl font-bold mb-4 font-display">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 font-display">
                 {locale === 'tr' 
                   ? 'Daha Fazla Marka, Daha Fazla Avantaj'
                   : 'More Brands, More Advantages'
                 }
               </h3>
               
-              <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
                 {locale === 'tr'
                   ? 'Her ay yeni markalarla anlaşmalar yapıyoruz. Çalışanlarınız için sınırsız avantajlar keşfedin.'
                   : 'We make deals with new brands every month. Discover unlimited advantages for your employees.'

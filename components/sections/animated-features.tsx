@@ -85,7 +85,7 @@ export function AnimatedFeaturesSection() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
-    <section className="relative py-24 bg-gradient-to-br from-sand-50 to-white overflow-hidden">
+    <section className="relative py-24 bg-gradient-to-br from-sand-50 to-white dark:from-gray-900 dark:to-gray-800 overflow-hidden transition-colors duration-300">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-brand-200 to-gold-200 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
@@ -103,7 +103,7 @@ export function AnimatedFeaturesSection() {
           transition={{ duration: 0.6 }}
         >
           <motion.span 
-            className="inline-block px-4 py-2 bg-brand-100 text-brand-700 rounded-full text-sm font-semibold mb-4"
+            className="inline-block px-4 py-2 bg-brand-100 dark:bg-brand-900 text-brand-700 dark:text-brand-300 rounded-full text-sm font-semibold mb-4 transition-colors duration-300"
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
@@ -111,7 +111,7 @@ export function AnimatedFeaturesSection() {
           >
             Our Solutions
           </motion.span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 mb-6 font-display">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 dark:text-gray-100 mb-6 font-display transition-colors duration-300">
             The tools you need to{' '}
             <span className="bg-gradient-to-r from-brand-600 to-emerald-600 bg-clip-text text-transparent">
               shape your workforce
@@ -125,7 +125,7 @@ export function AnimatedFeaturesSection() {
           >
             <Button 
               variant="outline" 
-              className="border-2 border-brand-200 text-brand-700 hover:bg-brand-50 rounded-full px-8 py-3 font-semibold"
+              className="border-2 border-brand-200 dark:border-brand-700 text-brand-700 dark:text-brand-300 hover:bg-brand-50 dark:hover:bg-brand-900 rounded-full px-8 py-3 font-semibold transition-colors duration-300"
             >
               Explore our platform
               <ArrowRight className="ml-2 h-4 w-4" />

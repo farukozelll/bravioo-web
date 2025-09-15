@@ -93,7 +93,7 @@ export function EnhancedHero() {
 
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-sand-50 via-white to-emerald-50 overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-br from-sand-50 via-white to-emerald-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden transition-colors duration-300">
       {/* Minimal Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Single gradient blob for subtle background */}
@@ -101,10 +101,10 @@ export function EnhancedHero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-screen py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-screen py-12 lg:py-20">
           {/* Left Content */}
           <motion.div 
-            className="space-y-8"
+            className="space-y-6 lg:space-y-8"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -114,10 +114,10 @@ export function EnhancedHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-brand-500/10 to-emerald-500/10 border border-brand-200 rounded-full"
+              className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-brand-500/10 to-emerald-500/10 dark:from-brand-400/20 dark:to-emerald-400/20 border border-brand-200 dark:border-brand-600 rounded-full"
             >
-              <Sparkles className="h-4 w-4 text-brand-600" />
-              <span className="text-sm font-semibold text-brand-700">
+              <Sparkles className="h-4 w-4 text-brand-600 dark:text-brand-400" />
+              <span className="text-sm font-semibold text-brand-700 dark:text-brand-300">
                 {locale === 'tr' 
                   ? '🎉 2025\'ün En İyi HR Tech Ürünü Seçildik!'
                   : '🎉 Winner of Best HR Tech Product 2025!'
@@ -128,7 +128,7 @@ export function EnhancedHero() {
             {/* Main Heading */}
             <div>
               <motion.h1 
-                className="text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 mb-6 font-display leading-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-ink-900 dark:text-gray-100 mb-4 lg:mb-6 font-display leading-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
@@ -140,7 +140,7 @@ export function EnhancedHero() {
               </motion.h1>
 
               <motion.p 
-                className="text-lg md:text-xl text-ink-600 leading-relaxed max-w-2xl mb-6"
+                className="text-base md:text-lg lg:text-xl text-ink-600 dark:text-gray-300 leading-relaxed max-w-2xl mb-4 lg:mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
@@ -162,7 +162,7 @@ export function EnhancedHero() {
             >
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-brand-500 to-emerald-600 hover:from-brand-600 hover:to-emerald-700 text-white rounded-2xl px-8 py-4 text-lg font-semibold shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
+                className="bg-gradient-to-r from-brand-500 to-emerald-600 hover:from-brand-600 hover:to-emerald-700 text-white rounded-2xl px-6 lg:px-8 py-3 lg:py-4 text-base lg:text-lg font-semibold shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
               >
                 {locale === 'tr' ? 'Ücretsiz Demo Başlat' : 'Start Free Demo'}
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -171,7 +171,7 @@ export function EnhancedHero() {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-2 border-ink-200 text-ink-700 hover:bg-ink-50 rounded-2xl px-8 py-4 text-lg font-semibold group"
+                className="border-2 border-ink-200 dark:border-gray-600 text-ink-700 dark:text-gray-300 hover:bg-ink-50 dark:hover:bg-gray-800 rounded-2xl px-6 lg:px-8 py-3 lg:py-4 text-base lg:text-lg font-semibold group"
               >
                 <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
                 {locale === 'tr' ? 'Videoyu İzle' : 'Watch Video'}
@@ -190,7 +190,7 @@ export function EnhancedHero() {
                 return (
                   <div key={index} className="flex items-center gap-2">
                     <Icon className={`h-4 w-4 ${badge.color}`} />
-                    <span className="text-sm font-medium text-ink-600">{badge.text}</span>
+                    <span className="text-sm font-medium text-ink-600 dark:text-gray-400">{badge.text}</span>
                   </div>
                 );
               })}
@@ -207,7 +207,7 @@ export function EnhancedHero() {
             transition={{ duration: shouldReduceMotion ? 0.3 : 0.8, ease: "easeOut", delay: shouldReduceMotion ? 0 : 0.2 }}
           >
             {/* Video Container - Using Direct Wistia Embed */}
-            <div className="relative aspect-video mb-6 rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-brand-50 to-emerald-50">
+            <div className="relative aspect-video mb-4 lg:mb-6 rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-brand-50 to-emerald-50 dark:from-gray-800 dark:to-gray-700">
               <div className="wistia_responsive_padding" style={{padding:'56.25% 0 0 0', position:'relative'}}>
                 <div className="wistia_responsive_wrapper" style={{height:'100%', left:0, position:'absolute', top:0, width:'100%'}}>
                   <iframe 
@@ -216,7 +216,7 @@ export function EnhancedHero() {
                     allow="autoplay; fullscreen" 
                     allowFullScreen 
                     frameBorder="0" 
-                    className="wistia_embed w-full h-full rounded-3xl"
+                    className="wistia_embed w-full h-full rounded-2xl lg:rounded-3xl"
                     name="wistia_embed"
                   />
                 </div>
@@ -232,7 +232,7 @@ export function EnhancedHero() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.95 }}
                   transition={{ duration: shouldReduceMotion ? 0.2 : 0.6, ease: "easeInOut" }}
-                  className={`relative h-80 md:h-96 rounded-3xl bg-gradient-to-br ${features[currentFeature].color} p-6 overflow-hidden shadow-xl`}
+                  className={`relative h-72 sm:h-80 md:h-96 rounded-2xl lg:rounded-3xl bg-gradient-to-br ${features[currentFeature].color} p-4 sm:p-6 overflow-hidden shadow-xl`}
                 >
                   {/* Simplified Background Pattern */}
                   <div className="absolute inset-0">
@@ -248,10 +248,10 @@ export function EnhancedHero() {
                           className: "h-10 w-10 text-white"
                         })}
                       </div>
-                      <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">
+                      <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4 leading-tight">
                         {features[currentFeature].title}
                       </h3>
-                      <p className="text-white/95 text-lg leading-relaxed max-w-sm">
+                      <p className="text-white/95 text-base sm:text-lg leading-relaxed max-w-sm">
                         {features[currentFeature].description}
                       </p>
                     </div>
@@ -268,28 +268,28 @@ export function EnhancedHero() {
                   </div>
 
                   {/* Stock Image Overlay */}
-                  <div className="absolute bottom-4 right-4 w-32 h-32 rounded-2xl overflow-hidden shadow-lg opacity-90">
+                  <div className="absolute bottom-2 sm:bottom-4 right-2 sm:right-4 w-24 sm:w-32 h-24 sm:h-32 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg opacity-90">
                     {currentFeature === 0 && (
                       <div className="w-full h-full bg-gradient-to-br from-emerald-100 to-teal-200 flex items-center justify-center">
                         <div className="text-center">
-                          <Users className="h-8 w-8 text-emerald-600 mx-auto mb-2" />
-                          <div className="text-xs font-semibold text-emerald-700">Team Work</div>
+                          <Users className="h-6 sm:h-8 w-6 sm:w-8 text-emerald-600 mx-auto mb-1 sm:mb-2" />
+                          <div className="text-xs font-semibold text-emerald-700 hidden sm:block">Team Work</div>
                         </div>
                       </div>
                     )}
                     {currentFeature === 1 && (
                       <div className="w-full h-full bg-gradient-to-br from-purple-100 to-pink-200 flex items-center justify-center">
                         <div className="text-center">
-                          <Gift className="h-8 w-8 text-purple-600 mx-auto mb-2" />
-                          <div className="text-xs font-semibold text-purple-700">Rewards</div>
+                          <Gift className="h-6 sm:h-8 w-6 sm:w-8 text-purple-600 mx-auto mb-1 sm:mb-2" />
+                          <div className="text-xs font-semibold text-purple-700 hidden sm:block">Rewards</div>
                         </div>
                       </div>
                     )}
                     {currentFeature === 2 && (
                       <div className="w-full h-full bg-gradient-to-br from-blue-100 to-indigo-200 flex items-center justify-center">
                         <div className="text-center">
-                          <BarChart3 className="h-8 w-8 text-blue-600 mx-auto mb-2" />
-                          <div className="text-xs font-semibold text-blue-700">Analytics</div>
+                          <BarChart3 className="h-6 sm:h-8 w-6 sm:w-8 text-blue-600 mx-auto mb-1 sm:mb-2" />
+                          <div className="text-xs font-semibold text-blue-700 hidden sm:block">Analytics</div>
                         </div>
                       </div>
                     )}
@@ -317,17 +317,17 @@ export function EnhancedHero() {
             <motion.div
               animate={{ y: shouldReduceMotion ? 0 : [0, -10, 0] }}
               transition={{ duration: shouldReduceMotion ? 0 : 3, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-6 -left-6 bg-white rounded-2xl p-3 shadow-lg border border-sand-200 hidden lg:block"
+              className="absolute -top-6 -left-6 bg-white dark:bg-gray-800 rounded-2xl p-3 shadow-lg border border-sand-200 dark:border-gray-700 hidden lg:block"
             >
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center">
                   <CheckCircle className="h-4 w-4 text-white" />
                 </div>
                 <div>
-                  <div className="font-semibold text-ink-900 text-xs">
+                  <div className="font-semibold text-ink-900 dark:text-gray-100 text-xs">
                     {locale === 'tr' ? 'Ahmet Yılmaz' : 'John Smith'}
                   </div>
-                  <div className="text-xs text-ink-600">
+                  <div className="text-xs text-ink-600 dark:text-gray-400">
                     {locale === 'tr' ? 'Takdir aldı!' : 'Recognized!'}
                   </div>
                 </div>
@@ -337,17 +337,17 @@ export function EnhancedHero() {
             <motion.div
               animate={{ y: shouldReduceMotion ? 0 : [0, 10, 0] }}
               transition={{ duration: shouldReduceMotion ? 0 : 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -bottom-6 -right-6 bg-white rounded-2xl p-3 shadow-lg border border-sand-200 hidden lg:block"
+              className="absolute -bottom-6 -right-6 bg-white dark:bg-gray-800 rounded-2xl p-3 shadow-lg border border-sand-200 dark:border-gray-700 hidden lg:block"
             >
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center">
                   <TrendingUp className="h-4 w-4 text-white" />
                 </div>
                 <div>
-                  <div className="font-semibold text-ink-900 text-xs">
+                  <div className="font-semibold text-ink-900 dark:text-gray-100 text-xs">
                     {locale === 'tr' ? '+185% ROI' : '+185% ROI'}
                   </div>
-                  <div className="text-xs text-ink-600">
+                  <div className="text-xs text-ink-600 dark:text-gray-400">
                     {locale === 'tr' ? 'Bu ay' : 'This month'}
                   </div>
                 </div>
