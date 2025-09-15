@@ -135,29 +135,7 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Newsletter Section */}
-        <div className="mt-12 lg:mt-16 p-6 sm:p-8 bg-white/5 dark:bg-white/5 backdrop-blur-sm rounded-2xl lg:rounded-3xl border border-white/10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
-            <div>
-              <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
-                {t('footer.newsletter.title')}
-              </h3>
-              <p className="text-sm sm:text-base text-emerald-100 dark:text-gray-300">
-                {t('footer.newsletter.description')}
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <input
-                type="email"
-                placeholder={t('footer.newsletter.placeholder')}
-                className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-transparent transition-all duration-300"
-              />
-              <button className="px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/25 whitespace-nowrap">
-                {t('footer.newsletter.subscribe')}
-              </button>
-            </div>
-          </div>
-        </div>
+
 
         {/* Bottom section - Enhanced */}
         <div className="mt-12 lg:mt-16 pt-6 sm:pt-8 border-t border-white/10">
@@ -188,9 +166,7 @@ export function Footer() {
                   {t(footerConfig.status.textKey)}
                 </span>
               </div>
-              <div className="text-xs text-emerald-300 dark:text-gray-500">
-                99.9% {t('footer.uptime')}
-              </div>
+           
             </div>
           </div>
         </div>
