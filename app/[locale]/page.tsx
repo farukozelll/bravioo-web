@@ -11,7 +11,9 @@ import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import { generateOrganizationJsonLd, generateWebsiteJsonLd, generateProductJsonLd } from '@/lib/seo';
 import { BrandBar } from '@/components/sections/brand-bar';
 import { CompanyBar } from '@/components/sections/company-bar';
-
+import { CustomerGallery } from '@/components/sections/customer-gallery';
+import { CustomerTestimonials } from '@/components/sections/customer-testimonials';
+  
 export async function generateMetadata({
   params,
 }: {
@@ -63,7 +65,8 @@ export default async function HomePage({
           <EnhancedHero />
           <CompanyBar />
           <AnimatedFeaturesSection />
-
+          <CustomerGallery />
+          <CustomerTestimonials />
           <ProfessionalCustomerResults />
          
           <HowItWorksSection />

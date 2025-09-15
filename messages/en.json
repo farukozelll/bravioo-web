@@ -190,10 +190,52 @@
   },
   "footer": {
     "description": "Bravioo helps organizations build stronger workplace cultures through meaningful recognition and rewards.",
-    "product": "Product",
-    "company": "Company",
-    "legal": "Legal",
-    "support": "Support"
+    "copyright": "All rights reserved.",
+    "madeWith": {
+      "prefix": "Made for better workplaces",
+      "suffix": "with love"
+    },
+    "status": {
+      "consulting": "Dotnet Consulting"
+    },
+    "social": {
+      "title": "Follow Us",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn", 
+      "instagram": "Instagram",
+      "youtube": "YouTube",
+      "email": "Email"
+    },
+    "theme": {
+      "title": "Theme",
+      "light": "Light Mode",
+      "dark": "Dark Mode",
+      "switchToLight": "Switch to light mode",
+      "switchToDark": "Switch to dark mode"
+    },
+    "sections": {
+      "product": {
+        "title": "Product",
+        "features": "Features",
+        "integrations": "Integrations",
+        "pricing": "Pricing",
+        "demo": "Demo"
+      },
+      "company": {
+        "title": "Company",
+        "about": "About Us",
+        "contact": "Contact",
+        "customers": "Customers",
+        "brands": "Brands"
+      },
+      "legal": {
+        "title": "Legal",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "cookies": "Cookie Policy",
+        "accessibility": "Accessibility"
+      }
+    }
   },
   "cookies": {
     "banner": {

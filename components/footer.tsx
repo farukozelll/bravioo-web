@@ -3,39 +3,18 @@
 import React from 'react';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
-import { Heart, Twitter, Linkedin, Facebook, Mail } from 'lucide-react';
+import { Heart, Moon, Sun } from 'lucide-react';
+import { footerSections, socialLinks, footerConfig } from '@/config/footer';
+import { useTheme } from '@/contexts/theme-context';
+import Image from 'next/image';
 
 export function Footer() {
   const t = useTranslations();
   const locale = useLocale();
-
-  const footerLinks = {
-    product: [
-      { name: 'Features', href: `/${locale}#features` },
-      { name: 'Integrations', href: `/${locale}#integrations` },
-      { name: t('navigation.pricing'), href: `/${locale}/pricing` },
-    ],
-    company: [
-      { name: 'About Us', href: `/${locale}/about` },
-      { name: t('navigation.contact'), href: `/${locale}/contact` },
-    ],
-    legal: [
-      { name: 'Privacy Policy', href: `/${locale}/legal/privacy` },
-      { name: 'Terms of Use', href: `/${locale}/legal/terms` },
-      { name: 'Cookie Policy', href: `/${locale}/legal/cookies` },
-      { name: 'Accessibility', href: `/${locale}/legal/accessibility` },
-    ]
-  };
-
-  const socialLinks = [
-    { name: 'Twitter', href: 'https://twitter.com/bravioo', icon: Twitter },
-    { name: 'LinkedIn', href: 'https://linkedin.com/company/bravioo', icon: Linkedin },
-    { name: 'Facebook', href: 'https://facebook.com/bravioo', icon: Facebook },
-    { name: 'Email', href: 'mailto:hello@bravioo.com', icon: Mail },
-  ];
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <footer className="relative bg-gradient-to-br from-ink-900 via-ink-800 to-brand-900 text-white overflow-hidden">
+    <footer className="relative bg-gradient-to-br from-ink-900 via-ink-800 to-brand-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-white overflow-hidden transition-colors duration-300">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-50">
         <div className="h-full w-full bg-repeat" style={{
@@ -48,123 +27,91 @@ export function Footer() {
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-radial from-gold-500/10 to-transparent rounded-full blur-3xl" />
       
       <div className="relative mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:px-8">
-        {/* Main footer content */}
-        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          {/* Company info */}
-          <div className="space-y-6 lg:col-span-1">
+        {/* Main footer content - 3 column layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+          {/* Left Column - Company Info */}
+          <div className="space-y-8">
+            {/* Logo */}
             <div>
-              <Link href={`/${locale}`} className="flex items-center gap-3 group">
-                <img 
-                  src="/Bravioo_logotype-white.png" 
-                  alt="Bravioo" 
+              <Link href={`/${locale}`} className="inline-block group">
+                <Image
+                  src={footerConfig.company.logoSrc}
+                  alt={footerConfig.company.logoAlt}
+                  width={200}
+                  height={48}
                   className="h-12 w-auto group-hover:scale-105 transition-transform duration-300"
                 />
               </Link>
             </div>
             
-            <p className="text-base leading-7 text-sand-300 max-w-md">
+            {/* Description */}
+            <p className="text-base leading-7 text-sand-300 dark:text-gray-300 max-w-sm">
               {t('footer.description')}
             </p>
             
             {/* Social Links */}
             <div>
               <h4 className="text-sm font-semibold text-white mb-4">
-                {locale === 'tr' ? 'Bizi Takip Edin' : 'Follow Us'}
+                {t('footer.social.title')}
               </h4>
-              <div className="flex gap-3">
+              <div className="flex flex-wrap gap-3">
                 {socialLinks.map((item) => {
                   const Icon = item.icon;
                   return (
                     <Link
-                      key={item.name}
+                      key={item.nameKey}
                       href={item.href}
-                      className="w-10 h-10 bg-white/10 rounded-2xl flex items-center justify-center text-sand-400 hover:text-white hover:bg-brand-500 transition-all duration-300 hover:scale-110"
-                      target={item.href.startsWith('http') ? '_blank' : undefined}
-                      rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      className="w-10 h-10 bg-white/10 dark:bg-white/5 rounded-2xl flex items-center justify-center text-sand-400 dark:text-gray-400 hover:text-white hover:bg-brand-500 dark:hover:bg-brand-600 transition-all duration-300 hover:scale-110 group"
+                      target={item.external ? '_blank' : undefined}
+                      rel={item.external ? 'noopener noreferrer' : undefined}
+                      title={t(item.nameKey)}
                     >
-                      <span className="sr-only">{item.name}</span>
+                      <span className="sr-only">{t(item.nameKey)}</span>
                       <Icon className="h-5 w-5" />
                     </Link>
                   );
                 })}
               </div>
             </div>
-   {/* Links grid */}
-          <div className="mt-16 xl:col-span-2 xl:mt-0">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {/* Product Links */}
-              <div>
-                <h3 className="text-sm font-semibold leading-6 text-white mb-6 flex items-center gap-2">
-                  <div className="w-6 h-6 bg-brand-500 rounded-lg flex items-center justify-center">
-                    <span className="text-xs text-white">P</span>
-                  </div>
-                  {t('footer.product')}
-                </h3>
-                <ul className="space-y-3">
-                  {footerLinks.product.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm leading-6 text-sand-300 hover:text-brand-400 transition-colors hover:translate-x-1 transform duration-200 block"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
 
-              {/* Company Links */}
-              <div>
-                <h3 className="text-sm font-semibold leading-6 text-white mb-6 flex items-center gap-2">
-                  <div className="w-6 h-6 bg-gold-500 rounded-lg flex items-center justify-center">
-                    <span className="text-xs text-white">C</span>
-                  </div>
-                  {t('footer.company')}
-                </h3>
-                <ul className="space-y-3">
-                  {footerLinks.company.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm leading-6 text-sand-300 hover:text-brand-400 transition-colors hover:translate-x-1 transform duration-200 block"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Legal Links */}
-              <div>
-                <h3 className="text-sm font-semibold leading-6 text-white mb-6 flex items-center gap-2">
-                  <div className="w-6 h-6 bg-red-500 rounded-lg flex items-center justify-center">
-                    <span className="text-xs text-white">L</span>
-                  </div>
-                  {t('footer.legal')}
-                </h3>
-                <ul className="space-y-3">
-                  {footerLinks.legal.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm leading-6 text-sand-300 hover:text-brand-400 transition-colors hover:translate-x-1 transform duration-200 block"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-            
+            {/* Dark Mode Toggle */}
+            <div>
+              <h4 className="text-sm font-semibold text-white mb-4">
+                {t('footer.theme.title')}
+              </h4>
+              <button
+                onClick={toggleTheme}
+                className="flex items-center gap-3 px-4 py-2 bg-white/10 dark:bg-white/5 rounded-2xl text-sand-300 dark:text-gray-300 hover:text-white hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 group"
+                aria-label={theme === 'light' ? t('footer.theme.switchToDark') : t('footer.theme.switchToLight')}
+              >
+                {theme === 'light' ? (
+                  <>
+                    <Moon className="h-4 w-4" />
+                    <span className="text-sm">{t('footer.theme.dark')}</span>
+                  </>
+                ) : (
+                  <>
+                    <Sun className="h-4 w-4" />
+                    <span className="text-sm">{t('footer.theme.light')}</span>
+                  </>
+                )}
+              </button>
             </div>
           </div>
-     
-          </div>
 
-       
+          {/* Middle & Right Columns - Links */}
+          <div className="lg:col-span-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+              {footerSections.map((section) => (
+                <FooterLinkColumn
+                  key={section.titleKey}
+                  section={section}
+                  locale={locale}
+                  t={t}
+                />
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Bottom section */}
@@ -173,32 +120,74 @@ export function Footer() {
             {/* Copyright */}
             <div className="text-center md:text-left">
               <p className="text-sm text-sand-400">
-                &copy; {new Date().getFullYear()} Bravioo. 
-                {locale === 'tr' ? ' Tüm hakları saklıdır.' : ' All rights reserved.'}
+                &copy; {new Date().getFullYear()} Bravioo. {t('footer.copyright')}
               </p>
             </div>
 
             {/* Made with love */}
             <div className="flex items-center justify-center gap-2 text-sm text-sand-400">
-              <span>{locale === 'tr' ? 'Daha iyi iş yerleri için' : 'Made for better workplaces'}</span>
+              <span>{t('footer.madeWith.prefix')}</span>
               <Heart className="h-4 w-4 text-red-500 fill-current animate-pulse" />
-              <span>{locale === 'tr' ? 'ile yapıldı' : 'with love'}</span>
+              <span>{t('footer.madeWith.suffix')}</span>
             </div>
 
             {/* Status & Version */}
             <div className="flex items-center justify-center md:justify-end gap-4">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
+                <div className={`w-2 h-2 ${footerConfig.status.indicatorColor} rounded-full animate-pulse`} />
                 <span className="text-xs text-sand-400">
-                  {locale === 'tr' ? 'Dotnet Consulting' : 'Dotnet Consulting'}
+                  {t(footerConfig.status.textKey)}
                 </span>
               </div>
             </div>
           </div>
-
-      
         </div>
       </div>
     </footer>
+  );
+}
+
+// Reusable FooterLinkColumn component
+interface FooterLinkColumnProps {
+  section: {
+    titleKey: string;
+    iconKey: string;
+    color: string;
+    links: Array<{
+      nameKey: string;
+      href: string;
+      external?: boolean;
+    }>;
+  };
+  locale: string;
+  t: (key: string) => string;
+}
+
+function FooterLinkColumn({ section, locale, t }: FooterLinkColumnProps) {
+  return (
+    <div>
+      <h3 className="text-sm font-semibold leading-6 text-white mb-6 flex items-center gap-2">
+        <div className={`w-6 h-6 ${section.color} rounded-lg flex items-center justify-center`}>
+          <span className="text-xs text-white font-bold">{section.iconKey}</span>
+        </div>
+        {t(section.titleKey)}
+      </h3>
+      <ul className="space-y-3">
+        {section.links.map((link) => (
+          <li key={link.nameKey}>
+            <Link
+              href={`/${locale}${link.href}`}
+              className="text-sm leading-6 text-sand-300 hover:text-brand-400 transition-all duration-200 hover:translate-x-1 transform block group"
+              target={link.external ? '_blank' : undefined}
+              rel={link.external ? 'noopener noreferrer' : undefined}
+            >
+              <span className="group-hover:border-b group-hover:border-brand-400/50 transition-all duration-200">
+                {t(link.nameKey)}
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

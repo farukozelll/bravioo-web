@@ -44,17 +44,6 @@ export const footerSections: FooterSection[] = [
     ]
   },
   {
-    titleKey: 'footer.sections.resources.title',
-    iconKey: 'R',
-    color: 'bg-purple-500',
-    links: [
-      { nameKey: 'footer.sections.resources.blog', href: '/blog' },
-      { nameKey: 'footer.sections.resources.help', href: '/help' },
-      { nameKey: 'footer.sections.resources.security', href: '/security' },
-      { nameKey: 'footer.sections.resources.api', href: '/api-docs' },
-    ]
-  },
-  {
     titleKey: 'footer.sections.legal.title',
     iconKey: 'L',
     color: 'bg-red-500',

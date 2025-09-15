@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display, Fraunces } from "next/font/google";
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { ThemeProvider } from '@/contexts/theme-context';
 import "./globals.css";
 
 const inter = Inter({
@@ -80,9 +81,11 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfair.variable} ${fraunces.variable} font-sans antialiased`}
       >
-        {children}
-        <Analytics />
-        <SpeedInsights />
+        <ThemeProvider>
+          {children}
+          <Analytics />
+          <SpeedInsights />
+        </ThemeProvider>
       </body>
     </html>
   );

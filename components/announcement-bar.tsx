@@ -6,9 +6,18 @@ import { useLocale } from 'next-intl';
 import { X, Sparkles, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export function AnnouncementBar() {
+interface AnnouncementBarProps {
+  onClose?: () => void;
+}
+
+export function AnnouncementBar({ onClose }: AnnouncementBarProps) {
   const locale = useLocale();
   const [isVisible, setIsVisible] = useState(true);
+
+  const handleClose = () => {
+    setIsVisible(false);
+    onClose?.();
+  };
 
   const announcements = {
     tr: {
@@ -70,7 +79,7 @@ export function AnnouncementBar() {
             <button
               type="button"
               className="flex-shrink-0 rounded-full p-1 hover:bg-white/20 transition-colors"
-              onClick={() => setIsVisible(false)}
+              onClick={handleClose}
             >
               <span className="sr-only">Dismiss</span>
               <X className="h-4 w-4" />

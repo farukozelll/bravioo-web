@@ -56,8 +56,8 @@ export function LiveSupport() {
 
   return (
     <>
-      {/* Floating Buttons */}
-      <div className="fixed bottom-6 left-6 z-50 flex flex-col gap-3">
+      {/* Floating Buttons - Responsive positioning */}
+      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-6 md:left-6 z-50 flex flex-col gap-3">
         {/* AI Assistant Button */}
         <motion.button
           onClick={() => {
@@ -78,10 +78,10 @@ export function LiveSupport() {
         >
           <Bot className="h-6 w-6 text-white" />
           
-          {/* Tooltip */}
-          <div className="absolute right-16 top-1/2 -translate-y-1/2 bg-ink-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+          {/* Tooltip - Responsive */}
+          <div className="absolute right-16 md:right-16 md:left-auto left-auto top-1/2 -translate-y-1/2 bg-ink-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden sm:block">
             AI Asistan
-            <div className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-ink-900"></div>
+            <div className="absolute left-full md:left-full md:right-auto right-auto top-1/2 -translate-y-1/2 border-4 border-transparent border-l-ink-900 md:border-l-ink-900 md:border-r-transparent border-r-transparent"></div>
           </div>
 
           {/* Pulse animation */}
@@ -128,7 +128,7 @@ export function LiveSupport() {
           setTimeout(() => resetChat(), 300);
         }
       }}>
-        <DialogContent className="max-w-md h-[600px] p-0 overflow-hidden">
+        <DialogContent className="max-w-md w-[95vw] h-[600px] max-h-[85vh] p-0 overflow-hidden">
           {/* Header */}
           <DialogHeader className={`p-4 ${
             supportType === 'ai' 

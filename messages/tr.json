@@ -201,10 +201,52 @@
   },
   "footer": {
     "description": "Bravioo, anlamlı takdir ve ödüller aracılığıyla organizasyonların daha güçlü iş yeri kültürleri oluşturmasına yardımcı olur.",
-    "product": "Ürün",
-    "company": "Şirket",
-    "legal": "Yasal",
-    "support": "Destek"
+    "copyright": "Tüm hakları saklıdır.",
+    "madeWith": {
+      "prefix": "Daha iyi iş yerleri için",
+      "suffix": "ile yapıldı"
+    },
+    "status": {
+      "consulting": "Dotnet Consulting"
+    },
+    "social": {
+      "title": "Bizi Takip Edin",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
+      "instagram": "Instagram",
+      "youtube": "YouTube",
+      "email": "E-posta"
+    },
+    "theme": {
+      "title": "Tema",
+      "light": "Açık Tema",
+      "dark": "Koyu Tema",
+      "switchToLight": "Açık temaya geç",
+      "switchToDark": "Koyu temaya geç"
+    },
+    "sections": {
+      "product": {
+        "title": "Ürün",
+        "features": "Özellikler",
+        "integrations": "Entegrasyonlar",
+        "pricing": "Fiyatlandırma",
+        "demo": "Demo"
+      },
+      "company": {
+        "title": "Şirket",
+        "about": "Hakkımızda",
+        "contact": "İletişim",
+        "customers": "Müşteriler",
+        "brands": "Markalar"
+      },
+      "legal": {
+        "title": "Yasal",
+        "privacy": "Gizlilik Politikası",
+        "terms": "Kullanım Şartları",
+        "cookies": "Çerez Politikası",
+        "accessibility": "Erişilebilirlik"
+      }
+    }
   },
   "cookies": {
     "banner": {

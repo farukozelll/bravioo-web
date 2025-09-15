@@ -6,6 +6,7 @@ import { CookieDashboard } from '@/components/cookie-dashboard';
 import { ScrollToTop } from '@/components/ui/scroll-to-top';
 import { GoogleAnalytics, HubSpotAnalytics, MicrosoftClarity } from '@/components/analytics';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
+import { ThemeProvider } from '@/contexts/theme-context';
 
 export async function generateMetadata({
   params,
