@@ -102,18 +102,18 @@ export const navigationData: NavItem[] = [
         titleKey: 'successStories',
         items: [
           {
-            image: '/images/mugo-case.webp',
-            title: 'Mugo',
-            descriptionKey: 'mugoSuccess',
-            href: '/customers/mugo',
-            badge: '+285% artış'
+            image: '/images/brands/placeholder.png',
+            title: 'Albayrak Grubu',
+            descriptionKey: 'akbayrakGrubuSuccess',
+            href: '/customers/akbayrak-grubu',
+            badge: '+25% artış'
           },
           {
-            image: '/images/proteinocean-case.webp',
-            title: 'Proteinocean',
-            descriptionKey: 'proteinoceanSuccess',
-            href: '/customers/proteinocean',
-            badge: '%50 verimlilik'
+            image: '/images/brands/placeholder.png',
+            title: 'Akgün Grup',
+            descriptionKey: 'akgunGrupSuccess',
+            href: '/customers/akgun-grup',
+            badge: '%35 verimlilik'
           }
         ]
       },

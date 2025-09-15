@@ -33,15 +33,15 @@ export function CustomerShowcase() {
 
   const companies: Company[] = companiesData;
 
+  // Extract unique categories from companies data
+  const uniqueCategories = Array.from(new Set(companies.map(c => c.category)));
+  
   const categories = [
     { name: 'Tümü', count: companies.length },
-    { name: 'Tekstil & Giyim', count: companies.filter(c => c.category === 'Tekstil & Giyim').length },
-    { name: 'Ayakkabı', count: companies.filter(c => c.category === 'Ayakkabı').length },
-    { name: 'Anne & Bebek Ürünleri', count: companies.filter(c => c.category === 'Anne & Bebek Ürünleri').length },
-    { name: 'Mobilya & Ev', count: companies.filter(c => c.category === 'Mobilya & Ev').length },
-    { name: 'Gıda Ürünleri', count: companies.filter(c => c.category === 'Gıda Ürünleri').length },
-    { name: 'Elektronik', count: companies.filter(c => c.category === 'Elektronik').length },
-    { name: 'Kozmetik', count: companies.filter(c => c.category === 'Kozmetik').length }
+    ...uniqueCategories.map(category => ({
+      name: category,
+      count: companies.filter(c => c.category === category).length
+    }))
   ];
 
   const filteredCompanies = activeCategory === 'Tümü' 

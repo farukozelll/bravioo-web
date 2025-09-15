@@ -24,13 +24,7 @@ export function Footer() {
       { name: 'Terms of Use', href: `/${locale}/legal/terms` },
       { name: 'Cookie Policy', href: `/${locale}/legal/cookies` },
       { name: 'Accessibility', href: `/${locale}/legal/accessibility` },
-    ],
-    support: [
-      { name: 'Help Center', href: `/${locale}/help` },
-      { name: 'Documentation', href: `/${locale}/docs` },
-      { name: 'Status', href: 'https://status.bravioo.com' },
-      { name: 'Community', href: `/${locale}/community` },
-    ],
+    ]
   };
 
   const socialLinks = [
@@ -95,32 +89,7 @@ export function Footer() {
                 })}
               </div>
             </div>
-
-            {/* Newsletter Signup */}
-            <div className="bg-white/5 rounded-2xl p-6 backdrop-blur-sm">
-              <h4 className="text-sm font-semibold text-white mb-3">
-                {locale === 'tr' ? 'Haberler ve Güncellemeler' : 'News & Updates'}
-              </h4>
-              <p className="text-sm text-sand-300 mb-4">
-                {locale === 'tr' 
-                  ? 'Yeni özellikler ve İK trendleri hakkında bilgi alın.'
-                  : 'Get notified about new features and HR trends.'
-                }
-              </p>
-              <div className="flex gap-2">
-                <input
-                  type="email"
-                  placeholder={locale === 'tr' ? 'E-posta adresiniz' : 'Your email'}
-                  className="flex-1 px-4 py-2 bg-white/10 border border-white/20 rounded-xl text-white placeholder-sand-400 focus:outline-none focus:ring-2 focus:ring-brand-500"
-                />
-                <button className="px-4 py-2 bg-brand-500 hover:bg-brand-600 rounded-xl text-white font-medium transition-colors">
-                  {locale === 'tr' ? 'Abone Ol' : 'Subscribe'}
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Links grid */}
+   {/* Links grid */}
           <div className="mt-16 xl:col-span-2 xl:mt-0">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {/* Product Links */}
@@ -189,31 +158,13 @@ export function Footer() {
                 </ul>
               </div>
 
-              {/* Support Links */}
-              <div>
-                <h3 className="text-sm font-semibold leading-6 text-white mb-6 flex items-center gap-2">
-                  <div className="w-6 h-6 bg-blue-500 rounded-lg flex items-center justify-center">
-                    <span className="text-xs text-white">S</span>
-                  </div>
-                  {t('footer.support')}
-                </h3>
-                <ul className="space-y-3">
-                  {footerLinks.support.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm leading-6 text-sand-300 hover:text-brand-400 transition-colors hover:translate-x-1 transform duration-200 block"
-                        target={item.href.startsWith('http') ? '_blank' : undefined}
-                        rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            
             </div>
           </div>
+     
+          </div>
+
+       
         </div>
 
         {/* Bottom section */}

@@ -450,34 +450,7 @@ export function ProfessionalCustomerResults() {
           </div>
         </motion.div>
 
-        {/* Logo Marquee Strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="relative mt-16 overflow-hidden rounded-2xl border border-slate-200 bg-white"
-        >
-          <div className="relative overflow-hidden">
-            <div className="flex items-center gap-12 py-6 animate-marquee">
-              {[...STRIP_LOGOS, ...STRIP_LOGOS].map((name, i) => (
-                <span 
-                  key={`${name}-${i}`}
-                  className="shrink-0 px-4 py-2 text-lg font-bold uppercase tracking-wider text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
-                >
-                  {name}
-                </span>
-              ))}
-            </div>
-          </div>
-          
-          {/* Gradient Fade */}
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white via-transparent to-white opacity-90" 
-               style={{
-                 maskImage: 'linear-gradient(90deg, transparent, black 12%, black 88%, transparent)'
-               }}
-          />
-        </motion.div>
+  
       </div>
 
       {/* Video Modal */}

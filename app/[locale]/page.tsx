@@ -10,6 +10,7 @@ import { HowItWorksSection } from '@/components/sections/how-it-works';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import { generateOrganizationJsonLd, generateWebsiteJsonLd, generateProductJsonLd } from '@/lib/seo';
 import { BrandBar } from '@/components/sections/brand-bar';
+import { CompanyBar } from '@/components/sections/company-bar';
 
 export async function generateMetadata({
   params,
@@ -60,11 +61,13 @@ export default async function HomePage({
         
         <main className="flex-1">
           <EnhancedHero />
+          <CompanyBar />
           <AnimatedFeaturesSection />
 
           <ProfessionalCustomerResults />
-          <BrandBar />
+         
           <HowItWorksSection />
+           <BrandBar />
           <TestimonialsSlider />
 
           <PartnerBrandsMarquee />
