@@ -191,9 +191,21 @@
   "footer": {
     "description": "Bravioo helps organizations build stronger workplace cultures through meaningful recognition and rewards.",
     "copyright": "All rights reserved.",
+    "rights": "All commercial use rights are reserved.",
+    "uptime": "Uptime",
     "madeWith": {
       "prefix": "Made for better workplaces",
       "suffix": "with love"
+    },
+    "contact": {
+      "support": "24/7 Support Service",
+      "sales": "Sales Consulting"
+    },
+    "newsletter": {
+      "title": "Stay Updated with Latest Developments",
+      "description": "Don't miss product updates, special offers, and industry news.",
+      "placeholder": "Enter your email address",
+      "subscribe": "Subscribe"
     },
     "status": {
       "consulting": "Dotnet Consulting"

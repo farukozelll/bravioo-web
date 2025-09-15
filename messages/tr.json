@@ -202,9 +202,21 @@
   "footer": {
     "description": "Bravioo, anlamlı takdir ve ödüller aracılığıyla organizasyonların daha güçlü iş yeri kültürleri oluşturmasına yardımcı olur.",
     "copyright": "Tüm hakları saklıdır.",
+    "rights": "Her türlü ticari kullanım haklarımız kapsamındadır.",
+    "uptime": "Çalışma Süresi",
     "madeWith": {
       "prefix": "Daha iyi iş yerleri için",
       "suffix": "ile yapıldı"
+    },
+    "contact": {
+      "support": "7/24 Destek Hizmeti",
+      "sales": "Satış Danışmanlığı"
+    },
+    "newsletter": {
+      "title": "En Son Gelişmelerden Haberdar Olun",
+      "description": "Ürün güncellemeleri, özel teklifler ve sektör haberlerini kaçırmayın.",
+      "placeholder": "E-posta adresinizi girin",
+      "subscribe": "Abone Ol"
     },
     "status": {
       "consulting": "Dotnet Consulting"

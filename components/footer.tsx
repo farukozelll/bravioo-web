@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
-import { Heart, Moon, Sun } from 'lucide-react';
+import { Heart, Moon, Sun, ChevronRight, ExternalLink } from 'lucide-react';
 import { footerSections, socialLinks, footerConfig } from '@/config/footer';
 import { useTheme } from '@/contexts/theme-context';
 import Image from 'next/image';
@@ -13,25 +13,27 @@ export function Footer() {
   const locale = useLocale();
   const { theme, toggleTheme, mounted } = useTheme();
 
-
   return (
-    <footer className="relative bg-gradient-to-br from-ink-900 via-ink-800 to-brand-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-white overflow-hidden transition-colors duration-300">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-50">
-        <div className="h-full w-full bg-repeat" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+    <footer className="relative bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-950 dark:from-gray-900 dark:via-gray-800 dark:to-gray-950 text-white overflow-hidden transition-colors duration-300">
+      {/* Modern Background Pattern */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="h-full w-full" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='1' stroke-opacity='0.1'%3E%3Cpath d='M20 20h60v60h-60z'/%3E%3Cpath d='M30 30h40v40h-40z'/%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundSize: '100px 100px'
         }} />
       </div>
       
-      {/* Gradient Overlays */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-radial from-brand-500/10 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-radial from-gold-500/10 to-transparent rounded-full blur-3xl" />
+      {/* Enhanced Gradient Overlays */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-radial from-emerald-500/15 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-radial from-green-400/10 to-transparent rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-emerald-600/5 to-transparent rounded-full blur-3xl" />
       
-      <div className="relative mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:px-8">
-        {/* Main footer content - 3 column layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
-          {/* Left Column - Company Info */}
-          <div className="space-y-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        {/* Main footer content */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16">
+          
+          {/* Left Column - Company Info (spans 4 columns on lg+) */}
+          <div className="lg:col-span-4 space-y-6 lg:space-y-8">
             {/* Logo */}
             <div>
               <Link href={`/${locale}`} className="inline-block group">
@@ -40,19 +42,31 @@ export function Footer() {
                   alt={footerConfig.company.logoAlt}
                   width={200}
                   height={48}
-                  className="h-12 w-auto group-hover:scale-105 transition-transform duration-300"
+                  className="h-10 sm:h-12 w-auto group-hover:scale-105 transition-transform duration-300 brightness-0 invert"
                 />
               </Link>
             </div>
             
             {/* Description */}
-            <p className="text-base leading-7 text-sand-300 dark:text-gray-300 max-w-sm">
+            <p className="text-sm sm:text-base leading-6 sm:leading-7 text-emerald-100 dark:text-gray-300 max-w-md">
               {t('footer.description')}
             </p>
             
-            {/* Social Links */}
+            {/* Contact Info */}
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 text-sm text-emerald-200 dark:text-gray-300">
+                <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
+                <span>{t('footer.contact.support')}</span>
+              </div>
+              <div className="flex items-center gap-3 text-sm text-emerald-200 dark:text-gray-300">
+                <div className="w-2 h-2 bg-green-400 rounded-full" />
+                <span>{t('footer.contact.sales')}</span>
+              </div>
+            </div>
+            
+            {/* Social Links - Enhanced Design */}
             <div>
-              <h4 className="text-sm font-semibold text-white mb-4">
+              <h4 className="text-sm font-semibold text-white mb-4 sm:mb-6">
                 {t('footer.social.title')}
               </h4>
               <div className="flex flex-wrap gap-3">
@@ -62,20 +76,23 @@ export function Footer() {
                     <Link
                       key={item.nameKey}
                       href={item.href}
-                      className="w-10 h-10 bg-white/10 dark:bg-white/5 rounded-2xl flex items-center justify-center text-sand-400 dark:text-gray-400 hover:text-white hover:bg-brand-500 dark:hover:bg-brand-600 transition-all duration-300 hover:scale-110 group"
+                      className="group relative w-11 h-11 bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-2xl flex items-center justify-center text-emerald-200 dark:text-gray-400 hover:text-white hover:bg-emerald-500 dark:hover:bg-emerald-600 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-emerald-500/25"
                       target={item.external ? '_blank' : undefined}
                       rel={item.external ? 'noopener noreferrer' : undefined}
                       title={t(item.nameKey)}
                     >
                       <span className="sr-only">{t(item.nameKey)}</span>
-                      <Icon className="h-5 w-5" />
+                      <Icon className="h-5 w-5 transition-transform duration-300 group-hover:scale-110" />
+                      {item.external && (
+                        <ExternalLink className="absolute -top-1 -right-1 h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      )}
                     </Link>
                   );
                 })}
               </div>
             </div>
 
-            {/* Dark Mode Toggle */}
+            {/* Dark Mode Toggle - Enhanced */}
             {mounted && (
               <div>
                 <h4 className="text-sm font-semibold text-white mb-4">
@@ -83,28 +100,29 @@ export function Footer() {
                 </h4>
                 <button
                   onClick={toggleTheme}
-                  className="flex items-center gap-3 px-4 py-2 bg-white/10 dark:bg-white/5 rounded-2xl text-sand-300 dark:text-gray-300 hover:text-white hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 group"
+                  className="group flex items-center gap-3 px-4 py-3 bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-2xl text-emerald-200 dark:text-gray-300 hover:text-white hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-white/20"
                   aria-label={theme === 'light' ? t('footer.theme.switchToDark') : t('footer.theme.switchToLight')}
                 >
                   {theme === 'light' ? (
                     <>
-                      <Moon className="h-4 w-4" />
-                      <span className="text-sm">{t('footer.theme.dark')}</span>
+                      <Moon className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+                      <span className="text-sm font-medium">{t('footer.theme.dark')}</span>
                     </>
                   ) : (
                     <>
-                      <Sun className="h-4 w-4" />
-                      <span className="text-sm">{t('footer.theme.light')}</span>
+                      <Sun className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+                      <span className="text-sm font-medium">{t('footer.theme.light')}</span>
                     </>
                   )}
+                  <ChevronRight className="h-3 w-3 ml-auto opacity-50 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-0.5" />
                 </button>
               </div>
             )}
           </div>
 
-          {/* Middle & Right Columns - Links */}
-          <div className="lg:col-span-2">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {/* Right Columns - Navigation Links (spans 8 columns on lg+) */}
+          <div className="lg:col-span-8">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
               {footerSections.map((section) => (
                 <FooterLinkColumn
                   key={section.titleKey}
@@ -117,30 +135,61 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom section */}
-        <div className="mt-20 border-t border-white/10 pt-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        {/* Newsletter Section */}
+        <div className="mt-12 lg:mt-16 p-6 sm:p-8 bg-white/5 dark:bg-white/5 backdrop-blur-sm rounded-2xl lg:rounded-3xl border border-white/10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
+            <div>
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
+                {t('footer.newsletter.title')}
+              </h3>
+              <p className="text-sm sm:text-base text-emerald-100 dark:text-gray-300">
+                {t('footer.newsletter.description')}
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <input
+                type="email"
+                placeholder={t('footer.newsletter.placeholder')}
+                className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-emerald-200 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-transparent transition-all duration-300"
+              />
+              <button className="px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/25 whitespace-nowrap">
+                {t('footer.newsletter.subscribe')}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom section - Enhanced */}
+        <div className="mt-12 lg:mt-16 pt-6 sm:pt-8 border-t border-white/10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-center">
+            
             {/* Copyright */}
-            <div className="text-center md:text-left">
-              <p className="text-sm text-sand-400">
+            <div className="text-center sm:text-left">
+              <p className="text-xs sm:text-sm text-emerald-200 dark:text-gray-400">
                 &copy; {new Date().getFullYear()} Bravioo. {t('footer.copyright')}
+              </p>
+              <p className="text-xs text-emerald-300 dark:text-gray-500 mt-1">
+                {t('footer.rights')}
               </p>
             </div>
 
-            {/* Made with love */}
-            <div className="flex items-center justify-center gap-2 text-sm text-sand-400">
+            {/* Made with love - Center on larger screens */}
+            <div className="flex items-center justify-center gap-2 text-xs sm:text-sm text-emerald-200 dark:text-gray-400">
               <span>{t('footer.madeWith.prefix')}</span>
-              <Heart className="h-4 w-4 text-red-500 fill-current animate-pulse" />
+              <Heart className="h-4 w-4 text-red-400 fill-current animate-pulse" />
               <span>{t('footer.madeWith.suffix')}</span>
             </div>
 
-            {/* Status & Version */}
-            <div className="flex items-center justify-center md:justify-end gap-4">
+            {/* Status & Performance */}
+            <div className="flex items-center justify-center sm:justify-end gap-4">
               <div className="flex items-center gap-2">
                 <div className={`w-2 h-2 ${footerConfig.status.indicatorColor} rounded-full animate-pulse`} />
-                <span className="text-xs text-sand-400">
+                <span className="text-xs text-emerald-200 dark:text-gray-400">
                   {t(footerConfig.status.textKey)}
                 </span>
+              </div>
+              <div className="text-xs text-emerald-300 dark:text-gray-500">
+                99.9% {t('footer.uptime')}
               </div>
             </div>
           </div>
@@ -150,7 +199,7 @@ export function Footer() {
   );
 }
 
-// Reusable FooterLinkColumn component
+// Enhanced FooterLinkColumn component
 interface FooterLinkColumnProps {
   section: {
     titleKey: string;
@@ -168,25 +217,29 @@ interface FooterLinkColumnProps {
 
 function FooterLinkColumn({ section, locale, t }: FooterLinkColumnProps) {
   return (
-    <div>
-      <h3 className="text-sm font-semibold leading-6 text-white mb-6 flex items-center gap-2">
-        <div className={`w-6 h-6 ${section.color} rounded-lg flex items-center justify-center`}>
+    <div className="space-y-4 sm:space-y-6">
+      <h3 className="text-sm sm:text-base font-semibold leading-6 text-white mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3">
+        <div className={`w-5 h-5 sm:w-6 sm:h-6 bg-emerald-500 dark:bg-emerald-600 rounded-lg flex items-center justify-center shadow-lg`}>
           <span className="text-xs text-white font-bold">{section.iconKey}</span>
         </div>
         {t(section.titleKey)}
       </h3>
-      <ul className="space-y-3">
+      <ul className="space-y-2 sm:space-y-3">
         {section.links.map((link) => (
           <li key={link.nameKey}>
             <Link
               href={`/${locale}${link.href}`}
-              className="text-sm leading-6 text-sand-300 hover:text-brand-400 transition-all duration-200 hover:translate-x-1 transform block group"
+              className="group text-xs sm:text-sm leading-6 text-emerald-100 dark:text-gray-300 hover:text-white transition-all duration-200 hover:translate-x-1 transform flex items-center gap-2"
               target={link.external ? '_blank' : undefined}
               rel={link.external ? 'noopener noreferrer' : undefined}
             >
-              <span className="group-hover:border-b group-hover:border-brand-400/50 transition-all duration-200">
+              <ChevronRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-all duration-200 -translate-x-1 group-hover:translate-x-0" />
+              <span className="group-hover:border-b group-hover:border-emerald-400/50 transition-all duration-200">
                 {t(link.nameKey)}
               </span>
+              {link.external && (
+                <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-60 transition-opacity duration-200" />
+              )}
             </Link>
           </li>
         ))}
