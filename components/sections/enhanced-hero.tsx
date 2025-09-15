@@ -101,37 +101,11 @@ export function EnhancedHero() {
   }, [features.length]);
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-sand-50 via-white to-brand-50/20 overflow-hidden flex items-center">
+    <section >
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         {/* Primary gradient blobs */}
-        <motion.div
-          animate={{ 
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{ 
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="absolute top-20 right-20 w-96 h-96 bg-gradient-radial from-brand-300/30 to-transparent rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{ 
-            x: [0, -80, 0],
-            y: [0, 60, 0],
-            scale: [1, 0.8, 1],
-          }}
-          transition={{ 
-            duration: 25,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 5
-          }}
-          className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-radial from-emerald-300/30 to-transparent rounded-full blur-3xl"
-        />
+    
         <motion.div
           animate={{ 
             x: [0, 50, 0],
@@ -293,29 +267,7 @@ export function EnhancedHero() {
               })}
             </motion.div>
 
-            {/* Stats Row */}
-            <motion.div 
-              className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-            >
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  className="text-center group"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="text-3xl md:text-4xl font-bold text-brand-600 mb-2 font-display group-hover:text-emerald-600 transition-colors">
-                    {stat.number}
-                  </div>
-                  <div className="text-sm text-ink-600 font-medium">
-                    {stat.label}
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
+ 
           </motion.div>
 
           {/* Right Visual Content */}
@@ -457,33 +409,6 @@ export function EnhancedHero() {
           </motion.div>
         </div>
 
-        {/* Company Logos Section */}
-        <motion.div 
-          className="text-center pt-16 border-t border-sand-200"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1 }}
-        >
-          <p className="text-ink-500 mb-8 font-medium">
-            {locale === 'tr' 
-              ? '500+ şirketin güvendiği platform' 
-              : 'Trusted by 500+ companies worldwide'
-            }
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60">
-            {companyLogos.map((logo, index) => (
-              <motion.div
-                key={logo}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.2 + index * 0.1 }}
-                className="h-12 flex items-center justify-center text-ink-400 font-semibold text-lg hover:text-brand-500 transition-colors cursor-pointer"
-              >
-                {logo}
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );

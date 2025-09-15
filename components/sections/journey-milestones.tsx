@@ -262,26 +262,73 @@ const MILESTONES_EN: Milestone[] = [
 
 export function JourneyMilestones() {
   const locale = useLocale();
-  const milestones = locale === 'tr' ? MILESTONES_TR : MILESTONES_EN;
+  const milestones = React.useMemo(() => 
+    locale === 'tr' ? MILESTONES_TR : MILESTONES_EN, 
+    [locale]
+  );
   const [visibleStart, setVisibleStart] = React.useState(0);
   
-  const itemsPerView = 5; // Desktop'ta 5 item göster
-  const canGoNext = visibleStart + itemsPerView < milestones.length;
-  const canGoPrev = visibleStart > 0;
+  // Configuration and computed values
+  const config = React.useMemo(() => {
+    const itemsPerView = 5;
+    const maxVisibleStart = Math.max(0, milestones.length - itemsPerView);
+    const totalScrollSteps = maxVisibleStart + 1;
+    
+    return { itemsPerView, maxVisibleStart, totalScrollSteps };
+  }, [milestones.length]);
   
-  const goNext = () => {
-    if (canGoNext) {
-      setVisibleStart(prev => Math.min(prev + 1, milestones.length - itemsPerView));
+  // Validate and constrain visibleStart
+  const constrainedVisibleStart = Math.min(Math.max(visibleStart, 0), config.maxVisibleStart);
+  
+  // Update state if it's out of bounds
+  React.useEffect(() => {
+    if (visibleStart !== constrainedVisibleStart) {
+      setVisibleStart(constrainedVisibleStart);
     }
-  };
+  }, [constrainedVisibleStart, visibleStart]);
   
-  const goPrev = () => {
+  // Navigation state
+  const canGoNext = constrainedVisibleStart < config.maxVisibleStart;
+  const canGoPrev = constrainedVisibleStart > 0;
+  
+  // Navigation handlers with proper boundaries
+  const goNext = React.useCallback(() => {
+    if (canGoNext) {
+      setVisibleStart(prev => Math.min(prev + 1, config.maxVisibleStart));
+    }
+  }, [canGoNext, config.maxVisibleStart]);
+  
+  const goPrev = React.useCallback(() => {
     if (canGoPrev) {
       setVisibleStart(prev => Math.max(prev - 1, 0));
     }
-  };
+  }, [canGoPrev]);
   
-  const progressPercentage = ((visibleStart + itemsPerView) / milestones.length) * 100;
+  // Keyboard navigation
+  const handleKeyDown = React.useCallback((event: React.KeyboardEvent) => {
+    switch (event.key) {
+      case 'ArrowLeft':
+        event.preventDefault();
+        goPrev();
+        break;
+      case 'ArrowRight':
+        event.preventDefault();
+        goNext();
+        break;
+      case 'Home':
+        event.preventDefault();
+        setVisibleStart(0);
+        break;
+      case 'End':
+        event.preventDefault();
+        setVisibleStart(config.maxVisibleStart);
+        break;
+    }
+  }, [goPrev, goNext, config.maxVisibleStart]);
+  
+  // Calculate progress based on actual scroll position
+  const currentStep = constrainedVisibleStart + 1;
+  const progressPercentage = config.totalScrollSteps > 1 ? (currentStep / config.totalScrollSteps) * 100 : 100;
 
   return (
     <section 
@@ -339,7 +386,8 @@ export function JourneyMilestones() {
             </div>
             <div className="flex justify-between items-center mt-2">
               <span className="text-sm text-slate-500">
-                {locale === 'tr' ? 'Yolculuğumuzun' : 'Our journey'} {Math.round(progressPercentage)}%{locale === 'tr' ? "'i tamamlandı" : ' completed'}
+                {locale === 'tr' ? 'Yolculuğumuzun' : 'Our journey'} {Math.round(progressPercentage)}%{locale === 'tr' ? "'i tamamlandı" : ' completed'} 
+                ({currentStep}/{config.totalScrollSteps} {locale === 'tr' ? 'adım' : 'steps'})
               </span>
               
               {/* Navigation Arrows */}
@@ -377,17 +425,26 @@ export function JourneyMilestones() {
           </div>
 
           {/* Timeline Container */}
-          <div className="relative overflow-hidden">
-            {/* Background Timeline Line */}
-            <div className="absolute top-20 left-0 right-0 h-1 bg-gradient-to-r from-slate-200 via-emerald-200 to-slate-300"></div>
-            
+          <div 
+            className="relative overflow-hidden focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 rounded-lg"
+            tabIndex={0}
+            onKeyDown={handleKeyDown}
+            role="region"
+            aria-label={locale === 'tr' ? 'Yolculuk mihenk taşları' : 'Journey milestones'}
+          >
+          
             {/* Milestones Container */}
             <div className="relative">
               <motion.div
                 className="flex gap-6"
-                animate={{ x: -visibleStart * (100 / itemsPerView) + '%' }}
+                animate={{ 
+                  x: `${-constrainedVisibleStart * (100 / config.itemsPerView)}%` 
+                }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                style={{ width: `${(milestones.length / itemsPerView) * 100}%` }}
+                style={{ 
+                  width: `${(milestones.length / config.itemsPerView) * 100}%`,
+                  minWidth: '100%'
+                }}
               >
                 {milestones.map((milestone, index) => (
                   <motion.div
@@ -399,21 +456,8 @@ export function JourneyMilestones() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                   >
-                    {/* Timeline Dot */}
                     <div className="flex justify-center mb-8">
-                      <div className={`
-                        relative z-10 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300
-                        ${milestone.completed 
-                          ? 'bg-gradient-to-br from-emerald-500 to-emerald-600 text-white shadow-lg' 
-                          : 'bg-white border-2 border-slate-300 text-slate-400'
-                        }
-                      `}>
-                        {milestone.completed ? (
-                          <CheckCircle className="w-6 h-6" />
-                        ) : (
-                          <Circle className="w-6 h-6" />
-                        )}
-                      </div>
+                     
                     </div>
 
                     {/* Milestone Card */}
@@ -483,15 +527,15 @@ export function JourneyMilestones() {
             </div>
           </div>
 
-          {/* Timeline Indicators */}
+            {/* Timeline Indicators */}
           <div className="flex justify-center mt-8 gap-2">
-            {Array.from({ length: Math.ceil(milestones.length / itemsPerView) }, (_, i) => (
+            {Array.from({ length: config.totalScrollSteps }, (_, i) => (
               <button
                 key={i}
-                onClick={() => setVisibleStart(i * itemsPerView)}
+                onClick={() => setVisibleStart(Math.min(i, config.maxVisibleStart))}
                 className={`
                   w-2 h-2 rounded-full transition-all duration-300
-                  ${Math.floor(visibleStart / itemsPerView) === i 
+                  ${constrainedVisibleStart === i 
                     ? 'bg-emerald-500 w-6' 
                     : 'bg-slate-300 hover:bg-slate-400'
                   }

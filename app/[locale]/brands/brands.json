@@ -1,0 +1,142 @@
+[
+  {
+    "id": "nike",
+    "name": "Nike",
+    "logo": "/images/brands/Albayrak_Grubu_Logo.png",
+    "category": "Spor & Ayakkabı",
+    "description": "Global Marka Deneyimini Bravioo ile Türkiye'ye Taşıdı",
+    "metrics": { "primary": "%85 Kullanıcı Memnuniyeti", "secondary": "Türkiye Pazarında" },
+    "details": {
+      "challenge": "Global marka standardlarını yerel pazara uyarlama ve hızlı teslimat ihtiyacı.",
+      "solution": "Bravioo'nun esnek çok dilli platform ve gelişmiş lojistik entegrasyonları.",
+      "results": ["%85 kullanıcı memnuniyeti", "24 saat içinde teslimat", "Türkiye çapında 500+ mağaza entegrasyonu"]
+    },
+    "testimonial": { "text": "Bravioo ile Türkiye pazarında Nike deneyimini mükemmel şekilde yansıtabiliyoruz.", "author": "Mehmet Özkan", "position": "Türkiye Ülke Müdürü" }
+  },
+  {
+    "id": "adidas",
+    "name": "Adidas",
+    "logo": "/images/brands/Albayrak_Grubu_Logo.png",
+    "category": "Spor & Ayakkabı",
+    "description": "Omnichannel Yaklaşımla Spor Tutkunlarına Ulaştı",
+    "metrics": { "primary": "%150 Digital Büyüme", "secondary": "2 Yılda" },
+    "details": {
+      "challenge": "Spor tutkunlarının çeşitli kanallardan alışveriş alışkanlıklarını yönetme.",
+      "solution": "Bravioo'ın omnichannel çözümleri ile unified sport shopping deneyimi.",
+      "results": ["%150 dijital büyüme", "Mobil uygulamada %200 artış", "Sosyal medya entegrasyonu ile %80 engagement artışı"]
+    },
+    "testimonial": { "text": "Adidas'ın spor ruhunu dijitale en iyi şekilde yansıtan platform Bravioo.", "author": "Ayşe Kara", "position": "Digital Marketing Director" }
+  },
+  {
+    "id": "apple",
+    "name": "Apple",
+    "logo": "/images/brands/Albayrak_Grubu_Logo.png",
+    "category": "Teknoloji",
+    "description": "Premium Teknoloji Deneyimini Bravioo ile Mükemmelleştirdi",
+    "metrics": { "primary": "%99 Uptime", "secondary": "Kritik Lansmanlar" },
+    "details": {
+      "challenge": "Yüksek trafikli ürün lansmanlarında sistem kararlılığı ve premium kullanıcı deneyimi.",
+      "solution": "Bravioo'ın enterprise-grade altyapısı ve özelleştirilebilir UI/UX çözümleri.",
+      "results": ["%99 uptime guarantee", "1M+ eş zamanlı kullanıcı desteği", "Premium white-label deneyim"]
+    },
+    "testimonial": { "text": "Apple standardında teknoloji deneyimi sunabileceğimiz tek platform Bravioo.", "author": "Can Demir", "position": "Tech Lead" }
+  },
+  {
+    "id": "samsung",
+    "name": "Samsung",
+    "logo": "/images/brands/Albayrak_Grubu_Logo.png",
+    "category": "Teknoloji",
+    "description": "Akıllı Cihaz Ekosistemini E-ticarette Birleştirdi",
+    "metrics": { "primary": "%120 Cross-sell", "secondary": "Ekosistem Ürünleri" },
+    "details": {
+      "challenge": "Geniş ürün yelpazesinde cross-selling ve ecosystem approach zorluğu.",
+      "solution": "Bravioo'ın AI-powered recommendation ve smart bundling özellikleri.",
+      "results": ["%120 cross-sell artışı", "Ecosystem ürünlerinde %90 customer retention", "Kişiselleştirilmiş shopping experience"]
+    },
+    "testimonial": { "text": "Samsung Galaxy ekosistemini müşterilere en doğru şekilde sunan çözüm.", "author": "Emre Yılmaz", "position": "Product Manager" }
+  },
+  {
+    "id": "zara",
+    "name": "Zara",
+    "logo": "/images/brands/Albayrak_Grubu_Logo.png",
+    "category": "Moda & Giyim",
+    "description": "Fast Fashion Modelini Dijitalde Mükemmelleştirdi",
+    "metrics": { "primary": "%200 Hızlı Döngü", "secondary": "Koleksiyon Yenileme" },
+    "details": {
+      "challenge": "Hızla değişen moda trendlerini dijital platformda anında yansıtma ihtiyacı.",
+      "solution": "Bravioo'ın real-time inventory ve instant catalog update sistemi.",
+      "results": ["%200 hızlı ürün döngüsü", "Real-time stok senkronizasyonu", "%60 faster time-to-market"]
+    },
+    "testimonial": { "text": "Moda dünyasının hızına yetişebilen tek e-ticaret altyapısı Bravioo.", "author": "Zeynep Aktaş", "position": "Digital Operations Manager" }
+  },
+  {
+    "id": "hm",
+    "name": "H&M",
+    "logo": "/images/brands/Albayrak_Grubu_Logo.png",
+    "category": "Moda & Giyim",
+    "description": "Sürdürülebilir Modayı Dijital Platformda Öncüledi",
+    "metrics": { "primary": "%180 Conscious Collection", "secondary": "Satış Artışı" },
+    "details": {
+      "challenge": "Sürdürülebilirlik değerlerini e-ticaret deneyiminde müşterilere aktarma.",
+      "solution": "Bravioo'ın sustainability tracking ve conscious shopping özellikleri.",
+      "results": ["%180 conscious collection artışı", "Carbon footprint tracking", "%95 sustainability awareness"]
+    },
+    "testimonial": { "text": "H&M'in sürdürülebilirlik vizyonunu dijitalde yaşatan platform.", "author": "Selin Koç", "position": "Sustainability Director" }
+  },
+  {
+    "id": "ikea",
+    "name": "IKEA",
+    "logo": "/images/brands/Albayrak_Grubu_Logo.png",
+    "category": "Mobilya & Ev",
+    "description": "Ev Tasarım Deneyimini AR/VR ile Yeniden Tanımladı",
+    "metrics": { "primary": "%300 Virtual Showroom", "secondary": "Kullanım Artışı" },
+    "details": {
+      "challenge": "Büyük mobilya ürünlerinin online satışında görselleştirme ve deneyim sorunu.",
+      "solution": "Bravioo'ın AR/VR entegrasyonu ve 3D product visualization teknolojisi.",
+      "results": ["%300 virtual showroom kullanımı", "AR ile %85 satın alma güveni", "%50 iade oranı azalması"]
+    },
+    "testimonial": { "text": "IKEA'nın ev tasarım felsefesini dijitalde en iyi yansıtan çözüm.", "author": "Lars Andersson", "position": "Digital Innovation Manager" }
+  },
+  {
+    "id": "uniqlo",
+    "name": "Uniqlo",
+    "logo": "/images/brands/Albayrak_Grubu_Logo.png",
+    "category": "Moda & Giyim",
+    "description": "Minimalist Tasarım Felsefesini E-ticarete Taşıdı",
+    "metrics": { "primary": "%95 Clean UX Score", "secondary": "Kullanıcı Deneyimi" },
+    "details": {
+      "challenge": "Minimalist marka kimliğini koruyarak functional e-ticaret deneyimi oluşturma.",
+      "solution": "Bravioo'ın clean design templates ve simplified shopping flow özellikleri.",
+      "results": ["%95 clean UX score", "Minimal design ile %40 conversion artışı", "%98 mobile usability"]
+    },
+    "testimonial": { "text": "Uniqlo'nun sadelik felsefesini mükemmel şekilde yansıtan e-ticaret deneyimi.", "author": "Takeshi Yamamoto", "position": "Global Digital Director" }
+  },
+  {
+    "id": "starbucks",
+    "name": "Starbucks",
+    "logo": "/images/brands/Albayrak_Grubu_Logo.png",
+    "category": "Gıda & İçecek",
+    "description": "Kahve Deneyimini Dijital Loyalty ile Güçlendirdi",
+    "metrics": { "primary": "%250 Loyalty Engagement", "secondary": "Mobil Sipariş" },
+    "details": {
+      "challenge": "Kahve deneyimini dijitalleştirme ve loyalty programını güçlendirme ihtiyacı.",
+      "solution": "Bravioo'ın advanced loyalty system ve mobile-first ordering platform.",
+      "results": ["%250 loyalty engagement", "Mobile order %80 adoption", "%150 average order value artışı"]
+    },
+    "testimonial": { "text": "Starbucks deneyimini dijitalde en iyi yaşatan loyalty ve ordering sistemi.", "author": "Jennifer Chen", "position": "Digital Customer Experience Manager" }
+  },
+  {
+    "id": "mcdonalds",
+    "name": "McDonald's",
+    "logo": "/images/brands/Albayrak_Grubu_Logo.png",
+    "category": "Gıda & İçecek",
+    "description": "QSR Liderliğini Dijital Siparişle Pekiştirdi",
+    "metrics": { "primary": "%400 Mobile Orders", "secondary": "3 Yılda" },
+    "details": {
+      "challenge": "Hızlı servis restoranında digital ordering ve delivery entegrasyonu.",
+      "solution": "Bravioo'ın QSR-optimized ordering system ve real-time kitchen integration.",
+      "results": ["%400 mobile orders artışı", "2 dakika average order time", "%90 order accuracy"]
+    },
+    "testimonial": { "text": "McDonald's hızını dijitalde de yaşatabileceğimiz tek platform.", "author": "David Miller", "position": "Global Digital Operations" }
+  }
+]

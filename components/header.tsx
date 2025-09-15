@@ -138,7 +138,7 @@ export function Header() {
               className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full px-6 py-2 shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <Link href={`/${locale}/meeting`}>
-                Ücretsiz Toplantı
+                Ücretsiz Randevu
               </Link>
             </Button>
           </div>
@@ -214,25 +214,21 @@ export function Header() {
                     {/* Sağ Taraf: Quick Links */}
                     <div className="lg:col-span-1">
                       <h4 className="font-bold text-gray-900 mb-6">{locale === 'tr' ? 'Hızlı Erişim' : 'Quick Links'}</h4>
-                      <div className="space-y-4">
+                    
+                    <hr /> 
+                     <div className="space-y-2">
                         {navigationData.find(i => i.nameKey === activeDropdown)?.megaMenuContent?.mainLinks.map(link => (
                           <Link 
                             key={link.nameKey} 
                             href={`/${locale}${link.href}`} 
-                            className="group flex items-center gap-4 p-4 rounded-xl hover:bg-gray-50 transition-all duration-200"
+                            className="group flex items-center gap-2 p-2 rounded-xl hover:bg-gray-50 transition-all duration-200"
                           >
-                            <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform">
-                              <div className="w-5 h-5">
-                                {link.icon}
-                              </div>
-                            </div>
+                         
                             <div className="flex-1">
                               <h5 className="font-semibold text-gray-900 group-hover:text-purple-600 transition-colors">
                                 {t(link.nameKey)}
                               </h5>
-                              <p className="text-sm text-gray-600 line-clamp-2">
-                                {t(link.descriptionKey)}
-                              </p>
+                            
                             </div>
                           </Link>
                         ))}
@@ -464,7 +460,7 @@ export function Header() {
                           className="w-full bg-emerald-600 hover:bg-emerald-700 text-white rounded-full"
                         >
                           <Link href={`/${locale}/meeting`} onClick={() => setIsMenuOpen(false)}>
-                            Ücretsiz Toplantı
+                            Ücretsiz Randevu
                           </Link>
                         </Button>
                       </div>

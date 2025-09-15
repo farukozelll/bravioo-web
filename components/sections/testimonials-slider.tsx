@@ -171,46 +171,7 @@ export function TestimonialsSlider() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="flex items-center justify-center mb-6">
-            <div className="w-16 h-16 bg-gradient-to-r from-brand-500 to-emerald-600 rounded-2xl flex items-center justify-center">
-              <Users className="h-8 w-8 text-white" />
-            </div>
-          </div>
-          
-          <motion.span 
-            className="inline-block px-6 py-3 bg-brand-500/20 text-brand-300 rounded-full text-sm font-semibold mb-6 border border-brand-500/30"
-            initial={{ scale: 0.8, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
-            {locale === 'tr' ? 'Müşteri Deneyimleri' : 'Customer Experiences'}
-          </motion.span>
-          
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-display">
-            {locale === 'tr' ? 'Gerçek İnsanlar,' : 'Real People,'}
-            <br />
-            <span className="bg-gradient-to-r from-brand-400 to-emerald-400 bg-clip-text text-transparent">
-              {locale === 'tr' ? 'Gerçek Sonuçlar' : 'Real Results'}
-            </span>
-          </h2>
-          
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            {locale === 'tr'
-              ? '500+ şirketin Bravioo ile elde ettiği başarı hikayeleri. Çalışan deneyimi dönüşümünün gerçek etkilerini keşfedin.'
-              : 'Success stories from 500+ companies achieved with Bravioo. Discover the real impact of employee experience transformation.'
-            }
-          </p>
-        </motion.div>
-
+      
         {/* Main Testimonial Display */}
         <div className="mb-20">
           <AnimatePresence mode="wait">
@@ -286,17 +247,7 @@ export function TestimonialsSlider() {
                   </div>
                 </div>
 
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2">
-                  {currentTestimonial.tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 bg-white/10 text-white text-sm rounded-full border border-white/20"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+              
               </div>
 
               {/* Right - Results & Visual */}
@@ -308,22 +259,7 @@ export function TestimonialsSlider() {
                     {locale === 'tr' ? 'Elde Edilen Sonuçlar' : 'Achieved Results'}
                   </h4>
                   
-                  {currentTestimonial.results.map((result, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.3 + index * 0.1 }}
-                      className="bg-white/5 rounded-2xl p-4 border border-white/10 hover:border-brand-400/30 transition-all duration-300 group"
-                    >
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-300 text-sm">{result.metric}</span>
-                        <span className={`text-2xl font-bold ${result.color} group-hover:scale-110 transition-transform`}>
-                          {result.value}
-                        </span>
-                      </div>
-                    </motion.div>
-                  ))}
+              
                 </div>
 
                 {/* Company Visual */}

@@ -1,126 +1,57 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useLocale, useTranslations } from 'next-intl';
-import Image from 'next/image';
-import { Play, ArrowRight, Star } from 'lucide-react';
+import { Play, ArrowRight } from 'lucide-react';
+import companiesData from '@/app/[locale]/customers/companies.json';
 
-interface CustomerStory {
+interface Company {
   id: string;
-  brand: string;
+  name: string;
   logo: string;
-  title: string;
-  description: string;
-  metrics: string;
-  image: string;
   category: string;
-  videoUrl?: string;
-  testimonial: string;
-  author: string;
-  position: string;
+  description: string;
+  metrics: {
+    primary: string;
+    secondary: string;
+  };
+  details: {
+    challenge: string;
+    solution: string;
+    results: string[];
+  };
+  testimonial: {
+    text: string;
+    author: string;
+    position: string;
+  };
 }
 
 export function CustomerHero() {
-  const locale = useLocale();
-  const t = useTranslations();
-  const [hoveredStory, setHoveredStory] = useState<string | null>(null);
+  const [hoveredCompany, setHoveredCompany] = useState<string | null>(null);
+  
+  const companies: Company[] = companiesData;
+  
+  // Create infinite scroll data with varying heights
+  const scrollData = useMemo(() => {
+    const heights = [200, 160, 240, 180, 220, 190]; // Varying card heights
+    const infiniteCompanies = Array.from({ length: 20 }, (_, i) => ({
+      ...companies[i % companies.length],
+      uniqueId: `${companies[i % companies.length].id}-${i}`,
+      height: heights[i % heights.length],
+    }));
+    
+    // Split into two columns
+    const leftColumn = infiniteCompanies.filter((_, index) => index % 2 === 0);
+    const rightColumn = infiniteCompanies.filter((_, index) => index % 2 === 1);
+    
+    return { leftColumn, rightColumn };
+  }, [companies]);
 
-  const customerStories: CustomerStory[] = [
-    {
-      id: 'proteinocean',
-      brand: 'ProteinOcean',
-      logo: '/images/brands/proteinocean.png',
-      title: 'Bravioo\'ın Hızlı Sayesinde Dönüşüm Oranlarını %10 Artırdı',
-      description: 'Protein Ocean, Bravioo e-ticaret altyapısı ile satış süreçlerini optimize etti ve müşteri deneyimini geliştirildi.',
-      metrics: '%10 Dönüşüm Artışı',
-      image: '/images/cases/proteinocean-hero.jpg',
-      category: 'Gıda Ürünleri',
-      videoUrl: '/videos/proteinocean-success.mp4',
-      testimonial: 'Bravioo ile e-ticaret süreçlerimiz çok daha hızlı ve etkili hale geldi.',
-      author: 'Ahmet Kaya',
-      position: 'E-ticaret Müdürü'
-    },
-    {
-      id: 'wunder',
-      brand: 'Wunder',
-      logo: '/images/brands/wunder.png', 
-      title: 'Yazılım Bilgisi Gerekmeden Profesyonel Site Kurdu',
-      description: 'Wunder markası, teknik bilgi gerektirmeden profesyonel e-ticaret sitesi kurarak satışlarını katladı.',
-      metrics: '%250 Satış Artışı',
-      image: '/images/cases/wunder-hero.jpg',
-      category: 'Ayakkabı',
-      videoUrl: '/videos/wunder-success.mp4',
-      testimonial: 'Hiç kod yazmadan mükemmel bir e-ticaret sitesi oluşturduk.',
-      author: 'Elif Demir',
-      position: 'Kurucu'
-    },
-    {
-      id: 'miniso',
-      brand: 'Miniso',
-      logo: '/images/brands/miniso.png',
-      title: 'Çoklu Kanal Yönetimi ile Verimlilik Arttı',
-      description: 'Miniso, Bravioo\'ın gelişmiş özelliklerini kullanarak çoklu kanal satışlarını entegre etti.',
-      metrics: '%35 Verimlilik Artışı',
-      image: '/images/cases/miniso-hero.jpg',
-      category: 'Kozmetik',
-      videoUrl: '/videos/miniso-success.mp4',
-      testimonial: 'Tüm satış kanallarımızı tek yerden yönetmek harika.',
-      author: 'Can Özkan',
-      position: 'Operasyon Müdürü'
-    },
-    {
-      id: 'online-ciftci',
-      brand: 'Online Çiftçi',
-      logo: '/images/brands/online-ciftci.png',
-      title: 'Tarım Ürünlerinde Dijital Dönüşüm Başarısı',
-      description: 'Online Çiftçi, tarım ürünlerini dijital ortamda satmaya Bravioo ile başladı ve hızla büyüdü.',
-      metrics: '%40 Büyüme',
-      image: '/images/cases/online-ciftci-hero.jpg',
-      category: 'Gıda Ürünleri',
-      videoUrl: '/videos/online-ciftci-success.mp4',
-      testimonial: 'Geleneksel tarımdan modern e-ticarete geçiş çok kolay oldu.',
-      author: 'Mehmet Yılmaz',
-      position: 'Genel Müdür'
-    },
-    {
-      id: 'mugo',
-      brand: 'Mugo',
-      logo: '/images/brands/mugo.png',
-      title: 'Yıllık Ciroda %397 Büyüme Başarısı',
-      description: 'Mugo, Bravioo e-ticaret çözümleri ile olağanüstü büyüme performansı gösterdi.',
-      metrics: '%397 Ciro Artışı',
-      image: '/images/cases/mugo-hero.jpg',
-      category: 'Tekstil & Giyim',
-      videoUrl: '/videos/mugo-success.mp4',
-      testimonial: 'Bravioo sayesinde hayallerimizden daha büyük başarıya ulaştık.',
-      author: 'Ayşe Kılıç',
-      position: 'CEO'
-    },
-    {
-      id: 'sm-bebek',
-      brand: 'SM Bebek',
-      logo: '/images/brands/sm-bebek.png',
-      title: 'Anne Bebek Kategorisinde Güvenli Büyüme',
-      description: 'SM Bebek, Bravioo\'ın güvenli altyapısı ile hassas müşteri segmentinde büyüdü.',
-      metrics: '%40 Satış Artışı',
-      image: '/images/cases/sm-bebek-hero.jpg',
-      category: 'Anne & Bebek Ürünleri',
-      videoUrl: '/videos/sm-bebek-success.mp4',
-      testimonial: 'Güvenilir altyapı sayesinde müşterilerimizin güvenini kazandık.',
-      author: 'Fatma Arslan',
-      position: 'Pazarlama Müdürü'
-    }
-  ];
-
-  // Create two columns for the scrolling animation
-  const leftColumn = customerStories.filter((_, index) => index % 2 === 0);
-  const rightColumn = customerStories.filter((_, index) => index % 2 === 1);
-
-  const currentStory = hoveredStory ? customerStories.find(s => s.id === hoveredStory) : null;
+  const currentCompany = hoveredCompany ? companies.find(c => c.id === hoveredCompany) : null;
 
   return (
-    <section className="bg-gradient-to-br from-slate-50 to-white py-20 lg:py-24 overflow-hidden">
+    <section className="bg-gradient-to-br from-slate-50 via-white to-slate-50 py-20 lg:py-24 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6">
         
         {/* Main Layout */}
@@ -137,15 +68,21 @@ export function CustomerHero() {
             {/* Stats Row */}
             <div className="flex items-center gap-6 mb-8">
               <div className="flex items-center gap-2">
-                <Image src="/images/icons/google.png" alt="Google" width={24} height={24} />
+                <div className="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center">
+                  <span className="text-emerald-600 text-xs font-bold">G</span>
+                </div>
                 <span className="font-semibold text-slate-900">4,9 / 5</span>
               </div>
               <div className="flex items-center gap-2">
-                <Image src="/images/icons/sikayetvar.png" alt="Şikayetvar" width={24} height={24} />
+                <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
+                  <span className="text-blue-600 text-xs font-bold">Ş</span>
+                </div>
                 <span className="font-semibold text-slate-900">96 / 100</span>
               </div>
               <div className="flex items-center gap-2">
-                <Image src="/images/icons/g2.png" alt="G2" width={24} height={24} />
+                <div className="w-6 h-6 bg-purple-100 rounded-full flex items-center justify-center">
+                  <span className="text-purple-600 text-xs font-bold">G2</span>
+                </div>
                 <span className="font-semibold text-slate-900">4,8 / 5</span>
               </div>
             </div>
@@ -158,55 +95,63 @@ export function CustomerHero() {
 
             {/* Description */}
             <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-              Bravioo'ın güçlü e-ticaret altyapısı ile{' '}
+              Bravioo&apos;ın güçlü e-ticaret altyapısı ile{' '}
               <span className="font-semibold text-emerald-600">10.000+</span> işletme 
               büyüme hedeflerine ulaştı. Onların başarı hikayelerini keşfedin.
             </p>
 
-            {/* Current Story Details */}
+            {/* Current Company Details */}
             <AnimatePresence mode="wait">
-              {currentStory ? (
+              {currentCompany ? (
                 <motion.div
-                  key={currentStory.id}
+                  key={currentCompany.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.4 }}
-                  className="bg-white p-8 rounded-2xl border border-emerald-100 shadow-lg"
+                  className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm"
                 >
                   {/* Brand Header */}
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 bg-emerald-100 rounded-xl flex items-center justify-center">
-                      <span className="text-emerald-600 font-bold text-xl">
-                        {currentStory.brand.charAt(0)}
-                      </span>
+                    <div className="w-16 h-16 bg-slate-100 rounded-xl flex items-center justify-center overflow-hidden">
+                      {currentCompany.logo ? (
+                        <img 
+                          src={currentCompany.logo} 
+                          alt={`${currentCompany.name} logo`}
+                          className="w-12 h-12 object-contain"
+                        />
+                      ) : (
+                        <span className="text-slate-600 font-bold text-xl">
+                          {currentCompany.name.charAt(0)}
+                        </span>
+                      )}
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-slate-900">{currentStory.brand}</h3>
-                      <p className="text-emerald-600 font-medium">{currentStory.category}</p>
+                      <h3 className="text-xl font-bold text-slate-900">{currentCompany.name}</h3>
+                      <p className="text-emerald-600 font-medium">{currentCompany.category}</p>
                     </div>
                   </div>
 
                   {/* Metric */}
                   <div className="text-center mb-6">
                     <div className="text-3xl font-bold text-emerald-600 mb-2">
-                      {currentStory.metrics}
+                      {currentCompany.metrics.primary}
                     </div>
-                    <p className="text-slate-600">{currentStory.title}</p>
+                    <p className="text-slate-600">{currentCompany.description}</p>
                   </div>
 
                   {/* Testimonial */}
                   <blockquote className="border-l-4 border-emerald-500 pl-6 mb-6">
-                    <p className="text-slate-700 italic mb-3">"{currentStory.testimonial}"</p>
+                    <p className="text-slate-700 italic mb-3">&ldquo;{currentCompany.testimonial.text}&rdquo;</p>
                     <footer className="text-sm text-slate-500">
-                      <strong>{currentStory.author}</strong>, {currentStory.position}
+                      <strong>{currentCompany.testimonial.author}</strong>, {currentCompany.testimonial.position}
                     </footer>
                   </blockquote>
 
                   {/* CTA */}
                   <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     className="w-full bg-emerald-600 text-white py-3 rounded-xl font-semibold hover:bg-emerald-700 transition-colors duration-300 flex items-center justify-center gap-2"
                   >
                     <span>Hikayeyi İzle</span>
@@ -226,8 +171,8 @@ export function CustomerHero() {
                     Sağdaki kartların üzerine gelerek her markanın detaylı başarı hikayesini öğrenin.
                   </p>
                   <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                     className="bg-emerald-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-emerald-700 transition-colors duration-300 inline-flex items-center gap-2"
                   >
                     <span>Tümünü Gör</span>
@@ -238,7 +183,7 @@ export function CustomerHero() {
             </AnimatePresence>
           </motion.div>
 
-          {/* Right Side - Scrolling Stories */}
+          {/* Right Side - Infinite Scrolling Stories */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -253,65 +198,22 @@ export function CustomerHero() {
                 <motion.div
                   animate={{ y: ['0%', '-50%'] }}
                   transition={{ 
-                    duration: 25, 
+                    duration: 30, 
                     repeat: Infinity, 
                     ease: 'linear' 
                   }}
                   className="space-y-4"
-                  style={{ height: '200%' }}
                 >
-                  {[...leftColumn, ...leftColumn].map((story, index) => (
-                    <motion.div
-                      key={`left-${story.id}-${index}`}
-                      onHoverStart={() => setHoveredStory(story.id)}
-                      onHoverEnd={() => setHoveredStory(null)}
-                      whileHover={{ scale: 1.05, zIndex: 10 }}
-                      className="group relative cursor-pointer"
-                    >
-                      <div className="relative w-full h-48 rounded-2xl overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800 shadow-xl">
-                        
-                        {/* Background Gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/30 to-blue-600/30"></div>
-
-                        {/* Content */}
-                        <div className="absolute inset-0 p-6 flex flex-col justify-between text-white">
-                          
-                          {/* Top Section */}
-                          <div className="flex items-center justify-between">
-                            {/* Brand Initial */}
-                            <div className="w-12 h-12 bg-white/20 rounded-xl backdrop-blur-sm flex items-center justify-center">
-                              <span className="text-white font-bold text-lg">
-                                {story.brand.charAt(0)}
-                              </span>
-                            </div>
-                            
-                            {/* Play Button */}
-                            <motion.div
-                              whileHover={{ scale: 1.2 }}
-                              className="w-10 h-10 bg-white/20 rounded-full backdrop-blur-sm flex items-center justify-center group-hover:bg-white/40 transition-colors duration-300"
-                            >
-                              <Play className="w-5 h-5 text-white" fill="currentColor" />
-                            </motion.div>
-                          </div>
-
-                          {/* Bottom Section */}
-                          <div>
-                            {/* Metric */}
-                            <div className="text-2xl font-bold mb-2">{story.metrics}</div>
-                            
-                            {/* Brand Name */}
-                            <div className="text-white/90 font-medium">{story.brand}</div>
-                          </div>
-                        </div>
-
-                        {/* Hover Overlay */}
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          whileHover={{ opacity: 1 }}
-                          className="absolute inset-0 bg-gradient-to-t from-emerald-600/40 to-transparent"
-                        />
-                      </div>
-                    </motion.div>
+                  {[...scrollData.leftColumn, ...scrollData.leftColumn].map((company, index) => (
+                    <CompanyCard
+                      key={`left-${company.uniqueId}-${index}`}
+                      company={company}
+                      height={company.height}
+                      onHover={() => setHoveredCompany(company.id)}
+                      onLeave={() => setHoveredCompany(null)}
+                      gradientFrom="emerald-600/20"
+                      gradientTo="blue-600/20"
+                    />
                   ))}
                 </motion.div>
               </div>
@@ -321,78 +223,108 @@ export function CustomerHero() {
                 <motion.div
                   animate={{ y: ['-50%', '0%'] }}
                   transition={{ 
-                    duration: 25, 
+                    duration: 30, 
                     repeat: Infinity, 
                     ease: 'linear' 
                   }}
                   className="space-y-4"
-                  style={{ height: '200%' }}
                 >
-                  {[...rightColumn, ...rightColumn].map((story, index) => (
-                    <motion.div
-                      key={`right-${story.id}-${index}`}
-                      onHoverStart={() => setHoveredStory(story.id)}
-                      onHoverEnd={() => setHoveredStory(null)}
-                      whileHover={{ scale: 1.05, zIndex: 10 }}
-                      className="group relative cursor-pointer"
-                    >
-                      <div className="relative w-full h-48 rounded-2xl overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800 shadow-xl">
-                        
-                        {/* Background Gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-purple-600/30 to-pink-600/30"></div>
-
-                        {/* Content */}
-                        <div className="absolute inset-0 p-6 flex flex-col justify-between text-white">
-                          
-                          {/* Top Section */}
-                          <div className="flex items-center justify-between">
-                            {/* Brand Initial */}
-                            <div className="w-12 h-12 bg-white/20 rounded-xl backdrop-blur-sm flex items-center justify-center">
-                              <span className="text-white font-bold text-lg">
-                                {story.brand.charAt(0)}
-                              </span>
-                            </div>
-                            
-                            {/* Play Button */}
-                            <motion.div
-                              whileHover={{ scale: 1.2 }}
-                              className="w-10 h-10 bg-white/20 rounded-full backdrop-blur-sm flex items-center justify-center group-hover:bg-white/40 transition-colors duration-300"
-                            >
-                              <Play className="w-5 h-5 text-white" fill="currentColor" />
-                            </motion.div>
-                          </div>
-
-                          {/* Bottom Section */}
-                          <div>
-                            {/* Metric */}
-                            <div className="text-2xl font-bold mb-2">{story.metrics}</div>
-                            
-                            {/* Brand Name */}
-                            <div className="text-white/90 font-medium">{story.brand}</div>
-                          </div>
-                        </div>
-
-                        {/* Hover Overlay */}
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          whileHover={{ opacity: 1 }}
-                          className="absolute inset-0 bg-gradient-to-t from-purple-600/40 to-transparent"
-                        />
-                      </div>
-                    </motion.div>
+                  {[...scrollData.rightColumn, ...scrollData.rightColumn].map((company, index) => (
+                    <CompanyCard
+                      key={`right-${company.uniqueId}-${index}`}
+                      company={company}
+                      height={company.height}
+                      onHover={() => setHoveredCompany(company.id)}
+                      onLeave={() => setHoveredCompany(null)}
+                      gradientFrom="purple-600/20"
+                      gradientTo="pink-600/20"
+                    />
                   ))}
                 </motion.div>
               </div>
-
             </div>
 
             {/* Gradient Overlays for Fade Effect */}
-            <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-white to-transparent z-10 pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-slate-50 to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-slate-50 to-transparent z-10 pointer-events-none"></div>
           </motion.div>
-
         </div>
       </div>
     </section>
+  );
+}
+
+// Separate component for better performance and maintainability
+interface CompanyCardProps {
+  company: Company & { height: number };
+  height: number;
+  onHover: () => void;
+  onLeave: () => void;
+  gradientFrom: string;
+  gradientTo: string;
+}
+
+function CompanyCard({ company, height, onHover, onLeave, gradientFrom, gradientTo }: CompanyCardProps) {
+  return (
+    <motion.div
+      onHoverStart={onHover}
+      onHoverEnd={onLeave}
+      whileHover={{ scale: 1.03, zIndex: 10 }}
+      className="group relative cursor-pointer"
+      style={{ height: `${height}px` }}
+    >
+      <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 shadow-lg">
+        
+        {/* Background Gradient */}
+        <div className={`absolute inset-0 bg-gradient-to-br from-${gradientFrom} to-${gradientTo}`}></div>
+
+        {/* Content */}
+        <div className="absolute inset-0 p-4 flex flex-col justify-between text-white">
+          
+          {/* Top Section */}
+          <div className="flex items-start justify-between">
+            {/* Brand Logo */}
+            <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center overflow-hidden shadow-sm">
+              {company.logo ? (
+                <img 
+                  src={company.logo} 
+                  alt={`${company.name} logo`}
+                  className="w-8 h-8 object-contain"
+                />
+              ) : (
+                <span className="text-slate-800 font-bold text-lg">
+                  {company.name.charAt(0)}
+                </span>
+              )}
+            </div>
+            
+            {/* Play Button */}
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              className="w-10 h-10 bg-white/20 rounded-full backdrop-blur-sm flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300"
+            >
+              <Play className="w-4 h-4 text-white" fill="currentColor" />
+            </motion.div>
+          </div>
+
+          {/* Bottom Section */}
+          <div>
+            {/* Metric */}
+            <div className="text-xl font-bold mb-2">{company.metrics.primary}</div>
+            
+            {/* Brand Name & Category */}
+            <div className="text-white/90 font-medium text-sm">{company.name}</div>
+            <div className="text-white/70 text-xs">{company.category}</div>
+          </div>
+        </div>
+
+        {/* Hover Overlay */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileHover={{ opacity: 1 }}
+          className="absolute inset-0 bg-gradient-to-t from-emerald-600/30 to-transparent"
+        />
+      </div>
+    </motion.div>
   );
 }

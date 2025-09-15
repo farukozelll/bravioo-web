@@ -1,4 +1,6 @@
 import { Metadata } from 'next';
+import { Header } from '@/components/header';
+import { Footer } from '@/components/footer';
 //import { WhyBraviooHero } from '@/components/sections/why-bravioo-hero';
 import { CompetitorComparison } from '@/components/sections/competitor-comparison';
 //import { ROICalculator } from '@/components/sections/roi-calculator';
@@ -11,10 +13,14 @@ export const metadata: Metadata = {
 
 export default function WhyBraviooPage() {
   return (
-    <main className="min-h-screen">
-      
-      <CompetitorComparison />
-   
-    </main>
+    <>
+      <Header />
+      <main className="min-h-screen">
+        <div className="pt-20">
+          <CompetitorComparison />
+        </div>
+      </main>
+      <Footer />
+    </>
   );
 }

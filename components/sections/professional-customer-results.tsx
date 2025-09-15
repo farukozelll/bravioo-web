@@ -196,7 +196,7 @@ export function ProfessionalCustomerResults() {
                         </div>
 
                         {/* Content Area */}
-                        <div className="flex-1 flex flex-col justify-end">
+                        <div className="flex-1 flex flex-col justify-end mb-24">
                           {/* Title */}
                           <h3 className="text-xl font-bold text-white mb-3">
                             {tile.title}
@@ -218,13 +218,6 @@ export function ProfessionalCustomerResults() {
                             </p>
                           </div>
 
-                          {/* Author */}
-                          {tile.type === 'quote' && tile.author && (
-                            <div className="mt-4 pt-3 border-t border-white/20">
-                              <p className="text-sm font-semibold text-white">{tile.author}</p>
-                              <p className="text-xs text-white/70">{tile.authorTitle}</p>
-                            </div>
-                          )}
                         </div>
                       </motion.div>
                     )}

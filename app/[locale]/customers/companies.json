@@ -1,0 +1,142 @@
+[
+    {
+      "id": "albayrak-insaat",
+      "name": "Albayrak İnşaat",
+      "logo": "/images/brands/Albayrak_Grubu_Logo.png",
+      "category": "İnşaat",
+      "description": "Proje Yönetim Süreçlerinde %40 Verimlilik Artışı Sağladı",
+      "metrics": { "primary": "%40 Verimlilik Artışı", "secondary": "Proje Bazlı" },
+      "details": {
+        "challenge": "Büyük ölçekli inşaat projelerinde tedarik zinciri ve ekip koordinasyonu zorlukları.",
+        "solution": "Bravioo'nun entegre proje yönetimi ve tedarikçi portalı çözümleri.",
+        "results": ["%40 operasyonel verimlilik artışı", "%25 proje teslim süresi kısalması", "Gerçek zamanlı stok ve ekip takibi"]
+      },
+      "testimonial": { "text": "Tüm şantiyelerimizi ve tedarikçilerimizi tek bir platformdan yönetmek, projelerimize inanılmaz bir hız kattı.", "author": "Mustafa Çelik", "position": "Proje Koordinatörü" }
+    },
+    {
+      "id": "yeni-safak",
+      "name": "Yeni Şafak",
+      "logo": "/images/brands/Albayrak_Grubu_Logo.png",
+      "category": "Medya",
+      "description": "Dijital Abonelik ve İçerik Yönetiminde Liderliğe Ulaştı",
+      "metrics": { "primary": "%300 Abone Artışı", "secondary": "1 Yılda" },
+      "details": {
+        "challenge": "Geleneksel medyadan dijital abonelik modeline geçişte yaşanan zorluklar.",
+        "solution": "Bravioo'nun esnek içerik yönetim sistemi (CMS) ve abonelik altyapısı.",
+        "results": ["%300 dijital abone artışı", "Kişiselleştirilmiş içerik sunumu", "Reklam gelirlerinde %50 artış"]
+      },
+      "testimonial": { "text": "Bravioo ile dijital dönüşümümüzü başarıyla tamamladık ve okurlarımıza daha iyi bir deneyim sunuyoruz.", "author": "İbrahim Karagül", "position": "Genel Yayın Yönetmeni" }
+    },
+    {
+      "id": "cevtas-temizlik",
+      "name": "Çevtem Temizlik",
+      "logo": "/images/brands/Albayrak_Grubu_Logo.png",
+      "category": "Hizmet",
+      "description": "Operasyonel Planlamada %60 Zaman Tasarrufu Elde Etti",
+      "metrics": { "primary": "%60 Zaman Tasarrufu", "secondary": "6 Ay İçinde" },
+      "details": {
+        "challenge": "Geniş bir hizmet ağında personel ve görev atamalarını yönetme zorluğu.",
+        "solution": "Bravioo'nun mobil saha ekibi yönetimi ve görev planlama modülü.",
+        "results": ["%60 planlama süresinde azalma", "Mobil üzerinden anlık görev takibi", "%98 müşteri memnuniyeti"]
+      },
+      "testimonial": { "text": "Saha ekiplerimizi yönetmek hiç bu kadar kolay olmamıştı. Bravioo sayesinde verimliliğimiz tavan yaptı.", "author": "Ayşe Yılmaz", "position": "Operasyon Direktörü" }
+    },
+    {
+      "id": "global-turizm",
+      "name": "Global Turizm",
+      "logo": "/images/brands/Albayrak_Grubu_Logo.png",
+      "category": "Turizm",
+      "description": "Rezervasyon ve Tur Yönetimini Tek Platformda Birleştirdi",
+      "metrics": { "primary": "%50 Rezervasyon Artışı", "secondary": "Sezon Boyunca" },
+      "details": {
+        "challenge": "Farklı kanallardan gelen rezervasyonları yönetme ve tur operasyonlarını planlama.",
+        "solution": "Bravioo'nun merkezi rezervasyon sistemi ve tur planlama arayüzü.",
+        "results": ["Online rezervasyonlarda %50 artış", "Operasyonel hatalarda %90 azalma", "Müşteri verilerinin merkezileştirilmesi"]
+      },
+      "testimonial": { "text": "Bravioo, acentemiz için dijital bir devrim oldu. Artık tüm operasyonlar parmaklarımızın ucunda.", "author": "Hakan Efe", "position": "Turizm Müdürü" }
+    },
+    {
+      "id": "fa-grup",
+      "name": "FA Grup",
+      "logo": "/images/brands/Albayrak_Grubu_Logo.png",
+      "category": "Holding",
+      "description": "Grup Şirketleri Arası Sinerjiyi ve Raporlamayı Güçlendirdi",
+      "metrics": { "primary": "%30 Raporlama Hızı", "secondary": "Konsolide" },
+      "details": {
+        "challenge": "Farklı iştiraklerden gelen finansal ve operasyonel verileri konsolide etme zorluğu.",
+        "solution": "Bravioo'nun özelleştirilebilir dashboardları ve kurumsal zeka (BI) araçları.",
+        "results": ["Aylık raporlama sürelerinde %30 kısalma", "Veri odaklı karar alma mekanizması", "İştirakler arası şeffaflık"]
+      },
+      "testimonial": { "text": "FA Grup'un vizyonuna uygun, hızlı ve güvenilir bir veri altyapısına Bravioo ile kavuştuk.", "author": "Kenan Varlık", "position": "CFO" }
+    },
+    {
+      "id": "kaanlar-gida",
+      "name": "Kaanlar Gıda",
+      "logo": "/images/brands/Albayrak_Grubu_Logo.png",
+      "category": "Gıda Ürünleri",
+      "description": "Tedarik Zinciri ve Bayi Yönetimini Dijitalleştirdi",
+      "metrics": { "primary": "%40 Sipariş Hızı", "secondary": "Entegrasyon Sonrası" },
+      "details": {
+        "challenge": "Türkiye genelindeki bayi ağından sipariş toplama ve lojistik planlama.",
+        "solution": "Bravioo'nun B2B e-ticaret platformu ve lojistik entegrasyonları.",
+        "results": ["Bayi siparişlerinde %40 hızlanma", "Stok devir hızında %25 iyileşme", "Manuel işlemlerde %80 azalma"]
+      },
+      "testimonial": { "text": "Bravioo B2B platformu, Kaanlar'ın dijitalleşme yolculuğunda en önemli adımlardan biri oldu.", "author": "Hikmet Kaan", "position": "Yönetim Kurulu Üyesi" }
+    },
+    {
+      "id": "cift-geyik-karaca",
+      "name": "Çift Geyik Karaca",
+      "logo": "/images/brands/Albayrak_Grubu_Logo.png",
+      "category": "Tekstil & Giyim",
+      "description": "Omnichannel Stratejisi ile Mağaza ve Online Satışları Birleştirdi",
+      "metrics": { "primary": "%120 Omnichannel Büyüme", "secondary": "1 Yılda" },
+      "details": {
+        "challenge": "Fiziksel mağaza stokları ile e-ticaret sitesi arasında entegrasyon eksikliği.",
+        "solution": "Bravioo'nun mağazadan teslimat ve ortak stok yönetimi çözümleri.",
+        "results": ["%120 omnichannel satış artışı", "Müşteri yaşam boyu değerinde %50 artış", "Tüm kanallarda tutarlı müşteri deneyimi"]
+      },
+      "testimonial": { "text": "Artık müşterilerimiz için online veya mağaza ayrımı kalmadı. Bravioo ile gerçek bir perakende deneyimi sunuyoruz.", "author": "Fatih Karaca", "position": "CEO" }
+    },
+    {
+      "id": "sanko-holding",
+      "name": "Sanko Holding",
+      "logo": "/images/brands/Albayrak_Grubu_Logo.png",
+      "category": "Holding",
+      "description": "Grup Şirketleri Arası İletişimi ve Verimliliği Artırdı",
+      "metrics": { "primary": "%35 Kurumsal Verimlilik", "secondary": "Çapraz Departmanlar" },
+      "details": {
+        "challenge": "Farklı sektörlerdeki grup şirketleri arasında ortak bir dijital platform eksikliği.",
+        "solution": "Bravioo'nun kurumsal kaynak planlama (ERP) ve iç iletişim portalı.",
+        "results": ["Grup genelinde %35 verimlilik artışı", "Ortak veri havuzu oluşturma", "Raporlama süreçlerinde %70 hızlanma"]
+      },
+      "testimonial": { "text": "Sanko'nun gücünü dijitalde de birleştiren Bravioo, kurumsal verimliliğimizi yeni bir seviyeye taşıdı.", "author": "Zeki Konukoğlu", "position": "Yönetim Kurulu Başkanı" }
+    },
+    {
+      "id": "liv-hospital",
+      "name": "Liv Hospital (MLPCARE)",
+      "logo": "/images/brands/Albayrak_Grubu_Logo.png",
+      "category": "Sağlık",
+      "description": "Hasta Deneyimini Dijital Randevu ve Takip Sistemleri ile İyileştirdi",
+      "metrics": { "primary": "%95 Hasta Memnuniyeti", "secondary": "Dijitalleşme Sonrası" },
+      "details": {
+        "challenge": "Hasta randevu ve takip süreçlerinde manuel operasyonların yoğunluğu.",
+        "solution": "Bravioo'nun online randevu, hasta portalı ve bildirim otomasyonları.",
+        "results": ["Randevu bekleme sürelerinde %60 azalma", "Online check-in ile %95 hasta memnuniyeti", "Operasyonel maliyetlerde %20 düşüş"]
+      },
+      "testimonial": { "text": "Bravioo sayesinde hastalarımıza daha modern, hızlı ve kesintisiz bir hizmet sunabiliyoruz.", "author": "Dr. Ayşegül Aydın", "position": "Medikal Direktör" }
+    },
+    {
+      "id": "alpedo-dondurma",
+      "name": "Alpedo Dondurma",
+      "logo": "/images/brands/Albayrak_Grubu_Logo.png",
+      "category": "Gıda Ürünleri",
+      "description": "Soğuk Zincir Lojistiğini ve Bayi Siparişlerini Optimize Etti",
+      "metrics": { "primary": "%99.8 Teslimat Başarısı", "secondary": "Soğuk Zincirde" },
+      "details": {
+        "challenge": "Soğuk zincir ürünlerinin Türkiye geneline sevkiyatında lojistik ve sipariş yönetimi.",
+        "solution": "Bravioo'nun sıcaklık takipli lojistik modülü ve B2B bayi portalı.",
+        "results": ["Soğuk zincirde %99.8 teslimat başarı oranı", "Bayi memnuniyetinde %45 artış", "Sipariş karşılama süresinde %50 iyileşme"]
+      },
+      "testimonial": { "text": "Alpedo'nun kalitesini Türkiye'nin dört bir yanına aynı tazelikte ulaştırmamızı sağlayan teknoloji ortağımız Bravioo'dur.", "author": "Sami Kervancıoğlu", "position": "Genel Müdür" }
+    }
+  ]
