@@ -12,7 +12,6 @@ import {
   Building,
   MapPin,
   TrendingUp,
-  Award,
   Play
 } from 'lucide-react';
 import Image from 'next/image';
@@ -29,7 +28,7 @@ export function TestimonialsSlider() {
       name: 'Ahmet Yılmaz',
       title: 'İnsan Kaynakları Direktörü',
       company: 'AKMERCAN',
-      companyLogo: '/markalar/akmercan.svg',
+      companyLogo: '/images/brands/akmercan.svg',
       avatar: '/avatars/ahmet-yilmaz.jpg',
       location: 'İstanbul, Türkiye',
       industry: 'Teknoloji',
@@ -51,7 +50,7 @@ export function TestimonialsSlider() {
       name: 'Mehmet Özkan',
       title: 'CEO',
       company: 'AGT Teknoloji',
-      companyLogo: '/markalar/agt-renkli.jpeg',
+      companyLogo: '/images/brands/agt-renkli.jpeg',
       avatar: '/avatars/mehmet-ozkan.jpg',
       location: 'Ankara, Türkiye',
       industry: 'Otomotiv',
@@ -73,7 +72,7 @@ export function TestimonialsSlider() {
       name: 'Ayşe Demir',
       title: 'Operasyon Müdürü',
       company: 'TÜRKSAT',
-      companyLogo: '/markalar/turksat_logo.png',
+      companyLogo: '/images/brands/turksat_logo.png',
       avatar: '/avatars/ayse-demir.jpg',
       location: 'Ankara, Türkiye',
       industry: 'Telekomünikasyon',
@@ -95,7 +94,7 @@ export function TestimonialsSlider() {
       name: 'Dr. Fatma Kaya',
       title: 'İnsan Kaynakları Müdürü',
       company: 'Acıbadem Hastaneleri',
-      companyLogo: '/markalar/Acıbadem Tüm Hastaneleri-Tıp Merkezleri.png',
+      companyLogo: '/images/brands/Acıbadem Tüm Hastaneleri-Tıp Merkezleri.png',
       avatar: '/avatars/fatma-kaya.jpg',
       location: 'İstanbul, Türkiye',
       industry: 'Sağlık',
@@ -117,7 +116,7 @@ export function TestimonialsSlider() {
       name: 'Özlem Şahin',
       title: 'Genel Müdür',
       company: 'Karaca Home',
-      companyLogo: '/markalar/karaca-beyaz.png',
+      companyLogo: '/images/brands/karaca-beyaz.png',
       avatar: '/avatars/ozlem-sahin.jpg',
       location: 'İstanbul, Türkiye',
       industry: 'Perakende',
@@ -160,15 +159,9 @@ export function TestimonialsSlider() {
   const currentTestimonial = testimonials[activeTestimonial];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-ink-900 via-ink-800 to-brand-900 dark:from-gray-950 dark:via-gray-900 dark:to-gray-800 text-white overflow-hidden relative transition-colors duration-300">
+    <section className="py-24 bg-white dark:bg-gray-900 text-ink-900 dark:text-white overflow-hidden relative transition-colors duration-300">
       {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-full h-full opacity-20">
-          <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-brand-500/30 to-emerald-500/30 rounded-full filter blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-full filter blur-3xl animate-pulse animation-delay-2000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-gold-500/20 to-orange-500/20 rounded-full filter blur-3xl animate-pulse animation-delay-4000"></div>
-        </div>
-      </div>
+      <div className="absolute inset-0 pointer-events-none"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -188,7 +181,7 @@ export function TestimonialsSlider() {
                 {/* Quote */}
                 <div className="relative">
                   <Quote className="absolute -top-6 -left-6 h-16 w-16 text-brand-400/30" />
-                  <blockquote className="text-xl md:text-2xl lg:text-3xl leading-relaxed text-gray-100 dark:text-gray-50 font-light pl-4 md:pl-8">
+                  <blockquote className="text-xl md:text-2xl lg:text-3xl leading-relaxed text-ink-800 dark:text-gray-50 font-light pl-4 md:pl-8">
                     {currentTestimonial.testimonial}
                   </blockquote>
                 </div>
@@ -201,7 +194,7 @@ export function TestimonialsSlider() {
                         {currentTestimonial.name.split(' ').map(n => n[0]).join('')}
                       </span>
                     </div>
-                    <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center">
+                    <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center">
                       <Image
                         src={currentTestimonial.companyLogo}
                         alt={currentTestimonial.company}
@@ -213,13 +206,13 @@ export function TestimonialsSlider() {
                   </div>
                   
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-white mb-1">
+                    <h3 className="text-xl font-bold text-ink-900 dark:text-white mb-1">
                       {currentTestimonial.name}
                     </h3>
-                    <p className="text-brand-300 font-medium mb-2">
+                    <p className="text-brand-600 dark:text-brand-300 font-medium mb-2">
                       {currentTestimonial.title}
                     </p>
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-gray-400">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-ink-600 dark:text-gray-400">
                       <div className="flex items-center gap-1">
                         <Building className="h-4 w-4" />
                         {currentTestimonial.company}
@@ -242,7 +235,7 @@ export function TestimonialsSlider() {
                           className="h-4 w-4 text-gold-400 fill-current"
                         />
                       ))}
-                      <span className="text-sm text-gray-400 ml-2">5.0</span>
+                      <span className="text-sm text-ink-600 dark:text-gray-400 ml-2">5.0</span>
                     </div>
                   </div>
                 </div>
@@ -273,13 +266,13 @@ export function TestimonialsSlider() {
                   {/* Company Info */}
                   <div className="absolute top-6 left-6 right-6">
                     <div className="flex items-center justify-between">
-                      <div className="bg-white/20 rounded-xl px-3 py-2">
-                        <span className="text-white font-semibold text-sm">
+                      <div className="bg-black/10 dark:bg-white/20 rounded-xl px-3 py-2">
+                        <span className="text-ink-900 dark:text-white font-semibold text-sm">
                           {currentTestimonial.company}
                         </span>
                       </div>
-                      <div className="bg-white/20 rounded-xl px-3 py-2">
-                        <span className="text-white text-sm">
+                      <div className="bg-black/10 dark:bg-white/20 rounded-xl px-3 py-2">
+                        <span className="text-ink-900 dark:text-white text-sm">
                           {currentTestimonial.industry}
                         </span>
                       </div>
@@ -288,11 +281,11 @@ export function TestimonialsSlider() {
 
                   {/* Play Button */}
                   <motion.button
-                    className="absolute inset-0 m-auto w-16 h-16 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-all"
+                    className="absolute inset-0 m-auto w-16 h-16 bg-black/10 dark:bg-white/20 rounded-full flex items-center justify-center group-hover:bg-black/20 dark:group-hover:bg-white/30 transition-all"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <Play className="h-6 w-6 text-white ml-1" />
+                    <Play className="h-6 w-6 text-ink-900 dark:text-white ml-1" />
                   </motion.button>
 
                   {/* Background Elements */}
@@ -310,7 +303,7 @@ export function TestimonialsSlider() {
           <div className="flex justify-center items-center gap-6">
             <button
               onClick={prevTestimonial}
-              className="p-4 rounded-full bg-white/10 hover:bg-white/20 transition-all hover:scale-110"
+              className="p-4 rounded-full bg-ink-900/5 hover:bg-ink-900/10 dark:bg-white/10 dark:hover:bg-white/20 transition-all hover:scale-110"
             >
               <ChevronLeft className="h-6 w-6" />
             </button>
@@ -325,8 +318,8 @@ export function TestimonialsSlider() {
                   }}
                   className={`transition-all duration-300 ${
                     index === activeTestimonial 
-                      ? 'w-12 h-3 bg-brand-400 rounded-full' 
-                      : 'w-3 h-3 bg-white/30 hover:bg-white/50 rounded-full'
+                      ? 'w-12 h-3 bg-brand-500 rounded-full' 
+                      : 'w-3 h-3 bg-ink-900/20 hover:bg-ink-900/30 dark:bg-white/30 dark:hover:bg-white/50 rounded-full'
                   }`}
                 />
               ))}
@@ -334,7 +327,7 @@ export function TestimonialsSlider() {
 
             <button
               onClick={nextTestimonial}
-              className="p-4 rounded-full bg-white/10 hover:bg-white/20 transition-all hover:scale-110"
+              className="p-4 rounded-full bg-ink-900/5 hover:bg-ink-900/10 dark:bg-white/10 dark:hover:bg-white/20 transition-all hover:scale-110"
             >
               <ChevronRight className="h-6 w-6" />
             </button>
@@ -353,8 +346,8 @@ export function TestimonialsSlider() {
                 onMouseLeave={() => setHoveredCard(null)}
                 className={`p-4 rounded-2xl border-2 transition-all duration-300 text-left ${
                   index === activeTestimonial
-                    ? 'border-brand-400 bg-brand-500/20'
-                    : 'border-white/10 bg-white/5 hover:border-white/30 hover:bg-white/10'
+                    ? 'border-brand-500 bg-brand-50 dark:bg-brand-500/20'
+                    : 'border-ink-900/10 bg-ink-900/5 hover:border-ink-900/20 hover:bg-ink-900/10 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/30 dark:hover:bg-white/10'
                 }`}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}

@@ -14,10 +14,8 @@ import {
   TrendingUp,
   Shield,
   Globe,
-  Heart,
   CheckCircle,
   Sparkles,
-  Building,
   Gift,
   Zap
 } from 'lucide-react';
@@ -93,7 +91,7 @@ export function EnhancedHero() {
 
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-sand-50 via-white to-emerald-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden transition-colors duration-300">
+    <section className="relative md:min-h-[40vh] lg:min-h-[40vh] bg-white dark:bg-gray-900 overflow-hidden transition-colors duration-300">
       {/* Minimal Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Single gradient blob for subtle background */}
@@ -101,10 +99,10 @@ export function EnhancedHero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-screen py-12 lg:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center py-8 md:py-12 lg:py-16">
           {/* Left Content */}
           <motion.div 
-            className="space-y-6 lg:space-y-8"
+            className="space-y-5 md:space-y-6 lg:space-y-7"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -155,7 +153,7 @@ export function EnhancedHero() {
 
             {/* Action Buttons */}
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
@@ -232,7 +230,7 @@ export function EnhancedHero() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.95 }}
                   transition={{ duration: shouldReduceMotion ? 0.2 : 0.6, ease: "easeInOut" }}
-                  className={`relative h-72 sm:h-80 md:h-96 rounded-2xl lg:rounded-3xl bg-gradient-to-br ${features[currentFeature].color} p-4 sm:p-6 overflow-hidden shadow-xl`}
+                  className={`relative h-64 sm:h-72 md:h-80 rounded-2xl lg:rounded-3xl bg-gradient-to-br ${features[currentFeature].color} p-4 sm:p-6 overflow-hidden shadow-xl`}
                 >
                   {/* Simplified Background Pattern */}
                   <div className="absolute inset-0">

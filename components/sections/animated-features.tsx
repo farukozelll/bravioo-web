@@ -2,19 +2,16 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+// import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { 
   Users, 
   Award, 
-  BarChart3, 
   Globe, 
-  Zap,
   Plus,
   ArrowRight,
   CheckCircle,
-  Star,
-  TrendingUp
+  Star
 } from 'lucide-react';
 
 const features = [
@@ -80,12 +77,11 @@ const features = [
 ];
 
 export function AnimatedFeaturesSection() {
-  const t = useTranslations('features');
   const [activeFeature, setActiveFeature] = useState(0);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
-    <section className="relative py-24 bg-gradient-to-br from-sand-50 to-white dark:from-gray-900 dark:to-gray-800 overflow-hidden transition-colors duration-300">
+    <section className="relative py-24 bg-white dark:bg-gray-900 overflow-hidden transition-colors duration-300">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-brand-200 to-gold-200 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>

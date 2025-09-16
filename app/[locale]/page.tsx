@@ -65,15 +65,16 @@ export default async function HomePage({
           <EnhancedHero />
           <CompanyBar />
           <AnimatedFeaturesSection />
-          <CustomerGallery />
+         
           <CustomerTestimonials />
           <ProfessionalCustomerResults />
          
           <HowItWorksSection />
            <BrandBar />
           <TestimonialsSlider />
+          <PartnerBrandsMarquee /> 
+          <CustomerGallery />
 
-          <PartnerBrandsMarquee />
         </main>
         
         <Footer />

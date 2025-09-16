@@ -5,9 +5,7 @@ import { Footer } from '@/components/footer';
 import { AboutHero } from '@/components/sections/about-hero';
 import { BrandManifesto } from '@/components/sections/brand-manifesto';
 import { JourneyMilestones } from '@/components/sections/journey-milestones';
-import { CompanyValues } from '@/components/sections/company-values';
 import { TeamLeadership } from '@/components/sections/team-leadership';
-import { InvestorPartners } from '@/components/sections/investor-partners';
 
 export const metadata: Metadata = {
   title: 'Hakkımızda | About Us - Bravioo',
@@ -21,10 +19,9 @@ export default function AboutPage() {
       <main className="min-h-screen">
         <AboutHero />
         <BrandManifesto />
-        <JourneyMilestones />
-        <CompanyValues />
-        <TeamLeadership />
-        <InvestorPartners />
+      
+        <TeamLeadership /> 
+         <JourneyMilestones />
       </main>
       <Footer />
     </>

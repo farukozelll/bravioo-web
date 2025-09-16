@@ -2,23 +2,17 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+// import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { 
-  Smartphone, 
-  Zap,
   Users,
   Award,
   BarChart3,
   ArrowRight,
   Play,
-  Download,
-  Globe,
   CheckCircle,
-  Star,
   Heart
 } from 'lucide-react';
-import Link from 'next/link';
 
 const steps = [
   {
@@ -79,31 +73,13 @@ const steps = [
   }
 ];
 
-const appFeatures = [
-  {
-    title: 'Mobil Erişim',
-    description: 'İstediğiniz yerden, istediğiniz zaman erişim',
-    icon: Smartphone
-  },
-  {
-    title: 'Anlık Bildirimler',
-    description: 'Önemli güncellemelerden haberdar olun',
-    icon: Zap
-  },
-  {
-    title: 'Çevrimdışı Destek',
-    description: 'İnternet bağlantısı olmadan da çalışır',
-    icon: Globe
-  }
-];
+// Removed unused appFeatures config
 
 export function HowItWorksSection() {
-  const t = useTranslations('howItWorks');
   const [activeStep, setActiveStep] = useState(0);
-  const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
 
   return (
-    <section className="relative py-24 bg-gradient-to-br from-white to-sand-50 dark:from-gray-900 dark:to-gray-800 overflow-hidden transition-colors duration-300">
+    <section className="relative py-24 bg-white dark:bg-gray-900 overflow-hidden transition-colors duration-300">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-20 right-10 w-96 h-96 bg-gradient-to-r from-brand-200 to-emerald-200 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>

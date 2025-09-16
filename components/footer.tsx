@@ -28,12 +28,12 @@ export function Footer() {
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-radial from-green-400/10 to-transparent rounded-full blur-3xl" />
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-emerald-600/5 to-transparent rounded-full blur-3xl" />
       
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         {/* Main footer content */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-14">
           
           {/* Left Column - Company Info (spans 4 columns on lg+) */}
-          <div className="lg:col-span-4 space-y-6 lg:space-y-8">
+          <div className="lg:col-span-4 space-y-4 lg:space-y-2">
             {/* Logo */}
             <div>
               <Link href={`/${locale}`} className="inline-block group">
@@ -52,7 +52,7 @@ export function Footer() {
               {t('footer.description')}
             </p>
             
-            {/* Contact Info */}
+            {/* 
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-sm text-emerald-200 dark:text-gray-300">
                 <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
@@ -62,7 +62,7 @@ export function Footer() {
                 <div className="w-2 h-2 bg-green-400 rounded-full" />
                 <span>{t('footer.contact.sales')}</span>
               </div>
-            </div>
+            </div>*/}
             
             {/* Social Links - Enhanced Design */}
             <div>
@@ -92,7 +92,7 @@ export function Footer() {
               </div>
             </div>
 
-            {/* Dark Mode Toggle - Enhanced */}
+            {/*  */}
             {mounted && (
               <div>
                 <h4 className="text-sm font-semibold text-white mb-4">
@@ -151,7 +151,7 @@ export function Footer() {
               </p>
             </div>
 
-            {/* Made with love - Center on larger screens */}
+          {/* Made with love - Center on larger screens */}
             <div className="flex items-center justify-center gap-2 text-xs sm:text-sm text-emerald-200 dark:text-gray-400">
               <span>{t('footer.madeWith.prefix')}</span>
               <Heart className="h-4 w-4 text-red-400 fill-current animate-pulse" />
@@ -161,13 +161,34 @@ export function Footer() {
             {/* Status & Performance */}
             <div className="flex items-center justify-center sm:justify-end gap-4">
               <div className="flex items-center gap-2">
-                <div className={`w-2 h-2 ${footerConfig.status.indicatorColor} rounded-full animate-pulse`} />
-                <span className="text-xs text-emerald-200 dark:text-gray-400">
-                  {t(footerConfig.status.textKey)}
-                </span>
+              
+            {/* Dark Mode Toggle - Enhanced */}
+            {mounted && (
+              <div>
+               
+                <button
+                  onClick={toggleTheme}
+                  className="group flex items-center gap-3 px-4 py-3 bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-2xl text-emerald-200 dark:text-gray-300 hover:text-white hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-white/20"
+                  aria-label={theme === 'light' ? t('footer.theme.switchToDark') : t('footer.theme.switchToLight')}
+                >
+                  {theme === 'light' ? (
+                    <>
+                      <Moon className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+                      <span className="text-sm font-medium">{t('footer.theme.dark')}</span>
+                    </>
+                  ) : (
+                    <>
+                      <Sun className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+                      <span className="text-sm font-medium">{t('footer.theme.light')}</span>
+                    </>
+                  )}
+                  <ChevronRight className="h-3 w-3 ml-auto opacity-50 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-0.5" />
+                </button>
+              </div>
+            )}
               </div>
            
-            </div>
+            </div>  
           </div>
         </div>
       </div>

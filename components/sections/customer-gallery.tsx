@@ -70,6 +70,7 @@ export function CustomerGallery() {
       'https://images.unsplash.com/photo-1556155092-8707de31f9c4?w=800&h=600&fit=crop&crop=focalpoint&auto=format',
       'https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=800&h=600&fit=crop&crop=focalpoint&auto=format',
       'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop&crop=focalpoint&auto=format'
+    
     ];
 
     // Create extended company list for infinite scroll
@@ -176,46 +177,7 @@ export function CustomerGallery() {
           </div>
         </motion.div>
 
-        {/* Stats Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8"
-        >
-          <div className="text-center p-8 bg-white rounded-2xl shadow-lg border border-slate-200">
-            <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <TrendingUp className="w-8 h-8 text-white" />
-            </div>
-            <div className="text-3xl font-bold text-slate-900 mb-2">46+</div>
-            <div className="text-slate-600 font-medium">
-              {locale === 'tr' ? 'Başarılı Şirket' : 'Successful Companies'}
-            </div>
-          </div>
-          
-          <div className="text-center p-8 bg-white rounded-2xl shadow-lg border border-slate-200">
-            <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <Award className="w-8 h-8 text-white" />
-            </div>
-            <div className="text-3xl font-bold text-slate-900 mb-2">15+</div>
-            <div className="text-slate-600 font-medium">
-              {locale === 'tr' ? 'Farklı Sektör' : 'Different Sectors'}
-            </div>
-          </div>
-          
-          <div className="text-center p-8 bg-white rounded-2xl shadow-lg border border-slate-200">
-            <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <span className="text-white font-bold text-xl">∞</span>
-            </div>
-            <div className="text-3xl font-bold text-slate-900 mb-2">
-              {locale === 'tr' ? 'Sürekli' : 'Continuous'}
-            </div>
-            <div className="text-slate-600 font-medium">
-              {locale === 'tr' ? 'Büyüyen Başarı' : 'Growing Success'}
-            </div>
-          </div>
-        </motion.div>
+    
       </div>
 
       {/* Enhanced Animation Styles */}

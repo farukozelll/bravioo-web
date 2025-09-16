@@ -1,150 +1,83 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Star, Gift, Percent, Crown } from 'lucide-react';
+import { Gift, Crown } from 'lucide-react';
 
 export function PartnerBrandsMarquee() {
   const locale = useLocale();
-  const [hoveredBrand, setHoveredBrand] = useState<string | null>(null);
 
   // Enhanced brand data with more details
   const brands = [
     { 
       name: 'Acıbadem', 
-      logo: '/markalar/Acıbadem Tüm Hastaneleri-Tıp Merkezleri.png', 
-      alt: 'Acıbadem Hastaneleri',
-      discount: '25%',
-      category: 'Healthcare',
-      description: locale === 'tr' ? 'Sağlık hizmetlerinde özel indirimler' : 'Special discounts on healthcare services'
+      logo: '/images/brands/Acıbadem Tüm Hastaneleri-Tıp Merkezleri.png', 
+      alt: 'Acıbadem Hastaneleri'
     },
     { 
       name: 'AGT', 
-      logo: '/markalar/agt-renkli.jpeg', 
-      alt: 'AGT',
-      discount: '15%',
-      category: 'Technology',
-      description: locale === 'tr' ? 'Teknoloji ürünlerinde avantajlı fiyatlar' : 'Advantageous prices on tech products'
+      logo: '/images/brands/agt-renkli.jpeg', 
+      alt: 'AGT'
     },
     { 
       name: 'Akgün Group', 
-      logo: '/markalar/akgungroup-logo-v1.png', 
-      alt: 'Akgün Group',
-      discount: '20%',
-      category: 'Hospitality',
-      description: locale === 'tr' ? 'Otel konaklamalarında indirim' : 'Discounts on hotel accommodations'
+      logo: '/images/brands/akgungroup-logo-v1.png', 
+      alt: 'Akgün Group'
     },
     { 
       name: 'Akmercan', 
-      logo: '/markalar/akmercan.svg', 
-      alt: 'Akmercan',
-      discount: '30%',
-      category: 'Retail',
-      description: locale === 'tr' ? 'Gıda ürünlerinde özel kampanyalar' : 'Special campaigns on food products'
+      logo: '/images/brands/akmercan.svg', 
+      alt: 'Akmercan'
     },
     { 
       name: 'Albayrak', 
-      logo: '/markalar/Albayrak_Grubu_Logo.png', 
-      alt: 'Albayrak Grubu',
-      discount: '18%',
-      category: 'Construction',
-      description: locale === 'tr' ? 'İnşaat hizmetlerinde indirim' : 'Discounts on construction services'
+      logo: '/images/brands/Albayrak_Grubu_Logo.png', 
+      alt: 'Albayrak Grubu'
     },
     { 
       name: 'Birun', 
-      logo: '/markalar/birun.png', 
-      alt: 'Birun',
-      discount: '22%',
-      category: 'Fashion',
-      description: locale === 'tr' ? 'Moda ürünlerinde özel fiyatlar' : 'Special prices on fashion items'
+      logo: '/images/brands/birun.png', 
+      alt: 'Birun'
     },
     { 
       name: 'Cacharel', 
-      logo: '/markalar/Cacharel.png', 
-      alt: 'Cacharel',
-      discount: '35%',
-      category: 'Fashion',
-      description: locale === 'tr' ? 'Lüks moda koleksiyonlarında indirim' : 'Discounts on luxury fashion collections'
+      logo: '/images/brands/Cacharel.png', 
+      alt: 'Cacharel'
     },
     { 
       name: 'İstanbul Ticaret', 
-      logo: '/markalar/İstanbul Ticaret.png', 
-      alt: 'İstanbul Ticaret Üniversitesi',
-      discount: '40%',
-      category: 'Education',
-      description: locale === 'tr' ? 'Eğitim programlarında indirim' : 'Discounts on educational programs'
+      logo: '/images/brands/İstanbul Ticaret.png', 
+      alt: 'İstanbul Ticaret Üniversitesi'
     },
     { 
       name: 'Karaca', 
-      logo: '/markalar/karaca-beyaz.png', 
-      alt: 'Karaca',
-      discount: '25%',
-      category: 'Home & Living',
-      description: locale === 'tr' ? 'Ev dekorasyonu ürünlerinde indirim' : 'Discounts on home decoration products'
+      logo: '/images/brands/karaca-beyaz.png', 
+      alt: 'Karaca'
     },
     { 
       name: 'Liv Hospital', 
-      logo: '/markalar/liv-hospital2359.jpg', 
-      alt: 'Liv Hospital',
-      discount: '30%',
-      category: 'Healthcare',
-      description: locale === 'tr' ? 'Özel hastane hizmetlerinde indirim' : 'Discounts on private hospital services'
+      logo: '/images/brands/liv-hospital2359.jpg', 
+      alt: 'Liv Hospital'
     },
     { 
       name: 'Mimya', 
-      logo: '/markalar/Mimya.png', 
-      alt: 'Mimya',
-      discount: '20%',
-      category: 'Beauty',
-      description: locale === 'tr' ? 'Güzellik ürünlerinde özel kampanyalar' : 'Special campaigns on beauty products'
+      logo: '/images/brands/Mimya.png', 
+      alt: 'Mimya'
     },
     { 
       name: 'Sanko', 
-      logo: '/markalar/Sanko_Üniversitesi_logo.png', 
-      alt: 'Sanko Üniversitesi',
-      discount: '45%',
-      category: 'Education',
-      description: locale === 'tr' ? 'Üniversite eğitiminde burslar' : 'Scholarships for university education'
+      logo: '/images/brands/Sanko_Üniversitesi_logo.png', 
+      alt: 'Sanko Üniversitesi'
     },
   ];
 
   // Duplicate brands for continuous scroll
   const duplicatedBrands = [...brands, ...brands];
 
-  const getCategoryIcon = (category: string) => {
-    switch (category) {
-      case 'Healthcare': return '🏥';
-      case 'Technology': return '💻';
-      case 'Hospitality': return '🏨';
-      case 'Retail': return '🛒';
-      case 'Construction': return '🏗️';
-      case 'Fashion': return '👗';
-      case 'Education': return '🎓';
-      case 'Home & Living': return '🏠';
-      case 'Beauty': return '💄';
-      default: return '⭐';
-    }
-  };
-
-  const getCategoryColor = (category: string) => {
-    const colors = {
-      'Healthcare': 'from-blue-500 to-cyan-600',
-      'Technology': 'from-purple-500 to-indigo-600',
-      'Hospitality': 'from-gold-500 to-yellow-600',
-      'Retail': 'from-green-500 to-emerald-600',
-      'Construction': 'from-orange-500 to-red-600',
-      'Fashion': 'from-pink-500 to-rose-600',
-      'Education': 'from-indigo-500 to-purple-600',
-      'Home & Living': 'from-brown-500 to-amber-600',
-      'Beauty': 'from-pink-400 to-purple-500',
-    };
-    return colors[category as keyof typeof colors] || 'from-gray-500 to-gray-600';
-  };
-
   return (
-    <section className="py-20 bg-gradient-to-br from-sand-50 to-white dark:from-gray-900 dark:to-gray-800 overflow-hidden transition-colors duration-300">
+    <section className="py-20 bg-white dark:bg-gray-900 overflow-hidden transition-colors duration-300">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -199,98 +132,29 @@ export function PartnerBrandsMarquee() {
         {/* Marquee Container */}
         <div className="relative overflow-hidden">
           {/* Gradient Overlays */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-sand-50 dark:from-gray-900 to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-sand-50 dark:from-gray-900 to-transparent z-10" />
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white dark:from-gray-900 to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white dark:from-gray-900 to-transparent z-10" />
           
           {/* Scrolling Brands */}
           <div className="flex overflow-hidden">
             <motion.div
-              className="flex gap-8 py-8 w-max"
-              animate={{
-                x: hoveredBrand ? 0 : '-50%',
-              }}
-              transition={{
-                x: {
-                  repeat: hoveredBrand ? 0 : Infinity,
-                  repeatType: "loop",
-                  duration: hoveredBrand ? 0 : 60,
-                  ease: "linear",
-                },
-              }}
+              className="flex gap-12 py-8 w-max"
+              animate={{ x: '-50%' }}
+              transition={{ x: { repeat: Infinity, repeatType: 'loop', duration: 60, ease: 'linear' } }}
             >
               {duplicatedBrands.map((brand, index) => (
                 <motion.div
                   key={`${brand.name}-${index}`}
-                  className="group relative flex-shrink-0 w-72 sm:w-80"
-                  onMouseEnter={() => setHoveredBrand(`${brand.name}-${index}`)}
-                  onMouseLeave={() => setHoveredBrand(null)}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
+                  className="relative flex-shrink-0 w-40 sm:w-48"
                 >
-                  <div className="relative h-40 sm:h-48 bg-white dark:bg-gray-800 rounded-2xl border-2 border-sand-200 dark:border-gray-700 hover:border-gold-300 dark:hover:border-gold-400 transition-all duration-300 hover:shadow-2xl overflow-hidden">
-                    {/* Brand Logo Section */}
-                    <div className="h-24 sm:h-32 flex items-center justify-center p-4 sm:p-6 bg-gradient-to-br from-white to-sand-50 dark:from-gray-800 dark:to-gray-700">
-                      <div className="relative w-full h-full">
-                        <Image
-                          src={brand.logo}
-                          alt={brand.alt}
-                          fill
-                          className="object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500"
-                          sizes="320px"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Info Section */}
-                    <div className="h-16 px-4 py-3 bg-white dark:bg-gray-800 border-t border-sand-100 dark:border-gray-700">
-                      <div className="flex items-center justify-between">
-                        <div className="flex-1">
-                          <h3 className="font-semibold text-ink-900 dark:text-gray-100 text-sm truncate">
-                            {brand.name}
-                          </h3>
-                          <div className="flex items-center gap-1 mt-1">
-                            <span className="text-xs">{getCategoryIcon(brand.category)}</span>
-                            <span className="text-xs text-ink-500 dark:text-gray-400">{brand.category}</span>
-                          </div>
-                        </div>
-                        <div className="text-right">
-                          <div className={`inline-flex items-center gap-1 px-2 py-1 bg-gradient-to-r ${getCategoryColor(brand.category)} rounded-full text-white text-xs font-bold`}>
-                            <Percent className="h-3 w-3" />
-                            {brand.discount}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Hover Overlay with Details */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ 
-                        opacity: hoveredBrand === `${brand.name}-${index}` ? 1 : 0,
-                        y: hoveredBrand === `${brand.name}-${index}` ? 0 : 20
-                      }}
-                      transition={{ duration: 0.3 }}
-                      className="absolute inset-0 bg-gradient-to-br from-ink-900/95 to-brand-900/95 backdrop-blur-sm rounded-2xl flex flex-col justify-center items-center text-center p-6 pointer-events-none"
-                    >
-                      <div className={`w-16 h-16 bg-gradient-to-r ${getCategoryColor(brand.category)} rounded-2xl flex items-center justify-center mb-4`}>
-                        <Gift className="h-8 w-8 text-white" />
-                      </div>
-                      
-                      <h3 className="text-white font-bold text-lg mb-2">{brand.name}</h3>
-                      
-                      <div className="flex items-center gap-2 mb-3">
-                        <Star className="h-4 w-4 text-gold-400 fill-current" />
-                        <span className="text-gold-400 font-semibold">{brand.discount} {locale === 'tr' ? 'İndirim' : 'Discount'}</span>
-                      </div>
-                      
-                      <p className="text-sand-200 dark:text-gray-300 text-sm leading-relaxed">
-                        {brand.description}
-                      </p>
-                      
-                      <button className="mt-4 px-4 py-2 bg-white text-ink-900 rounded-lg font-medium hover:bg-sand-100 transition-colors text-sm">
-                        {locale === 'tr' ? 'Detayları Gör' : 'View Details'}
-                      </button>
-                    </motion.div>
+                  <div className="relative h-24 sm:h-28">
+                    <Image
+                      src={brand.logo}
+                      alt={brand.alt}
+                      fill
+                      className="object-contain"
+                      sizes="192px"
+                    />
                   </div>
                 </motion.div>
               ))}
