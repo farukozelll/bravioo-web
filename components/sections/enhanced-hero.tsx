@@ -204,21 +204,17 @@ export function EnhancedHero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: shouldReduceMotion ? 0.3 : 0.8, ease: "easeOut", delay: shouldReduceMotion ? 0 : 0.2 }}
           >
-            {/* Video Container - Using Direct Wistia Embed */}
+            {/* Video Container - Mock Demo Video */}
             <div className="relative aspect-video mb-4 lg:mb-6 rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-brand-50 to-emerald-50 dark:from-gray-800 dark:to-gray-700">
-              <div className="wistia_responsive_padding" style={{padding:'56.25% 0 0 0', position:'relative'}}>
-                <div className="wistia_responsive_wrapper" style={{height:'100%', left:0, position:'absolute', top:0, width:'100%'}}>
-                  <iframe 
-                    src="https://fast.wistia.net/embed/iframe/bw635quxae?seo=false&videoFoam=true" 
-                    title={locale === 'tr' ? 'Bravioo Platformu Demo Videosu' : 'Bravioo Platform Demo Video'}
-                    allow="autoplay; fullscreen" 
-                    allowFullScreen 
-                    frameBorder="0" 
-                    className="wistia_embed w-full h-full rounded-2xl lg:rounded-3xl"
-                    name="wistia_embed"
-                  />
-                </div>
-              </div>
+              <iframe 
+                src="https://www.youtube.com/embed/ScMzIvxBSi4?autoplay=0&mute=1&controls=1&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3"
+                title={locale === 'tr' ? 'Bravioo Platformu Demo Videosu - HR Tech Çözümleri' : 'Bravioo Platform Demo Video - HR Tech Solutions'}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowFullScreen 
+                frameBorder="0" 
+                className="w-full h-full rounded-2xl lg:rounded-3xl"
+                loading="lazy"
+              />
             </div>
 
             {/* Feature Cards */}
