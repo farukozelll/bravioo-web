@@ -80,7 +80,7 @@ export function FAQSection() {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-sand-50 to-white">
+    <section className="py-24 bg-gradient-to-br from-sand-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -90,11 +90,11 @@ export function FAQSection() {
             </div>
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-ink-900 mb-6 font-display">
+          <h2 className="text-4xl md:text-5xl font-bold text-ink-900 dark:text-gray-100 mb-6 font-display">
             {locale === 'tr' ? 'Sık Sorulan Sorular' : 'Frequently Asked Questions'}
           </h2>
           
-          <p className="text-xl text-ink-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-ink-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
             {locale === 'tr'
               ? 'Bravioo hakkında en çok merak edilen konuları derledik. Sorunuzun cevabını bulamadıysanız bizimle iletişime geçin.'
               : 'We\'ve compiled the most frequently asked questions about Bravioo. If you can\'t find the answer to your question, please contact us.'
@@ -106,7 +106,7 @@ export function FAQSection() {
           {/* Left side - Features */}
           <div className="lg:col-span-1">
             <div className="sticky top-24">
-              <h3 className="text-2xl font-bold text-ink-900 mb-8 font-display">
+              <h3 className="text-2xl font-bold text-ink-900 dark:text-gray-100 mb-8 font-display">
                 {locale === 'tr' ? 'Neden Bravioo?' : 'Why Bravioo?'}
               </h3>
               
@@ -119,8 +119,8 @@ export function FAQSection() {
                         <Icon className="h-6 w-6 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-ink-900 mb-1">{feature.title}</h4>
-                        <p className="text-sm text-ink-600">{feature.description}</p>
+                        <h4 className="font-semibold text-ink-900 dark:text-gray-100 mb-1">{feature.title}</h4>
+                        <p className="text-sm text-ink-600 dark:text-gray-300">{feature.description}</p>
                       </div>
                     </div>
                   );
@@ -137,7 +137,7 @@ export function FAQSection() {
                     : 'Talk to our experts and get answers to all your questions.'
                   }
                 </p>
-                <button className="bg-white text-brand-600 px-4 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+                <button className="bg-white text-brand-600 px-4 py-2 rounded-lg font-medium hover:bg-gray-100 dark:bg-gray-100 dark:hover:bg-gray-200 dark:text-brand-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-white/60">
                   {locale === 'tr' ? 'İletişime Geç' : 'Contact Us'}
                 </button>
               </div>

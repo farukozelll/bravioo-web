@@ -47,7 +47,7 @@ const MILESTONES_TR: Milestone[] = [
   },
   {
     id: '4',
-    title: 'Tohum Öncesi Yatırım (ONBEYOND)',
+    title: 'Tohum Öncesi (ONBEYOND)',
     description: '',
     year: '2020',
     completed: true,
@@ -270,10 +270,10 @@ export function JourneyMilestones() {
   
   // Configuration and computed values
   const config = React.useMemo(() => {
-    const itemsPerView = 5;
-    const maxVisibleStart = Math.max(0, milestones.length - itemsPerView);
-    const totalScrollSteps = maxVisibleStart + 1;
-    
+    // Always at most 2 pages. Compute items per view accordingly.
+    const itemsPerView = Math.max(1, Math.ceil(milestones.length / 2));
+    const totalScrollSteps = milestones.length > itemsPerView ? 2 : 1;
+    const maxVisibleStart = totalScrollSteps - 1; // 0 or 1
     return { itemsPerView, maxVisibleStart, totalScrollSteps };
   }, [milestones.length]);
   
@@ -436,23 +436,20 @@ export function JourneyMilestones() {
             {/* Milestones Container */}
             <div className="relative">
               <motion.div
-                className="flex gap-6"
+                className="flex -mx-3"
                 animate={{ 
-                  x: `${-constrainedVisibleStart * (100 / config.itemsPerView)}%` 
+                  x: `${-constrainedVisibleStart * 100}%`
                 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                style={{ 
-                  width: `${(milestones.length / config.itemsPerView) * 100}%`,
-                  minWidth: '100%'
-                }}
+                style={{ minWidth: '100%' }}
               >
                 {milestones.map((milestone, index) => (
                   <motion.div
                     key={milestone.id}
-                    className="flex-shrink-0"
-                    style={{ width: `${100 / milestones.length}%` }}
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    className="flex-shrink-0 px-3"
+                    style={{ flex: `0 0 calc(100% / ${config.itemsPerView})` }}
+                    initial={{ opacity: 0, x: 40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                   >

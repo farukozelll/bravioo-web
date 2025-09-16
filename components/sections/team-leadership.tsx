@@ -22,7 +22,7 @@ export function TeamLeadership() {
   const teamMembers: TeamMember[] = TEAM_MEMBERS as TeamMember[];
 
   return (
-    <section className="py-20 lg:py-24 bg-white dark:bg-gray-900">
+    <section className="py-12 lg:py-16 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -42,7 +42,7 @@ export function TeamLeadership() {
         </motion.div>
 
         {/* Team Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-3 gap-8 mb-8">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.id}
