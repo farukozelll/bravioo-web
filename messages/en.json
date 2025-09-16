@@ -89,9 +89,11 @@
     "annually": "Annually",
     "save": "Save 20%",
     "perUser": "per user/month",
+    "perSeat": "per seat",
     "contactUs": "Contact us for custom pricing",
     "freeTrial": "14-day free trial",
     "noCredit": "No credit card required",
+    "commission": "Discount Rate",
     "plans": {
       "starter": {
         "name": "Starter",
@@ -131,6 +133,9 @@
           "Priority support"
         ]
       }
+    ,
+    "employer": {
+      "perSeat": "per seat"
     }
   },
   "contact": {
@@ -320,4 +325,5 @@
       "description": "We create a strong ecosystem together with our investors and technology partners who trust us in Bravioo's growth."
     }
   }
+}
 }

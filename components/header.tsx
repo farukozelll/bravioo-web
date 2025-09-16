@@ -646,7 +646,7 @@ function SuccessStoryCard({ story, locale, t }: { story: StoryItem; locale: stri
 function ViewAllLink({ locale, t }: { locale: string; t: (key: string) => string }) {
   return (
     <Link 
-      href={`/${locale}/customers`} 
+      href={`/${locale}/stories`} 
       className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 mt-4"
     >
       {t('viewAll')}

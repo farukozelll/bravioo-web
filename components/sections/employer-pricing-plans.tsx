@@ -8,6 +8,8 @@ import { Check, Star, Users, Zap, Building, Crown } from 'lucide-react';
 export function EmployerPricingPlans() {
   const t = useTranslations('pricing.employer');
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('yearly');
+  const [currency, setCurrency] = useState<'USD' | 'TRY'>('USD');
+  const [exchangeRate, setExchangeRate] = useState<number>(42); // 1 USD = 42 TRY (fallback)
 
   const plans = [
     {
@@ -15,8 +17,7 @@ export function EmployerPricingPlans() {
       nameKey: 'plans.starter.name',
       descKey: 'plans.starter.description',
       icon: <Users className="w-8 h-8" />,
-      monthlyPrice: 299,
-      yearlyPrice: 2699, // %25 indirim
+      perSeatUSD: 10,
       maxUsers: 50,
       popular: false,
       color: 'blue',
@@ -27,8 +28,7 @@ export function EmployerPricingPlans() {
       nameKey: 'plans.growth.name',
       descKey: 'plans.growth.description', 
       icon: <Zap className="w-8 h-8" />,
-      monthlyPrice: 599,
-      yearlyPrice: 5399, // %25 indirim
+      perSeatUSD: 9,
       maxUsers: 200,
       popular: true,
       color: 'emerald',
@@ -39,8 +39,7 @@ export function EmployerPricingPlans() {
       nameKey: 'plans.scale.name',
       descKey: 'plans.scale.description',
       icon: <Building className="w-8 h-8" />,
-      monthlyPrice: 999,
-      yearlyPrice: 8999, // %25 indirim
+      perSeatUSD: 8,
       maxUsers: 500,
       popular: false,
       color: 'purple',
@@ -51,8 +50,7 @@ export function EmployerPricingPlans() {
       nameKey: 'plans.enterprise.name',
       descKey: 'plans.enterprise.description',
       icon: <Crown className="w-8 h-8" />,
-      monthlyPrice: null,
-      yearlyPrice: null,
+      perSeatUSD: null,
       maxUsers: '500+',
       popular: false,
       color: 'gray',
@@ -60,7 +58,7 @@ export function EmployerPricingPlans() {
     }
   ];
 
-  const getColorClasses = (color: string, popular: boolean = false) => {
+  const getColorClasses = (color: string) => {
     const baseClasses = {
       blue: {
         border: 'border-blue-200',
@@ -95,6 +93,16 @@ export function EmployerPricingPlans() {
     return baseClasses[color as keyof typeof baseClasses];
   };
 
+  const currencySymbol = currency === 'USD' ? '$' : '₺';
+
+  type PlanPricing = { perSeatUSD: number | null };
+
+  const calculateMonthly = (plan: PlanPricing): number | null => {
+    if (plan.perSeatUSD == null) return null;
+    const rate = currency === 'USD' ? 1 : exchangeRate;
+    return plan.perSeatUSD * rate; // per seat price only
+  };
+
   return (
     <section className="py-16 lg:py-20 xl:py-24 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -118,45 +126,71 @@ export function EmployerPricingPlans() {
             {t('plansSubtitle')}
           </motion.p>
 
-          {/* Billing Toggle */}
+          {/* Billing Toggle + Controls */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="inline-flex items-center bg-white dark:bg-gray-800 p-1 rounded-full shadow-lg border border-gray-200 dark:border-gray-700"
+            className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
           >
-            <button
-              onClick={() => setBillingCycle('monthly')}
-              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                billingCycle === 'monthly'
-                  ? 'bg-emerald-600 text-white shadow-lg'
-                  : 'text-gray-600 hover:text-emerald-600'
-              }`}
-            >
-              {t('monthly')}
-            </button>
-            <button
-              onClick={() => setBillingCycle('yearly')}
-              className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 relative ${
-                billingCycle === 'yearly'
-                  ? 'bg-emerald-600 text-white shadow-lg'
-                  : 'text-gray-600 hover:text-emerald-600'
-              }`}
-            >
-              {t('yearly')}
-              <span className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs px-2 py-1 rounded-full">
-                25% {t('off')}
-              </span>
-            </button>
+            <div className="inline-flex items-center bg-white dark:bg-gray-800 p-1 rounded-full shadow-lg border border-gray-200 dark:border-gray-700">
+              <button
+                onClick={() => setBillingCycle('monthly')}
+                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                  billingCycle === 'monthly'
+                    ? 'bg-emerald-600 text-white shadow-lg'
+                    : 'text-gray-600 hover:text-emerald-600'
+                }`}
+              >
+                {t('monthly')}
+              </button>
+              <button
+                onClick={() => setBillingCycle('yearly')}
+                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 relative ${
+                  billingCycle === 'yearly'
+                    ? 'bg-emerald-600 text-white shadow-lg'
+                    : 'text-gray-600 hover:text-emerald-600'
+                }`}
+              >
+                {t('yearly')}
+                <span className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs px-2 py-1 rounded-full">
+                  25% {t('off')}
+                </span>
+              </button>
+            </div>
+
+            {/* Employees selector removed: pricing is per seat and not auto-calculated by headcount */}
+
+            <div className="flex items-center gap-3 bg-white dark:bg-gray-800 px-3 py-2 rounded-xl border border-gray-200 dark:border-gray-700">
+              <label className="text-sm text-gray-600 dark:text-gray-300">{t('currency')}</label>
+              <select
+                value={currency}
+                onChange={(e) => setCurrency(e.target.value as 'USD' | 'TRY')}
+                className="h-9 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/30"
+              >
+                <option value="USD">$ USD</option>
+                <option value="TRY">₺ TRY</option>
+              </select>
+              {currency === 'TRY' && (
+                <input
+                  type="number"
+                  step="0.01"
+                  value={exchangeRate}
+                  onChange={(e) => setExchangeRate(Math.max(0.01, Number(e.target.value)))}
+                  className="w-24 h-9 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/30"
+                />
+              )}
+            </div>
           </motion.div>
         </div>
 
         {/* Plans Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {plans.map((plan, index) => {
-            const colors = getColorClasses(plan.color, plan.popular);
-            const price = billingCycle === 'yearly' ? plan.yearlyPrice : plan.monthlyPrice;
+            const colors = getColorClasses(plan.color);
+            const monthly = calculateMonthly(plan);
+            const yearly = monthly ? monthly * 12 * 0.75 : null;
             
             return (
               <motion.div
@@ -165,7 +199,7 @@ export function EmployerPricingPlans() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 * index }}
-                className={`relative bg-white rounded-3xl shadow-xl border-2 ${colors.border} p-8 ${
+                className={`relative bg-white rounded-3xl shadow-xl border-2 ${colors.border} p-8 flex flex-col ${
                   plan.popular ? 'scale-105 shadow-2xl' : ''
                 }`}
               >
@@ -194,19 +228,20 @@ export function EmployerPricingPlans() {
 
                 {/* Pricing */}
                 <div className="text-center mb-8">
-                  {price ? (
+                  {monthly ? (
                     <>
                       <div className="text-4xl font-bold text-gray-900 mb-2">
-                        ₺{price.toLocaleString()}
-                        <span className="text-lg text-gray-500 font-normal">/{t('month')}</span>
+                        {currencySymbol}{billingCycle === 'monthly' ? Math.round(monthly).toLocaleString() : Math.round(yearly || 0).toLocaleString()}
+                        <span className="text-lg text-gray-500 font-normal">/{billingCycle === 'monthly' ? t('month') : t('year')}</span>
+                        <span className="ml-2 text-sm text-gray-500 align-middle">· {t('perSeat')}</span>
                       </div>
-                      {billingCycle === 'yearly' && plan.monthlyPrice && (
-                        <div className="text-sm text-gray-500 line-through">
-                          ₺{(plan.monthlyPrice * 12).toLocaleString()}/{t('year')}
+                      {billingCycle === 'yearly' && (
+                        <div className="text-sm text-gray-500">
+                          25% {t('off')} ({currencySymbol}{Math.round((monthly * 12) - (yearly || 0)).toLocaleString()} {t('saved')})
                         </div>
                       )}
                       <div className="text-sm text-gray-600 mt-2">
-                        {plan.maxUsers} {t('usersMax')}
+                        {typeof plan.maxUsers === 'number' ? `${plan.maxUsers} ${t('usersMax')}` : `${plan.maxUsers} ${t('usersMax')}`}
                       </div>
                     </>
                   ) : (
@@ -236,11 +271,11 @@ export function EmployerPricingPlans() {
                   </div>
                 </div>
 
-                {/* CTA Button */}
+                {/* CTA Button - bottom aligned, outlined */}
                 <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className={`w-full ${colors.button} text-white py-4 rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300`}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className={`mt-auto w-full border-2 ${colors.border} ${colors.text} py-4 rounded-2xl font-bold text-lg bg-white hover:shadow-md transition-all duration-300`}
                 >
                   {plan.id === 'enterprise' ? t('getQuote') : t('startTrial')}
                 </motion.button>

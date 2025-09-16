@@ -2,6 +2,7 @@
 
 import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 import brandsData from '@/data/brands.json';
 
 interface Brand {
@@ -38,6 +39,25 @@ export function BrandsHero() {
             <p className="text-lg lg:text-xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
               Fortune 500 şirketlerinden startuplara kadar sayısız marka Bravioo&apos;nun altyapısına güveniyor.
             </p>
+            <div className="flex flex-wrap items-center gap-4">
+              <motion.a
+                href="/contact"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-2 bg-emerald-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-emerald-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
+              >
+                <span>Enterprise Demo Alın</span>
+                <ArrowRight className="w-5 h-5" />
+              </motion.a>
+              <motion.a
+                href="/stories"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-2 border border-slate-300 dark:border-gray-700 text-slate-700 dark:text-slate-200 px-6 py-3 rounded-xl font-semibold hover:bg-slate-50 dark:hover:bg-gray-800 transition-colors duration-300"
+              >
+                <span>Marka Hikayeleri</span>
+              </motion.a>
+            </div>
           </div>
 
           {/* Right: 4-row marquee */}

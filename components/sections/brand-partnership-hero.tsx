@@ -3,7 +3,7 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { TrendingUp, Users, Heart, Target, ArrowRight } from 'lucide-react';
+import { TrendingUp, Users, Heart, Target, ArrowRight, Filter, Ticket } from 'lucide-react';
 
 export function BrandPartnershipHero() {
   const t = useTranslations('pricing.brands');
@@ -80,6 +80,8 @@ export function BrandPartnershipHero() {
               </motion.button>
             </div>
 
+        
+
             {/* Güven Göstergeleri */}
             <div className="flex items-center gap-6 text-sm text-gray-600">
               <div className="flex items-center gap-2">
@@ -97,62 +99,69 @@ export function BrandPartnershipHero() {
             </div>
           </motion.div>
 
-          {/* Sağ Taraf: İstatistikler */}
+          {/* Sağ Taraf: Satış Hunisi */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            {/* Ana İstatistik Kartı */}
-            <div className="bg-white rounded-3xl shadow-2xl border border-purple-100 p-8 mb-8">
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                  {t('impactTitle')}
-                </h3>
-                <p className="text-gray-600">
-                  {t('impactSubtitle')}
-                </p>
-              </div>
-
-              <div className="grid gap-6">
-                {stats.map((stat, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                    className="flex items-center gap-4 p-4 bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl"
-                  >
-                    <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl flex items-center justify-center text-white">
-                      {stat.icon}
-                    </div>
-                    <div>
-                      <div className="text-3xl font-bold text-gray-900">
-                        {t(stat.valueKey)}
-                      </div>
-                      <div className="text-gray-600 font-medium">
-                        {t(stat.labelKey)}
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Ek Bilgi Kartı */}
+            {/* Satış Hunisi (ikon + metin içeride) */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl p-6 text-white text-center"
+              className="bg-white rounded-3xl shadow-2xl border border-purple-100 p-8"
             >
-              <h4 className="text-xl font-bold mb-2">
-                {t('successStory.title')}
-              </h4>
-              <p className="text-emerald-100 text-sm">
-                {t('successStory.description')}
-              </p>
+              <div className="space-y-4">
+                {/* Step 1 */}
+                <div className="flex justify-center">
+                  <div
+                    className="relative w-full max-w-sm text-white"
+                    style={{
+                      clipPath: 'polygon(4% 0, 96% 0, 100% 20%, 94% 100%, 6% 100%, 0 20%)',
+                      background: '#05d686'
+                    }}
+                  >
+                    <div className="flex items-center justify-center gap-3 py-6">
+                      <Users className="w-6 h-6" />
+                      <span className="font-bold text-lg">Demografik Bilgiler</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Step 2 */}
+                <div className="flex justify-center">
+                  <div
+                    className="relative w-full max-w-xs text-white"
+                    style={{
+                      clipPath: 'polygon(6% 0, 94% 0, 100% 20%, 92% 100%, 8% 100%, 0 20%)',
+                      background: '#04c07a'
+                    }}
+                  >
+                    <div className="flex items-center justify-center gap-3 py-6">
+                      <Target className="w-6 h-6" />
+                      <span className="font-bold text-lg">Hedefleme</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Step 3 */}
+                <div className="flex justify-center">
+                  <div
+                    className="relative w-full max-w-[220px] text-white"
+                    style={{
+                      clipPath: 'polygon(8% 0, 92% 0, 100% 20%, 72% 20%, 72% 65%, 50% 82%, 28% 65%, 28% 20%, 0 20%)',
+                      background: '#059669'
+                    }}
+                  >
+                    <div className="flex items-center justify-center gap-3 py-6">
+                      <Ticket className="w-6 h-6" />
+                      <span className="font-bold text-lg"> Kupon</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         </div>

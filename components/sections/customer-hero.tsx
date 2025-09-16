@@ -113,21 +113,13 @@ export function CustomerHero() {
                     </p>
                   </div>
 
-                  {/* CTA */}
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full bg-emerald-600 text-white py-3 rounded-xl font-semibold hover:bg-emerald-700 transition-colors duration-300 flex items-center justify-center gap-2"
-                  >
-                    <span>Marka Detayları</span>
-                    <ArrowRight className="w-5 h-5" />
-                  </motion.button>
+                
                 </motion.div>
               ) : (
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="bg-gradient-to-br from-emerald-600/20 to-blue-600/20 backdrop-blur-sm p-8 rounded-2xl border border-emerald-500/30"
+                  className="bg-[#3A9355] backdrop-blur-sm p-8 rounded-2xl border border-emerald-500/30"
                 >
                   <h3 className="text-xl font-bold text-white mb-4">
                     Enterprise Success Stories
@@ -269,35 +261,17 @@ function CustomerCard({ customer, height, onHover, onLeave, onClick, gradientFro
         )}
         
         {/* Background Gradient */}
-        <div className={`absolute inset-0 bg-gradient-to-br from-${gradientFrom} to-${gradientTo}`}></div>
+        <div className={`absolute inset-0 bg-[#3A9355]`}></div>
 
         {/* Content */}
         <div className="absolute inset-0 p-4 flex flex-col justify-between text-white">
           
           {/* Top Section */}
           <div className="flex items-start justify-between">
-            {/* Customer Logo - Hidden by default, shown on hover */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: isHovered ? 1 : 0, scale: isHovered ? 1 : 0.8 }}
-              transition={{ duration: 0.3 }}
-              className="w-20 h-20 bg-white/95 rounded-xl flex items-center justify-center overflow-hidden shadow-lg backdrop-blur-sm"
-            >
-              {customer.logo ? (
-                <img 
-                  src={customer.logo} 
-                  alt={`${customer.name} logo`}
-                  className="w-16 h-16 object-contain"
-                />
-              ) : (
-                <span className="text-slate-800 font-bold text-xl">
-                  {customer.name.charAt(0)}
-                </span>
-              )}
-            </motion.div>
+          
             
             {/* Enterprise Badge */}
-            <div className="bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded-md text-xs font-medium backdrop-blur-sm">
+            <div className="bg-white/40 text-black-400 px-2 py-1 rounded-md text-xs font-medium backdrop-blur-sm">
               {customer.category}
             </div>
           </div>
@@ -305,8 +279,7 @@ function CustomerCard({ customer, height, onHover, onLeave, onClick, gradientFro
           {/* Bottom Section */}
           <div>
             {/* Customer Name & Category */}
-            <div className="text-white font-bold text-sm mb-1">{customer.name}</div>
-            <div className="text-white/80 text-xs line-clamp-2">{customer.description}</div>
+            <div className="text-white font-bold text-xl mb-1">{customer.name}</div>
           </div>
         </div>
 

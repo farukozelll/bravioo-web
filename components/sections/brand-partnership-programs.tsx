@@ -14,7 +14,7 @@ export function BrandPartnershipPrograms() {
       icon: <Star className="w-8 h-8" />,
       nameKey: 'programs.bronze.name',
       descKey: 'programs.bronze.description',
-      color: 'orange',
+      color: 'bronze',
       commission: '15%',
       features: ['basic', 'support', 'marketing1']
     },
@@ -23,7 +23,7 @@ export function BrandPartnershipPrograms() {
       icon: <Building className="w-8 h-8" />,
       nameKey: 'programs.silver.name',
       descKey: 'programs.silver.description',
-      color: 'gray',
+      color: 'silver',
       commission: '20%',
       popular: true,
       features: ['basic', 'support', 'marketing1', 'marketing2', 'analytics']
@@ -33,7 +33,7 @@ export function BrandPartnershipPrograms() {
       icon: <Crown className="w-8 h-8" />,
       nameKey: 'programs.gold.name',
       descKey: 'programs.gold.description',
-      color: 'yellow',
+      color: 'gold',
       commission: '25%',
       features: ['basic', 'support', 'marketing1', 'marketing2', 'analytics', 'priority', 'custom']
     },
@@ -42,7 +42,7 @@ export function BrandPartnershipPrograms() {
       icon: <Rocket className="w-8 h-8" />,
       nameKey: 'programs.platinum.name',
       descKey: 'programs.platinum.description',
-      color: 'purple',
+      color: 'platinum',
       commission: '30%',
       features: ['all', 'dedicated', 'whiteboard', 'events']
     }
@@ -79,8 +79,11 @@ export function BrandPartnershipPrograms() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 * index }}
-              className={`relative bg-white rounded-3xl shadow-xl border-2 p-8 ${
-                program.popular ? 'border-emerald-300 scale-105' : 'border-gray-200'
+              className={`relative bg-white rounded-3xl shadow-xl border-2 p-8 flex flex-col ${
+                program.color === 'bronze' ? 'border-amber-600' :
+                program.color === 'silver' ? 'border-gray-400' :
+                program.color === 'gold' ? 'border-yellow-400' :
+                program.color === 'platinum' ? 'border-purple-500' : 'border-gray-200'
               }`}
             >
               {program.popular && (
@@ -92,7 +95,12 @@ export function BrandPartnershipPrograms() {
               )}
 
               <div className="text-center mb-8">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4">
+                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 
+                  ${program.color === 'bronze' ? 'bg-amber-50 text-amber-700 border border-amber-600' : ''}
+                  ${program.color === 'silver' ? 'bg-gray-50 text-gray-700 border border-gray-400' : ''}
+                  ${program.color === 'gold' ? 'bg-yellow-50 text-yellow-700 border border-yellow-400' : ''}
+                  ${program.color === 'platinum' ? 'bg-purple-50 text-purple-700 border border-purple-500' : ''}
+                `}>
                   {program.icon}
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">
@@ -123,11 +131,12 @@ export function BrandPartnershipPrograms() {
                 ))}
               </div>
 
-              <button className={`w-full py-4 rounded-2xl font-bold transition-all duration-300 ${
-                program.popular
-                  ? 'bg-emerald-600 hover:bg-emerald-700 text-white'
-                  : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
-              }`}>
+              <button className={`mt-auto w-full py-4 rounded-2xl font-bold transition-all duration-300 border-2 ${
+                program.color === 'bronze' ? 'border-amber-600 text-amber-700' :
+                program.color === 'silver' ? 'border-gray-400 text-gray-700' :
+                program.color === 'gold' ? 'border-yellow-400 text-yellow-700' :
+                program.color === 'platinum' ? 'border-purple-500 text-purple-700' : 'border-gray-300 text-gray-900'
+              } bg-white hover:shadow-md`}>
                 {t('joinProgram')}
               </button>
             </motion.div>

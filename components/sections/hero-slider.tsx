@@ -119,7 +119,7 @@ export function HeroSlider() {
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-purple-600 mb-1">0%</div>
-                <div className="text-sm text-ink-600">{locale === 'tr' ? 'Komisyon' : 'Markup'}</div>
+                <div className="text-sm text-ink-600">{locale === 'tr' ? 'İndirim' : 'Markup'}</div>
               </div>
             </div>
             
