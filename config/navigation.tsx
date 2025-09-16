@@ -102,14 +102,14 @@ export const navigationData: NavItem[] = [
         titleKey: 'successStories',
         items: [
           {
-            image: '/images/brands/placeholder.png',
+            image: '/images/brands/Albayrak_Grubu_Logo.png',
             title: 'Albayrak Grubu',
-            descriptionKey: 'akbayrakGrubuSuccess',
-            href: '/customers/akbayrak-grubu',
+            descriptionKey: 'albayrakGrubuSuccess',
+            href: '/customers/albayrak-grubu',
             badge: '+25% artış'
           },
           {
-            image: '/images/brands/placeholder.png',
+            image: '/images/brands/akgungroup-logo-v1.png',
             title: 'Akgün Grup',
             descriptionKey: 'akgunGrupSuccess',
             href: '/customers/akgun-grup',

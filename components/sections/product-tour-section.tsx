@@ -20,6 +20,15 @@ export function ProductTourSection() {
   const mockupY = useTransform(scrollYProgress, [0, 1], ['40px', '-40px']);
 
   const step = PRODUCT_TOUR_STEPS[active];
+  // Remote fallbacks for mock images
+  const FALLBACKS: Record<string, string> = {
+    connect: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1600&auto=format&fit=crop',
+    recognize: 'https://images.unsplash.com/photo-1529336953121-4f3f8c6dc2a6?q=80&w=1600&auto=format&fit=crop',
+    engage: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1600&auto=format&fit=crop',
+    analyze: 'https://images.unsplash.com/photo-1542744094-24638eff58bb?q=80&w=1600&auto=format&fit=crop',
+  };
+  const [useFallback, setUseFallback] = React.useState(false);
+  React.useEffect(() => { setUseFallback(false); }, [active]);
 
   return (
     <section className="relative py-24 bg-white dark:bg-gray-900 transition-colors duration-300">
@@ -59,7 +68,13 @@ export function ProductTourSection() {
                   <div className="w-full h-full rounded-[28px] overflow-hidden relative">
                     <AnimatePresence mode="wait">
                       <motion.div key={step.id} initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.96 }} transition={{ duration: 0.35 }} className="absolute inset-0">
-                        <Image src={`/images/mockups/${step.mockup}.png`} alt={(locale === 'tr' ? step.titleTr : step.titleEn) + ' Mockup'} fill className="object-cover" />
+                        <Image 
+                          src={useFallback ? FALLBACKS[step.mockup as keyof typeof FALLBACKS] : `/images/mockups/${step.mockup}.png`}
+                          alt={(locale === 'tr' ? step.titleTr : step.titleEn) + ' Mockup'} 
+                          fill 
+                          className="object-cover" 
+                          onError={() => setUseFallback(true)}
+                        />
                       </motion.div>
                     </AnimatePresence>
                   </div>

@@ -622,7 +622,7 @@ function SuccessStoryCard({ story, locale, t }: { story: StoryItem; locale: stri
           alt={story.title} 
           width={300} 
           height={180}
-          className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300" 
+          className="w-full h-32 object-contain group-hover:scale-105 transition-transform duration-300" 
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
         <div className="absolute bottom-3 left-3 right-3">
