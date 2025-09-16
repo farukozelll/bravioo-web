@@ -172,6 +172,13 @@ export const navigationData: NavItem[] = [
           icon: <Shield className="w-6 h-6" />,
           isNew: false
         },
+        {
+          nameKey: 'productTour',
+          descriptionKey: 'productTourDesc',
+          href: '/product-tour',
+          icon: <Newspaper className="w-6 h-6" />,
+          isNew: false
+        }
     
       ],
       featuredContent: {
