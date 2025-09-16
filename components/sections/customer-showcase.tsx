@@ -155,34 +155,11 @@ export function CustomerShowcase() {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: -20, scale: 0.9 }}
                       transition={{ duration: 0.4 }}
-                      className="absolute inset-0 bg-white dark:bg-gray-800 rounded-2xl p-4 sm:p-6 border border-emerald-200 dark:border-emerald-600 shadow-2xl z-10"
+                      className="absolute inset-0 bg-white dark:bg-gray-800 rounded-2xl p-3 sm:p-4 border border-emerald-200 dark:border-emerald-600 shadow-2xl z-10"
                     >
                       <div className="h-full flex flex-col">
                         
-                        {/* Company Header */}
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="w-10 sm:w-12 h-10 sm:h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center overflow-hidden">
-                            {company.logo ? (
-                              <img 
-                                src={company.logo} 
-                                alt={`${company.name} logo`}
-                                className="w-6 sm:w-8 h-6 sm:h-8 object-contain"
-                                onError={(e) => {
-                                  const target = e.target as HTMLImageElement;
-                                  target.style.display = 'none';
-                                  target.nextElementSibling!.classList.remove('hidden');
-                                }}
-                              />
-                            ) : null}
-                            <span className="text-emerald-600 dark:text-emerald-400 font-bold hidden">
-                              {company.name.charAt(0)}
-                            </span>
-                          </div>
-                          <div>
-                            <h4 className="font-bold text-slate-900 dark:text-gray-100 text-sm">{company.name}</h4>
-                            <p className="text-xs text-slate-500 dark:text-gray-400">{company.category}</p>
-                          </div>
-                        </div>
+                    
        
                         {/* Testimonial */}
                         <div className="bg-emerald-50 dark:bg-emerald-900/20 p-3 rounded-lg mb-4">

@@ -41,6 +41,17 @@ export const TILES: TestimonialTile[] = [
     videoUrl: 'https://www.youtube.com/embed/_ozqVBxjenw',
     title: 'GZT – Etkileşim ve bağlılık',
   },
+  {
+    id: 'global-turizm',
+    type: 'video',
+    variant: 'Video',
+    logo: '/images/brands/Cacharel.png',
+    closedBg: undefined,
+    openBg: 'https://images.unsplash.com/photo-1529336953121-4f3f8c6dc2a6?q=80&w=1600&auto=format&fit=crop',
+    videoUrl: 'https://www.youtube.com/embed/_ozqVBxjenw',
+    title: 'Global Turizm – Etkileşim ve bağlılık',
+  },
+  
 ];
 
 export const STRIP_LOGOS = [

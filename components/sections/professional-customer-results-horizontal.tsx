@@ -80,8 +80,8 @@ export function ProfessionalCustomerResultsHorizontal() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mt-16 hidden lg:block"
         >
-          <div className="grid grid-cols-5 gap-4 h-[420px]">
-            {TILES.slice(0, 4).map((tile, index) => {
+          <div className="grid grid-cols-6 gap-4 h-[420px]">
+            {TILES.slice(0, 5).map((tile, index) => {
               const isExpanded = activeCard === tile.id;
               return (
                 <motion.div

@@ -54,6 +54,67 @@ export type MegaMenuContent = {
 // Tüm Navigasyon Yapımız - Yeni Strateji
 export const navigationData: NavItem[] = [
   {
+    nameKey: 'whyBravioo',
+    href: '/why-bravioo',
+    isMegaMenu: true,
+    megaMenuContent: {
+      mainLinks: [
+        {
+          nameKey: 'aboutUs',
+          descriptionKey: 'aboutUsDesc',
+          href: '/about',
+          icon: <Building className="w-6 h-6" />,
+          isNew: false
+        },
+        {
+          nameKey: 'difference',
+          descriptionKey: 'differenceDesc',
+          href: '/why-bravioo',
+          icon: <Target className="w-6 h-6" />,
+          isNew: false
+        },
+        {
+          nameKey: 'brands',
+          descriptionKey: 'brandsDesc',
+          href: '/brands',
+          icon: <Shield className="w-6 h-6" />,
+          isNew: false
+        },
+        {
+          nameKey: 'productTour',
+          descriptionKey: 'productTourDesc',
+          href: '/product-tour',
+          icon: <Newspaper className="w-6 h-6" />,
+          isNew: false
+        }
+    
+      ],
+      featuredContent: {
+        titleKey: 'companyNews',
+        items: [
+          {
+            title: 'Bravioo Raised $5M Series A',
+            descriptionKey: 'seriesADesc',
+            href: '/press/series-a',
+            image: '/images/press/series-a.jpg',
+            badge: 'New'
+          },
+          {
+            title: 'Remote Work Excellence Award',
+            descriptionKey: 'awardDesc', 
+            href: '/press/award',
+            image: '/images/press/award.jpg'
+          }
+        ]
+      },
+      bottomCTA: {
+        titleKey: 'whyBraviooCTATitle',
+        descriptionKey: 'whyBraviooCTADesc',
+        buttonTextKey: 'learnMore',
+        href: '/why-bravioo'
+      }
+    }
+  },{
     nameKey: 'platform',
     href: '/features',
     isMegaMenu: true,
@@ -145,68 +206,7 @@ export const navigationData: NavItem[] = [
     nameKey: 'customers', 
     href: '/customers' 
   },
-  {
-    nameKey: 'whyBravioo',
-    href: '/why-bravioo',
-    isMegaMenu: true,
-    megaMenuContent: {
-      mainLinks: [
-        {
-          nameKey: 'aboutUs',
-          descriptionKey: 'aboutUsDesc',
-          href: '/about',
-          icon: <Building className="w-6 h-6" />,
-          isNew: false
-        },
-        {
-          nameKey: 'difference',
-          descriptionKey: 'differenceDesc',
-          href: '/why-bravioo',
-          icon: <Target className="w-6 h-6" />,
-          isNew: false
-        },
-        {
-          nameKey: 'brands',
-          descriptionKey: 'brandsDesc',
-          href: '/brands',
-          icon: <Shield className="w-6 h-6" />,
-          isNew: false
-        },
-        {
-          nameKey: 'productTour',
-          descriptionKey: 'productTourDesc',
-          href: '/product-tour',
-          icon: <Newspaper className="w-6 h-6" />,
-          isNew: false
-        }
-    
-      ],
-      featuredContent: {
-        titleKey: 'companyNews',
-        items: [
-          {
-            title: 'Bravioo Raised $5M Series A',
-            descriptionKey: 'seriesADesc',
-            href: '/press/series-a',
-            image: '/images/press/series-a.jpg',
-            badge: 'New'
-          },
-          {
-            title: 'Remote Work Excellence Award',
-            descriptionKey: 'awardDesc', 
-            href: '/press/award',
-            image: '/images/press/award.jpg'
-          }
-        ]
-      },
-      bottomCTA: {
-        titleKey: 'whyBraviooCTATitle',
-        descriptionKey: 'whyBraviooCTADesc',
-        buttonTextKey: 'learnMore',
-        href: '/why-bravioo'
-      }
-    }
-  },
+
   { 
     nameKey: 'contact', 
     href: '/contact' 

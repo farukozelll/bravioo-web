@@ -109,11 +109,9 @@ export function BrandsShowcase() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              onHoverStart={() => setHoveredBrand(brand.id)}
-              onHoverEnd={() => setHoveredBrand(null)}
-              className="group relative cursor-pointer"
+              className="relative"
             >
-              <div className="relative bg-white dark:bg-gray-800 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-gray-700 transition-all duration-300 group-hover:border-emerald-300 dark:group-hover:border-emerald-500 group-hover:shadow-xl group-hover:-translate-y-2 overflow-hidden h-44 sm:h-52">
+              <div className="relative bg-white dark:bg-gray-800 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-gray-700 overflow-hidden h-44 sm:h-52">
                 
                 {/* Brand Logo - Enhanced with multiple format support and grayscale filter */}
                 <div className="flex justify-center mb-4">
@@ -123,12 +121,12 @@ export function BrandsShowcase() {
                     name={brand.name}
                     size="xl"
                     grayscale={true}
-                    className="group-hover:bg-emerald-50 dark:group-hover:bg-emerald-900/30 bg-slate-50 dark:bg-gray-700 rounded-xl transition-colors duration-300"
+                    className="bg-slate-50 dark:bg-gray-700 rounded-xl"
                   />
                 </div>
 
                 {/* Brand Name */}
-                <h3 className="font-semibold text-slate-900 dark:text-gray-100 text-center mb-2 text-sm sm:text-base group-hover:text-emerald-600 transition-colors duration-300">
+                <h3 className="font-semibold text-slate-900 dark:text-gray-100 text-center mb-2 text-sm sm:text-base">
                   {brand.name}
                 </h3>
 
@@ -137,50 +135,7 @@ export function BrandsShowcase() {
                 {/* Primary Metric */}
               
 
-                {/* Hover Card - Success Story */}
-                <AnimatePresence>
-                  {hoveredBrand === brand.id && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: -20, scale: 0.9 }}
-                      transition={{ duration: 0.4 }}
-                      className="absolute inset-0 bg-white dark:bg-gray-800 rounded-2xl p-4 sm:p-6 border border-emerald-200 dark:border-emerald-600 shadow-2xl z-10"
-                    >
-                      <div className="h-full flex flex-col">
-                        
-                        {/* Brand Header */}
-                        <div className="flex items-center gap-3 mb-4">
-                          <LogoImage
-                            src={brand.logo}
-                            alt={`${brand.name} logo`}
-                            name={brand.name}
-                            size="lg"
-                            grayscale={false}
-                            className="bg-emerald-50 dark:bg-emerald-900/30 rounded-xl flex-shrink-0"
-                          />
-                          <div className="min-w-0 flex-1">
-                            <h4 className="font-bold text-slate-900 dark:text-gray-100 text-sm truncate">{brand.name}</h4>
-                            <p className="text-xs text-slate-500 dark:text-gray-400 truncate">{brand.category}</p>
-                          </div>
-                        </div>
-
-                     
-
-
-                        {/* Description */}
-                        <div className="bg-emerald-50 dark:bg-emerald-900/20 p-3 rounded-lg mb-4">
-                          <p className="text-xs text-slate-700 dark:text-gray-300 leading-relaxed">
-                            {brand.description}
-                          </p>
-                        </div>
-
-                
-
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                {/* Hover content removed */}
 
               </div>
             </motion.div>

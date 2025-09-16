@@ -1,0 +1,22 @@
+[
+  {
+    "slug": "alpha-retail-success",
+    "title": "Alpha Retail: 120% Growth in 6 Months",
+    "brand": "Alpha Retail",
+    "category": "Retail",
+    "coverImage": "/images/stories/alpha-retail.jpg",
+    "excerpt": "Alpha Retail migrated to Bravioo and doubled their revenue with omnichannel.",
+    "publishedAt": "2025-08-12",
+    "content": "<p>Alpha Retail implemented Bravioo's headless storefront and OMS. Within 6 months, conversion increased by 32% and AOV by 18%.</p><p>With unified inventory and marketplace sync, order processing time dropped by 45%.</p>"
+  },
+  {
+    "slug": "nova-tech-crossborder",
+    "title": "NovaTech: Cross-border Expansion to 12 Countries",
+    "brand": "NovaTech",
+    "category": "Technology",
+    "coverImage": "/images/stories/novatech.jpg",
+    "excerpt": "Cross-border, multi-currency, and localized checkout at scale.",
+    "publishedAt": "2025-07-01",
+    "content": "<p>NovaTech used Bravioo's multi-store, multi-currency stack to launch in 12 countries in 90 days.</p><p>Checkout latency improved by 40% with edge caching and payment routing.</p>"
+  }
+]

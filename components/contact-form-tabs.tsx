@@ -9,14 +9,14 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { contactSchema, type ContactFormData } from '@/lib/zod-schemas';
 import { analytics } from '@/components/analytics';
-import { CheckCircle, AlertCircle, Send, Loader2, ArrowRight, ArrowLeft, User, Building, Phone, Calendar } from 'lucide-react';
+import { CheckCircle, AlertCircle, Send, Loader2, User, Building } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface ContactFormTabsProps {
   className?: string;
 }
 
-type FormStep = 'contact' | 'details';
+type FormStep = 'contact';
 
 export function ContactFormTabs({ className }: ContactFormTabsProps) {
   const t = useTranslations('contact');
@@ -35,6 +35,7 @@ export function ContactFormTabs({ className }: ContactFormTabsProps) {
     phone?: string;
     jobTitle?: string;
     industry?: string;
+    industryOther?: string;
     budget?: string;
     timeline?: string;
     painPoints?: string;
@@ -61,51 +62,17 @@ export function ContactFormTabs({ className }: ContactFormTabsProps) {
     setSubmitStatus('idle');
 
     try {
-      // First, save partial data when moving to step 2
-      if (currentStep === 'contact') {
-        // Save contact info to localStorage or send to API for lead capture
-        const contactData = {
-          name: data.name,
-          email: data.email,
-          company: data.company,
-          employees: data.employees,
-          phone: data.phone,
-          jobTitle: data.jobTitle,
-          timestamp: new Date().toISOString(),
-          step: 'contact_info_completed'
-        };
-        
-        // Save to localStorage for recovery
-        localStorage.setItem('bravioo_lead_partial', JSON.stringify(contactData));
-        
-        // Send partial data to API for lead tracking
-        try {
-          await fetch('/api/contact', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              ...contactData,
-              message: 'Partial form submission - contact info collected',
-              isPartial: true
-            }),
-          });
-        } catch (error) {
-          console.log('Partial data save failed, continuing...', error);
-        }
+      const finalData = {
+        ...data,
+        industry: data.industry === 'other' ? (data.industryOther || 'other') : data.industry,
+      };
 
-        analytics.formSubmit('contact_partial', true);
-        return;
-      }
-
-      // Full form submission
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(finalData),
       });
 
       const result = await response.json();
@@ -128,26 +95,14 @@ export function ContactFormTabs({ className }: ContactFormTabsProps) {
     }
   };
 
-  const handleNextStep = async () => {
-    const isValid = await trigger(['name', 'email', 'company', 'employees']);
-    if (isValid) {
-      await handleSubmit(onSubmit)();
-      setCurrentStep('details');
-    }
-  };
+  // Single-step form, no next step needed
 
   const tabs = [
     {
       id: 'contact',
       name: t('tabs.contact') || 'Contact Info',
       icon: User,
-      description: t('tabs.contactDesc') || 'Basic information about you and your company'
-    },
-    {
-      id: 'details',
-      name: t('tabs.details') || 'Project Details',
-      icon: Building,
-      description: t('tabs.detailsDesc') || 'Tell us more about your needs and goals'
+      description: t('tabs.contactDesc') || 'Basic information and your request'
     }
   ];
 
@@ -159,35 +114,30 @@ export function ContactFormTabs({ className }: ContactFormTabsProps) {
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = currentStep === tab.id;
-            const isCompleted = currentStep === 'details' && tab.id === 'contact';
+            const isCompleted = currentStep === 'contact' && tab.id === 'contact';
             
             return (
               <button
                 key={tab.id}
-                onClick={() => tab.id === 'contact' || currentStep === 'details' ? setCurrentStep(tab.id as FormStep) : null}
-                disabled={tab.id === 'details' && currentStep === 'contact'}
+                onClick={() => setCurrentStep(tab.id as FormStep)}
+                disabled={false}
                 className={cn(
                   'flex-1 group relative min-w-0 overflow-hidden bg-white py-4 px-6 text-center text-sm font-medium rounded-xl border-2 transition-all duration-300',
                   isActive 
                     ? 'border-brand-500 text-brand-600 bg-brand-50' 
-                    : isCompleted
-                    ? 'border-green-500 text-green-600 bg-green-50 hover:bg-green-100'
-                    : currentStep === 'details'
-                    ? 'border-sand-200 text-ink-600 bg-white hover:bg-sand-50'
-                    : 'border-sand-200 text-ink-400 bg-sand-50 cursor-not-allowed'
+                    : 'border-sand-200 text-ink-600 bg-white'
                 )}
               >
                 <div className="flex items-center justify-center space-x-2">
                   <Icon className={cn(
                     'h-5 w-5',
-                    isActive ? 'text-brand-600' : isCompleted ? 'text-green-600' : 'text-ink-400'
+                    isActive ? 'text-brand-600' : 'text-ink-400'
                   )} />
                   <span className="font-semibold">{tab.name}</span>
-                  {isCompleted && <CheckCircle className="h-4 w-4 text-green-600" />}
                 </div>
                 <p className={cn(
                   'mt-1 text-xs',
-                  isActive ? 'text-brand-500' : isCompleted ? 'text-green-500' : 'text-ink-400'
+                  isActive ? 'text-brand-500' : 'text-ink-400'
                 )}>
                   {tab.description}
                 </p>
@@ -213,17 +163,10 @@ export function ContactFormTabs({ className }: ContactFormTabsProps) {
           </div>
         )}
 
-        {/* Step 1: Contact Information */}
+        {/* Single Step: Contact + Details (industry/message) */}
         {currentStep === 'contact' && (
           <div className="space-y-6">
-            <div className="text-center mb-6">
-              <h3 className="text-xl font-semibold text-ink-900 mb-2">
-                {t('steps.contact.title') || 'Let\'s get to know you'}
-              </h3>
-              <p className="text-ink-600">
-                {t('steps.contact.subtitle') || 'We\'ll use this information to personalize your experience'}
-              </p>
-            </div>
+          
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Name Field */}
@@ -324,40 +267,8 @@ export function ContactFormTabs({ className }: ContactFormTabsProps) {
               </div>
             </div>
 
-            {/* Next Button */}
-            <div className="flex justify-end">
-              <Button
-                type="button"
-                onClick={handleNextStep}
-                disabled={isSubmitting}
-                className="bg-gradient-to-r from-brand-500 to-emerald-600 hover:from-brand-600 hover:to-emerald-700"
-                size="lg"
-              >
-                {isSubmitting ? (
-                  <Loader2 className="h-5 w-5 mr-2 animate-spin" />
-                ) : (
-                  <ArrowRight className="h-5 w-5 mr-2" />
-                )}
-                {t('form.next') || 'Next Step'}
-              </Button>
-            </div>
-          </div>
-        )}
-
-        {/* Step 2: Project Details */}
-        {currentStep === 'details' && (
-          <div className="space-y-6">
-            <div className="text-center mb-6">
-              <h3 className="text-xl font-semibold text-ink-900 mb-2">
-                {t('steps.details.title') || 'Tell us about your project'}
-              </h3>
-              <p className="text-ink-600">
-                {t('steps.details.subtitle') || 'This helps us prepare a more relevant demo for you'}
-              </p>
-            </div>
-
+            {/* Industry Field */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Industry Field */}
               <div className="space-y-2">
                 <label htmlFor="industry" className="text-sm font-medium text-ink-800">
                   {t('form.industry')}
@@ -377,24 +288,16 @@ export function ContactFormTabs({ className }: ContactFormTabsProps) {
                   <option value="other">Other</option>
                 </select>
               </div>
-
-              {/* Timeline Field */}
+              {/* Custom Industry */}
               <div className="space-y-2">
-                <label htmlFor="timeline" className="text-sm font-medium text-ink-800">
-                  {t('form.timeline')}
+                <label htmlFor="industryOther" className="text-sm font-medium text-ink-800">
+                  {t('form.industryOther') || 'Custom industry'}
                 </label>
-                <select
-                  id="timeline"
-                  {...register('timeline')}
-                  className="flex h-11 w-full rounded-lg border border-sand-200 bg-white px-4 py-2 text-sm text-ink-800 focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20"
-                >
-                  <option value="">{t('form.timelinePlaceholder')}</option>
-                  <option value="immediate">Immediate (1-30 days)</option>
-                  <option value="short">Short term (1-3 months)</option>
-                  <option value="medium">Medium term (3-6 months)</option>
-                  <option value="long">Long term (6+ months)</option>
-                  <option value="exploring">Just exploring</option>
-                </select>
+                <Input
+                  id="industryOther"
+                  {...register('industryOther')}
+                  placeholder={t('form.industryOtherPlaceholder') || 'Type your industry if not listed'}
+                />
               </div>
             </div>
 
@@ -415,32 +318,7 @@ export function ContactFormTabs({ className }: ContactFormTabsProps) {
               )}
             </div>
 
-            {/* Pain Points Field */}
-            <div className="space-y-2">
-              <label htmlFor="painPoints" className="text-sm font-medium text-ink-800">
-                {t('form.painPoints')}
-              </label>
-              <Textarea
-                id="painPoints"
-                {...register('painPoints')}
-                placeholder={t('form.painPointsPlaceholder')}
-                rows={3}
-              />
-            </div>
-
-            {/* Current Solution Field */}
-            <div className="space-y-2">
-              <label htmlFor="currentSolution" className="text-sm font-medium text-ink-800">
-                {t('form.currentSolution')}
-              </label>
-              <Input
-                id="currentSolution"
-                {...register('currentSolution')}
-                placeholder={t('form.currentSolutionPlaceholder')}
-              />
-            </div>
-
-            {/* Agreement Checkbox */}
+            {/* Agreement with links */}
             <div className="flex items-start gap-3">
               <input
                 type="checkbox"
@@ -449,25 +327,23 @@ export function ContactFormTabs({ className }: ContactFormTabsProps) {
                 className="mt-1 h-4 w-4 rounded border-sand-300 text-brand-600 focus:ring-brand-500"
               />
               <label htmlFor="agree" className="text-sm text-ink-700">
-                {t('form.agree')} <span className="text-red-500">*</span>
+                {t('form.agreePrefix') || 'I agree to the'}{' '}
+                <a href="/legal/privacy" className="text-brand-600 underline" target="_blank" rel="noopener noreferrer">
+                  {t('form.privacyPolicy') || 'Privacy Policy'}
+                </a>{' '}
+                {t('form.and') || 'and'}{' '}
+                <a href="/legal/terms" className="text-brand-600 underline" target="_blank" rel="noopener noreferrer">
+                  {t('form.termsOfService') || 'Terms of Service'}
+                </a>
+                .
               </label>
             </div>
             {errors.agree && (
               <p className="text-sm text-red-600">{errors.agree.message}</p>
             )}
 
-            {/* Navigation Buttons */}
-            <div className="flex justify-between">
-              <Button
-                type="button"
-                onClick={() => setCurrentStep('contact')}
-                variant="outline"
-                size="lg"
-              >
-                <ArrowLeft className="h-5 w-5 mr-2" />
-                {t('form.previous') || 'Previous'}
-              </Button>
-
+            {/* Submit Button */}
+            <div className="flex justify-end">
               <Button
                 type="submit"
                 disabled={isSubmitting}
@@ -484,6 +360,7 @@ export function ContactFormTabs({ className }: ContactFormTabsProps) {
             </div>
           </div>
         )}
+        
       </form>
     </div>
   );

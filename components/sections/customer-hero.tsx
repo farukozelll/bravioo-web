@@ -2,111 +2,48 @@
 
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Globe } from 'lucide-react';
 import Image from 'next/image';
-import companiesData from '@/data/companies.json';
+import customerData from '@/data/companies.json';
 
-interface Company {
+interface Customer {
   id: string;
   name: string;
   logo: string;
   category: string;
   description: string;
-  metrics: {
-    primary: string;
-    secondary: string;
-  };
-  details: {
-    challenge: string;
-    solution: string;
-    results: string[];
-  };
-  testimonial: {
-    text: string;
-    author: string;
-    position: string;
-  };
 }
 
 export function CustomerHero() {
-  const [hoveredCompany, setHoveredCompany] = useState<string | null>(null);
+  const [hoveredCustomer, setHoveredCustomer] = useState<string | null>(null);
   const [isPaused, setIsPaused] = useState(false);
   
-  const companies: Company[] = companiesData;
+  const customers: Customer[] = customerData;
   
-  // Create masonry-style infinite scroll data with varying heights and background images
+  // Create infinite scroll data with varying heights
   const scrollData = useMemo(() => {
-    const heights = [200, 160, 240, 180, 220, 190, 210, 170, 230, 195]; // More varied heights for masonry effect
-    const cardImages = [
-      'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=300&fit=crop',
-      'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop',
-      'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop',
-      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=300&fit=crop',
-      'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=300&fit=crop',
-      'https://images.unsplash.com/photo-1531973576160-7125cd663d86?w=400&h=300&fit=crop',
-      'https://images.unsplash.com/photo-1541746972996-4e0b0f93e586?w=400&h=300&fit=crop',
-      'https://images.unsplash.com/photo-1551434678-e076c223a692?w=400&h=300&fit=crop',
-      'https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=400&h=300&fit=crop',
-      'https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=400&h=300&fit=crop'
-    ];
-    
-    const infiniteCompanies = Array.from({ length: 24 }, (_, i) => ({
-      ...companies[i % companies.length],
-      uniqueId: `${companies[i % companies.length].id}-${i}`,
+    const heights = [220, 180, 260, 200, 240, 190, 210]; // Varying card heights for customers
+    const infiniteCustomers = Array.from({ length: 24 }, (_, i) => ({
+      ...customers[i % customers.length],
+      uniqueId: `${customers[i % customers.length].id}-${i}`,
       height: heights[i % heights.length],
-      cardImage: cardImages[i % cardImages.length], // Add unique background image
     }));
     
-    // Create masonry-style columns with balanced heights
-    const leftColumn: typeof infiniteCompanies = [];
-    const rightColumn: typeof infiniteCompanies = [];
-    let leftHeight = 0;
-    let rightHeight = 0;
-    
-    infiniteCompanies.forEach(company => {
-      if (leftHeight <= rightHeight) {
-        leftColumn.push(company);
-        leftHeight += company.height;
-      } else {
-        rightColumn.push(company);
-        rightHeight += company.height;
-      }
-    });
+    // Split into two columns
+    const leftColumn = infiniteCustomers.filter((_, index) => index % 2 === 0);
+    const rightColumn = infiniteCustomers.filter((_, index) => index % 2 === 1);
     
     return { leftColumn, rightColumn };
-  }, [companies]);
+  }, [customers]);
 
-  const currentCompany = hoveredCompany ? companies.find(c => c.id === hoveredCompany) : null;
-
-  // Function to get background image based on category
-  const getCategoryBackground = (category: string): string => {
-    const backgrounds = {
-      'Holding': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      'İnşaat': 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      'Enerji': 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-      'Gıda': 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-      'Teknoloji': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      'Üretim': 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)',
-      'Tarım': 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
-      'Yayıncılık': 'linear-gradient(135deg, #d299c2 0%, #fef9d7 100%)',
-      'Turizm': 'linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%)',
-      'Hizmet': 'linear-gradient(135deg, #fdbb2d 0%, #22c1c3 100%)',
-      'Tekstil & Giyim': 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-      'Danışmanlık': 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
-      'Medya': 'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)',
-      'Sağlık': 'linear-gradient(135deg, #96fbc4 0%, #f9f586 100%)',
-      'Lojistik & Ulaşım': 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)',
-      'default': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
-    };
-    return backgrounds[category as keyof typeof backgrounds] || backgrounds.default;
-  };
+  const currentCustomer = hoveredCustomer ? customers.find(b => b.id === hoveredCustomer) : null;
 
   return (
-    <section className="bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-16 lg:py-20 xl:py-24 overflow-hidden transition-colors duration-300">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-20 lg:py-24 overflow-hidden transition-colors duration-300">
+      <div className="mx-auto max-w-7xl px-6">
         
         {/* Main Layout */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
           
           {/* Left Side - Content */}
           <motion.div
@@ -114,100 +51,75 @@ export function CustomerHero() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:pr-4 xl:pr-8 lg:sticky lg:top-8"
+            className="lg:pr-8 lg:sticky lg:top-8"
           >
-            {/* Stats Row */}
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6 mb-6 lg:mb-8">
-              <div className="flex items-center gap-2">
-                <div className="w-6 h-6 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center">
-                  <span className="text-emerald-600 dark:text-emerald-400 text-xs font-bold">G</span>
-                </div>
-                <span className="font-semibold text-slate-900 dark:text-gray-100 text-sm">4,9 / 5</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-6 h-6 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center">
-                  <span className="text-blue-600 dark:text-blue-400 text-xs font-bold">Ş</span>
-                </div>
-                <span className="font-semibold text-slate-900 dark:text-gray-100 text-sm">96 / 100</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-6 h-6 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center">
-                  <span className="text-purple-600 dark:text-purple-400 text-xs font-bold">G2</span>
-                </div>
-                <span className="font-semibold text-slate-900 dark:text-gray-100 text-sm">4,8 / 5</span>
-              </div>
+            {/* Global Badge */}
+            <div className="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-400 px-4 py-2 rounded-full text-sm font-medium mb-8">
+              <Globe className="w-4 h-4" />
+              <span>Global Markalar</span>
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-gray-100 mb-4 lg:mb-6 leading-tight">
-              Başarılı Markaların<br />
-              <span className="text-emerald-600">E-Ticaret Hikayesi</span>
+            <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
+              Dünya Devlerinin<br />
+              <span className="text-emerald-600 dark:text-emerald-400">Teknoloji Ortağı</span>
             </h1>
 
             {/* Description */}
-            <p className="text-lg lg:text-xl text-slate-600 dark:text-gray-300 mb-6 lg:mb-8 leading-relaxed">
-              Bravioo&apos;ın güçlü e-ticaret altyapısı ile{' '}
-              <span className="font-semibold text-emerald-600">10.000+</span> işletme 
-              büyüme hedeflerine ulaştı. Onların başarı hikayelerini keşfedin.
+            <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+              Fortune 500 şirketlerinden startup&apos;lara kadar{' '}
+              <span className="font-semibold text-emerald-600 dark:text-emerald-400">50+</span> global marka 
+              Bravioo&apos;ın enterprise-grade altyapısına güveniyor.
             </p>
 
-            {/* Current Company Details */}
+            {/* Current Customer Details */}
             <AnimatePresence mode="wait">
-              {currentCompany ? (
+              {currentCustomer ? (
                 <motion.div
-                  key={currentCompany.id}
+                  key={currentCustomer.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.4 }}
-                  className="bg-white dark:bg-gray-800 p-6 lg:p-8 rounded-2xl border border-slate-200 dark:border-gray-700 shadow-sm"
+                  className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700/50"
                 >
-                  {/* Brand Header */}
-                  <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                    <div className="w-12 sm:w-16 h-12 sm:h-16 bg-slate-100 dark:bg-gray-700 rounded-xl flex items-center justify-center overflow-hidden">
-                      {currentCompany.logo ? (
-                        <Image 
-                          src={currentCompany.logo} 
-                          alt={`${currentCompany.name} logo`}
-                          width={48}
-                          height={48}
-                          className="w-8 sm:w-12 h-8 sm:h-12 object-contain"
+                  {/* Customer Header */}
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-20 h-20 bg-white rounded-xl flex items-center justify-center overflow-hidden">
+                      {currentCustomer.logo ? (
+                        <img 
+                          src={currentCustomer.logo} 
+                          alt={`${currentCustomer.name} logo`}
+                          className="w-16 h-16 object-contain"
                         />
                       ) : (
-                        <span className="text-slate-600 dark:text-gray-300 font-bold text-lg sm:text-xl">
-                          {currentCompany.name.charAt(0)}
+                        <span className="text-slate-800 font-bold text-2xl">
+                          {currentCustomer.name.charAt(0)}
                         </span>
                       )}
                     </div>
                     <div>
-                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-gray-100">{currentCompany.name}</h3>
-                      <p className="text-emerald-600 dark:text-emerald-400 font-medium text-sm sm:text-base">{currentCompany.category}</p>
+                      <h3 className="text-xl font-bold text-white">{currentCustomer.name}</h3>
+                      <p className="text-emerald-400 font-medium">{currentCustomer.category}</p>
                     </div>
                   </div>
 
-                  {/* Metric */}
-                  <div className="text-center mb-4 sm:mb-6">
-                    <div className="text-2xl sm:text-3xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">
-                      {currentCompany.metrics.primary}
-                    </div>
-                    <p className="text-slate-600 dark:text-gray-300 text-sm sm:text-base">{currentCompany.description}</p>
-                  </div>
+              
 
-                  {/* Testimonial */}
-                  <blockquote className="border-l-4 border-emerald-500 dark:border-emerald-400 pl-4 sm:pl-6 mb-4 sm:mb-6">
-                    <p className="text-slate-700 dark:text-gray-300 italic mb-3 text-sm sm:text-base">&ldquo;{currentCompany.testimonial.text}&rdquo;</p>
-                    <footer className="text-sm text-slate-500 dark:text-gray-400">
-                      <strong>{currentCompany.testimonial.author}</strong>, {currentCompany.testimonial.position}
-                    </footer>
-                  </blockquote>
+                  {/* Description */}
+                  <div className="bg-slate-700/50 p-4 rounded-xl mb-6">
+                    <p className="text-slate-200 text-sm leading-relaxed">
+                      {currentCustomer.description}
+                    </p>
+                  </div>
 
                   {/* CTA */}
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full bg-emerald-600 text-white py-2.5 sm:py-3 rounded-xl font-semibold hover:bg-emerald-700 transition-colors duration-300 flex items-center justify-center gap-2"
+                    className="w-full bg-emerald-600 text-white py-3 rounded-xl font-semibold hover:bg-emerald-700 transition-colors duration-300 flex items-center justify-center gap-2"
                   >
-                    <span>Detayları Gör</span>
+                    <span>Marka Detayları</span>
                     <ArrowRight className="w-5 h-5" />
                   </motion.button>
                 </motion.div>
@@ -215,20 +127,20 @@ export function CustomerHero() {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="bg-gradient-to-br from-emerald-50 to-white dark:from-emerald-900/20 dark:to-gray-800 p-6 lg:p-8 rounded-2xl border border-emerald-100 dark:border-emerald-800"
+                  className="bg-gradient-to-br from-emerald-600/20 to-blue-600/20 backdrop-blur-sm p-8 rounded-2xl border border-emerald-500/30"
                 >
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-gray-100 mb-4">
-                    Başarı Hikayelerini Keşfedin
+                  <h3 className="text-xl font-bold text-white mb-4">
+                    Enterprise Success Stories
                   </h3>
-                  <p className="text-slate-600 dark:text-gray-300 mb-4 sm:mb-6 text-sm sm:text-base">
-                    Sağdaki kartların üzerine gelerek her markanın detaylı başarı hikayesini öğrenin.
+                  <p className="text-slate-300 mb-6">
+                    Sağdaki kartların üzerine gelerek global markaların Bravioo ile elde ettiği başarıları keşfedin.
                   </p>
                   <motion.button
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="bg-emerald-600 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-semibold hover:bg-emerald-700 transition-colors duration-300 inline-flex items-center gap-2"
+                    className="bg-emerald-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-emerald-700 transition-colors duration-300 inline-flex items-center gap-2"
                   >
-                    <span>Tümünü Gör</span>
+                    <span>Tüm Case Study&apos;ler</span>
                     <ArrowRight className="w-5 h-5" />
                   </motion.button>
                 </motion.div>
@@ -236,93 +148,77 @@ export function CustomerHero() {
             </AnimatePresence>
           </motion.div>
 
-          {/* Right Side - Enhanced Masonry Infinite Scroll */}
+          {/* Right Side - Infinite Scrolling Customers with subtle background visuals */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative h-[500px] sm:h-[600px] lg:h-[700px] overflow-hidden"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
+            className="relative h-[700px] overflow-hidden"
           >
-            <div className="grid grid-cols-2 gap-2 sm:gap-4 h-full">
+            {/* Light/Dark background decorative images */}
+            <div className="pointer-events-none absolute inset-0">
+              <div className="absolute -top-10 -left-10 w-80 h-80 rounded-full blur-3xl opacity-20 bg-emerald-300 dark:bg-emerald-700"></div>
+              <div className="absolute -bottom-16 -right-16 w-96 h-96 rounded-full blur-3xl opacity-20 bg-blue-300 dark:bg-blue-700"></div>
+            </div>
+            <div className="grid grid-cols-2 gap-4 h-full">
               
-              {/* Left Column - Scrolling Up with Enhanced Animation */}
+              {/* Left Column - Scrolling Up */}
               <div className="relative overflow-hidden">
                 <motion.div
                   animate={isPaused ? {} : { y: ['0%', '-50%'] }}
                   transition={{ 
-                    duration: 80, 
+                    duration: 35, 
                     repeat: Infinity, 
-                    ease: 'linear',
-                    type: 'tween'
+                    ease: 'linear' 
                   }}
-                  className="space-y-2 sm:space-y-4"
-                  style={{ 
-                    animationPlayState: isPaused ? 'paused' : 'running' 
-                  }}
+                  className="space-y-4"
                 >
-                  {[...scrollData.leftColumn, ...scrollData.leftColumn, ...scrollData.leftColumn].map((company, index) => (
-                    <CompanyCard
-                      key={`left-${company.uniqueId}-${index}`}
-                      company={company}
-                      height={company.height}
-                      onHover={() => setHoveredCompany(company.id)}
-                      onLeave={() => setHoveredCompany(null)}
+                  {[...scrollData.leftColumn, ...scrollData.leftColumn].map((customer, index) => (
+                    <CustomerCard
+                      key={`left-${customer.uniqueId}-${index}`}
+                      customer={customer}
+                      height={customer.height}
+                      onHover={() => setHoveredCustomer(customer.id)}
+                      onLeave={() => setHoveredCustomer(null)}
                       onClick={() => setIsPaused(!isPaused)}
-                      backgroundGradient={getCategoryBackground(company.category)}
+                      gradientFrom="emerald-400/20"
+                      gradientTo="blue-500/20"
                     />
                   ))}
                 </motion.div>
               </div>
 
-              {/* Right Column - Scrolling Down with Enhanced Animation */}
+              {/* Right Column - Scrolling Down */}
               <div className="relative overflow-hidden">
                 <motion.div
                   animate={isPaused ? {} : { y: ['-50%', '0%'] }}
                   transition={{ 
-                    duration: 95, 
+                    duration: 35, 
                     repeat: Infinity, 
-                    ease: 'linear',
-                    type: 'tween'
+                    ease: 'linear' 
                   }}
-                  className="space-y-2 sm:space-y-4"
-                  style={{ 
-                    animationPlayState: isPaused ? 'paused' : 'running' 
-                  }}
+                  className="space-y-4"
                 >
-                  {[...scrollData.rightColumn, ...scrollData.rightColumn, ...scrollData.rightColumn].map((company, index) => (
-                    <CompanyCard
-                      key={`right-${company.uniqueId}-${index}`}
-                      company={company}
-                      height={company.height}
-                      onHover={() => setHoveredCompany(company.id)}
-                      onLeave={() => setHoveredCompany(null)}
+                  {[...scrollData.rightColumn, ...scrollData.rightColumn].map((customer, index) => (
+                    <CustomerCard
+                      key={`right-${customer.uniqueId}-${index}`}
+                      customer={customer}
+                      height={customer.height}
+                      onHover={() => setHoveredCustomer(customer.id)}
+                      onLeave={() => setHoveredCustomer(null)}
                       onClick={() => setIsPaused(!isPaused)}
-                      backgroundGradient={getCategoryBackground(company.category)}
+                      gradientFrom="purple-400/20"
+                      gradientTo="pink-500/20"
                     />
                   ))}
                 </motion.div>
               </div>
             </div>
 
-            {/* Enhanced Gradient Overlays for Better Fade Effect */}
-            <div className="absolute top-0 left-0 right-0 h-8 sm:h-12 bg-gradient-to-b from-slate-50 dark:from-gray-900 via-slate-50/80 dark:via-gray-900/80 to-transparent z-10 pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 right-0 h-12 sm:h-16 bg-gradient-to-t from-slate-50 dark:from-gray-900 via-slate-50/80 dark:via-gray-900/80 to-transparent z-10 pointer-events-none"></div>
-            
-            {/* Pause Indicator */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ 
-                opacity: isPaused ? 1 : 0, 
-                scale: isPaused ? 1 : 0.8 
-              }}
-              transition={{ duration: 0.3 }}
-              className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-black/50 backdrop-blur-sm text-white px-2 sm:px-3 py-1 rounded-full text-xs font-medium z-20"
-            >
-              Duraklatıldı
-            </motion.div>
+            {/* Gradient Overlays for Fade Effect */}
+            <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-slate-900 to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-slate-900 to-transparent z-10 pointer-events-none"></div>
           </motion.div>
         </div>
       </div>
@@ -330,135 +226,96 @@ export function CustomerHero() {
   );
 }
 
-// Enhanced CompanyCard with background images and overlay effects
-interface CompanyCardProps {
-  company: Company & { height: number; cardImage: string };
+// Separate component for better performance and maintainability
+interface CustomerCardProps {
+  customer: Customer & { height: number };
   height: number;
   onHover: () => void;
   onLeave: () => void;
   onClick: () => void;
-  backgroundGradient: string;
+  gradientFrom: string;
+  gradientTo: string;
 }
 
-function CompanyCard({ company, height, onHover, onLeave, onClick, backgroundGradient }: CompanyCardProps) {
+function CustomerCard({ customer, height, onHover, onLeave, onClick, gradientFrom, gradientTo }: CustomerCardProps) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <motion.div
-      onHoverStart={onHover}
-      onHoverEnd={onLeave}
+      onHoverStart={() => {
+        onHover();
+        setIsHovered(true);
+      }}
+      onHoverEnd={() => {
+        onLeave();
+        setIsHovered(false);
+      }}
       onClick={onClick}
-      whileHover={{ scale: 1.02}}
+      whileHover={{ scale: 1.03, zIndex: 10 }}
       className="group relative cursor-pointer"
       style={{ height: `${height}px` }}
     >
-      <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-lg">
+      <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 shadow-lg border border-slate-700/50">
         
-        {/* Background Image Layer */}
-        <div className="absolute inset-0">
-          <Image 
-            src={company.cardImage} 
-            alt={`${company.name} background`}
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-110"
-          />
-          {/* Gradient Overlay for Category-based Theming */}
+        {/* Background Image */}
+        {customer.logo && (
           <div 
-            className="absolute inset-0 opacity-60"
-            style={{ background: backgroundGradient }}
+            className="absolute inset-0 bg-cover bg-center opacity-20"
+            style={{
+              backgroundImage: `url(${customer.logo})`,
+              filter: 'blur(20px)',
+            }}
           />
-          {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-        </div>
+        )}
+        
+        {/* Background Gradient */}
+        <div className={`absolute inset-0 bg-gradient-to-br from-${gradientFrom} to-${gradientTo}`}></div>
 
-        {/* Content Layer */}
-        <div className="absolute inset-0 p-2 sm:p-4 flex flex-col justify-between text-white">
+        {/* Content */}
+        <div className="absolute inset-0 p-4 flex flex-col justify-between text-white">
           
           {/* Top Section */}
           <div className="flex items-start justify-between">
-            {/* Brand Logo with Enhanced Styling */}
+            {/* Customer Logo - Hidden by default, shown on hover */}
             <motion.div 
-              className="w-8 sm:w-12 h-8 sm:h-12 bg-white/95 backdrop-blur-sm rounded-lg sm:rounded-xl flex items-center justify-center overflow-hidden shadow-lg border border-white/20"
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              transition={{ type: "spring", stiffness: 300 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: isHovered ? 1 : 0, scale: isHovered ? 1 : 0.8 }}
+              transition={{ duration: 0.3 }}
+              className="w-20 h-20 bg-white/95 rounded-xl flex items-center justify-center overflow-hidden shadow-lg backdrop-blur-sm"
             >
-              {company.logo ? (
-                <Image 
-                  src={company.logo} 
-                  alt={`${company.name} logo`}
-                  width={32}
-                  height={32}
-                  className="w-6 sm:w-8 h-6 sm:h-8 object-contain"
+              {customer.logo ? (
+                <img 
+                  src={customer.logo} 
+                  alt={`${customer.name} logo`}
+                  className="w-16 h-16 object-contain"
                 />
               ) : (
-                <span className="text-slate-800 font-bold text-sm sm:text-lg">
-                  {company.name.charAt(0)}
+                <span className="text-slate-800 font-bold text-xl">
+                  {customer.name.charAt(0)}
                 </span>
               )}
             </motion.div>
             
-            {/* Success Badge */}
-            <motion.div
-              whileHover={{ scale: 1.1, rotate: 15 }}
-              className="w-6 sm:w-8 h-6 sm:h-8 bg-emerald-500/90 rounded-full backdrop-blur-sm flex items-center justify-center shadow-lg border border-emerald-300/30"
-              transition={{ type: "spring", stiffness: 400 }}
-            >
-              <span className="text-white text-xs font-bold">✓</span>
-            </motion.div>
+            {/* Enterprise Badge */}
+            <div className="bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded-md text-xs font-medium backdrop-blur-sm">
+              {customer.category}
+            </div>
           </div>
 
           {/* Bottom Section */}
-          <motion.div
-            initial={{ y: 10, opacity: 0.8 }}
-            whileHover={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.3 }}
-          >
-            {/* Metric with Enhanced Typography */}
-            <div className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 drop-shadow-lg text-white">
-              {company.metrics.primary}
-            </div>
-            
-            {/* Brand Name & Category */}
-            <div className="text-white/95 font-semibold text-xs sm:text-sm mb-1 drop-shadow-md">
-              {company.name}
-            </div>
-            <div className="text-white/80 text-xs font-medium">
-              {company.category}
-            </div>
-          </motion.div>
+          <div>
+            {/* Customer Name & Category */}
+            <div className="text-white font-bold text-sm mb-1">{customer.name}</div>
+            <div className="text-white/80 text-xs line-clamp-2">{customer.description}</div>
+          </div>
         </div>
 
-        {/* Enhanced Hover Overlay with "Read More" */}
+        {/* Hover Overlay */}
         <motion.div
           initial={{ opacity: 0 }}
           whileHover={{ opacity: 1 }}
-          transition={{ duration: 0.4 }}
-          className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"
-        >
-          {/* "Read More" Link that appears on hover */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileHover={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3, delay: 0.1 }}
-            className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 right-2 sm:right-4"
-          >
-            <div className="bg-white/10 backdrop-blur-md rounded-lg sm:rounded-xl px-2 sm:px-4 py-1.5 sm:py-2 border border-white/20">
-              <div className="flex items-center justify-between">
-                <span className="text-white/90 text-xs sm:text-sm font-medium">
-                  Devamını Oku
-                </span>
-                <motion.svg 
-                  className="w-3 sm:w-4 h-3 sm:h-4 text-white/90"
-                  whileHover={{ x: 3 }}
-                  transition={{ type: "spring", stiffness: 400 }}
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </motion.svg>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
+          className="absolute inset-0 bg-gradient-to-t from-emerald-600/30 to-transparent"
+        />
       </div>
     </motion.div>
   );

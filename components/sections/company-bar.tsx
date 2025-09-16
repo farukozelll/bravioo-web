@@ -20,7 +20,7 @@ export function CompanyBar() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="relative mt-0 overflow-hidden rounded-xl sm:rounded-2xl border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-800"
+          className="relative mt-0 overflow-hidden border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-800"
         >
           <div className="relative overflow-hidden">
             <div className="flex items-center gap-8 sm:gap-12 py-2 sm:py-3 animate-marquee">
