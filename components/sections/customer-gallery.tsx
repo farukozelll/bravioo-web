@@ -105,7 +105,7 @@ export function CustomerGallery() {
   }, [companies]);
 
   return (
-    <section className="bg-gradient-to-br from-slate-50 to-white dark:from-gray-900 dark:to-gray-800 py-20 lg:py-24 transition-colors duration-300">
+    <section className="bg-white dark:bg-gray-900 py-20 lg:py-24 transition-colors duration-300">
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         <motion.div

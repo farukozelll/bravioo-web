@@ -38,7 +38,11 @@ const nextConfig: NextConfig = {
     },
   },
   images: {
+    // Output formats; input can be png/jpeg/jpg/webp/svg
     formats: ['image/avif', 'image/webp'],
+    // Allow SVGs in <Image>. Keep strict CSP for safety.
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     remotePatterns: [
       {
         protocol: 'https',

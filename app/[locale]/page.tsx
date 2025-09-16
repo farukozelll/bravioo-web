@@ -80,7 +80,7 @@ export default async function HomePage({
           <TestimonialsSlider />
 
           <PartnerBrandsCTA />
-          <CustomerGallery />
+      
         </main>
 
         <Footer />

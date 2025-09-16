@@ -3,6 +3,7 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { WhyBraviooHero } from '@/components/sections/why-bravioo-hero';
 import { CompetitorComparison } from '@/components/sections/competitor-comparison';
+import { CustomerGallery } from '@/components/sections/customer-gallery';
 
 export const metadata: Metadata = {
   title: 'Neden Bravioo? | Why Bravioo? - Bravioo',
@@ -15,8 +16,11 @@ export default function WhyBraviooPage() {
       <Header />
       <main className="min-h-screen">
         <div className="pt-20">
+          
           <WhyBraviooHero />
           <CompetitorComparison />
+          <CustomerGallery />
+
         </div>
       </main>
       <Footer />
