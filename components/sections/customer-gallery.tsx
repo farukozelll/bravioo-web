@@ -4,7 +4,7 @@ import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { useLocale } from 'next-intl';
 import Image from 'next/image';
-import { TrendingUp, Award } from 'lucide-react';
+// Removed unused icons
 import companiesData from '@/data/companies.json';
 
 interface Company {
@@ -105,7 +105,7 @@ export function CustomerGallery() {
   }, [companies]);
 
   return (
-    <section className="bg-gradient-to-br from-slate-50 to-white py-20 lg:py-24">
+    <section className="bg-gradient-to-br from-slate-50 to-white dark:from-gray-900 dark:to-gray-800 py-20 lg:py-24 transition-colors duration-300">
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         <motion.div
@@ -119,14 +119,14 @@ export function CustomerGallery() {
             {locale === 'tr' ? 'Müşteri Galerisi' : 'Customer Gallery'}
           </p>
           
-          <h2 className="font-display text-4xl font-light leading-tight text-slate-900 sm:text-5xl lg:text-6xl mb-6">
+          <h2 className="font-display text-4xl font-light leading-tight text-slate-900 dark:text-gray-100 sm:text-5xl lg:text-6xl mb-6">
             {locale === 'tr' ? 'Başarı hikayeleri' : 'Success stories'}{' '}
             <span className="font-normal">
               {locale === 'tr' ? 'sürekli büyüyor' : 'keep growing'}
             </span>
           </h2>
           
-          <p className="max-w-3xl text-xl text-slate-600 leading-relaxed mx-auto">
+          <p className="max-w-3xl text-xl text-slate-600 dark:text-gray-300 leading-relaxed mx-auto">
             {locale === 'tr'
               ? 'Her gün yeni başarı hikayeleri eklenen galerimizde, müşterilerimizin elde ettiği sonuçları keşfedin.'
               : 'Discover the results achieved by our customers in our gallery where new success stories are added every day.'
@@ -140,40 +140,38 @@ export function CustomerGallery() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-[700px]"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 h-[560px] sm:h-[620px] lg:h-[700px]"
         >
           {/* Left Column - Upward Scrolling */}
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-100 to-slate-50 shadow-inner">
-            <div className="absolute inset-0 flex flex-col gap-6 p-4 animate-scroll-up-fast">
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-br from-slate-100 to-slate-50 dark:from-gray-800 dark:to-gray-700 shadow-inner">
+            <div className="absolute inset-0 flex flex-col gap-4 sm:gap-6 p-3 sm:p-4 animate-scroll-up-fast">
               {[...galleryData.leftColumn, ...galleryData.leftColumn, ...galleryData.leftColumn].map((company, index) => (
                 <CompanyCard
                   key={`left-${company.uniqueId}-${index}`}
                   company={company}
-                  locale={locale}
                 />
               ))}
             </div>
             
             {/* Enhanced Gradient Overlays */}
-            <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-slate-50 via-slate-50/90 to-transparent z-10 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 via-slate-50/90 to-transparent z-10 pointer-events-none" />
+            <div className="absolute top-0 left-0 right-0 h-10 sm:h-16 lg:h-20 bg-gradient-to-b from-slate-50 via-slate-50/90 to-transparent dark:from-gray-900 dark:via-gray-900/90 z-10 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 h-12 sm:h-20 lg:h-24 bg-gradient-to-t from-slate-50 via-slate-50/90 to-transparent dark:from-gray-900 dark:via-gray-900/90 z-10 pointer-events-none" />
           </div>
 
           {/* Right Column - Downward Scrolling */}
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-100 to-slate-50 shadow-inner">
-            <div className="absolute inset-0 flex flex-col gap-6 p-4 animate-scroll-down-fast">
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-br from-slate-100 to-slate-50 dark:from-gray-800 dark:to-gray-700 shadow-inner">
+            <div className="absolute inset-0 flex flex-col gap-4 sm:gap-6 p-3 sm:p-4 animate-scroll-down-fast">
               {[...galleryData.rightColumn, ...galleryData.rightColumn, ...galleryData.rightColumn].map((company, index) => (
                 <CompanyCard
                   key={`right-${company.uniqueId}-${index}`}
                   company={company}
-                  locale={locale}
                 />
               ))}
             </div>
             
             {/* Enhanced Gradient Overlays */}
-            <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-slate-50 via-slate-50/90 to-transparent z-10 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-50 via-slate-50/90 to-transparent z-10 pointer-events-none" />
+            <div className="absolute top-0 left-0 right-0 h-10 sm:h-16 lg:h-20 bg-gradient-to-b from-slate-50 via-slate-50/90 to-transparent dark:from-gray-900 dark:via-gray-900/90 z-10 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 h-12 sm:h-20 lg:h-24 bg-gradient-to-t from-slate-50 via-slate-50/90 to-transparent dark:from-gray-900 dark:via-gray-900/90 z-10 pointer-events-none" />
           </div>
         </motion.div>
 
@@ -210,10 +208,9 @@ export function CustomerGallery() {
 // Enhanced Company Card Component
 interface CompanyCardProps {
   company: Company & { uniqueId: string; height: number; background: string; backgroundImage: string };
-  locale: string;
 }
 
-function CompanyCard({ company, locale }: CompanyCardProps) {
+function CompanyCard({ company }: CompanyCardProps) {
   return (
     <motion.div
       style={{ height: `${company.height}px` }}

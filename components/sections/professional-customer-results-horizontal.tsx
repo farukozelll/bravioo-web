@@ -12,25 +12,36 @@ import { TestimonialTile } from '@/types/customer-showcase';
 const BRAND = '#3A9355';
 const GOLD = '#FFE27A';
 
+// Mock Unsplash workplace images as fallbacks
+const MOCK_IMAGES = [
+  'https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1600&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1529336953121-4f3f8c6dc2a6?q=80&w=1600&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1600&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1542744094-24638eff58bb?q=80&w=1600&auto=format&fit=crop',
+];
+
 export function ProfessionalCustomerResultsHorizontal() {
   const locale = useLocale();
-  const [activeCard, setActiveCard] = useState<string | null>(TILES[0]?.id || null);
+  // Keep one card always expanded
+  const [activeCard, setActiveCard] = useState<string>(TILES[0]?.id || '');
   const [videoModal, setVideoModal] = useState<{ src?: string; title?: string } | null>(null);
 
   const toggleCard = (id: string) => {
-    setActiveCard(current => current === id ? null : id);
+    setActiveCard(current => (current === id ? current : id));
   };
 
   const openVideo = (tile: TestimonialTile) => {
-    if (tile.type === 'video' && tile.videoUrl) {
-      setVideoModal({ src: tile.videoUrl, title: tile.title });
+    if (tile.type === 'video') {
+      const fallback = 'https://www.youtube.com/embed/ScMzIvxBSi4?autoplay=0&mute=1&controls=1&rel=0&modestbranding=1';
+      setVideoModal({ src: tile.videoUrl || fallback, title: tile.title });
     }
   };
 
   const closeVideo = () => setVideoModal(null);
 
   return (
-    <section className="bg-white py-20 lg:py-24">
+    <section className="bg-white dark:bg-gray-900 py-20 lg:py-24 transition-colors duration-300">
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         <motion.div
@@ -70,7 +81,7 @@ export function ProfessionalCustomerResultsHorizontal() {
           className="mt-16 hidden lg:block"
         >
           <div className="grid grid-cols-5 gap-4 h-[420px]">
-            {TILES.slice(0, 5).map((tile, index) => {
+            {TILES.slice(0, 4).map((tile, index) => {
               const isExpanded = activeCard === tile.id;
               return (
                 <motion.div
@@ -91,10 +102,10 @@ export function ProfessionalCustomerResultsHorizontal() {
                 >
                   {/* Background - Green when closed, Image when expanded */}
                   <div className="absolute inset-0">
-                    {isExpanded && tile.closedBg ? (
+                    {isExpanded ? (
                       <>
                         <Image
-                          src={tile.openBg ?? tile.closedBg}
+                          src={tile.openBg ?? MOCK_IMAGES[index % MOCK_IMAGES.length]}
                           alt=""
                           fill
                           className="object-cover"
@@ -120,15 +131,8 @@ export function ProfessionalCustomerResultsHorizontal() {
                     />
                   </div>
 
-                  {/* Header Bar */}
-                  <div className="relative z-10 flex w-full items-center justify-between p-6">
-                    <span 
-                      className={`inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
-                        isExpanded ? 'text-white bg-black/20' : 'text-green-700 bg-white/90'
-                      }`}
-                    >
-                      {tile.variant}
-                    </span>
+                  {/* Top-right chevron, not affecting layout */}
+                  <div className="absolute top-0 right-0 z-10 p-4">
                     <ChevronDown 
                       className={`h-5 w-5 transition-transform duration-300 ${
                         isExpanded ? 'rotate-180 text-white/80' : 'text-white/90'
@@ -136,7 +140,7 @@ export function ProfessionalCustomerResultsHorizontal() {
                     />
                   </div>
 
-                  {/* Collapsed Content */}
+                  {/* Collapsed Content - Centered Logo (clean only-logo view) */}
                   {!isExpanded && (
                     <motion.div 
                       className="relative z-10 flex items-center justify-center h-full p-6 pt-0"
@@ -144,15 +148,13 @@ export function ProfessionalCustomerResultsHorizontal() {
                       exit={{ opacity: 0 }}
                     >
                       {tile.logo && (
-                        <div className="text-center">
-                          <Image 
-                            src={tile.logo} 
-                            alt={tile.variant} 
-                            width={160} 
-                            height={40}
-                            className="h-8 w-auto brightness-0 invert mx-auto" 
-                          />
-                        </div>
+                        <Image 
+                          src={tile.logo} 
+                          alt={tile.title || tile.id} 
+                          width={220} 
+                          height={60}
+                          className="h-12 w-auto"
+                        />
                       )}
                     </motion.div>
                   )}
@@ -167,21 +169,21 @@ export function ProfessionalCustomerResultsHorizontal() {
                         transition={{ duration: 0.4, delay: 0.1 }}
                         className="relative z-10 h-full p-6 pt-0 flex flex-col"
                       >
-                        {/* Top Left - Logo */}
-                        <div className="mb-4">
+                        {/* Top Left - Logo (visible when expanded) */}
+                        <div className="mb-4 mt-4 ">
                           {tile.logo && (
                             <Image 
                               src={tile.logo} 
-                              alt={tile.variant} 
+                              alt={tile.title || tile.id} 
                               width={180} 
                               height={45}
-                              className="h-9 w-auto" 
+                              className="h-9 w-auto"
                             />
                           )}
                         </div>
 
                         {/* Content Area */}
-                        <div className="flex-1 flex flex-col justify-end mb-24">
+                        <div className="flex-1 flex flex-col justify-end mb-8 lg:mb-24">
                           {/* Title */}
                           <h3 className="text-xl font-bold text-white mb-3">
                             {tile.title}
@@ -189,7 +191,7 @@ export function ProfessionalCustomerResultsHorizontal() {
                           {/* Quote */}
                           <div className="flex items-start gap-3">
                             <Quote className="h-5 w-5 text-orange-400 flex-shrink-0 mt-1" />
-                            <p className="text-sm leading-relaxed text-white/90 italic">
+                            <p className="text-sm leading-relaxed text-white/90 italic max-w-md">
                               {tile.type === 'quote' && tile.quote
                                 ? `"${tile.quote}"`
                                 : tile.type === 'video' 
@@ -201,6 +203,17 @@ export function ProfessionalCustomerResultsHorizontal() {
                               }
                             </p>
                           </div>
+                          {/* Optional CTA for videos */}
+                          {tile.type === 'video' && (
+                            <button
+                              onClick={() => openVideo(tile)}
+                              className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 text-white backdrop-blur-sm hover:bg-white/30 transition-colors w-max"
+                              aria-label={`${locale === 'tr' ? 'Videoyu oynat' : 'Play video'}: ${tile.title}`}
+                            >
+                              <Play className="h-4 w-4" />
+                              <span className="text-sm font-medium">{locale === 'tr' ? 'Videoyu İzle' : 'Watch Video'}</span>
+                            </button>
+                          )}
                         </div>
                       </motion.div>
                     )}
@@ -225,38 +238,18 @@ export function ProfessionalCustomerResultsHorizontal() {
                 key={tile.id}
                 className="snap-start shrink-0 w-[85%] overflow-hidden rounded-2xl ring-1 ring-slate-200"
               >
-                {tile.closedBg && (
-                  <div className="relative aspect-[16/10]">
+                <div className="relative aspect-[16/10] flex items-center justify-center" style={{ backgroundColor: BRAND }}>
+                  {/* Centered Logo when collapsed (mobile card visual) */}
+                  {tile.logo && (
                     <Image 
-                      src={tile.closedBg} 
-                      alt="" 
-                      fill 
-                      className="object-cover" 
-                      sizes="85vw"
+                      src={tile.logo} 
+                      alt={tile.variant}
+                      width={160}
+                      height={40}
+                      className="h-8 w-auto"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    {/* Logo */}
-                    <div className="absolute left-4 top-4">
-                      <Image 
-                        src={tile.logo} 
-                        alt={tile.variant} 
-                        width={140} 
-                        height={32} 
-                        className="h-8 w-auto" 
-                      />
-                    </div>
-                    {/* Play Button for Videos */}
-                    {tile.type === 'video' && (
-                      <button
-                        onClick={() => openVideo(tile)}
-                        className="absolute left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-black shadow-xl hover:bg-white transition-all group"
-                        aria-label={`${locale === 'tr' ? 'Videoyu oynat' : 'Play video'}: ${tile.title}`}
-                      >
-                        <Play className="h-6 w-6 ml-1 group-hover:scale-110 transition-transform" />
-                      </button>
-                    )}
-                  </div>
-                )}
+                  )}
+                </div>
                 {/* Content */}
                 {tile.type === 'quote' ? (
                   <div className="space-y-4 p-6 bg-white">

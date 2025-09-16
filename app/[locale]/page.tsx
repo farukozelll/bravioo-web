@@ -3,6 +3,7 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { EnhancedHero } from '@/components/sections/enhanced-hero';
 import { PartnerBrandsMarquee } from '@/components/sections/partner-brands-marquee';
+import { PartnerBrandsCTA } from '@/components/sections/partner-brands-cta';
 import { AnimatedFeaturesSection } from '@/components/sections/animated-features';
 import { TestimonialsSlider } from '@/components/sections/testimonials-slider';
 import { HowItWorksSection } from '@/components/sections/how-it-works';
@@ -77,8 +78,9 @@ export default async function HomePage({
           <BrandBar />
           <TestimonialsSlider />
           <PartnerBrandsMarquee />
-          <CustomerGallery />
-          
+        
+          <PartnerBrandsCTA />
+  <CustomerGallery />
 
         </main>
 
