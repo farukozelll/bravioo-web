@@ -12,7 +12,7 @@ import { TestimonialTile } from '@/types/customer-showcase';
 const BRAND = '#3A9355';
 const GOLD = '#FFE27A';
 
-export function ProfessionalCustomerResults() {
+export function ProfessionalCustomerResultsHorizontal() {
   const locale = useLocale();
   const [activeCard, setActiveCard] = useState<string | null>(TILES[0]?.id || null);
   const [videoModal, setVideoModal] = useState<{ src?: string; title?: string } | null>(null);
@@ -30,10 +30,7 @@ export function ProfessionalCustomerResults() {
   const closeVideo = () => setVideoModal(null);
 
   return (
-    <section 
-      aria-labelledby="customer-results-title" 
-      className="bg-white py-20 lg:py-24"
-    >
+    <section className="bg-white py-20 lg:py-24">
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         <motion.div
@@ -46,9 +43,8 @@ export function ProfessionalCustomerResults() {
           <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-4">
             {locale === 'tr' ? 'Müşteri Sonuçları' : 'Customer results'}
           </p>
-          
+
           <h2 
-            id="customer-results-title"
             className="font-display text-4xl font-light leading-tight text-slate-900 sm:text-5xl lg:text-6xl mb-6"
           >
             {locale === 'tr' ? 'Performansı şekillendiren' : 'Recognition that'}{' '}
@@ -56,7 +52,7 @@ export function ProfessionalCustomerResults() {
               {locale === 'tr' ? 'takdir' : 'shapes performance'}
             </span>
           </h2>
-          
+
           <p className="max-w-3xl text-xl text-slate-600 leading-relaxed">
             {locale === 'tr'
               ? 'Müşterilerimiz engagement, verimlilik ve elde tutma gibi temel iş metriklerinde 5 kata varan iyileşme görüyor.'
@@ -76,7 +72,6 @@ export function ProfessionalCustomerResults() {
           <div className="grid grid-cols-5 gap-4 h-[420px]">
             {TILES.slice(0, 5).map((tile, index) => {
               const isExpanded = activeCard === tile.id;
-              
               return (
                 <motion.div
                   key={tile.id}
@@ -85,12 +80,7 @@ export function ProfessionalCustomerResults() {
                     relative overflow-hidden rounded-3xl bg-white ring-1 ring-slate-200 cursor-pointer
                     ${isExpanded ? 'col-span-2' : 'col-span-1'}
                   `}
-                  transition={{ 
-                    type: 'spring', 
-                    stiffness: 300, 
-                    damping: 30,
-                    duration: 0.6
-                  }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 30, duration: 0.6 }}
                   whileHover={{ 
                     y: isExpanded ? -3 : -2,
                     boxShadow: isExpanded 
@@ -114,10 +104,7 @@ export function ProfessionalCustomerResults() {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                       </>
                     ) : (
-                      <div 
-                        className="absolute inset-0"
-                        style={{ backgroundColor: BRAND }}
-                      />
+                      <div className="absolute inset-0" style={{ backgroundColor: BRAND }} />
                     )}
                   </div>
 
@@ -137,9 +124,7 @@ export function ProfessionalCustomerResults() {
                   <div className="relative z-10 flex w-full items-center justify-between p-6">
                     <span 
                       className={`inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
-                        isExpanded 
-                          ? 'text-white bg-black/20' 
-                          : 'text-green-700 bg-white/90'
+                        isExpanded ? 'text-white bg-black/20' : 'text-green-700 bg-white/90'
                       }`}
                     >
                       {tile.variant}
@@ -201,7 +186,6 @@ export function ProfessionalCustomerResults() {
                           <h3 className="text-xl font-bold text-white mb-3">
                             {tile.title}
                           </h3>
-                          
                           {/* Quote */}
                           <div className="flex items-start gap-3">
                             <Quote className="h-5 w-5 text-orange-400 flex-shrink-0 mt-1" />
@@ -217,7 +201,6 @@ export function ProfessionalCustomerResults() {
                               }
                             </p>
                           </div>
-
                         </div>
                       </motion.div>
                     )}
@@ -252,7 +235,6 @@ export function ProfessionalCustomerResults() {
                       sizes="85vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    
                     {/* Logo */}
                     <div className="absolute left-4 top-4">
                       <Image 
@@ -263,7 +245,6 @@ export function ProfessionalCustomerResults() {
                         className="h-8 w-auto" 
                       />
                     </div>
-
                     {/* Play Button for Videos */}
                     {tile.type === 'video' && (
                       <button
@@ -276,16 +257,12 @@ export function ProfessionalCustomerResults() {
                     )}
                   </div>
                 )}
-
                 {/* Content */}
                 {tile.type === 'quote' ? (
                   <div className="space-y-4 p-6 bg-white">
                     <div className="flex items-start gap-4">
                       <div className="flex-shrink-0">
-                        <div 
-                          className="text-3xl font-bold mb-1"
-                          style={{ color: GOLD }}
-                        >
+                        <div className="text-3xl font-bold mb-1" style={{ color: GOLD }}>
                           {tile.stat}
                         </div>
                         <div className="text-xs text-slate-600 font-medium">
@@ -305,9 +282,7 @@ export function ProfessionalCustomerResults() {
                   </div>
                 ) : (
                   <div className="p-6 bg-white">
-                    <h3 className="text-base font-semibold text-slate-900 mb-2">
-                      {tile.title}
-                    </h3>
+                    <h3 className="text-base font-semibold text-slate-900 mb-2">{tile.title}</h3>
                     <button
                       onClick={() => openVideo(tile)}
                       className="text-sm text-brand-600 hover:text-brand-700 font-medium transition-colors"
@@ -321,177 +296,18 @@ export function ProfessionalCustomerResults() {
           </div>
         </motion.div>
 
-        {/* Vertical Scrolling Image Galleries */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-[600px]">
-            {/* Left Column - Upward Scrolling */}
-            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100">
-              <div className="absolute inset-0 flex flex-col gap-4 animate-scroll-up">
-                {[...TILES, ...TILES].map((tile, index) => (
-                  <div
-                    key={`left-${tile.id}-${index}`}
-                    className="relative flex-shrink-0 h-80 overflow-hidden rounded-2xl bg-white shadow-lg"
-                  >
-                    {tile.closedBg && (
-                      <>
-                        <Image
-                          src={tile.closedBg}
-                          alt={tile.title ?? ''}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 1024px) 100vw, 50vw"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                      </>
-                    )}
-                    
-                    {/* Content Overlay */}
-                    <div className="absolute inset-0 p-6 flex flex-col justify-between">
-                      <div className="flex items-start justify-between">
-                        {tile.logo && (
-                          <Image
-                            src={tile.logo}
-                            alt={tile.variant}
-                            width={120}
-                            height={30}
-                            className="h-8 w-auto brightness-0 invert"
-                          />
-                        )}
-                        <span className="px-3 py-1 text-xs font-semibold bg-white/20 backdrop-blur-sm text-white rounded-full">
-                          {tile.variant}
-                        </span>
-                      </div>
-                      
-                      <div>
-                        <h3 className="text-lg font-semibold text-white mb-2 line-clamp-2">
-                          {tile.title}
-                        </h3>
-                        {tile.type === 'video' && (
-                          <div className="flex items-center gap-2 text-white/80 text-sm">
-                            <Play className="h-4 w-4" />
-                            <span>{locale === 'tr' ? 'Videoyu İzle' : 'Watch Video'}</span>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              {/* Gradient Overlays */}
-              <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-slate-50 to-transparent z-10 pointer-events-none" />
-              <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-slate-100 to-transparent z-10 pointer-events-none" />
-            </div>
-
-            {/* Right Column - Downward Scrolling */}
-            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100">
-              <div className="absolute inset-0 flex flex-col gap-4 animate-scroll-down">
-                {[...TILES.slice().reverse(), ...TILES.slice().reverse()].map((tile, index) => (
-                  <div
-                    key={`right-${tile.id}-${index}`}
-                    className="relative flex-shrink-0 h-80 overflow-hidden rounded-2xl bg-white shadow-lg"
-                  >
-                    {tile.openBg && (
-                      <>
-                        <Image
-                          src={tile.openBg}
-                          alt={tile.title ?? ''}
-                          fill  
-                          className="object-cover"
-                          sizes="(max-width: 1024px) 100vw, 50vw"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                      </>
-                    )}
-                    
-                    {/* Content Overlay */}
-                    <div className="absolute inset-0 p-6 flex flex-col justify-between">
-                      <div className="flex items-start justify-between">
-                        {tile.logo && (
-                          <Image
-                            src={tile.logo}
-                            alt={tile.variant}
-                            width={120}
-                            height={30}
-                            className="h-8 w-auto brightness-0 invert"
-                          />
-                        )}
-                        <span className="px-3 py-1 text-xs font-semibold bg-white/20 backdrop-blur-sm text-white rounded-full">
-                          {tile.variant}
-                        </span>
-                      </div>
-                      
-                      <div>
-                        <h3 className="text-lg font-semibold text-white mb-2 line-clamp-2">
-                          {tile.title}
-                        </h3>
-                        {tile.type === 'video' && (
-                          <div className="flex items-center gap-2 text-white/80 text-sm">
-                            <Play className="h-4 w-4" />
-                            <span>{locale === 'tr' ? 'Videoyu İzle' : 'Watch Video'}</span>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              {/* Gradient Overlays */}
-              <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-slate-50 to-transparent z-10 pointer-events-none" />
-              <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-slate-100 to-transparent z-10 pointer-events-none" />
-            </div>
-          </div>
-        </motion.div>
-
-  
+        {/* Strip logos (if used elsewhere) - preserved for parity */}
+        {STRIP_LOGOS?.length ? (
+          <div className="sr-only">{STRIP_LOGOS.length}</div>
+        ) : null}
       </div>
 
       {/* Video Modal */}
-      <VideoDialog
-        open={!!videoModal}
-        onClose={closeVideo}
-        title={videoModal?.title}
-        src={videoModal?.src}
-      />
-
-      {/* Animation Styles */}
-      <style jsx>{`
-        @keyframes marquee {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
-        @keyframes scroll-up {
-          from { transform: translateY(0); }
-          to { transform: translateY(-50%); }
-        }
-        @keyframes scroll-down {
-          from { transform: translateY(-50%); }
-          to { transform: translateY(0); }
-        }
-        .animate-marquee {
-          animation: marquee 30s linear infinite;
-        }
-        .animate-scroll-up {
-          animation: scroll-up 40s linear infinite;
-        }
-        .animate-scroll-down {
-          animation: scroll-down 40s linear infinite;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .animate-marquee,
-          .animate-scroll-up,
-          .animate-scroll-down {
-            animation: none;
-          }
-        }
-      `}</style>
+      <VideoDialog open={!!videoModal} onClose={closeVideo} title={videoModal?.title} src={videoModal?.src} />
     </section>
   );
 }
+
+export default ProfessionalCustomerResultsHorizontal;
+
+

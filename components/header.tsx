@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import { usePathname } from 'next/navigation';
@@ -22,6 +22,23 @@ export function Header() {
   const [announcementClosed, setAnnouncementClosed] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [canHover, setCanHover] = useState(true);
+
+  // Hover close timer for stable dropdown hover
+  const closeTimeout = useRef<number | null>(null);
+  const cancelClose = useCallback(() => {
+    if (closeTimeout.current) {
+      clearTimeout(closeTimeout.current);
+      closeTimeout.current = null;
+    }
+  }, []);
+  const scheduleClose = useCallback(() => {
+    if (closeTimeout.current) {
+      clearTimeout(closeTimeout.current);
+    }
+    closeTimeout.current = window.setTimeout(() => {
+      setActiveDropdown(null);
+    }, 150);
+  }, []);
 
   const currentLang = languages.find(lang => lang.code === locale);
   const otherLang = languages.find(lang => lang.code !== locale);
@@ -111,7 +128,8 @@ export function Header() {
     <div className="sticky top-0 z-[200]">
       {!announcementClosed && <AnnouncementBar onClose={handleAnnouncementClose} />}
       <header 
-        onMouseLeave={() => canHover && setActiveDropdown(null)}
+        onMouseEnter={() => canHover && cancelClose()}
+        onMouseLeave={() => canHover && scheduleClose()}
         className={cn(
           "w-full border-b bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm transition-all duration-300",
           isScrolled ? "border-gray-200 dark:border-gray-700 shadow-sm" : "border-transparent"
@@ -123,7 +141,7 @@ export function Header() {
             {/* Logo */}
             <Link 
               href={`/${locale}`} 
-              className="-m-1 p-1.5 flex items-center gap-3 group"
+              className="-m-1 p-1.5 flex items-center gap-2 group"
               onClick={closeAllMenus}
             >
               <Image 
@@ -158,8 +176,17 @@ export function Header() {
                 <div
                   key={item.nameKey}
                   className="relative dropdown-container"
-                  onMouseEnter={() => (item.isMegaMenu || item.children) && handleDropdownHover(item.nameKey)}
-                  onMouseLeave={() => handleDropdownHover(null)}
+                  onMouseEnter={() => {
+                    if ((item.isMegaMenu || item.children) && canHover) {
+                      cancelClose();
+                      setActiveDropdown(item.nameKey);
+                    }
+                  }}
+                  onMouseLeave={() => {
+                    if ((item.isMegaMenu || item.children) && canHover) {
+                      scheduleClose();
+                    }
+                  }}
                 >
                   <Link
                     href={`/${locale}${item.href}`}
@@ -257,45 +284,49 @@ export function Header() {
         {/* MEGA MENU */}
         <AnimatePresence>
           {activeDropdown && navigationData.find(i => i.nameKey === activeDropdown)?.isMegaMenu && (
-            <MegaMenu 
-              activeDropdown={activeDropdown}
-              locale={locale}
-              t={t}
-              navigationData={navigationData}
-            />
+            <div onMouseEnter={cancelClose} onMouseLeave={scheduleClose}>
+              <MegaMenu 
+                activeDropdown={activeDropdown}
+                locale={locale}
+                t={t}
+                navigationData={navigationData}
+              />
+            </div>
           )}
         </AnimatePresence>
 
         {/* SIMPLE DROPDOWN */}
         <AnimatePresence>
           {activeDropdown && navigationData.find(i => i.nameKey === activeDropdown)?.children && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2, ease: 'easeOut' }}
-              className="absolute top-full left-0 w-full bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg z-[240]"
-            >
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {navigationData.find(i => i.nameKey === activeDropdown)?.children?.map(child => (
-                    <Link
-                      key={child.nameKey}
-                      href={`/${locale}${child.href}`}
-                      className="group flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
-                      onClick={() => setActiveDropdown(null)}
-                    >
-                      <div className="flex-shrink-0 w-8 h-8 bg-emerald-100 dark:bg-emerald-900 rounded-lg flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
-                        {React.cloneElement(child.icon as React.ReactElement)}
-                      </div>
-                      <span className="font-medium text-gray-900 dark:text-gray-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                        {t(child.nameKey)}
-                      </span>
-                    </Link>
-                  ))}
+            <div onMouseEnter={cancelClose} onMouseLeave={scheduleClose}>
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2, ease: 'easeOut' }}
+                className="absolute top-full left-0 w-full bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg z-[240]"
+              >
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {navigationData.find(i => i.nameKey === activeDropdown)?.children?.map(child => (
+                      <Link
+                        key={child.nameKey}
+                        href={`/${locale}${child.href}`}
+                        className="group flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        <div className="flex-shrink-0 w-8 h-8 bg-emerald-100 dark:bg-emerald-900 rounded-lg flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+                          {React.cloneElement(child.icon as React.ReactElement)}
+                        </div>
+                        <span className="font-medium text-gray-900 dark:text-gray-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                          {t(child.nameKey)}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
           )}
         </AnimatePresence>
 
