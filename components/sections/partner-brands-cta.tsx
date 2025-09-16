@@ -15,7 +15,6 @@ export function PartnerBrandsCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
-          className="mt-20"
         >
           <div className="bg-gradient-to-r from-gold-500 to-orange-600 dark:from-amber-600 dark:to-orange-700 rounded-3xl p-8 md:p-12 text-center text-white overflow-hidden relative">
             {/* Removed old white overlay shapes for cleaner look */}

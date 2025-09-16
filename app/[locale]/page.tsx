@@ -70,18 +70,17 @@ export default async function HomePage({
         <main className="relative flex-1" style={{ zIndex: 1 }}>
           <EnhancedHero />
           <CompanyBar />
+          <PartnerBrandsMarquee />
           <AnimatedFeaturesSection />
+          <HowItWorksSection />
+          <BrandBar />
 
           <ProfessionalCustomerResultsHorizontal />
 
-          <HowItWorksSection />
-          <BrandBar />
           <TestimonialsSlider />
-          <PartnerBrandsMarquee />
-        
-          <PartnerBrandsCTA />
-  <CustomerGallery />
 
+          <PartnerBrandsCTA />
+          <CustomerGallery />
         </main>
 
         <Footer />
