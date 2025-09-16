@@ -115,9 +115,8 @@ export function PricingSection() {
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
           className="mx-auto max-w-4xl text-center"
         >
           <h1 className="text-4xl font-bold tracking-tight text-ink-900 sm:text-5xl lg:text-6xl font-display">
@@ -167,8 +166,7 @@ export function PricingSection() {
         <motion.div
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
+          animate="visible"
           className="mt-20"
         >
           {/* Free Model */}
@@ -335,9 +333,8 @@ export function PricingSection() {
         {/* CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          viewport={{ once: true }}
           className="mt-20 text-center"
         >
           <div className="bg-gradient-to-r from-brand-500 to-brand-600 rounded-3xl px-8 py-12 text-white">

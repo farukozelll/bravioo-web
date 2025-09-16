@@ -74,16 +74,14 @@ export function EmployerPricingComparison() {
         <div className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
           >
             {t('comparisonTitle')}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             className="text-xl text-gray-600"
           >
@@ -94,8 +92,7 @@ export function EmployerPricingComparison() {
         {/* Comparison Table */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           className="bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden"
         >
           {/* Table Header */}
@@ -139,9 +136,8 @@ export function EmployerPricingComparison() {
                 <motion.div
                   key={feature.key}
                   initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: (categoryIndex * 0.1) + (featureIndex * 0.05) }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: (categoryIndex * 0.05) + (featureIndex * 0.02) }}
                   className="grid grid-cols-5 gap-4 p-4 hover:bg-gray-50 transition-colors duration-200"
                 >
                   <div className="text-left">
@@ -192,8 +188,7 @@ export function EmployerPricingComparison() {
         {/* Bottom Info */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           className="text-center mt-12"
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

@@ -46,6 +46,26 @@ export function BrandsShowcase() {
       : brands.filter(b => b.category === activeCategory);
   }, [brands, activeCategory]);
 
+  // Staggered animation setup to avoid per-card whileInView issues
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.06,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 16 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.45, ease: 'easeOut' }
+    }
+  };
+
   return (
     <section className="bg-white dark:bg-gray-900 py-16 lg:py-20 xl:py-24 transition-colors duration-300">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -101,14 +121,17 @@ export function BrandsShowcase() {
         </motion.div>
 
         {/* Brand Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 lg:gap-6">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 lg:gap-6"
+        >
           {filteredBrands.map((brand, index) => (
             <motion.div
               key={brand.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              variants={itemVariants}
               className="relative"
             >
               <div className="relative bg-white dark:bg-gray-800 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-gray-700 overflow-hidden h-44 sm:h-52">
@@ -140,7 +163,7 @@ export function BrandsShowcase() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Bottom Stats */}
         <motion.div

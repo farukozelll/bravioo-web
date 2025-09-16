@@ -110,16 +110,14 @@ export function EmployerPricingPlans() {
         <div className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4 lg:mb-6"
           >
             {t('plansTitle')}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             className="text-lg lg:text-xl text-gray-600 dark:text-gray-300 mb-6 lg:mb-8"
           >
@@ -129,8 +127,7 @@ export function EmployerPricingPlans() {
           {/* Billing Toggle + Controls */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
           >
@@ -196,9 +193,8 @@ export function EmployerPricingPlans() {
               <motion.div
                 key={plan.id}
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 * index }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.05 * index }}
                 className={`relative bg-white rounded-3xl shadow-xl border-2 ${colors.border} p-8 flex flex-col ${
                   plan.popular ? 'scale-105 shadow-2xl' : ''
                 }`}
@@ -287,8 +283,7 @@ export function EmployerPricingPlans() {
         {/* Bottom Note */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           className="text-center mt-16"
         >
           <div className="bg-white p-8 rounded-2xl shadow-lg border border-emerald-100">

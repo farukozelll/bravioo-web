@@ -48,6 +48,26 @@ export function CustomerShowcase() {
     ? companies 
     : companies.filter(c => c.category === activeCategory);
 
+  // Staggered animation variants to avoid per-card whileInView issues
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.06,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 16 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.45, ease: 'easeOut' }
+    }
+  };
+
   return (
     <section className="bg-white dark:bg-gray-900 py-16 lg:py-20 xl:py-24 transition-colors duration-300">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -103,14 +123,17 @@ export function CustomerShowcase() {
         </motion.div>
 
         {/* Company Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 lg:gap-6">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 lg:gap-6"
+        >
           {filteredCompanies.map((company, index) => (
             <motion.div
               key={company.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              variants={itemVariants}
               onHoverStart={() => setHoveredCompany(company.id)}
               onHoverEnd={() => setHoveredCompany(null)}
               className="group relative cursor-pointer"
@@ -176,7 +199,7 @@ export function CustomerShowcase() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Bottom Stats */}
         <motion.div
