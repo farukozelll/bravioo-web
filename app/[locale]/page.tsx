@@ -58,10 +58,10 @@ export default async function HomePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
       />
 
-      <div className="min-h-screen flex flex-col bg-white">
+      <div className="min-h-screen flex flex-col bg-white relative">
         <Header />
         
-        <main className="flex-1">
+        <main className="flex-1 relative" style={{ zIndex: 1 }}>
           <EnhancedHero />
           <CompanyBar />
           <AnimatedFeaturesSection />

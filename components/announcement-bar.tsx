@@ -43,7 +43,7 @@ export function AnnouncementBar({ onClose }: AnnouncementBarProps) {
         animate={{ height: 'auto', opacity: 1 }}
         exit={{ height: 0, opacity: 0 }}
         transition={{ duration: 0.3 }}
-        className="sticky top-0 z-50 relative overflow-hidden bg-gradient-to-r from-brand-600 via-brand-500 to-brand-600 dark:from-brand-700 dark:via-brand-600 dark:to-brand-700 text-white transition-colors duration-300"
+        className="relative z-[100] overflow-hidden bg-gradient-to-r from-brand-600 via-brand-500 to-brand-600 dark:from-brand-700 dark:via-brand-600 dark:to-brand-700 text-white transition-colors duration-300"
       >
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-20">

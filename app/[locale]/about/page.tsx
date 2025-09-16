@@ -16,9 +16,9 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <>
+    <div className="min-h-screen flex flex-col bg-white relative">
       <Header />
-      <main className="min-h-screen">
+      <main className="flex-1 relative" style={{ zIndex: 1 }}>
         <LovedBySection />
         <AboutUsSection />
         <BrandManifesto />
@@ -26,6 +26,6 @@ export default function AboutPage() {
         <JourneyMilestones />
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

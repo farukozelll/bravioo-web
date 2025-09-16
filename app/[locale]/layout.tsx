@@ -36,7 +36,7 @@ export default async function LocaleLayout({
           {/* Skip to main content link for accessibility */}
           <a
             href="#main-content"
-            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-brand-500 text-white px-4 py-2 rounded-lg z-50"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-brand-500 text-white px-4 py-2 rounded-lg z-[9997]"
           >
             Skip to main content
           </a>
@@ -53,8 +53,8 @@ export default async function LocaleLayout({
           <LiveSupport />
 
           {/* Cookie Dashboard (Development only) */}
-          {process.env.NODE_ENV === 'development' && <CookieDashboard />}
-
+        {/*   {process.env.NODE_ENV === 'development' && <CookieDashboard />}
+ */}
           {/* Scroll to Top */}
           <ScrollToTop />
 
