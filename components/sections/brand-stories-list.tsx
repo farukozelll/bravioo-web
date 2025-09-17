@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import stories from '@/data/brand-stories.json';
-
+import Image from 'next/image';
 interface Story {
   slug: string;
   title: string;
@@ -26,7 +26,7 @@ export function BrandStoriesList() {
             <article key={s.slug} className="rounded-2xl border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-800 overflow-hidden shadow-sm">
               {s.coverImage && (
                 <div className="aspect-[16/9] overflow-hidden">
-                  <img src={s.coverImage} alt={s.title} className="w-full h-full object-cover" />
+                  <Image src={s.coverImage} alt={s.title} className="w-full h-full object-cover" />
                 </div>
               )}
               <div className="p-5">

@@ -30,13 +30,13 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <div className="min-h-screen bg-sand-50 dark:bg-gray-900 text-ink-900 dark:text-gray-100 transition-colors duration-300">
+    <div className="min-h-screen bg-neutral-50 dark:bg-gray-900 text-neutral-900 dark:text-gray-100 transition-colors duration-300">
       <ThemeProvider>
         <NextIntlClientProvider locale={locale} messages={messages}>
           {/* Skip to main content link for accessibility */}
           <a
             href="#main-content"
-            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-brand-500 text-white px-4 py-2 rounded-lg z-[9997]"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary-500 text-white px-4 py-2 rounded-lg z-[9997]"
           >
             Skip to main content
           </a>

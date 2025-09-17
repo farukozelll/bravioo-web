@@ -3,7 +3,7 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import stories from '@/data/brand-stories.json';
 import { ArrowLeft, Calendar, Clock, Tag } from 'lucide-react';
-
+import Image from 'next/image';
 interface Story {
   slug: string;
   title: string;
@@ -61,7 +61,7 @@ export default function StoryDetailPage({ params }: { params: Promise<{ slug: st
 
             {story.coverImage && (
               <div className="mb-8 overflow-hidden rounded-2xl border border-slate-200 dark:border-gray-700 shadow-sm">
-                <img src={story.coverImage} alt={story.title} className="w-full h-auto object-cover" />
+                <Image src={story.coverImage} alt={story.title} className="w-full h-auto object-cover" />
               </div>
             )}
 
@@ -76,7 +76,7 @@ export default function StoryDetailPage({ params }: { params: Promise<{ slug: st
                   <a key={s.slug} href={`../${s.slug}`} className="rounded-xl border border-slate-200 dark:border-gray-700 overflow-hidden bg-white dark:bg-gray-800 hover:shadow-lg transition-shadow">
                     {s.coverImage && (
                       <div className="aspect-[16/9]">
-                        <img src={s.coverImage} alt={s.title} className="w-full h-full object-cover" />
+                        <Image src={s.coverImage} alt={s.title} className="w-full h-full object-cover" />
                       </div>
                     )}
                     <div className="p-4">

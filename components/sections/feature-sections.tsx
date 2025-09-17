@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import type { FeatureSection } from '@/data/features';
-
+import Image from 'next/image';
 export function FeatureSections({ sections }: { sections: FeatureSection[] }) {
   return (
     <div className="space-y-16">
@@ -13,7 +13,15 @@ export function FeatureSections({ sections }: { sections: FeatureSection[] }) {
           <div key={idx} className="grid lg:grid-cols-12 gap-8 items-center">
             <div className={`lg:col-span-6 ${isEven ? '' : 'lg:order-2'}`}>
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-                <img src={sec.image} alt={sec.title} className="w-full rounded-2xl border border-slate-200 dark:border-gray-700 shadow" />
+                <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-slate-200 dark:border-gray-700 shadow-lg">
+                  <Image 
+                    src={sec.image} 
+                    alt={sec.title} 
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
               </motion.div>
             </div>
             <div className={`lg:col-span-6 ${isEven ? '' : 'lg:order-1'}`}>

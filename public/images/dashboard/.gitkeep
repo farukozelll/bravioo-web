@@ -1,0 +1,38 @@
+# This directory contains mock dashboard images for CRUD operations
+# Placeholder files for development. Replace with actual dashboard screenshots in production.
+
+# Polls module images:
+# - polls-create.jpg: Poll creation interface
+# - polls-list.jpg: Polls listing/dashboard
+# - polls-edit.jpg: Poll editing interface  
+# - polls-delete.jpg: Poll deletion confirmation
+
+# Giveaways module images:
+# - giveaways-create.jpg: Giveaway creation interface
+# - giveaways-list.jpg: Giveaways listing/dashboard
+# - giveaways-edit.jpg: Giveaway editing interface
+# - giveaways-delete.jpg: Giveaway deletion confirmation
+
+# Feedback module images:
+# - feedback-create.jpg: Feedback form creation interface
+# - feedback-list.jpg: Feedback listing/dashboard
+# - feedback-edit.jpg: Feedback editing interface
+# - feedback-delete.jpg: Feedback deletion confirmation
+
+# Campaigns module images:
+# - campaigns-create.jpg: Campaign creation interface
+# - campaigns-list.jpg: Campaigns listing/dashboard
+# - campaigns-edit.jpg: Campaign editing interface
+# - campaigns-delete.jpg: Campaign deletion confirmation
+
+# Announcements module images:
+# - announcements-create.jpg: Announcement creation interface
+# - announcements-list.jpg: Announcements listing/dashboard
+# - announcements-edit.jpg: Announcement editing interface
+# - announcements-delete.jpg: Announcement deletion confirmation
+
+# Users module images:
+# - users-create.jpg: User creation interface
+# - users-list.jpg: Users listing/dashboard
+# - users-edit.jpg: User editing interface
+# - users-delete.jpg: User deletion confirmation

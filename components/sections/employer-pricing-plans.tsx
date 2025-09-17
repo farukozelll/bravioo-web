@@ -21,7 +21,7 @@ export function EmployerPricingPlans() {
       maxUsers: 50,
       popular: false,
       color: 'blue',
-      modules: ['recognition', 'surveys', 'analytics']
+      modules: ['recognition', 'surveys', 'analytics', 'polls']
     },
     {
       id: 'growth',
@@ -32,7 +32,7 @@ export function EmployerPricingPlans() {
       maxUsers: 200,
       popular: true,
       color: 'emerald',
-      modules: ['recognition', 'surveys', 'analytics', 'automation', 'integrations']
+      modules: ['recognition', 'surveys', 'analytics', 'automation', 'integrations', 'feedback', 'campaigns']
     },
     {
       id: 'scale',
@@ -43,7 +43,7 @@ export function EmployerPricingPlans() {
       maxUsers: 500,
       popular: false,
       color: 'purple',
-      modules: ['recognition', 'surveys', 'analytics', 'automation', 'integrations', 'mobile', 'api']
+      modules: ['recognition', 'surveys', 'analytics', 'automation', 'integrations', 'mobile', 'api', 'giveaways', 'announcements']
     },
     {
       id: 'enterprise',
@@ -54,7 +54,7 @@ export function EmployerPricingPlans() {
       maxUsers: '500+',
       popular: false,
       color: 'gray',
-      modules: ['all', 'custom', 'support', 'training']
+      modules: ['all', 'custom', 'support', 'training', 'userManagement']
     }
   ];
 
@@ -164,7 +164,7 @@ export function EmployerPricingPlans() {
               <select
                 value={currency}
                 onChange={(e) => setCurrency(e.target.value as 'USD' | 'TRY')}
-                className="h-9 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/30"
+                className="h-9 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-8 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/30"
               >
                 <option value="USD">$ USD</option>
                 <option value="TRY">₺ TRY</option>

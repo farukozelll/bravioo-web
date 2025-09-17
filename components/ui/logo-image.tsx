@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 interface LogoImageProps {
   /** Logo path or URL */
@@ -81,7 +82,6 @@ export function LogoImage({
   };
 
   const imageClasses = `
-    ${sizeClasses[size]} 
     object-contain 
     transition-all 
     duration-300 
@@ -115,31 +115,28 @@ export function LogoImage({
       {src && !imageError ? (
         <>
           {/* Actual logo image */}
-          <motion.img
+          <Image
             src={src}
             alt={alt}
-            className={imageClasses}
+            fill
+            className={`${imageClasses} object-contain`}
             onLoad={handleImageLoad}
             onError={handleImageError}
-            loading="lazy"
-            // Support for multiple formats through browser fallback
+            sizes="(max-width: 768px) 50px, (max-width: 1200px) 75px, 100px"
             style={{
-              objectFit: 'contain',
-              maxWidth: '100%',
-              maxHeight: '100%'
+              objectFit: 'contain'
             }}
           />
           
           {/* Loading skeleton */}
           {!imageLoaded && (
-            <div className={`
-              ${sizeClasses[size]}
+            <div className="
               absolute 
               inset-0 
               bg-slate-200 
               animate-pulse 
               rounded
-            `} />
+            " />
           )}
         </>
       ) : (

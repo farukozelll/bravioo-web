@@ -16,7 +16,6 @@ interface Customer {
 
 export function CustomerHero() {
   const [hoveredCustomer, setHoveredCustomer] = useState<string | null>(null);
-  const [isPaused, setIsPaused] = useState(false);
   
   const customers: Customer[] = customerData;
   
@@ -87,9 +86,11 @@ export function CustomerHero() {
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-20 h-20 bg-white rounded-xl flex items-center justify-center overflow-hidden">
                       {currentCustomer.logo ? (
-                        <img 
+                        <Image 
                           src={currentCustomer.logo} 
                           alt={`${currentCustomer.name} logo`}
+                          width={64}
+                          height={64}
                           className="w-16 h-16 object-contain"
                         />
                       ) : (
@@ -153,19 +154,11 @@ export function CustomerHero() {
               <div className="absolute -top-10 -left-10 w-80 h-80 rounded-full blur-3xl opacity-20 bg-emerald-300 dark:bg-emerald-700"></div>
               <div className="absolute -bottom-16 -right-16 w-96 h-96 rounded-full blur-3xl opacity-20 bg-blue-300 dark:bg-blue-700"></div>
             </div>
-            <div className="grid grid-cols-2 gap-4 h-full">
+            <div className="grid grid-cols-2 gap-4 h-full group">
               
               {/* Left Column - Scrolling Up */}
               <div className="relative overflow-hidden">
-                <motion.div
-                  animate={isPaused ? {} : { y: ['0%', '-50%'] }}
-                  transition={{ 
-                    duration: 35, 
-                    repeat: Infinity, 
-                    ease: 'linear' 
-                  }}
-                  className="space-y-4"
-                >
+                <div className="space-y-4 animate-scroll-up">
                   {[...scrollData.leftColumn, ...scrollData.leftColumn].map((customer, index) => (
                     <CustomerCard
                       key={`left-${customer.uniqueId}-${index}`}
@@ -173,25 +166,14 @@ export function CustomerHero() {
                       height={customer.height}
                       onHover={() => setHoveredCustomer(customer.id)}
                       onLeave={() => setHoveredCustomer(null)}
-                      onClick={() => setIsPaused(!isPaused)}
-                      gradientFrom="emerald-400/20"
-                      gradientTo="blue-500/20"
                     />
                   ))}
-                </motion.div>
+                </div>
               </div>
 
               {/* Right Column - Scrolling Down */}
               <div className="relative overflow-hidden">
-                <motion.div
-                  animate={isPaused ? {} : { y: ['-50%', '0%'] }}
-                  transition={{ 
-                    duration: 35, 
-                    repeat: Infinity, 
-                    ease: 'linear' 
-                  }}
-                  className="space-y-4"
-                >
+                <div className="space-y-4 animate-scroll-down">
                   {[...scrollData.rightColumn, ...scrollData.rightColumn].map((customer, index) => (
                     <CustomerCard
                       key={`right-${customer.uniqueId}-${index}`}
@@ -199,12 +181,9 @@ export function CustomerHero() {
                       height={customer.height}
                       onHover={() => setHoveredCustomer(customer.id)}
                       onLeave={() => setHoveredCustomer(null)}
-                      onClick={() => setIsPaused(!isPaused)}
-                      gradientFrom="purple-400/20"
-                      gradientTo="pink-500/20"
                     />
                   ))}
-                </motion.div>
+                </div>
               </div>
             </div>
 
@@ -224,25 +203,18 @@ interface CustomerCardProps {
   height: number;
   onHover: () => void;
   onLeave: () => void;
-  onClick: () => void;
-  gradientFrom: string;
-  gradientTo: string;
 }
 
-function CustomerCard({ customer, height, onHover, onLeave, onClick, gradientFrom, gradientTo }: CustomerCardProps) {
-  const [isHovered, setIsHovered] = useState(false);
+const CustomerCard = React.memo(function CustomerCard({ customer, height, onHover, onLeave }: CustomerCardProps) {
 
   return (
     <motion.div
       onHoverStart={() => {
         onHover();
-        setIsHovered(true);
       }}
       onHoverEnd={() => {
         onLeave();
-        setIsHovered(false);
       }}
-      onClick={onClick}
       whileHover={{ scale: 1.03, zIndex: 10 }}
       className="group relative cursor-pointer"
       style={{ height: `${height}px` }}
@@ -292,4 +264,4 @@ function CustomerCard({ customer, height, onHover, onLeave, onClick, gradientFro
       </div>
     </motion.div>
   );
-}
+});

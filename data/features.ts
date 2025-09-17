@@ -5,7 +5,7 @@ export type FeatureSection = {
 };
 
 export type Feature = {
-  slug: 'recognition' | 'surveys' | 'analytics' | 'automation' | 'integrations' | 'mobile';
+  slug: 'recognition' | 'surveys' | 'analytics' | 'automation' | 'integrations' | 'mobile' | 'polls' | 'giveaways' | 'feedback' | 'campaigns' | 'announcements' | 'userManagement';
   name: string;
   description: string;
   heroImage: string;
@@ -118,6 +118,114 @@ export const FEATURES: Feature[] = [
         title: 'Çevrimdışı Deneyim',
         body: 'Zayıf bağlantıda bile kritik işlemleri sürdürün.',
         image: '/images/features/mobile-2.jpg',
+      },
+    ],
+  },
+  {
+    slug: 'polls',
+    name: 'Anket Sistemi',
+    description: 'Çalışan memnuniyeti ve görüşlerini toplayın, analiz edin ve raporlayın.',
+    heroImage: '/images/features/polls-hero.jpg',
+    sections: [
+      {
+        title: 'Anket Oluşturma',
+        body: 'Sürükle-bırak editör ile kolayca anket tasarlayın, sorular ekleyin ve hedef kitleyi belirleyin. Çoklu seçenekli, açık uçlu ve rating ölçekli sorularla kapsamlı anketler oluşturun.',
+        image: '/images/features/polls-create.jpg',
+      },
+      {
+        title: 'Gerçek Zamanlı Analiz',
+        body: 'Anket sonuçlarını gerçek zamanlı izleyin, departman bazında karşılaştırmalı raporlar alın ve trend analizleri yapın.',
+        image: '/images/features/polls-analytics.jpg',
+      },
+    ],
+  },
+  {
+    slug: 'giveaways',
+    name: 'Çekiliş & Kampanyalar',
+    description: 'Çalışan motivasyonunu artırmak için çekiliş ve kampanya sistemleri.',
+    heroImage: '/images/features/giveaways-hero.jpg',
+    sections: [
+      {
+        title: 'Kampanya Yönetimi',
+        body: 'Çekiliş kampanyaları oluşturun, ödülleri tanımlayın ve katılım kurallarını belirleyin. Otomatik çekiliş ve sonuç duyuru sistemleri.',
+        image: '/images/features/giveaways-management.jpg',
+      },
+      {
+        title: 'Katılım Takibi',
+        body: 'Kampanya performansını takip edin, katılım oranlarını analiz edin ve en etkili kampanya türlerini belirleyin.',
+        image: '/images/features/giveaways-tracking.jpg',
+      },
+    ],
+  },
+  {
+    slug: 'feedback',
+    name: 'Geri Bildirim Yönetimi',
+    description: 'Çalışanlardan gelen geri bildirimleri topla, kategorize et ve işleme al.',
+    heroImage: '/images/features/feedback-hero.jpg',
+    sections: [
+      {
+        title: 'Geri Bildirim Toplama',
+        body: 'Anonim ve açık geri bildirim kanalları, özel formlar ve kategorize edilmiş geri bildirim sistemleri ile çalışan sesini dinleyin.',
+        image: '/images/features/feedback-collection.jpg',
+      },
+      {
+        title: 'İşlem Takibi',
+        body: 'Geri bildirimlerin durumunu takip edin, sorumlu kişiler atayın ve çözüm süreçlerini yönetin. Otomatik bildirim sistemi.',
+        image: '/images/features/feedback-processing.jpg',
+      },
+    ],
+  },
+  {
+    slug: 'campaigns',
+    name: 'Kampanya Yönetimi',
+    description: 'Çalışan bağlılığını artırmak için özel kampanya ve etkinlik yönetimi.',
+    heroImage: '/images/features/campaigns-hero.jpg',
+    sections: [
+      {
+        title: 'Kampanya Planlama',
+        body: 'Hedefli kampanyalar tasarlayın, dönem belirleyin ve katılım kriterlerini tanımlayın. Segmentasyon ve kişiselleştirme özellikleri.',
+        image: '/images/features/campaigns-planning.jpg',
+      },
+      {
+        title: 'Performans Analizi',
+        body: 'Kampanya etkinliğini ölçün, ROI analizleri yapın ve gelecek kampanyalar için optimizasyon önerileri alın.',
+        image: '/images/features/campaigns-analysis.jpg',
+      },
+    ],
+  },
+  {
+    slug: 'announcements',
+    name: 'Duyuru Sistemi',
+    description: 'Önemli duyuruları tüm çalışanlara etkin şekilde iletmek için merkezi sistem.',
+    heroImage: '/images/features/announcements-hero.jpg',
+    sections: [
+      {
+        title: 'Duyuru Yönetimi',
+        body: 'Prioriteli duyuru sistemi, hedef kitle seçimi ve zamanlanmış yayınlama ile önemli bilgileri etkili şekilde iletin.',
+        image: '/images/features/announcements-management.jpg',
+      },
+      {
+        title: 'Etkileşim Takibi',
+        body: 'Duyuru okunma oranları, etkileşim metrikleri ve geri bildirim analizi ile iletişim etkinliğini ölçün.',
+        image: '/images/features/announcements-tracking.jpg',
+      },
+    ],
+  },
+  {
+    slug: 'userManagement',
+    name: 'Kullanıcı Yönetimi',
+    description: 'Çalışan hesapları, roller ve yetkilendirme işlemlerini merkezi olarak yönetin.',
+    heroImage: '/images/features/user-management-hero.jpg',
+    sections: [
+      {
+        title: 'Rol & Yetki Yönetimi',
+        body: 'Detaylı rol tanımları, departman bazında yetkilendirme ve güvenlik politikaları ile sistemin güvenliğini sağlayın.',
+        image: '/images/features/user-roles.jpg',
+      },
+      {
+        title: 'Kullanıcı Yaşam Döngüsü',
+        body: 'Otomatik hesap oluşturma, deaktivasyonu ve veri yedekleme süreçleri ile kullanıcı yönetimini kolaylaştırın.',
+        image: '/images/features/user-lifecycle.jpg',
       },
     ],
   },

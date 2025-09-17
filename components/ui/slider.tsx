@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Play, Pause } from 'lucide-react';
-
+import Image from 'next/image';
 interface SliderItem {
   id: string;
   title: string;
@@ -83,7 +83,7 @@ export function Slider({
               <div className="h-full flex flex-col justify-center">
                 {items[currentIndex].image && (
                   <div className="mb-6">
-                    <img
+                    <Image
                       src={items[currentIndex].image}
                       alt={items[currentIndex].title}
                       className="w-full h-64 object-cover rounded-2xl"

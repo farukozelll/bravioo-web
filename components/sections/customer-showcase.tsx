@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, TrendingUp, Users, Award, Building } from 'lucide-react';
+import Image from 'next/image';
 import companiesData from '@/data/companies.json';
 
 interface Company {
@@ -130,22 +131,27 @@ export function CustomerShowcase() {
           viewport={{ once: true, amount: 0.15 }}
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 lg:gap-6"
         >
-          {filteredCompanies.map((company, index) => (
+          {filteredCompanies.map((company) => (
             <motion.div
               key={company.id}
               variants={itemVariants}
               onHoverStart={() => setHoveredCompany(company.id)}
               onHoverEnd={() => setHoveredCompany(null)}
-              className="group relative cursor-pointer"
+              onFocus={() => setHoveredCompany(company.id)}
+              onBlur={() => setHoveredCompany(null)}
+              tabIndex={0}
+              className="group relative cursor-pointer outline-none focus:ring-2 focus:ring-emerald-500 rounded-lg"
             >
               <div className="relative bg-white dark:bg-gray-800 rounded-2xl p-3 sm:p-4 border border-slate-200 dark:border-gray-700 transition-all duration-300 group-hover:border-emerald-300 dark:group-hover:border-emerald-500 group-hover:shadow-xl group-hover:-translate-y-2 overflow-hidden h-40 sm:h-48">
                 
                 {/* Company Logo */}
                 <div className="w-12 sm:w-16 h-12 sm:h-16 mx-auto mb-2 bg-slate-100 dark:bg-gray-700 rounded-xl flex items-center justify-center group-hover:bg-emerald-50 dark:group-hover:bg-emerald-900/30 transition-colors duration-300 overflow-hidden">
                   {company.logo ? (
-                    <img 
+                    <Image 
                       src={company.logo} 
                       alt={`${company.name} logo`}
+                      width={48}
+                      height={48}
                       className="w-8 sm:w-12 h-8 sm:h-12 object-contain"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;

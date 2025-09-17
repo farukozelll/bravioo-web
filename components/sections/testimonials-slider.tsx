@@ -105,22 +105,22 @@ export function TestimonialsSlider() {
                 {/* Author Info */}
                 <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-6">
                   <div className="relative">
-                    <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-r from-brand-500 to-emerald-500">
-                      <span className="text-lg font-bold text-white">
+                    <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm">
+                      <Image
+                        src={currentTestimonial.companyLogo}
+                        alt={currentTestimonial.company}
+                        width={48}
+                        height={48}
+                        className="object-contain max-w-12 max-h-12"
+                      />
+                    </div>
+                    <div className="absolute -bottom-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-brand-500 to-emerald-500">
+                      <span className="text-xs font-bold text-white">
                         {currentTestimonial.name
                           .split(' ')
                           .map((n) => n[0])
                           .join('')}
                       </span>
-                    </div>
-                    <div className="absolute -bottom-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-white dark:bg-gray-800">
-                      <Image
-                        src={currentTestimonial.companyLogo}
-                        alt={currentTestimonial.company}
-                        width={20}
-                        height={20}
-                        className="object-contain"
-                      />
                     </div>
                   </div>
 
@@ -165,18 +165,15 @@ export function TestimonialsSlider() {
               {/* Right - Results & Visual */}
               <div className="space-y-6">
                 {/* Company Visual */}
-                <motion.div
+                <div
                   className={`relative h-44 rounded-2xl bg-gradient-to-br sm:h-52 ${currentTestimonial.background} group cursor-pointer overflow-hidden p-4 sm:p-6`}
-                  initial={{ scale: 0.9, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                  whileHover={{ scale: 1.02 }}
                 >
                   <Image
                     src={MOCK_VISUALS[activeTestimonial % MOCK_VISUALS.length]}
                     alt={`${currentTestimonial.company} visual`}
                     fill
                     className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
@@ -186,22 +183,20 @@ export function TestimonialsSlider() {
                   </div>
 
                   {/* Play Button */}
-                  <motion.button
-                    className="absolute inset-0 m-auto flex h-16 w-16 items-center justify-center rounded-full bg-black/20 transition-all group-hover:bg-black/30 dark:bg-white/20 dark:group-hover:bg-white/30"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
+                  <button
+                    className="absolute inset-0 m-auto flex h-16 w-16 items-center justify-center rounded-full bg-black/20 hover:bg-black/30 dark:bg-white/20 dark:hover:bg-white/30 transition-all duration-300 hover:scale-110 active:scale-95 z-10"
                     aria-label={
                       locale === 'tr' ? 'Videoyu oynat' : 'Play video'
                     }
                     onClick={openVideo}
                   >
                     <Play className="ml-1 h-6 w-6 text-ink-900 dark:text-white" />
-                  </motion.button>
+                  </button>
 
                   {/* Background Elements */}
                   <div className="absolute bottom-4 right-4 h-24 w-24 rounded-full border border-white/20"></div>
                   <div className="absolute right-8 top-1/2 h-16 w-16 rounded-full border border-white/20"></div>
-                </motion.div>
+                </div>
                 <span className="text-sm font-semibold text-ink-900 dark:text-white">
                   {currentTestimonial.company}
                 </span>
@@ -216,9 +211,10 @@ export function TestimonialsSlider() {
           <div className="flex items-center justify-center gap-6">
             <button
               onClick={prevTestimonial}
-              className="rounded-full bg-ink-900/5 p-4 transition-all hover:scale-110 hover:bg-ink-900/10 dark:bg-white/10 dark:hover:bg-white/20"
+              className="rounded-full bg-ink-900/5 p-4 transition-all hover:scale-110 hover:bg-ink-900/10 dark:bg-white/10 dark:hover:bg-white/20 cursor-pointer z-10"
+              type="button"
             >
-              <ChevronLeft className="h-6 w-6" />
+              <ChevronLeft className="h-6 w-6 pointer-events-none" />
             </button>
 
             <div className="flex gap-3">
@@ -229,54 +225,57 @@ export function TestimonialsSlider() {
                     setActiveTestimonial(index);
                     setAutoPlay(false);
                   }}
-                  className={`transition-all duration-300 ${
+                  className={`transition-all duration-300 cursor-pointer z-10 ${
                     index === activeTestimonial
                       ? 'h-3 w-12 rounded-full bg-brand-500'
                       : 'h-3 w-3 rounded-full bg-ink-900/20 hover:bg-ink-900/30 dark:bg-white/30 dark:hover:bg-white/50'
                   }`}
+                  type="button"
+                  aria-label={`Go to testimonial ${index + 1}`}
                 />
               ))}
             </div>
 
             <button
               onClick={nextTestimonial}
-              className="rounded-full bg-ink-900/5 p-4 transition-all hover:scale-110 hover:bg-ink-900/10 dark:bg-white/10 dark:hover:bg-white/20"
+              className="rounded-full bg-ink-900/5 p-4 transition-all hover:scale-110 hover:bg-ink-900/10 dark:bg-white/10 dark:hover:bg-white/20 cursor-pointer z-10"
+              type="button"
             >
-              <ChevronRight className="h-6 w-6" />
+              <ChevronRight className="h-6 w-6 pointer-events-none" />
             </button>
           </div>
 
           {/* Testimonial Thumbnails */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
             {testimonials.map((testimonial, index) => (
-              <motion.button
+              <button
                 key={testimonial.id}
                 onClick={() => {
                   setActiveTestimonial(index);
                   setAutoPlay(false);
                 }}
-                className={`rounded-2xl border-2 p-4 text-left transition-all duration-300 ${
+                className={`rounded-2xl border-2 p-4 text-left transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer z-10 ${
                   index === activeTestimonial
                     ? 'border-brand-500 bg-brand-50 dark:bg-brand-500/20'
                     : 'border-ink-900/10 bg-ink-900/5 hover:border-ink-900/20 hover:bg-ink-900/10 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/30 dark:hover:bg-white/10'
                 }`}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                type="button"
               >
                 <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-to-r from-brand-500 to-emerald-500">
-                    <span className="text-sm font-bold text-white">
-                      {testimonial.name
-                        .split(' ')
-                        .map((n) => n[0])
-                        .join('')}
-                    </span>
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                    <Image
+                      src={testimonial.companyLogo}
+                      alt={testimonial.company}
+                      width={32}
+                      height={32}
+                      className="object-contain max-w-8 max-h-8"
+                    />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <h4 className="truncate text-sm font-semibold text-white">
+                    <h4 className="truncate text-sm font-semibold text-ink-900 dark:text-white">
                       {testimonial.name}
                     </h4>
-                    <p className="truncate text-xs text-gray-400">
+                    <p className="truncate text-xs text-ink-600 dark:text-gray-400">
                       {testimonial.company}
                     </p>
                     <div className="mt-1 flex items-center gap-1">
@@ -291,7 +290,7 @@ export function TestimonialsSlider() {
                 </div>
 
                 {/* Removed hover-open extra content for simplicity */}
-              </motion.button>
+              </button>
             ))}
           </div>
         </div>

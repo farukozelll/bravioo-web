@@ -6,12 +6,13 @@ import { getTranslations } from 'next-intl/server';
 import { BrandBar } from '@/components/sections/brand-bar';
   
 interface BrandsPageProps {
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 }
 
-export default async function BrandsPage({ params: { locale } }: BrandsPageProps) {
+export default async function BrandsPage({ params }: BrandsPageProps) {
+  const { locale } = await params;
   const t = await getTranslations();
 
   return (
@@ -27,7 +28,8 @@ export default async function BrandsPage({ params: { locale } }: BrandsPageProps
   );
 }
 
-export async function generateMetadata({ params: { locale } }: BrandsPageProps) {
+export async function generateMetadata({ params }: BrandsPageProps) {
+  const { locale } = await params;
   const t = await getTranslations();
   
   return {

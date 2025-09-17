@@ -1,4 +1,4 @@
-import { Twitter, Linkedin, Facebook, Mail, Instagram, Youtube } from 'lucide-react';
+import { Twitter, Linkedin, Facebook, Mail, Instagram, Youtube, Smartphone } from 'lucide-react';
 
 export interface FooterLink {
   nameKey: string;
@@ -53,7 +53,8 @@ export const footerSections: FooterSection[] = [
       { nameKey: 'footer.sections.legal.cookies', href: '/legal/cookies' },
       { nameKey: 'footer.sections.legal.accessibility', href: '/legal/accessibility' },
     ]
-  }
+  },
+
 ];
 
 export const socialLinks: SocialLink[] = [

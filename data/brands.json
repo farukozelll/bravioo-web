@@ -16,7 +16,7 @@
   {
     "id": "acibadem-hastanesi",
     "name": "Acıbadem Hastanesi",
-    "logo": "/images/brands/placeholder.png",
+    "logo": "/images/brands/Acıbadem Tüm Hastaneleri-Tıp Merkezleri.png",
     "category": "Sağlık",
     "description": "Türkiye'nin lider sağlık grubu, çalışan deneyiminde Bravioo'yu tercih etti."
   },
@@ -51,7 +51,7 @@
   {
     "id": "akrida-anaokulu",
     "name": "Akrida Anaokulu",
-    "logo": "/images/brands/placeholder.png",
+    "logo": "/images/brands/Akrida Anaokulu.png",
     "category": "Eğitim",
     "description": "Veli iletişimini ve okul içi aktiviteleri Bravioo platformuna taşıdı."
   },
@@ -107,7 +107,7 @@
   {
     "id": "amerikan-kultur",
     "name": "Amerikan Kültür",
-    "logo": "/images/brands/placeholder.png",
+    "logo": "/images/brands/Amerikan Kültür.png",
     "category": "Eğitim",
     "description": "Yabancı dil eğitiminde dijital materyal ve kurs yönetimini Bravioo ile sağlıyor."
   },
@@ -569,14 +569,14 @@
   {
     "id": "helalbooking",
     "name": "HelalBooking",
-    "logo": "/images/brands/placeholder.png",
+    "logo": "/images/brands/HelalBooking.webp",
     "category": "Turizm & Konaklama",
     "description": "Alternatif turizm portalı, global otel ağını ve rezervasyonlarını Bravioo ile yönetiyor."
   },
   {
     "id": "hospitadent",
     "name": "Hospitadent",
-    "logo": "/images/brands/placeholder.png",
+    "logo": "/images/brands/Hospitadent.jpg",
     "category": "Sağlık",
     "description": "Diş hastaneleri zinciri, tüm şubelerinde hasta memnuniyetini Bravioo ile ölçümlüyor."
   },
@@ -870,7 +870,7 @@
   {
     "id": "megadentist",
     "name": "Megadentist",
-    "logo": "/images/brands/placeholder.png",
+    "logo": "/images/brands/megadentist_logo.jpg",
     "category": "Sağlık",
     "description": "Diş sağlığı merkezi, randevu ve hasta iletişimini Bravioo'nun CRM çözümleriyle yönetiyor."
   },

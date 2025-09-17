@@ -153,6 +153,7 @@
         "advanced": "Gelişmiş Özellikler",
         "premium": "Kurumsal / Premium Özellikler"
       },
+      "featuresTitle": "Özellikler",
       "featuresLabel": "Özellikler",
       "description": "Çalışan sayınıza ve ihtiyaçlarınıza göre tasarlanmış 4 farklı paket. Modül bazlı fiyatlandırma ile sadece kullandığınız özellikler için ödeme yapın.",
       "feature1": "14 Gün Ücretsiz Deneme",
@@ -210,12 +211,21 @@
         "all": "Tüm Modüller Dahil",
         "custom": "Özel Modül Geliştirme",
         "support": "Öncelikli Teknik Destek",
-        "training": "Canlı Eğitim & Onboarding"
+        "training": "Canlı Eğitim & Onboarding",
+        "polls": "Anket Sistemi",
+        "giveaways": "Çekiliş & Kampanyalar",
+        "feedback": "Geri Bildirim Yönetimi",
+        "campaigns": "Kampanya Yönetimi",
+        "announcements": "Duyuru Sistemi",
+        "userManagement": "Kullanıcı Yönetimi"
       },
       "enterpriseNote": {
         "title": "500+ Çalışanınız mı var?",
         "description": "Büyük ölçekli şirketler için özel fiyatlandırma ve çözümler sunuyoruz. Size özel teklifimiz için iletişime geçin."
       },
+      "currency": "Para Birimi",
+      "perSeat": "kişi başı",
+      "saved": "tasarruf",
       "comparisonTitle": "Paket Karşılaştırması",
       "comparisonSubtitle": "Hangi paketin size uygun olduğuna karar vermek için detaylı karşılaştırma tablosu",
       "popular": "Popüler",
@@ -223,15 +233,21 @@
         "userLimit": "Kullanıcı Limiti",
         "recognition": "Takdir Sistemi",
         "surveys": "Anket Modülü",
+        "polls": "Anket Sistemi",
         "basicAnalytics": "Temel Analitik",
         "emailSupport": "E-posta Desteği",
         "automation": "Süreç Otomasyonu",
         "integrations": "Entegrasyonlar",
+        "feedback": "Geri Bildirim Yönetimi",
+        "campaigns": "Kampanya Yönetimi",
         "advancedAnalytics": "Gelişmiş Analitik",
         "customBranding": "Özel Marka Tasarımı",
         "prioritySupport": "Öncelikli Destek",
         "mobileApp": "Mobil Uygulama",
         "apiAccess": "API Erişimi",
+        "giveaways": "Çekiliş & Kampanyalar",
+        "announcements": "Duyuru Sistemi",
+        "userManagement": "Kullanıcı Yönetimi",
         "ssoIntegration": "SSO Entegrasyonu",
         "customModules": "Özel Modüller",
         "dedicatedManager": "Özel Hesap Yöneticisi",
@@ -465,6 +481,12 @@
       "message": "Mesaj",
       "messagePlaceholder": "Takdir ihtiyaçlarınız hakkında bize bilgi verin...",
       "agree": "Gizlilik politikası ve hizmet şartlarını kabul ediyorum",
+      "agreePrefix": "Kabul ediyorum:",
+      "privacyPolicy": "Gizlilik Politikası",
+      "and": "ve",
+      "termsOfService": "Hizmet Şartları",
+      "industryOther": "Diğer",
+      "industryOtherPlaceholder": "Sektörünüzü belirtin",
       "next": "Sonraki Adım",
       "previous": "Önceki",
       "submit": "Mesaj Gönder",
@@ -536,6 +558,11 @@
         "terms": "Kullanım Şartları",
         "cookies": "Çerez Politikası",
         "accessibility": "Erişilebilirlik"
+      },
+      "mobile": {
+        "title": "Mobil Uygulama",
+        "ios": "iOS Uygulaması",
+        "android": "Android Uygulaması"
       }
     }
   },
@@ -811,6 +838,65 @@
         "monitoring": "İzleme",
         "breaches": "Güvenlik İhlali"
       }
+    }
+  },
+  "howItWorks": {
+    "badge": "Platform Modülleri",
+    "title": "Güçlü",
+    "titleHighlight": "Entegre",
+    "titleEnd": "Çözümler",
+    "description": "İK ekipleri, çalışanlar ve yöneticiler için tasarlanmış kapsamlı platform modüllerimizi keşfedin. Her modül, birleşik bir deneyim yaratmak için sorunsuz bir şekilde birlikte çalışır.",
+    "module": "Modül",
+    "viewDemo": "Demo İzle",
+    "learnMore": "Daha Fazla Bilgi",
+    "steps": {
+      "adminPortal": {
+        "title": "Yönetici Kontrol Paneli",
+        "description": "Eksiksiz sistem konfigürasyonu ve kullanıcı yönetimi",
+        "features": [
+          "Kullanıcı rol yönetimi",
+          "Bütçe tahsis kontrolleri",
+          "Entegrasyon ayarları",
+          "Şirket markalaşma özelleştirmesi"
+        ]
+      },
+      "employeeApp": {
+        "title": "Çalışan Mobil Uygulaması",
+        "description": "Mobilde sorunsuz takdir ve ödül deneyimi",
+        "features": [
+          "Anlık meslektaş takdiri",
+          "Global ödül pazaryeri",
+          "Sosyal akış ve kutlamalar",
+          "Push bildirimleri"
+        ]
+      }
+    }
+  },
+  "brands": {
+    "hero": {
+      "title": "Dünya Devlerinin",
+      "titleHighlight": "Teknoloji Ortağı",
+      "description": "Fortune 500 şirketlerinden startuplara kadar sayısız marka Bravioo'nun altyapısına güveniyor.",
+      "enterpriseDemo": "Enterprise Demo Alın",
+      "brandStories": "Marka Hikayeleri"
+    },
+    "showcase": {
+      "title": "Dünya markalarının tercih ettiği",
+      "titleHighlight": "E-ticaret Altyapısı",
+      "exploreButton": "Global Marka Deneyimlerimizi İncele",
+      "stats": {
+        "growth": "Ortalama Büyüme",
+        "brands": "Global Marka",
+        "rating": "Enterprise Puanı",
+        "countries": "Farklı Ülke"
+      },
+      "cta": {
+        "title": "Markanızı global standartlara taşıyın",
+        "description": "Dünya markalarının güvendiği Bravioo altyapısı ile siz de international e-ticaret deneyimi yaratın.",
+        "enterpriseDemo": "Enterprise Demo Alın",
+        "pricing": "Özel Fiyat Teklifi"
+      },
+      "allCategory": "Tümü"
     }
   }
 }

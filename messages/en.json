@@ -254,6 +254,11 @@
         "terms": "Terms of Service",
         "cookies": "Cookie Policy",
         "accessibility": "Accessibility"
+      },
+      "mobile": {
+        "title": "Mobile App",
+        "ios": "iOS App",
+        "android": "Android App"
       }
     }
   },
@@ -323,6 +328,65 @@
     "investors": {
       "title": "Strong Ecosystem",
       "description": "We create a strong ecosystem together with our investors and technology partners who trust us in Bravioo's growth."
+    }
+  },
+  "howItWorks": {
+    "badge": "Platform Modules",
+    "title": "Powerful",
+    "titleHighlight": "Integrated",
+    "titleEnd": "Solutions",
+    "description": "Explore our comprehensive platform modules designed for HR teams, employees, and administrators. Each module works seamlessly together to create a unified experience.",
+    "module": "Module",
+    "viewDemo": "View Demo",
+    "learnMore": "Learn More",
+    "steps": {
+      "adminPortal": {
+        "title": "Admin Control Portal",
+        "description": "Complete system configuration and user management",
+        "features": [
+          "User role management",
+          "Budget allocation controls",
+          "Integration settings",
+          "Company branding customization"
+        ]
+      },
+      "employeeApp": {
+        "title": "Employee Mobile App",
+        "description": "Seamless recognition and reward experience on mobile",
+        "features": [
+          "Instant peer-to-peer recognition",
+          "Global rewards marketplace",
+          "Social feed and celebrations",
+          "Push notifications"
+        ]
+      }
+    }
+  },
+  "brands": {
+    "hero": {
+      "title": "Technology Partner of",
+      "titleHighlight": "World Giants",
+      "description": "Countless brands from Fortune 500 companies to startups trust Bravioo's infrastructure.",
+      "enterpriseDemo": "Get Enterprise Demo",
+      "brandStories": "Brand Stories"
+    },
+    "showcase": {
+      "title": "The E-commerce Infrastructure Preferred by",
+      "titleHighlight": "World Brands",
+      "exploreButton": "Explore Our Global Brand Experiences",
+      "stats": {
+        "growth": "Average Growth",
+        "brands": "Global Brands",
+        "rating": "Enterprise Rating",
+        "countries": "Different Countries"
+      },
+      "cta": {
+        "title": "Take your brand to global standards",
+        "description": "Create an international e-commerce experience with the Bravioo infrastructure trusted by world brands.",
+        "enterpriseDemo": "Get Enterprise Demo",
+        "pricing": "Special Price Quote"
+      },
+      "allCategory": "All"
     }
   }
 }

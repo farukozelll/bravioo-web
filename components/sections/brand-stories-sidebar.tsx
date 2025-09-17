@@ -2,7 +2,7 @@
 
 import React, { useMemo, useState } from 'react';
 import stories from '@/data/brand-stories.json';
-
+import Image from 'next/image';
 interface Story {
   slug: string;
   title: string;
@@ -55,7 +55,7 @@ export function BrandStoriesSidebar({ onSearch }: { onSearch?: (q: string) => vo
           {featured.map((s) => (
             <a key={s.slug} href={`/stories/${s.slug}`} className="flex gap-3 group">
               <div className="w-16 h-12 rounded-lg overflow-hidden bg-slate-200">
-                {s.coverImage && <img src={s.coverImage} alt={s.title} className="w-full h-full object-cover" />}
+                    {s.coverImage && <Image src={s.coverImage} alt={s.title} className="w-full h-full object-cover" />}
               </div>
               <div className="min-w-0">
                 <div className="text-xs text-slate-500 dark:text-gray-400">{new Date(s.publishedAt).toLocaleDateString()}</div>

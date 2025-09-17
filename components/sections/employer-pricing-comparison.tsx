@@ -15,6 +15,7 @@ export function EmployerPricingComparison() {
         { key: 'userLimit', starter: '50', growth: '200', scale: '500', enterprise: 'Sınırsız' },
         { key: 'recognition', starter: true, growth: true, scale: true, enterprise: true },
         { key: 'surveys', starter: true, growth: true, scale: true, enterprise: true },
+        { key: 'polls', starter: true, growth: true, scale: true, enterprise: true },
         { key: 'basicAnalytics', starter: true, growth: true, scale: true, enterprise: true },
         { key: 'emailSupport', starter: true, growth: true, scale: true, enterprise: true }
       ]
@@ -24,6 +25,8 @@ export function EmployerPricingComparison() {
       features: [
         { key: 'automation', starter: false, growth: true, scale: true, enterprise: true },
         { key: 'integrations', starter: false, growth: '5', scale: '15', enterprise: 'Sınırsız' },
+        { key: 'feedback', starter: false, growth: true, scale: true, enterprise: true },
+        { key: 'campaigns', starter: false, growth: true, scale: true, enterprise: true },
         { key: 'advancedAnalytics', starter: false, growth: true, scale: true, enterprise: true },
         { key: 'customBranding', starter: false, growth: false, scale: true, enterprise: true },
         { key: 'prioritySupport', starter: false, growth: false, scale: true, enterprise: true }
@@ -34,6 +37,9 @@ export function EmployerPricingComparison() {
       features: [
         { key: 'mobileApp', starter: false, growth: false, scale: true, enterprise: true },
         { key: 'apiAccess', starter: false, growth: false, scale: true, enterprise: true },
+        { key: 'giveaways', starter: false, growth: false, scale: true, enterprise: true },
+        { key: 'announcements', starter: false, growth: false, scale: true, enterprise: true },
+        { key: 'userManagement', starter: false, growth: false, scale: false, enterprise: true },
         { key: 'ssoIntegration', starter: false, growth: false, scale: false, enterprise: true },
         { key: 'customModules', starter: false, growth: false, scale: false, enterprise: true },
         { key: 'dedicatedManager', starter: false, growth: false, scale: false, enterprise: true },
@@ -99,7 +105,7 @@ export function EmployerPricingComparison() {
           <div className="bg-gray-50 p-6 border-b border-gray-200">
             <div className="grid grid-cols-5 gap-4">
               <div className="text-left">
-                <h3 className="text-lg font-bold text-gray-900">{t('features')}</h3>
+                <h3 className="text-lg font-bold text-gray-900">{t('featuresTitle')}</h3>
               </div>
               {plans.map((plan) => (
                 <div key={plan.id} className="text-center relative">

@@ -131,8 +131,8 @@ export function Header() {
         onMouseEnter={() => canHover && cancelClose()}
         onMouseLeave={() => canHover && scheduleClose()}
         className={cn(
-          "w-full border-b bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm transition-all duration-300",
-          isScrolled ? "border-gray-200 dark:border-gray-700 shadow-sm" : "border-transparent"
+          "w-full border-b bg-neutral-50/95 dark:bg-gray-900/95 backdrop-blur-sm transition-all duration-300",
+          isScrolled ? "border-neutral-200 dark:border-gray-700 shadow-sm" : "border-transparent"
         )}
       >
         <nav className="mx-auto flex max-w-7xl items-center p-4 lg:px-8">
@@ -367,7 +367,7 @@ function MegaMenu({ activeDropdown, locale, t, navigationData }: MegaMenuProps) 
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
-      className="absolute top-full left-0 w-full bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-2xl z-[230]"
+              className="absolute top-full left-0 w-full bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-2xl z-[230]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
         {activeDropdown === 'whyBravioo' ? (
@@ -479,17 +479,17 @@ function HeroContent({ locale }: { locale: string }) {
 
 function StatsGrid({ locale }: { locale: string }) {
   const stats = [
-    { value: '500+', label: locale === 'tr' ? 'Şirket' : 'Companies', color: 'text-purple-600' },
-    { value: '2.5M+', label: locale === 'tr' ? 'Kullanıcı' : 'Users', color: 'text-blue-600' },
+    { value: '200+', label: locale === 'tr' ? 'Şirket' : 'Companies', color: 'text-purple-600' },
+    { value: '50.000+', label: locale === 'tr' ? 'Kullanıcı' : 'Users', color: 'text-blue-600' },
     { value: '%98', label: locale === 'tr' ? 'Memnuniyet' : 'Satisfaction', color: 'text-emerald-600' }
   ];
 
   return (
-    <div className="relative z-10 grid grid-cols-3 gap-6 mt-auto">
+    <div className="relative z-10 grid grid-cols-3 gap-3 mt-auto">
       {stats.map((stat, index) => (
         <div key={index} className="text-center">
-          <div className={`text-2xl font-bold ${stat.color}`}>{stat.value}</div>
-          <div className="text-sm text-gray-600 dark:text-gray-300">{stat.label}</div>
+          <div className={`text-2xl font-bold ${stat.color}`}>{stat.value}   {stat.label}</div>
+          <div className="text-sm text-black-600 dark:text-gray-300">{stat.label}</div>
         </div>
       ))}
     </div>

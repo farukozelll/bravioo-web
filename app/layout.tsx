@@ -24,6 +24,7 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://bravioo.com'),
   title: "Bravioo - Employee Recognition & Rewards Platform",
   description: "Transform your workplace culture with Bravioo's comprehensive employee recognition and rewards platform. Boost engagement, retention, and productivity.",
   keywords: ["employee recognition", "employee rewards", "workplace culture", "employee engagement", "hr software"],

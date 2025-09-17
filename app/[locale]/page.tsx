@@ -7,6 +7,9 @@ import { PartnerBrandsCTA } from '@/components/sections/partner-brands-cta';
 import { AnimatedFeaturesSection } from '@/components/sections/animated-features';
 import { TestimonialsSlider } from '@/components/sections/testimonials-slider';
 import { HowItWorksSection } from '@/components/sections/how-it-works';
+import { PremiumTestimonials } from '@/components/sections/premium-testimonials';
+import { PremiumFAQ } from '@/components/sections/premium-faq';
+import { OnboardingSteps } from '@/components/sections/onboarding-steps';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import {
   generateOrganizationJsonLd,
@@ -64,23 +67,20 @@ export default async function HomePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
       />
 
-      <div className="relative flex min-h-screen flex-col bg-white">
+      <div className="relative flex min-h-screen flex-col bg-neutral-50 dark:bg-gray-900">
         <Header />
 
         <main className="relative flex-1" style={{ zIndex: 1 }}>
           <EnhancedHero />
           <CompanyBar />
-          <PartnerBrandsMarquee />
+
           <AnimatedFeaturesSection />
-          <HowItWorksSection />
           <BrandBar />
-
-          <ProfessionalCustomerResultsHorizontal />
-
+          <HowItWorksSection />   
           <TestimonialsSlider />
+   
 
           <PartnerBrandsCTA />
-      
         </main>
 
         <Footer />
