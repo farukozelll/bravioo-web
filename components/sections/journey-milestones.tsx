@@ -208,7 +208,7 @@ export function JourneyMilestones() {
                     <motion.div
                       whileHover={{ y: -8, scale: 1.02 }}
                       className={`
-                        relative bg-white dark:bg-gray-800 rounded-2xl p-5 sm:p-7 shadow-lg border transition-all duration-300 h-48 sm:h-48
+                        relative bg-white dark:bg-gray-800 rounded-2xl p-5 sm:p-7 shadow-lg border transition-all duration-300 h-48 sm:h-64
                         ${milestone.completed 
                           ? 'border-emerald-200 dark:border-emerald-600 shadow-emerald-100/50 dark:shadow-emerald-900/20' 
                           : 'border-slate-200 dark:border-gray-700'
@@ -290,100 +290,7 @@ export function JourneyMilestones() {
           </div>
         </motion.div>
 
-        {/* Mobile Timeline */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="lg:hidden"
-        >
-          <div className="relative">
-            {/* Vertical Timeline Line */}
-            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-200 via-emerald-300 to-slate-300 dark:from-emerald-600 dark:via-emerald-500 dark:to-gray-600"></div>
-            
-            {/* Milestones */}
-            <div className="space-y-8">
-              {milestones.map((milestone, index) => (
-                <motion.div
-                  key={milestone.id}
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="relative flex items-start gap-6"
-                >
-                  {/* Timeline Dot */}
-                  <div className={`
-                    relative z-10 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0
-                    ${milestone.completed 
-                      ? 'bg-gradient-to-br from-emerald-500 to-emerald-600 text-white shadow-lg' 
-                      : 'bg-white dark:bg-gray-800 border-2 border-slate-300 dark:border-gray-600 text-slate-400 dark:text-gray-500'
-                    }
-                  `}>
-                    {milestone.completed ? (
-                      <CheckCircle className="w-6 h-6" />
-                    ) : (
-                      <Circle className="w-6 h-6" />
-                    )}
-                  </div>
-
-                  {/* Milestone Card */}
-                  <div className={`
-                    flex-1 bg-white dark:bg-gray-800 rounded-2xl p-4 sm:p-6 shadow-lg border
-                    ${milestone.completed 
-                      ? 'border-emerald-200 dark:border-emerald-600 shadow-emerald-100/50 dark:shadow-emerald-900/20' 
-                      : 'border-slate-200 dark:border-gray-700'
-                    }
-                  `}>
-                    {/* Year Badge */}
-                    <div className={`
-                      inline-block px-3 py-1 text-xs font-bold rounded-full mb-4
-                      ${milestone.completed 
-                        ? 'bg-emerald-500 text-white' 
-                        : 'bg-slate-300 dark:bg-gray-600 text-slate-600 dark:text-gray-300'
-                      }
-                    `}>
-                      {milestone.year}
-                    </div>
-
-                    {/* Content */}
-                    <h3 className={`
-                      text-lg font-semibold mb-3
-                      ${milestone.completed ? 'text-slate-900 dark:text-gray-100' : 'text-slate-600 dark:text-gray-400'}
-                    `}>
-                      {milestone.title}
-                    </h3>
-                    
-                    <p className={`
-                      text-sm leading-relaxed mb-4
-                      ${milestone.completed ? 'text-slate-600 dark:text-gray-300' : 'text-slate-500 dark:text-gray-400'}
-                    `}>
-                      {milestone.description}
-                    </p>
-
-                    {/* Status */}
-                    <div className="flex items-center gap-2">
-                      <div className={`
-                        w-2 h-2 rounded-full
-                        ${milestone.completed ? 'bg-emerald-500' : 'bg-slate-400'}
-                      `}></div>
-                      <span className={`
-                        text-xs font-medium
-                        ${milestone.completed ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-500 dark:text-gray-400'}
-                      `}>
-                        {milestone.completed 
-                          ? (locale === 'tr' ? 'Tamamlandı' : 'Completed')
-                          : (locale === 'tr' ? 'Yakında' : 'Coming Soon')
-                        }
-                      </span>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
+   
 
         {/* CTA moved to separate component */}
       </div>

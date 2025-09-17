@@ -3,6 +3,7 @@ import { Inter, Playfair_Display, Fraunces } from "next/font/google";
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ThemeProvider } from '@/contexts/theme-context';
+import { HubSpotTracking } from '@/components/hubspot-tracking';
 import "./globals.css";
 
 const inter = Inter({
@@ -86,6 +87,7 @@ export default function RootLayout({
           {children}
           <Analytics />
           <SpeedInsights />
+          <HubSpotTracking />
         </ThemeProvider>
       </body>
     </html>

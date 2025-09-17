@@ -4,7 +4,6 @@ import {
   Building, 
   Heart, 
   Layers,  
-  Newspaper, 
   Shield, 
   Users, 
   Zap,
@@ -199,7 +198,10 @@ export const navigationData: NavItem[] = [
     nameKey: 'customers', 
     href: '/customers' 
   },
-
+  { 
+    nameKey: 'meeting', 
+    href: '/meeting' 
+  },
   { 
     nameKey: 'contact', 
     href: '/contact' 

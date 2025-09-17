@@ -23,6 +23,7 @@
     "platform": "Platform",
     "pricing": "Fiyatlandırma",
     "customers": "Referanslar",
+    "meeting": "Demo Toplantısı",
     "whyBravioo": "Neden Bravioo?",
     "contact": "İletişim",
     "employerPricing": "İşveren Partnerliği",
@@ -837,38 +838,6 @@
         "uptime": "Çalışma Süresi",
         "monitoring": "İzleme",
         "breaches": "Güvenlik İhlali"
-      }
-    }
-  },
-  "howItWorks": {
-    "badge": "Platform Modülleri",
-    "title": "Güçlü",
-    "titleHighlight": "Entegre",
-    "titleEnd": "Çözümler",
-    "description": "İK ekipleri, çalışanlar ve yöneticiler için tasarlanmış kapsamlı platform modüllerimizi keşfedin. Her modül, birleşik bir deneyim yaratmak için sorunsuz bir şekilde birlikte çalışır.",
-    "module": "Modül",
-    "viewDemo": "Demo İzle",
-    "learnMore": "Daha Fazla Bilgi",
-    "steps": {
-      "adminPortal": {
-        "title": "Yönetici Kontrol Paneli",
-        "description": "Eksiksiz sistem konfigürasyonu ve kullanıcı yönetimi",
-        "features": [
-          "Kullanıcı rol yönetimi",
-          "Bütçe tahsis kontrolleri",
-          "Entegrasyon ayarları",
-          "Şirket markalaşma özelleştirmesi"
-        ]
-      },
-      "employeeApp": {
-        "title": "Çalışan Mobil Uygulaması",
-        "description": "Mobilde sorunsuz takdir ve ödül deneyimi",
-        "features": [
-          "Anlık meslektaş takdiri",
-          "Global ödül pazaryeri",
-          "Sosyal akış ve kutlamalar",
-          "Push bildirimleri"
-        ]
       }
     }
   },
