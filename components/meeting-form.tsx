@@ -1,6 +1,6 @@
-import Link from 'next/link';
 'use client';
 
+import Link from 'next/link';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';

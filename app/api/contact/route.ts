@@ -55,7 +55,7 @@ export async function POST(request: Request) {
         await sendMailViaGraph({
           to: ['feyza.ozel@bravioo.com', 'sales@bravioo.com'],
           subject: `New Bravioo Contact: ${data.company}`,
-          html: emailTemplates.contactForm({
+          htmlContent: emailTemplates.contactForm({
             name: data.name,
             email: data.email,
             company: data.company,
