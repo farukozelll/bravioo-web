@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
@@ -300,13 +301,13 @@ export default async function MeetingPage({ params }: Props) {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
+            <Link 
               href="/contact"
               className="bg-white text-brand-600 hover:bg-sand-50 px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2"
             >
               <MessageSquare className="h-5 w-5" />
               {locale === 'tr' ? 'Hemen İletişime Geç' : 'Contact Now'}
-            </a>
+            </Link>
             <a 
               href="tel:+902125550123"
               className="border-2 border-white text-white hover:bg-white hover:text-brand-600 px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2"

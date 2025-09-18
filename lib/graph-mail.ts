@@ -3,11 +3,12 @@ import { Client } from '@microsoft/microsoft-graph-client';
 import 'isomorphic-fetch';
 
 export interface EmailData {
-  to: string[];
+  to: string | string[];
   subject: string;
-  html: string;
-  cc?: string[];
-  bcc?: string[];
+  htmlContent: string;
+  textContent?: string;
+  cc?: string | string[];
+  bcc?: string | string[];
   from?: string;
 }
 
@@ -31,7 +32,8 @@ async function getGraphClient() {
 export async function sendMailViaGraph({
   to,
   subject,
-  html,
+  htmlContent,
+  textContent,
   cc = [],
   bcc = [],
   from = 'noreply@bravioo.com',
@@ -39,24 +41,28 @@ export async function sendMailViaGraph({
   try {
     const client = await getGraphClient();
 
+    const toList = Array.isArray(to) ? to : [to];
+    const ccList = Array.isArray(cc) ? cc : [cc];
+    const bccList = Array.isArray(bcc) ? bcc : [bcc];
+
     const message = {
       message: {
         subject,
         body: {
           contentType: 'HTML' as const,
-          content: html,
+          content: htmlContent,
         },
-        toRecipients: to.map((email) => ({
+        toRecipients: toList.map((email) => ({
           emailAddress: {
             address: email,
           },
         })),
-        ccRecipients: cc.map((email) => ({
+        ccRecipients: ccList.filter(Boolean).map((email) => ({
           emailAddress: {
             address: email,
           },
         })),
-        bccRecipients: bcc.map((email) => ({
+        bccRecipients: bccList.filter(Boolean).map((email) => ({
           emailAddress: {
             address: email,
           },

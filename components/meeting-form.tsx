@@ -1,3 +1,4 @@
+import Link from 'next/link';
 'use client';
 
 import React, { useState } from 'react';
@@ -484,9 +485,9 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
           ? 'Bu formu göndererek, '
           : 'By submitting this form, you agree to our '
         }
-        <a href="/legal/privacy" className="text-emerald-600 hover:underline">
+        <Link href="/legal/privacy" className="text-emerald-600 hover:underline">
           {locale === 'tr' ? 'Gizlilik Politikamızı' : 'Privacy Policy'}
-        </a>
+        </Link>
         {locale === 'tr' ? ' kabul etmiş olursunuz.' : '.'}
       </p>
     </form>

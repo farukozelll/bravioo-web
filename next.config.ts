@@ -29,7 +29,7 @@ const nextConfig: NextConfig = {
     }
     return config;
   },
-  turbo: {
+  turbopack: {
     rules: {
       '*.svg': {
         loaders: ['@svgr/webpack'],

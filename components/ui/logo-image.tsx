@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import NextImage from 'next/image';
 
 interface LogoImageProps {
   /** Logo path or URL */
@@ -115,7 +115,7 @@ export function LogoImage({
       {src && !imageError ? (
         <>
           {/* Actual logo image */}
-          <Image
+          <NextImage
             src={src}
             alt={alt}
             fill
@@ -182,7 +182,7 @@ export function useLogoFallback(basePath: string, name: string) {
       try {
         // Test if image exists and loads
         await new Promise<void>((resolve, reject) => {
-          const img = new Image();
+          const img = new window.Image();
           img.onload = () => resolve();
           img.onerror = () => reject();
           img.src = testSrc;
@@ -197,7 +197,7 @@ export function useLogoFallback(basePath: string, name: string) {
     };
 
     // Start with the provided path, then try fallbacks
-    const img = new Image();
+    const img = new window.Image();
     img.onload = () => {
       setLogoSrc(basePath);
       setIsLoading(false);
