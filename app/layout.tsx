@@ -1,26 +1,14 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display, Fraunces } from "next/font/google";
+import { Reddit_Sans } from "next/font/google";
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { ThemeProvider } from '@/contexts/theme-context';
 import { HubSpotTracking } from '@/components/hubspot-tracking';
 import "./globals.css";
 
-const inter = Inter({
+const redditSans = Reddit_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-  display: "swap",
-});
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  variable: "--font-fraunces",
+  variable: "--font-reddit-sans",
   display: "swap",
 });
 
@@ -65,8 +53,6 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* Preconnect to external domains */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <link rel="preconnect" href="https://js-eu1.hs-scripts.com" />
         
@@ -81,7 +67,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#3A9355" />
       </head>
       <body
-        className={`${inter.variable} ${playfair.variable} ${fraunces.variable} font-sans antialiased`}
+        className={`${redditSans.variable} font-sans antialiased`}
       >
         <ThemeProvider>
           {children}

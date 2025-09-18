@@ -106,9 +106,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        serif: ['Playfair Display', 'Georgia', 'serif'],
-        display: ['Fraunces', 'Georgia', 'serif'],
+        sans: ['var(--font-reddit-sans)', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-reddit-sans)', 'Georgia', 'serif'],
+        display: ['var(--font-reddit-sans)', 'Georgia', 'serif'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
