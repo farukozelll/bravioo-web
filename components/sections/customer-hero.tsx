@@ -51,13 +51,13 @@ export function CustomerHero() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:pr-8 lg:sticky lg:top-24"
+            className="lg:pr-8 lg:sticky lg:top-32"
           >
             {/* Global Badge */}
-            <div className="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-400 px-4 py-2 rounded-full text-sm font-medium mb-8">
+         {/*    <div className="inline-flex items-center gap-2 border border-gold-400 bg-emerald-500/20 text-gold-400 px-4 py-2 rounded-full text-sm font-medium mb-8">
               <Globe className="w-4 h-4" />
               <span>Global Şirketler</span>
-            </div>
+            </div> */}
 
             {/* Main Heading */}
             <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
