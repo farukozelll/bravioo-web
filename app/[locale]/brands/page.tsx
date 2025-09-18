@@ -1,9 +1,9 @@
 import { BrandsHero } from '@/components/sections/brands-hero';
-import { BrandsShowcase } from '@/components/sections/brands-showcase';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { getTranslations } from 'next-intl/server';
 import { BrandBar } from '@/components/sections/brand-bar';
+import { BrandShowcase } from '@/components/sections/brand-showcase';
   
 interface BrandsPageProps {
   params: Promise<{
@@ -20,8 +20,7 @@ export default async function BrandsPage({ params }: BrandsPageProps) {
       <Header />
       <main className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
         <BrandsHero />
-      
-        <BrandsShowcase />
+      <BrandShowcase />
       </main>
       <Footer />
     </>
