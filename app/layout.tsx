@@ -58,13 +58,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { locale: string };
 }>) {
   return (
-    <html lang={params?.locale || 'en'} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${redditSans.variable} font-sans antialiased`}
       >
