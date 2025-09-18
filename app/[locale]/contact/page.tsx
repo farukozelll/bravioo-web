@@ -1,10 +1,8 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
-import { ContactFormTabs } from '@/components/contact-form-tabs';
-import { FAQSection } from '@/components/sections/faq';
+import { ContactFormTabs } from '@/app/[locale]/contact/_components/contact-form-tabs';
+import { FAQSection } from '@/app/[locale]/contact/_components/faq';
 import { 
   MapPin, 
   Phone, 
@@ -12,8 +10,6 @@ import {
   Clock, 
   MessageSquare,
   Users,
-  Zap,
-  Shield
 } from 'lucide-react';
 
 type Props = {
@@ -80,13 +76,9 @@ export default async function ContactPage({ params }: Props) {
 
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 transition-colors duration-300">
-      <Header />
       {/* Hero Section */}
       <section className="relative py-24 bg-gradient-to-br from-sand-50 to-white dark:from-gray-800 dark:to-gray-900 overflow-hidden transition-colors duration-300">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-brand-200 to-gold-200 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
-          <div className="absolute top-40 right-10 w-72 h-72 bg-gradient-to-r from-purple-200 to-pink-200 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
-        </div>
+       
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -197,8 +189,6 @@ export default async function ContactPage({ params }: Props) {
 
       {/* FAQ Section */}
       <FAQSection />
-      
-      <Footer />
     </div>
   );
 }

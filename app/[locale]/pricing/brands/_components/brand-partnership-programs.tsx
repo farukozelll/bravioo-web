@@ -49,14 +49,14 @@ export function BrandPartnershipPrograms() {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-gray-50 to-white">
+    <section className="py-24 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+            className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6"
           >
             {t('programsTitle')}
           </motion.h2>
@@ -65,7 +65,7 @@ export function BrandPartnershipPrograms() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-gray-600"
+            className="text-xl text-gray-600 dark:text-gray-300"
           >
             {t('programsSubtitle')}
           </motion.p>
@@ -79,11 +79,11 @@ export function BrandPartnershipPrograms() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 * index }}
-              className={`relative bg-white rounded-3xl shadow-xl border-2 p-8 flex flex-col ${
+              className={`relative bg-white dark:bg-gray-800 rounded-3xl shadow-xl border-2 p-8 flex flex-col ${
                 program.color === 'bronze' ? 'border-amber-600' :
                 program.color === 'silver' ? 'border-gray-400' :
                 program.color === 'gold' ? 'border-yellow-400' :
-                program.color === 'platinum' ? 'border-purple-500' : 'border-gray-200'
+                program.color === 'platinum' ? 'border-purple-500' : 'border-gray-200 dark:border-gray-700'
               }`}
             >
               {program.popular && (
@@ -96,26 +96,26 @@ export function BrandPartnershipPrograms() {
 
               <div className="text-center mb-8">
                 <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 
-                  ${program.color === 'bronze' ? 'bg-amber-50 text-amber-700 border border-amber-600' : ''}
-                  ${program.color === 'silver' ? 'bg-gray-50 text-gray-700 border border-gray-400' : ''}
-                  ${program.color === 'gold' ? 'bg-yellow-50 text-yellow-700 border border-yellow-400' : ''}
-                  ${program.color === 'platinum' ? 'bg-purple-50 text-purple-700 border border-purple-500' : ''}
+                  ${program.color === 'bronze' ? 'bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 border border-amber-600 dark:border-amber-700' : ''}
+                  ${program.color === 'silver' ? 'bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-200 border border-gray-400 dark:border-gray-500' : ''}
+                  ${program.color === 'gold' ? 'bg-yellow-50 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 border border-yellow-400 dark:border-yellow-600' : ''}
+                  ${program.color === 'platinum' ? 'bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border border-purple-500 dark:border-purple-600' : ''}
                 `}>
                   {program.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
                   {t(program.nameKey)}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-600 dark:text-gray-300">
                   {t(program.descKey)}
                 </p>
               </div>
 
               <div className="text-center mb-8">
-                <div className="text-4xl font-bold text-gray-900 mb-2">
+                <div className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
                   {program.commission}
                 </div>
-                <div className="text-sm text-gray-600">
+                <div className="text-sm text-gray-600 dark:text-gray-400">
                   {t('commission')}
                 </div>
               </div>
@@ -124,7 +124,7 @@ export function BrandPartnershipPrograms() {
                 {program.features.map((feature) => (
                   <div key={feature} className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-emerald-500 rounded-full" />
-                    <span className="text-gray-700">
+                    <span className="text-gray-700 dark:text-gray-300">
                       {t(`programFeatures.${feature}`)}
                     </span>
                   </div>
@@ -135,8 +135,8 @@ export function BrandPartnershipPrograms() {
                 program.color === 'bronze' ? 'border-amber-600 text-amber-700' :
                 program.color === 'silver' ? 'border-gray-400 text-gray-700' :
                 program.color === 'gold' ? 'border-yellow-400 text-yellow-700' :
-                program.color === 'platinum' ? 'border-purple-500 text-purple-700' : 'border-gray-300 text-gray-900'
-              } bg-white hover:shadow-md`}>
+                program.color === 'platinum' ? 'border-purple-500 text-purple-700' : 'border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100'
+              } bg-white dark:bg-gray-900 hover:shadow-md`}>
                 {t('joinProgram')}
               </button>
             </motion.div>

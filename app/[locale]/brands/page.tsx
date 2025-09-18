@@ -1,9 +1,6 @@
-import { BrandsHero } from '@/components/sections/brands-hero';
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
+import { BrandsHero } from '@/app/[locale]/brands/_components/brands-hero';
 import { getTranslations } from 'next-intl/server';
-import { BrandBar } from '@/components/sections/brand-bar';
-import { BrandShowcase } from '@/components/sections/brand-showcase';
+import { BrandShowcase } from '@/app/[locale]/brands/_components/brand-showcase';
   
 interface BrandsPageProps {
   params: Promise<{
@@ -17,12 +14,10 @@ export default async function BrandsPage({ params }: BrandsPageProps) {
 
   return (
     <>
-      <Header />
       <main className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
-        <BrandsHero />
+      <BrandsHero />
       <BrandShowcase />
       </main>
-      <Footer />
     </>
   );
 }

@@ -1,6 +1,4 @@
 import React from 'react';
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
 import stories from '@/data/brand-stories.json';
 import { ArrowLeft, Calendar, Clock, Tag } from 'lucide-react';
 import Image from 'next/image';
@@ -23,11 +21,7 @@ export default function StoryDetailPage({ params }: { params: Promise<{ slug: st
 
     if (!story) {
       return (
-        <>
-          <Header />
-          <main className="min-h-screen flex items-center justify-center text-slate-600 dark:text-gray-300">Hikaye bulunamadı.</main>
-          <Footer />
-        </>
+        <main className="min-h-screen flex items-center justify-center text-slate-600 dark:text-gray-300">Hikaye bulunamadı.</main>
       );
     }
 
@@ -38,13 +32,11 @@ export default function StoryDetailPage({ params }: { params: Promise<{ slug: st
     const readingMinutes = Math.max(1, Math.ceil(wordCount / 200));
 
     return (
-      <>
-        <Header />
-        <main className="min-h-screen bg-white dark:bg-gray-900">
+      <main className="min-h-screen bg-white dark:bg-gray-900">
           <article className="mx-auto max-w-3xl px-6 py-10 sm:py-12">
             {/* Back Button */}
             <div className="mb-6 flex items-center justify-between">
-              <a href="../" className="inline-flex items-center gap-2 text-emerald-700 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-700/50 bg-emerald-50 dark:bg-emerald-900/30 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 rounded-full px-3 py-1.5 text-sm font-medium transition-colors">
+              <a href="../stories" className="inline-flex items-center gap-2 text-emerald-700 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-700/50 bg-emerald-50 dark:bg-emerald-900/30 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 rounded-full px-3 py-1.5 text-sm font-medium transition-colors">
                 <ArrowLeft className="w-4 h-4" />
                 Tüm Hikayeler
               </a>
@@ -73,7 +65,7 @@ export default function StoryDetailPage({ params }: { params: Promise<{ slug: st
               <h2 className="text-xl font-semibold text-slate-900 dark:text-white mb-4">İlgili Hikayeler</h2>
               <div className="grid sm:grid-cols-3 gap-6">
                 {related.map((s) => (
-                  <a key={s.slug} href={`../${s.slug}`} className="rounded-xl border border-slate-200 dark:border-gray-700 overflow-hidden bg-white dark:bg-gray-800 hover:shadow-lg transition-shadow">
+                  <a key={s.slug} href={`../stories/${s.slug}`} className="rounded-xl border border-slate-200 dark:border-gray-700 overflow-hidden bg-white dark:bg-gray-800 hover:shadow-lg transition-shadow">
                     {s.coverImage && (
                       <div className="aspect-[16/9]">
                         <Image src={s.coverImage} width={1000} height={1000} alt={s.title} className="w-full h-full object-cover" />
@@ -89,8 +81,6 @@ export default function StoryDetailPage({ params }: { params: Promise<{ slug: st
             </section>
           )}
         </main>
-        <Footer />
-      </>
     );
   })();
 }

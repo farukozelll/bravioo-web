@@ -107,7 +107,7 @@ export function BrandPartnershipBenefits() {
   };
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-white dark:bg-gray-900 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-20">
@@ -115,7 +115,7 @@ export function BrandPartnershipBenefits() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+            className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6"
           >
             {t('benefitsTitle')}
           </motion.h2>
@@ -124,7 +124,7 @@ export function BrandPartnershipBenefits() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
           >
             {t('benefitsSubtitle')}
           </motion.p>
@@ -143,7 +143,7 @@ export function BrandPartnershipBenefits() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 * index }}
                 whileHover={{ y: -8, scale: 1.02 }}
-                className={`relative bg-white rounded-3xl shadow-xl border-2 ${colors.border} p-8 hover:shadow-2xl transition-all duration-300 overflow-hidden`}
+                className={`relative bg-white dark:bg-gray-800 rounded-3xl shadow-xl border-2 ${colors.border} p-8 hover:shadow-2xl transition-all duration-300 overflow-hidden`}
               >
                 {/* Background Gradient */}
                 <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${colors.bg} opacity-5 rounded-full transform translate-x-8 -translate-y-8`} />
@@ -155,10 +155,10 @@ export function BrandPartnershipBenefits() {
 
                 {/* Content */}
                 <div className="relative z-10">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                     {t(benefit.titleKey)}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed mb-6">
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
                     {t(benefit.descKey)}
                   </p>
 

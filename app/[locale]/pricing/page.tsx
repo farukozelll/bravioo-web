@@ -1,7 +1,5 @@
 import { Metadata } from 'next';
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
-import { PricingSection } from '@/components/sections/pricing';
+import { PricingSection } from '@/app/[locale]/pricing/_components/pricing';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 
 export async function generateMetadata({
@@ -31,13 +29,10 @@ export default async function PricingPage({
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
       
       <main className="flex-1">
         <PricingSection />
       </main>
-      
-      <Footer />
     </div>
   );
 }

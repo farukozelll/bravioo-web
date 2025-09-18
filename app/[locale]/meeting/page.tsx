@@ -1,12 +1,10 @@
 import Link from 'next/link';
 import React from 'react';
 import { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
-import { MeetingForm } from '@/components/meeting-form';
+// import { getTranslations } from 'next-intl/server';
+import { MeetingForm } from '@/app/[locale]/meeting/_components/meeting-form';
 import { 
-  Calendar, 
+  // Calendar, 
   Clock, 
   Users, 
   Video,
@@ -90,7 +88,7 @@ export default async function MeetingPage({ params }: Props) {
         ? 'Detaylı platform turu ve işletmenize özel çözümler'
         : 'Detailed platform tour and business-specific solutions',
       icon: Video,
-      color: 'from-blue-500 to-gold-600',
+      color: 'from-green-500 to-gold-600',
       popular: true
     },
     {
@@ -101,7 +99,7 @@ export default async function MeetingPage({ params }: Props) {
         ? 'Tüm modüller, entegrasyon seçenekleri ve implementation planı'
         : 'All modules, integration options and implementation plan',
       icon: Users,
-      color: 'from-green-500 to-pink-600'
+      color: 'from-emerald-500 to-teal-600'
     }
   ];
 
@@ -126,14 +124,10 @@ export default async function MeetingPage({ params }: Props) {
 
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 transition-colors duration-300">
-      <Header />
       
       {/* Hero Section */}
       <section className="relative py-24 bg-gradient-to-br from-sand-50 to-white dark:from-gray-800 dark:to-gray-900 overflow-hidden transition-colors duration-300">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-brand-200 to-emerald-200 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
-          <div className="absolute top-40 right-10 w-72 h-72 bg-gradient-to-r from-blue-200 to-purple-200 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
-        </div>
+       
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
@@ -302,7 +296,7 @@ export default async function MeetingPage({ params }: Props) {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
-              href="/contact"
+              href={`/${locale}/contact`}
               className="bg-white text-brand-600 hover:bg-sand-50 px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2"
             >
               <MessageSquare className="h-5 w-5" />
@@ -318,8 +312,6 @@ export default async function MeetingPage({ params }: Props) {
           </div>
         </div>
       </section>
-      
-      <Footer />
     </div>
   );
 }

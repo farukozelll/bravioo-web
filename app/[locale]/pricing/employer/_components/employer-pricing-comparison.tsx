@@ -74,14 +74,14 @@ export function EmployerPricingComparison() {
   };
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-white dark:bg-gray-900 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+            className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6"
           >
             {t('comparisonTitle')}
           </motion.h2>
@@ -89,7 +89,7 @@ export function EmployerPricingComparison() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-gray-600"
+            className="text-xl text-gray-600 dark:text-gray-300"
           >
             {t('comparisonSubtitle')}
           </motion.p>
@@ -99,13 +99,13 @@ export function EmployerPricingComparison() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden"
+          className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden"
         >
           {/* Table Header */}
-          <div className="bg-gray-50 p-6 border-b border-gray-200">
+          <div className="bg-gray-50 dark:bg-gray-900 p-6 border-b border-gray-200 dark:border-gray-700">
             <div className="grid grid-cols-5 gap-4">
               <div className="text-left">
-                <h3 className="text-lg font-bold text-gray-900">{t('featuresTitle')}</h3>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white">{t('featuresTitle')}</h3>
               </div>
               {plans.map((plan) => (
                 <div key={plan.id} className="text-center relative">
@@ -117,8 +117,8 @@ export function EmployerPricingComparison() {
                       </div>
                     </div>
                   )}
-                  <h4 className={`text-lg font-bold ${
-                    plan.popular ? 'text-emerald-600' : 'text-gray-900'
+                    <h4 className={`text-lg font-bold ${
+                    plan.popular ? 'text-emerald-600' : 'text-gray-900 dark:text-white'
                   }`}>
                     {t(plan.nameKey)}
                   </h4>

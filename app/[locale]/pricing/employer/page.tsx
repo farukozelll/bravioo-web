@@ -1,10 +1,8 @@
 import { Metadata } from 'next';
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
-import { EmployerPricingHero } from '@/components/sections/employer-pricing-hero';
-import { EmployerPricingPlans } from '@/components/sections/employer-pricing-plans';
-import { EmployerPricingComparison } from '@/components/sections/employer-pricing-comparison';
-import { EmployerPricingFAQ } from '@/components/sections/employer-pricing-faq';
+import { EmployerPricingHero } from '@/app/[locale]/pricing/employer/_components/employer-pricing-hero';
+import { EmployerPricingPlans } from '@/app/[locale]/pricing/employer/_components/employer-pricing-plans';
+import { EmployerPricingComparison } from '@/app/[locale]/pricing/employer/_components/employer-pricing-comparison';
+import { EmployerPricingFAQ } from '@/app/[locale]/pricing/employer/_components/employer-pricing-faq';
 
 export const metadata: Metadata = {
   title: 'İşveren Partnerlik | Employer Partnership - Bravioo',
@@ -14,14 +12,12 @@ export const metadata: Metadata = {
 export default function EmployerPricingPage() {
   return (
     <>
-      <Header />
       <main className="min-h-screen">
         <EmployerPricingHero />
         <EmployerPricingPlans />
         <EmployerPricingComparison />
         <EmployerPricingFAQ />
       </main>
-      <Footer />
     </>
   );
 }

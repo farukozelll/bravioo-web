@@ -2,11 +2,13 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { ConsentManager } from '@/components/consent-manager';
 import { LiveSupport } from '@/components/live-support';
-import { CookieDashboard } from '@/components/cookie-dashboard';
+// import { CookieDashboard } from '@/components/cookie-dashboard';
 import { ScrollToTop } from '@/components/ui/scroll-to-top';
 import { GoogleAnalytics, HubSpotAnalytics, MicrosoftClarity } from '@/components/analytics';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
-import { ThemeProvider } from '@/contexts/theme-context';
+// Theme provider moved to root layout
+import { Header } from '@/components/header';
+import { Footer } from '@/components/footer';
 
 export async function generateMetadata({
   params,
@@ -31,8 +33,7 @@ export default async function LocaleLayout({
 
   return (
     <div className="min-h-screen bg-neutral-50 dark:bg-gray-900 text-neutral-900 dark:text-gray-100 transition-colors duration-300">
-      <ThemeProvider>
-        <NextIntlClientProvider locale={locale} messages={messages}>
+      <NextIntlClientProvider locale={locale} messages={messages}>
           {/* Skip to main content link for accessibility */}
           <a
             href="#main-content"
@@ -41,10 +42,11 @@ export default async function LocaleLayout({
             Skip to main content
           </a>
 
+          {/* Header */}
+          <Header />
+
           {/* Main content */}
-          <div id="main-content">
-            {children}
-          </div>
+          <div id="main-content">{children}</div>
 
           {/* Cookie Consent Manager */}
           <ConsentManager />
@@ -58,6 +60,9 @@ export default async function LocaleLayout({
           {/* Scroll to Top */}
           <ScrollToTop />
 
+          {/* Footer */}
+          <Footer />
+
           {/* Analytics Scripts */}
           {process.env.NEXT_PUBLIC_GA_ID && (
             <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
@@ -69,7 +74,6 @@ export default async function LocaleLayout({
             <MicrosoftClarity clarityId={process.env.NEXT_PUBLIC_CLARITY_ID} />
           )}
         </NextIntlClientProvider>
-      </ThemeProvider>
     </div>
   );
 }

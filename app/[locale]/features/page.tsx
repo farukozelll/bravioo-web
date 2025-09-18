@@ -1,4 +1,4 @@
-'use client';
+  'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -6,12 +6,11 @@ import { FEATURES } from '@/data/features';
 import Link from 'next/link';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import Image from 'next/image';
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
+import { useLocale } from 'next-intl';
 
 export default function FeaturesOverviewPage() {
-
-  const containerVariants = {
+  const locale = useLocale();
+  const containerVariants = { 
     hidden: {},
     show: {
       transition: {
@@ -32,7 +31,6 @@ export default function FeaturesOverviewPage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-300">
-      <Header />
       {/* Hero Section */}
       <section className="relative py-16 lg:py-24 overflow-hidden">
         {/* Background Elements */}
@@ -116,7 +114,7 @@ export default function FeaturesOverviewPage() {
             {FEATURES.map((feature, index) => (
               <motion.div key={feature.slug} variants={itemVariants}>
                 <Link 
-                  href={`${feature.slug}`}
+                  href={`/${locale}/features/${feature.slug}`}
                   className="group block"
                 >
                   <div className="relative bg-white dark:bg-gray-800 rounded-2xl lg:rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:border-emerald-300 dark:hover:border-emerald-500 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
@@ -205,7 +203,6 @@ export default function FeaturesOverviewPage() {
           </motion.div>
         </div>
       </section>
-      <Footer />
     </main>
   );
 }

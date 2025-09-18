@@ -1,16 +1,13 @@
 'use client';
 import React, { useState } from 'react';
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
-import { BrandStoriesList } from '@/components/sections/brand-stories-list';
-import { BrandStoriesSidebar } from '@/components/sections/brand-stories-sidebar';
+import { BrandStoriesList } from '@/app/[locale]/stories/_components/brand-stories-list';
+import { BrandStoriesSidebar } from '@/app/[locale]/stories/_components/brand-stories-sidebar';
 
 export default function StoriesPage() {
   const [query, setQuery] = useState('');
 
   return (
     <>
-      <Header />
       <main className="min-h-screen bg-white dark:bg-gray-900">
         <section className="mx-auto max-w-7xl px-6 py-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
@@ -23,7 +20,6 @@ export default function StoriesPage() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 }

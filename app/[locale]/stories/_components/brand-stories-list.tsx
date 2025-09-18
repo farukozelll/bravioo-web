@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import stories from '@/data/brand-stories.json';
 import Image from 'next/image';
+import { useLocale } from 'next-intl';
 interface Story {
   slug: string;
   title: string;
@@ -15,6 +16,7 @@ interface Story {
 }
 
 export function BrandStoriesList() {
+  const locale = useLocale();
   const items = stories as Story[];
 
   return (
@@ -26,7 +28,7 @@ export function BrandStoriesList() {
             <article key={s.slug} className="rounded-2xl border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-800 overflow-hidden shadow-sm">
               {s.coverImage && (
                 <div className="aspect-[16/9] overflow-hidden">
-                  <Image src={s.coverImage} alt={s.title} className="w-full h-full object-cover" />
+                  <Image src={s.coverImage} width={1000} height={1000} alt={s.title} className="w-full h-full object-cover" />
                 </div>
               )}
               <div className="p-5">
@@ -38,7 +40,7 @@ export function BrandStoriesList() {
                   <span>{s.category}</span>
                 </div>
                 <div className="mt-4">
-                  <Link href={`/stories/${s.slug}`} className="text-emerald-600 dark:text-emerald-400 font-medium">
+                  <Link href={`/${locale}/stories/${s.slug}`} className="text-emerald-600 dark:text-emerald-400 font-medium">
                     Oku →
                   </Link>
                 </div>

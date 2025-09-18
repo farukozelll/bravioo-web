@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -20,6 +20,7 @@ type FormStep = 'contact';
 
 export function ContactFormTabs({ className }: ContactFormTabsProps) {
   const t = useTranslations('contact');
+  const locale = useLocale();
   const [currentStep, setCurrentStep] = useState<FormStep>('contact');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -328,11 +329,11 @@ export function ContactFormTabs({ className }: ContactFormTabsProps) {
               />
               <label htmlFor="agree" className="text-sm text-ink-700">
                 {t('form.agreePrefix') || 'I agree to the'}{' '}
-                <a href="/legal/privacy" className="text-brand-600 underline" target="_blank" rel="noopener noreferrer">
+                <a href={`/${locale}/legal/privacy`} className="text-brand-600 underline" target="_blank" rel="noopener noreferrer">
                   {t('form.privacyPolicy') || 'Privacy Policy'}
                 </a>{' '}
                 {t('form.and') || 'and'}{' '}
-                <a href="/legal/terms" className="text-brand-600 underline" target="_blank" rel="noopener noreferrer">
+                <a href={`/${locale}/legal/terms`} className="text-brand-600 underline" target="_blank" rel="noopener noreferrer">
                   {t('form.termsOfService') || 'Terms of Service'}
                 </a>
                 .

@@ -86,12 +86,7 @@ export function AnimatedFeaturesSection() {
 
   return (
     <section className="relative py-24 bg-neutral-50 dark:bg-gray-900 overflow-hidden transition-colors duration-300">
-      {/* Minimal Background Pattern */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-primary-100 to-primary-200 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-gradient-to-r from-secondary-100 to-secondary-200 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-gradient-to-r from-primary-100 to-secondary-100 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
-      </div>
+  
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header - F-Pattern: Left-aligned */}
@@ -252,8 +247,8 @@ export function AnimatedFeaturesSection() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {[
               { number: '2x', label: t('animatedFeatures.stats.0') },
-              { number: '4M+', label: t('animatedFeatures.stats.1') },
-              { number: '190+', label: t('animatedFeatures.stats.2') }
+              { number: '200+', label: t('animatedFeatures.stats.1') },
+              { number: '50.000+', label: t('animatedFeatures.stats.2') }
             ].map((stat, index) => (
               <motion.div 
                 key={index}

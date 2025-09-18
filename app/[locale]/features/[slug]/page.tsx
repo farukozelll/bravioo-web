@@ -1,11 +1,11 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import { FEATURES } from '@/data/features';
-import { FeatureSections } from '@/components/sections/feature-sections';
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
+import { FeatureSections } from '@/app/[locale]/features/_components/feature-sections';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
+
+
 export default async function FeaturePage({ params }: { params: Promise<{ slug: string; locale: string }> }) {
   const { slug, locale } = await params;
   const feature = FEATURES.find((f) => f.slug === slug);
@@ -13,7 +13,6 @@ export default async function FeaturePage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
-      <Header />
       <main className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
 
         <section className="mx-auto max-w-7xl px-6 py-12">
@@ -47,7 +46,6 @@ export default async function FeaturePage({ params }: { params: Promise<{ slug: 
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 }

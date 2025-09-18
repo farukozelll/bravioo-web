@@ -1,9 +1,7 @@
 import { Metadata } from 'next';
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
-import { WhyBraviooHero } from '@/components/sections/why-bravioo-hero';
-import { CompetitorComparison } from '@/components/sections/competitor-comparison';
-import { CustomerGallery } from '@/components/sections/customer-gallery';
+import { WhyBraviooHero } from '@/app/[locale]/why-bravioo/_components/why-bravioo-hero';
+import { CompetitorComparison } from '@/app/[locale]/why-bravioo/_components/competitor-comparison';
+import { CustomerGallery } from '@/app/[locale]/why-bravioo/_components/customer-gallery';
 
 export const metadata: Metadata = {
   title: 'Neden Bravioo? | Why Bravioo? - Bravioo',
@@ -13,7 +11,6 @@ export const metadata: Metadata = {
 export default function WhyBraviooPage() {
   return (
     <>
-      <Header />
       <main className="min-h-screen">
         <div className="pt-20">
           
@@ -23,7 +20,6 @@ export default function WhyBraviooPage() {
 
         </div>
       </main>
-      <Footer />
     </>
   );
 }

@@ -109,8 +109,16 @@ export function PricingSection() {
     },
   };
 
+  // Pricing workflow steps for clarity
+  const workflowSteps = [
+    locale === 'tr' ? 'Modeli Seçin' : 'Choose Model',
+    locale === 'tr' ? 'Kullanıcı Aralığını Belirleyin' : 'Select Seat Range',
+    locale === 'tr' ? 'Faturalama Dönemi' : 'Pick Billing Cycle',
+    locale === 'tr' ? 'Ücretsiz Başlayın' : 'Start Free/Contact'
+  ];
+
   return (
-    <section className="py-24 sm:py-32 bg-gradient-to-br from-sand-50 via-white to-brand-50/30">
+    <section className="py-24 sm:py-32 bg-gradient-to-br from-sand-50 via-white to-brand-50/30 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 transition-colors duration-300">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -119,13 +127,13 @@ export function PricingSection() {
           transition={{ duration: 0.5 }}
           className="mx-auto max-w-4xl text-center"
         >
-          <h1 className="text-4xl font-bold tracking-tight text-ink-900 sm:text-5xl lg:text-6xl font-display">
+          <h1 className="text-4xl font-bold tracking-tight text-ink-900 dark:text-white sm:text-5xl lg:text-6xl font-display">
             <span className="block">{locale === 'tr' ? 'Basit ve Şeffaf' : 'Simple & Transparent'}</span>
             <span className="block bg-gradient-to-r from-brand-600 to-brand-500 bg-clip-text text-transparent">
               {locale === 'tr' ? 'Fiyatlandırma' : 'Pricing'}
             </span>
           </h1>
-          <p className="mt-6 text-lg leading-8 text-ink-600 max-w-3xl mx-auto">
+          <p className="mt-6 text-lg leading-8 text-ink-600 dark:text-gray-300 max-w-3xl mx-auto">
             {locale === 'tr' 
               ? 'İki farklı model ile işletmenizin ihtiyaçlarına uygun çözümler sunuyoruz.'
               : 'We offer solutions tailored to your business needs with two different models.'
@@ -134,13 +142,13 @@ export function PricingSection() {
 
           {/* Billing Toggle */}
           <div className="mt-10 flex items-center justify-center">
-            <div className="relative flex bg-sand-100 rounded-2xl p-1">
+              <div className="relative flex bg-sand-100 dark:bg-gray-800 rounded-2xl p-1">
               <button
                 onClick={() => setBillingCycle('monthly')}
                 className={`relative px-6 py-3 text-sm font-medium rounded-xl transition-all duration-300 ${
                   billingCycle === 'monthly'
-                    ? 'bg-white text-brand-700 shadow-sm'
-                    : 'text-ink-600 hover:text-ink-900'
+                    ? 'bg-white dark:bg-gray-900 text-brand-700 shadow-sm'
+                    : 'text-ink-600 dark:text-gray-300 hover:text-ink-900 dark:hover:text-white'
                 }`}
               >
                 {locale === 'tr' ? 'Aylık' : 'Monthly'}
@@ -149,8 +157,8 @@ export function PricingSection() {
                 onClick={() => setBillingCycle('annually')}
                 className={`relative px-6 py-3 text-sm font-medium rounded-xl transition-all duration-300 ${
                   billingCycle === 'annually'
-                    ? 'bg-white text-brand-700 shadow-sm'
-                    : 'text-ink-600 hover:text-ink-900'
+                    ? 'bg-white dark:bg-gray-900 text-brand-700 shadow-sm'
+                    : 'text-ink-600 dark:text-gray-300 hover:text-ink-900 dark:hover:text-white'
                 }`}
               >
                 {locale === 'tr' ? 'Yıllık' : 'Annual'}
@@ -173,7 +181,7 @@ export function PricingSection() {
           <motion.div variants={itemVariants} className="mb-16">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 rounded-3xl blur-3xl" />
-              <div className="relative bg-white rounded-3xl shadow-xl border border-emerald-100 overflow-hidden">
+              <div className="relative bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-emerald-100 dark:border-emerald-900/30 overflow-hidden">
                 <div className="px-8 py-12 sm:px-12">
                   <div className="flex items-center justify-between mb-8">
                     <div>
@@ -186,22 +194,22 @@ export function PricingSection() {
                           <p className="text-emerald-600 font-medium">{freeModel.subtitle}</p>
                         </div>
                       </div>
-                      <p className="text-ink-600 max-w-md">{freeModel.description}</p>
+                      <p className="text-ink-600 dark:text-gray-300 max-w-md">{freeModel.description}</p>
                     </div>
                     <div className="text-right">
-                      <div className="text-4xl font-bold text-ink-900 font-display">{freeModel.price}</div>
-                      <p className="text-sm text-ink-500">{locale === 'tr' ? 'Sonsuza kadar' : 'Forever'}</p>
+                      <div className="text-4xl font-bold text-ink-900 dark:text-white font-display">{freeModel.price}</div>
+                      <p className="text-sm text-ink-500 dark:text-gray-400">{locale === 'tr' ? 'Sonsuza kadar' : 'Forever'}</p>
                     </div>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-8 items-center">
                     <div>
-                      <h4 className="font-semibold text-ink-900 mb-4">{locale === 'tr' ? 'Dahil Özellikler:' : 'Included Features:'}</h4>
+                      <h4 className="font-semibold text-ink-900 dark:text-white mb-4">{locale === 'tr' ? 'Dahil Özellikler:' : 'Included Features:'}</h4>
                       <ul className="space-y-3">
                         {freeModel.features.map((feature, index) => (
                           <li key={index} className="flex items-center gap-3">
                             <Check className="h-5 w-5 text-emerald-500 flex-shrink-0" />
-                            <span className="text-ink-700">{feature}</span>
+                            <span className="text-ink-700 dark:text-gray-300">{feature}</span>
                           </li>
                         ))}
                       </ul>
@@ -226,7 +234,7 @@ export function PricingSection() {
           <motion.div variants={itemVariants}>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-brand-500/10 to-gold-500/10 rounded-3xl blur-3xl" />
-              <div className="relative bg-white rounded-3xl shadow-xl border border-brand-100 overflow-hidden">
+              <div className="relative bg-white dark:bg-gray-800 rounded-3xl shadow-xl border border-brand-100 dark:border-brand-900/30 overflow-hidden">
                 <div className="bg-gradient-to-r from-brand-500 to-brand-600 px-8 py-6">
                   <div className="flex items-center justify-center gap-3">
                     <Crown className="h-8 w-8 text-gold-300" />
@@ -252,7 +260,7 @@ export function PricingSection() {
                         className={`relative rounded-2xl border-2 p-6 text-center transition-all duration-300 hover:scale-105 ${
                           plan.popular
                             ? 'border-brand-500 bg-brand-50 shadow-lg'
-                            : 'border-sand-200 bg-white hover:border-brand-300'
+                            : 'border-sand-200 dark:border-gray-700 bg-white dark:bg-gray-900 hover:border-brand-300 dark:hover:border-brand-500'
                         }`}
                       >
                         {plan.popular && (
@@ -267,16 +275,16 @@ export function PricingSection() {
                           <div className="w-16 h-16 bg-gradient-to-br from-brand-500 to-brand-600 rounded-2xl flex items-center justify-center mx-auto mb-3">
                             <Users className="h-8 w-8 text-white" />
                           </div>
-                          <h4 className="font-bold text-ink-900 text-lg">{plan.title}</h4>
+                          <h4 className="font-bold text-ink-900 dark:text-white text-lg">{plan.title}</h4>
                         </div>
 
                         <div className="mb-4">
                           {plan.price ? (
                             <>
-                              <div className="text-3xl font-bold text-ink-900 font-display">
+                              <div className="text-3xl font-bold text-ink-900 dark:text-white font-display">
                                 ${billingCycle === 'annually' ? Math.round(plan.price * 0.8) : plan.price}
                               </div>
-                              <div className="text-sm text-ink-500">
+                              <div className="text-sm text-ink-500 dark:text-gray-400">
                                 {locale === 'tr' ? 'kullanıcı/ay' : 'per user/month'}
                               </div>
                             </>
@@ -285,7 +293,7 @@ export function PricingSection() {
                               <div className="text-2xl font-bold text-brand-600 font-display">
                                 {locale === 'tr' ? 'Özel Teklif' : 'Custom Quote'}
                               </div>
-                              <div className="text-sm text-ink-500">
+                              <div className="text-sm text-ink-500 dark:text-gray-400">
                                 {locale === 'tr' ? 'İletişime geçin' : 'Contact us'}
                               </div>
                             </>
@@ -309,8 +317,8 @@ export function PricingSection() {
                   </div>
 
                   {/* Features */}
-                  <div className="border-t border-sand-200 pt-8">
-                    <h4 className="font-semibold text-ink-900 mb-6 text-center">
+                  <div className="border-t border-sand-200 dark:border-gray-700 pt-8">
+                    <h4 className="font-semibold text-ink-900 dark:text-white mb-6 text-center">
                       {locale === 'tr' ? 'Tüm Profesyonel Planlarda Dahil:' : 'Included in All Professional Plans:'}
                     </h4>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -319,7 +327,7 @@ export function PricingSection() {
                           <div className="w-6 h-6 bg-brand-100 rounded-full flex items-center justify-center flex-shrink-0">
                             <Check className="h-4 w-4 text-brand-600" />
                           </div>
-                          <span className="text-ink-700 text-sm">{feature}</span>
+                          <span className="text-ink-700 dark:text-gray-300 text-sm">{feature}</span>
                         </div>
                       ))}
                     </div>
@@ -328,6 +336,37 @@ export function PricingSection() {
               </div>
             </div>
           </motion.div>
+        </motion.div>
+
+        {/* Visual Workflow */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="mt-16"
+        >
+          <div className="rounded-3xl border border-sand-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-6 sm:p-10">
+            <h4 className="text-xl font-bold text-ink-900 dark:text-white mb-6 text-center">
+              {locale === 'tr' ? 'Nasıl Çalışır?' : 'How It Works'}
+            </h4>
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+              {workflowSteps.map((step, index) => (
+                <div key={index} className="flex items-center gap-6">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-brand-100 dark:bg-brand-900/30 flex items-center justify-center text-brand-700 dark:text-brand-300 font-bold">
+                      {index + 1}
+                    </div>
+                    <div className="text-ink-900 dark:text-gray-100 font-medium">
+                      {step}
+                    </div>
+                  </div>
+                  {index < workflowSteps.length - 1 && (
+                    <ArrowRight className="hidden lg:block w-6 h-6 text-ink-400 dark:text-gray-500" />
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
         </motion.div>
 
         {/* CTA Section */}

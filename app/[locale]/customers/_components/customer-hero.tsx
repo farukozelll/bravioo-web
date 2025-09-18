@@ -2,10 +2,11 @@
 
 import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { Globe } from 'lucide-react';
+// import { Globe } from 'lucide-react';
 import Image from 'next/image';
 import customerData from '@/data/companies.json';
 import Link from 'next/link';
+import { useLocale } from 'next-intl';
 import { ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
@@ -20,6 +21,7 @@ interface Customer {
 export function CustomerHero() {
   const customers: Customer[] = customerData;
   const t = useTranslations('brands.hero');
+  const locale = useLocale();
   // Create infinite scroll data with varying heights
   const scrollData = useMemo(() => {
     const heights = [220, 180, 260, 200, 240, 190, 210]; // Varying card heights for customers
@@ -61,18 +63,16 @@ export function CustomerHero() {
 
             {/* Main Heading */}
             <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-              Dünya Devlerinin<br />
-              <span className="text-white">Teknoloji Ortağı</span>
+              {t('title')}<br />
+              <span className="text-white">{t('titleHighlight')}</span>
             </h1>
 
             {/* Description */}
             <p className="text-xl text-emerald-100 mb-8 leading-relaxed">
-              Fortune 500 şirketlerinden startup&apos;lara kadar{' '}
-              <span className="font-semibold text-emerald-600 dark:text-emerald-400">50+</span> global marka 
-              Bravioo&apos;ın enterprise-grade altyapısına güveniyor.
+              {t('description')}
             </p>
             <div className="flex flex-wrap items-center gap-4">
-              <Link href="/contact">
+              <Link href={`/${locale}/contact`}>
                 <motion.div
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
@@ -82,7 +82,7 @@ export function CustomerHero() {
                   <ArrowRight className="w-5 h-5" />
                 </motion.div>
               </Link>
-              <Link href="/stories">
+              <Link href={`/${locale}/stories`}>
                 <motion.div
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}

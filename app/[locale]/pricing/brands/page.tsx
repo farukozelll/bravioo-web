@@ -1,10 +1,7 @@
 import { Metadata } from 'next';
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
-import { BrandPartnershipHero } from '@/components/sections/brand-partnership-hero';
-import { BrandPartnershipBenefits } from '@/components/sections/brand-partnership-benefits';
-import { BrandPartnershipPrograms } from '@/components/sections/brand-partnership-programs';
-import { HowItWorksSection } from '@/components/sections/how-it-works';
+import { BrandPartnershipHero } from '@/app/[locale]/pricing/brands/_components/brand-partnership-hero';
+import { BrandPartnershipBenefits } from '@/app/[locale]/pricing/brands/_components/brand-partnership-benefits';
+import { BrandPartnershipPrograms } from '@/app/[locale]/pricing/brands/_components/brand-partnership-programs';
 
 export const metadata: Metadata = {
   title: 'Marka Partnerliği | Brand Partnership - Bravioo',
@@ -14,14 +11,12 @@ export const metadata: Metadata = {
 export default function BrandPartnershipPage() {
   return (
     <>
-      <Header />
       <main className="min-h-screen">
         <BrandPartnershipHero />
-        <HowItWorksSection /> 
+          <BrandPartnershipBenefits />
         <BrandPartnershipPrograms />
-        <BrandPartnershipBenefits />
+      
       </main>
-      <Footer />
     </>
   );
 }

@@ -485,7 +485,7 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
           ? 'Bu formu göndererek, '
           : 'By submitting this form, you agree to our '
         }
-        <Link href="/legal/privacy" className="text-emerald-600 hover:underline">
+        <Link href={`/${locale}/legal/privacy`} className="text-emerald-600 hover:underline">
           {locale === 'tr' ? 'Gizlilik Politikamızı' : 'Privacy Policy'}
         </Link>
         {locale === 'tr' ? ' kabul etmiş olursunuz.' : '.'}

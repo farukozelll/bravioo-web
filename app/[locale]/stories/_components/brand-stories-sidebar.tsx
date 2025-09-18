@@ -3,6 +3,8 @@
 import React, { useMemo, useState } from 'react';
 import stories from '@/data/brand-stories.json';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useLocale } from 'next-intl';
 interface Story {
   slug: string;
   title: string;
@@ -14,11 +16,12 @@ interface Story {
 }
 
 export function BrandStoriesSidebar({ onSearch }: { onSearch?: (q: string) => void }) {
+  const locale = useLocale();
   const items = stories as Story[];
   const categories = useMemo(() => {
     const set = new Set(items.map((s) => s.category).filter(Boolean));
     return ['Tümü', ...Array.from(set)];
-  }, [stories]);
+  }, [items]);
   const [query, setQuery] = useState('');
 
   const featured = useMemo(() => items.slice(0, 3), [items]);
@@ -53,9 +56,9 @@ export function BrandStoriesSidebar({ onSearch }: { onSearch?: (q: string) => vo
         <div className="text-sm font-semibold text-slate-900 dark:text-white mb-3">Öne Çıkanlar</div>
         <div className="space-y-4">
           {featured.map((s) => (
-            <a key={s.slug} href={`/stories/${s.slug}`} className="flex gap-3 group">
+            <Link key={s.slug} href={`/${locale}/stories/${s.slug}`} className="flex gap-3 group">
               <div className="w-16 h-12 rounded-lg overflow-hidden bg-slate-200">
-                    {s.coverImage && <Image src={s.coverImage} alt={s.title} className="w-full h-full object-cover" />}
+                    {s.coverImage && <Image src={s.coverImage} width={1000} height={1000} alt={s.title} className="w-full h-full object-cover" />}
               </div>
               <div className="min-w-0">
                 <div className="text-xs text-slate-500 dark:text-gray-400">{new Date(s.publishedAt).toLocaleDateString()}</div>
@@ -63,7 +66,7 @@ export function BrandStoriesSidebar({ onSearch }: { onSearch?: (q: string) => vo
                   {s.title}
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

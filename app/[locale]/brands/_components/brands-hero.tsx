@@ -3,7 +3,7 @@
 import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import brandsData from '@/data/brands.json';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -17,6 +17,7 @@ interface Brand {
 
 export function BrandsHero() {
   const t = useTranslations('brands.hero');
+  const locale = useLocale();
   const brands: Brand[] = brandsData;
 
   const rows = useMemo(() => {
@@ -46,7 +47,7 @@ export function BrandsHero() {
               {t('description')}
             </p>
             <div className="flex flex-wrap items-center gap-4">
-              <Link href="/contact">
+              <Link href={`/${locale}/contact`}>
                 <motion.div
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
@@ -56,7 +57,7 @@ export function BrandsHero() {
                   <ArrowRight className="w-5 h-5" />
                 </motion.div>
               </Link>
-              <Link href="/stories">
+              <Link href={`/${locale}/stories`}>
                 <motion.div
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
@@ -97,10 +98,7 @@ export function BrandsHero() {
                       </div>
                     ))}
                   </div>
-                  <div
-                    className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white dark:from-gray-900 via-transparent to-white dark:to-gray-900"
-                    style={{ maskImage: 'linear-gradient(90deg, transparent, black 12%, black 88%, transparent)' }}
-                  />
+                
                 </div>
               ))}
             </div>

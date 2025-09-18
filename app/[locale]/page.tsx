@@ -1,25 +1,17 @@
 import { Metadata } from 'next';
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
-import { EnhancedHero } from '@/components/sections/enhanced-hero';
-import { PartnerBrandsMarquee } from '@/components/sections/partner-brands-marquee';
-import { PartnerBrandsCTA } from '@/components/sections/partner-brands-cta';
-import { AnimatedFeaturesSection } from '@/components/sections/animated-features';
-import { TestimonialsSlider } from '@/components/sections/testimonials-slider';
-import { HowItWorksSection } from '@/components/sections/how-it-works';
-import { PremiumTestimonials } from '@/components/sections/premium-testimonials';
-import { PremiumFAQ } from '@/components/sections/premium-faq';
-import { OnboardingSteps } from '@/components/sections/onboarding-steps';
+import { EnhancedHero } from '@/app/[locale]/_components/enhanced-hero';
+import { PartnerBrandsCTA } from '@/app/[locale]/_components/partner-brands-cta';
+import { AnimatedFeaturesSection } from '@/app/[locale]/_components/animated-features';
+import { TestimonialsSlider } from '@/app/[locale]/_components/testimonials-slider';
+import { HowItWorksSection } from '@/app/[locale]/_components/how-it-works';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import {
   generateOrganizationJsonLd,
   generateWebsiteJsonLd,
   generateProductJsonLd,
 } from '@/lib/seo';
-import { BrandBar } from '@/components/sections/brand-bar';
-import { CompanyBar } from '@/components/sections/company-bar';
-import { CustomerGallery } from '@/components/sections/customer-gallery';
-import { ProfessionalCustomerResultsHorizontal } from '@/components/sections/professional-customer-results-horizontal';
+import { BrandBar } from '@/app/[locale]/_components/brand-bar';
+import { CompanyBar } from '@/app/[locale]/_components/company-bar';
 
 export async function generateMetadata({
   params,
@@ -68,7 +60,6 @@ export default async function HomePage({
       />
 
       <div className="relative flex min-h-screen flex-col bg-neutral-50 dark:bg-gray-900">
-        <Header />
 
         <main className="relative flex-1" style={{ zIndex: 1 }}>
           <EnhancedHero />
@@ -82,8 +73,6 @@ export default async function HomePage({
 
           <PartnerBrandsCTA />
         </main>
-
-        <Footer />
       </div>
     </>
   );

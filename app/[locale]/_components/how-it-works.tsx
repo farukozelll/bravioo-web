@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
@@ -51,11 +52,7 @@ export function HowItWorksSection() {
 
   return (
     <section className="relative py-24 bg-neutral-50 dark:bg-gray-900 overflow-hidden transition-colors duration-300">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 right-10 w-96 h-96 bg-gradient-to-r from-primary-100 to-primary-200 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-r from-secondary-100 to-secondary-200 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
-      </div>
+   
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header - F-Pattern: Left-aligned */}
@@ -188,11 +185,10 @@ export function HowItWorksSection() {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.3 }}
               >
-                {/* Dynamic Device Display */}
-                {activeStep === 1 ? (
-                  // Mobile App Mockup
-                  <div className="flex justify-center">
-                    <div className="relative max-w-xs mx-auto animate-float">
+                {/* Mobile-only: Always show phone mockup with screenshot on right */}
+                <div className="block lg:hidden">
+                  <div className="flex justify-end">
+                    <div className="relative max-w-xs animate-float">
                       {/* Phone Frame */}
                       <div className="relative bg-neutral-900 dark:bg-neutral-800 rounded-[3rem] p-2 shadow-2xl">
                         <div className="bg-neutral-50 dark:bg-neutral-100 rounded-[2.5rem] overflow-hidden aspect-[9/19.5] relative">
@@ -206,79 +202,97 @@ export function HowItWorksSection() {
                               </div>
                             </div>
                           </div>
-                          
-                          {/* App Interface Preview */}
-                          <div className="pt-8 h-full bg-gradient-to-br from-primary-50 to-secondary-50 flex flex-col items-center justify-center p-4">
-                            <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br bg-${steps[activeStep].accentColor} flex items-center justify-center mb-4 shadow-lg`}>
-                              {React.createElement(steps[activeStep].icon, { 
-                                className: "h-8 w-8 text-white" 
-                              })}
-                            </div>
-                            <h4 className="text-sm font-bold text-neutral-900 mb-2 text-center">{steps[activeStep].title}</h4>
-                            <p className="text-xs text-neutral-600 text-center leading-relaxed">{steps[activeStep].description.slice(0, 50)}...</p>
+                          {/* App Interface Preview: screenshot image */}
+                          <div className="pt-8 h-full relative">
+                            <Image
+                              src="/images/app-download-screen.webp"
+                              alt="Bravioo mobile app preview"
+                              fill
+                              sizes="(max-width: 768px) 280px, 320px"
+                              className="object-cover"
+                              priority
+                            />
                           </div>
-                          
                           {/* Home Indicator */}
                           <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-neutral-900 dark:bg-neutral-800 rounded-full"></div>
                         </div>
                       </div>
                     </div>
                   </div>
-                ) : (
-                  // Desktop/Tablet Dashboard Mockup
-                  <div className="relative">
-                    <motion.div 
-                      className="bg-neutral-50 dark:bg-neutral-800 rounded-3xl p-6 shadow-2xl border border-neutral-200 dark:border-neutral-600"
-                      animate={{ 
-                        y: [0, -5, 0]
-                      }}
-                      transition={{
-                        duration: 4,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }}
-                    >
-                      {/* Browser/Dashboard Header */}
-                      <div className="flex items-center gap-2 mb-4 pb-4 border-b border-neutral-200 dark:border-neutral-600">
-                        <div className="flex gap-2">
-                          <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                          <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                          <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                        </div>
-                        <div className="flex-1 bg-neutral-100 dark:bg-neutral-700 rounded-lg px-3 py-1 ml-4">
-                          <span className="text-xs text-neutral-500">bravioo.com/{steps[activeStep].mockup}</span>
-                        </div>
-                      </div>
-                      
-                      {/* Dashboard Content */}
-                      <div className="space-y-4">
-                        <div className="flex items-center gap-4">
-                          <div className={`w-12 h-12 rounded-xl bg-gradient-to-br bg-${steps[activeStep].accentColor} flex items-center justify-center shadow-lg`}>
-                            {React.createElement(steps[activeStep].icon, { 
-                              className: "h-6 w-6 text-white" 
-                            })}
-                          </div>
-                          <div>
-                            <h4 className="font-bold text-neutral-900 dark:text-neutral-100">{steps[activeStep].title}</h4>
-                            <p className="text-sm text-neutral-600 dark:text-neutral-400">{steps[activeStep].description}</p>
-                          </div>
-                        </div>
-                        
-                        {/* Mock Dashboard Elements */}
-                        <div className="grid grid-cols-2 gap-3">
-                          {steps[activeStep].features.slice(0, 4).map((feature, i) => (
-                            <div key={i} className="bg-white dark:bg-neutral-700 p-3 rounded-xl border border-neutral-200 dark:border-neutral-600">
-                              <div className="flex items-center gap-2">
-                                <div className={`w-2 h-2 bg-${steps[activeStep].accentColor} rounded-full`}></div>
-                                <span className="text-xs font-medium text-neutral-700 dark:text-neutral-300">{feature}</span>
+                </div>
+
+                {/* Desktop/Tablet: keep previous conditional behavior */}
+                <div className="hidden lg:block">
+                  {activeStep === 1 ? (
+                    <div className="flex justify-end">
+                      <div className="relative max-w-xs animate-float">
+                        <div className="relative bg-neutral-900 dark:bg-neutral-800 rounded-[3rem] p-2 shadow-2xl">
+                          <div className="bg-neutral-50 dark:bg-neutral-100 rounded-[2.5rem] overflow-hidden aspect-[9/19.5] relative">
+                            <div className="absolute top-0 left-0 right-0 h-8 bg-neutral-900 dark:bg-neutral-800 rounded-t-[2.5rem] flex items-center justify-between px-6 text-white text-xs font-medium">
+                              <span>9:41</span>
+                              <div className="flex items-center gap-1">
+                                <div className="w-4 h-2 bg-white rounded-sm"></div>
+                                <div className="w-6 h-3 border border-white rounded-sm flex items-center justify-end pr-0.5">
+                                  <div className="w-4 h-1.5 bg-white rounded-sm"></div>
+                                </div>
                               </div>
                             </div>
-                          ))}
+                            <div className="pt-8 h-full relative">
+                              <Image
+                                src="/images/app-download-left.webp"
+                                alt="Bravioo mobile app preview"
+                                fill
+                                sizes="(min-width: 1024px) 360px, 320px"
+                                className="object-cover"
+                              />
+                            </div>
+                            <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-neutral-900 dark:bg-neutral-800 rounded-full"></div>
+                          </div>
                         </div>
                       </div>
-                    </motion.div>
-                  </div>
-                )}
+                    </div>
+                  ) : (
+                    <div className="relative">
+                      <motion.div 
+                        className="bg-neutral-50 dark:bg-neutral-800 rounded-3xl p-6 shadow-2xl border border-neutral-200 dark:border-neutral-600"
+                        animate={{ y: [0, -5, 0] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                      >
+                        <div className="flex items-center gap-2 mb-4 pb-4 border-b border-neutral-200 dark:border-neutral-600">
+                          <div className="flex gap-2">
+                            <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                            <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                            <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                          </div>
+                          <div className="flex-1 bg-neutral-100 dark:bg-neutral-700 rounded-lg px-3 py-1 ml-4">
+                            <span className="text-xs text-neutral-500">bravioo.com/{steps[activeStep].mockup}</span>
+                          </div>
+                        </div>
+                        <div className="space-y-4">
+                          <div className="flex items-center gap-4">
+                            <div className={`w-12 h-12 rounded-xl bg-gradient-to-br bg-${steps[activeStep].accentColor} flex items-center justify-center shadow-lg`}>
+                              {React.createElement(steps[activeStep].icon, { className: 'h-6 w-6 text-white' })}
+                            </div>
+                            <div>
+                              <h4 className="font-bold text-neutral-900 dark:text-neutral-100">{steps[activeStep].title}</h4>
+                              <p className="text-sm text-neutral-600 dark:text-neutral-400">{steps[activeStep].description}</p>
+                            </div>
+                          </div>
+                          <div className="grid grid-cols-2 gap-3">
+                            {steps[activeStep].features.slice(0, 4).map((feature, i) => (
+                              <div key={i} className="bg-white dark:bg-neutral-700 p-3 rounded-xl border border-neutral-200 dark:border-neutral-600">
+                                <div className="flex items-center gap-2">
+                                  <div className={`w-2 h-2 bg-${steps[activeStep].accentColor} rounded-full`}></div>
+                                  <span className="text-xs font-medium text-neutral-700 dark:text-neutral-300">{feature}</span>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    </div>
+                  )}
+                </div>
               </motion.div>
             </motion.div>
           </AnimatePresence>
@@ -288,3 +302,5 @@ export function HowItWorksSection() {
     </section>
   );
 }
+
+

@@ -1,3 +1,62 @@
+# Bravioo Web
+
+Modern Next.js 14 (App Router) çok dilli (next-intl) kurumsal web uygulaması.
+
+## Proje Yapısı
+
+```
+app/
+  layout.tsx                 -> Global `<html>` ve kök sağlayıcılar
+  page.tsx                   -> Kök yönlendirme (genelde locale'ye)
+  [locale]/                  -> Dil kök segmenti (tr, en)
+    layout.tsx               -> Locale layout + Theme + next-intl provider
+    page.tsx                 -> Ana sayfa (locale)
+    features/                -> Özellikler
+    pricing/                 -> Fiyatlandırma (alt bölümler: brands, employer)
+    brands/                  -> Markalar
+    customers/               -> Müşteriler
+    stories/                 -> Hikayeler
+    contact/                 -> İletişim
+    meeting/                 -> Demo toplantısı
+    legal/                   -> Hukuki sayfalar
+
+components/                  -> Ortak bileşenler (header, footer, ui, analytics ...)
+contexts/                    -> Tema context (EnhancedThemeProvider)
+data/                        -> JSON/static veri
+i18n/                        -> next-intl routing & request ayarları
+lib/                         -> Yardımcı kütüphaneler (seo, zod, utils)
+messages/                    -> Çeviri dosyaları (tr.json, en.json)
+public/                      -> Statik dosyalar, görseller
+tailwind.config.js           -> Tailwind (darkMode: 'class')
+```
+
+## Tema (Dark/Light/System)
+
+- `contexts/enhanced-theme-context.tsx` ile system varsayılanı desteklenir.
+- `app/layout.tsx` ve `app/[locale]/layout.tsx` içinde `EnhancedThemeProvider defaultTheme="system"` etkin.
+- Tailwind dark sınıfları proje genelinde kullanılabilir (dark:...)
+
+## i18n (next-intl)
+
+- `i18n/routing.ts` ve `i18n/request.ts` üzerinden diller yönetilir.
+- Çeviri anahtarları `messages/tr.json` ve `messages/en.json` içinde.
+- Bileşenlerde `useTranslations('namespace')` kullanılır.
+
+## Locale'li Linkler
+
+- Sayfa içi linkler `useLocale()` ile `/${locale}/...` şeklinde oluşturulmalıdır.
+- Örnek: `Link href={\`/${locale}/stories\`}`
+
+## Geliştirme
+
+- Node 18+
+- `npm i`
+- `npm run dev`
+
+## Notlar
+
+- Analytics ve çerez yönetimi `components/analytics.tsx` ve `components/consent-manager.tsx` içinde.
+- Tema tercihleri `localStorage('theme')` ile saklanır; system değişiklikleri dinlenir.
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

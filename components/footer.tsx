@@ -5,16 +5,16 @@ import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import { Heart, Moon, Sun, ChevronRight, ExternalLink } from 'lucide-react';
 import { footerSections, socialLinks, footerConfig } from '@/config/footer';
-import { useTheme } from '@/contexts/theme-context';
+import { useEnhancedTheme } from '@/contexts/enhanced-theme-context';
 import Image from 'next/image';
 
 export function Footer() {
   const t = useTranslations();
   const locale = useLocale();
-  const { theme, toggleTheme, mounted } = useTheme();
+  const { theme, toggleTheme, mounted } = useEnhancedTheme();
 
   return (
-    <footer className="relative mt-12 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-950 dark:from-gray-900 dark:via-gray-800 dark:to-gray-950 text-white overflow-hidden transition-colors duration-300">
+    <footer className="relative mt-12 bg-gradient-to-br from-primary-900 via-green-800 to-green-950 dark:from-gray-900 dark:via-gray-800 dark:to-gray-950 text-white overflow-hidden transition-colors duration-300">
       {/* Modern Background Pattern */}
       <div className="absolute inset-0 opacity-30">
         <div className="h-full w-full" style={{

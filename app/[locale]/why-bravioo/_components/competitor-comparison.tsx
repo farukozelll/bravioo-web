@@ -189,7 +189,7 @@ export function CompetitorComparison() {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-br from-gray-50 to-white">
+    <section className="py-24 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -197,7 +197,7 @@ export function CompetitorComparison() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+            className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6"
           >
             {t('title')}
           </motion.h2>
@@ -206,7 +206,7 @@ export function CompetitorComparison() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
           >
             {t('subtitle')}
           </motion.p>
@@ -242,7 +242,7 @@ export function CompetitorComparison() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden"
+          className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden"
         >
           {/* Header Row */}
           <div className="bg-gray-50 p-6 border-b border-gray-200">
@@ -316,7 +316,7 @@ export function CompetitorComparison() {
           </div>
 
           {/* CTA Footer */}
-          <div className="bg-emerald-50 p-6">
+          <div className="bg-emerald-50 dark:bg-emerald-900/20 p-6">
             <div className="grid grid-cols-5 gap-4">
               <div></div>
               {competitors.map((competitor) => (
