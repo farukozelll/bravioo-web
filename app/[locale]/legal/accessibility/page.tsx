@@ -70,7 +70,7 @@ export default async function AccessibilityPage({ params }: Props) {
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center">
+          <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-gold-600 rounded-2xl flex items-center justify-center">
             <Eye className="h-6 w-6 text-white" />
           </div>
           <div>

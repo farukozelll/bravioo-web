@@ -91,53 +91,24 @@ export function PartnerBrandsCTA() {
               {/* Right Phone Visual */}
               <div className="relative p-8 md:p-12 lg:p-16 flex items-center justify-center">
                 <motion.div 
-                  className="relative max-w-xs mx-auto"
-                  animate={{ 
-                    y: [0, -15, 0],
-                    rotate: [0, 2, -2, 0]
-                  }}
+                  className="relative max-w-sm sm:max-w-md lg:max-w-2xl mx-auto"
+                  animate={{ y: [0, -12, 0] }}
                   transition={{
-                    duration: 8,
+                    duration: 18,
                     repeat: Infinity,
-                    ease: "easeInOut"
+                    ease: 'easeInOut'
                   }}
                 >
-                  {/* Phone Shadow */}
-                  <div className="absolute inset-0 bg-black/30 rounded-[3rem] blur-2xl transform translate-y-8 scale-95" />
-                  
-                  {/* Phone Frame */}
-                  <div className="relative bg-neutral-900 dark:bg-neutral-800 rounded-[3rem] p-3 shadow-2xl">
-                    <div className="bg-white dark:bg-neutral-50 rounded-[2.5rem] overflow-hidden aspect-[9/19.5] relative min-h-[400px]">
-                      {/* Status Bar */}
-                      <div className="absolute top-0 left-0 right-0 h-8 bg-neutral-900 dark:bg-neutral-800 rounded-t-[2.5rem] flex items-center justify-between px-6 text-white text-xs font-medium z-20">
-                        <span>9:41</span>
-                        <div className="flex items-center gap-1">
-                          <div className="w-4 h-2 bg-white rounded-sm"></div>
-                          <div className="w-6 h-3 border border-white rounded-sm flex items-center justify-end pr-0.5">
-                            <div className="w-4 h-1.5 bg-white rounded-sm"></div>
-                          </div>
-                        </div>
-                      </div>
-                      
-                      {/* App Content Background */}
-                      <div className="absolute inset-0 pt-8">
-                        <Image
-                          src="/images/hero-thumb.png"
-                          alt={locale === 'tr' ? 'Bravioo Mobil Uygulaması - Marka Avantajları' : 'Bravioo Mobile App - Brand Benefits'}
-                          fill
-                          className="object-cover object-top"
-                          sizes="320px"
-                          priority
-                        />
-                        
-                        {/* Overlay gradient for better contrast */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-secondary-500/20 via-transparent to-transparent"></div>
-                      </div>
-                      
-                      {/* Home Indicator */}
-                      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-neutral-900 dark:bg-neutral-800 rounded-full"></div>
-                    </div>
-                  </div>
+                  {/* Single phone mockup image */}
+                  <Image
+                    src="/images/device-friendly-thumb.png"
+                    alt={locale === 'tr' ? 'Bravioo Mobil Uygulama Mockup' : 'Bravioo Mobile App Mockup'}
+                    width={1600}
+                    height={1200}
+                    className="w-full h-auto drop-shadow-2xl rounded-3xl"
+                    sizes="(max-width: 1536px) 80vw, 1200px"
+                    priority
+                  />
                 </motion.div>
               </div>
             </div>

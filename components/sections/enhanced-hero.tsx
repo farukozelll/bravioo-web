@@ -37,7 +37,7 @@ export function EnhancedHero() {
     {
       icon: Award,
       title: locale === 'tr' ? 'Global Ödüller' : 'Global Rewards',
-      description: locale === 'tr' ? '190+ ülkede milyonlarca ödül seçeneği ile motivasyonu artırın' : 'Boost motivation with millions of reward options in 190+ countries',
+      description: locale === 'tr' ? 'Tüm Türkiyede milyonlarca ödül seçeneği ile motivasyonu artırın' : 'Boost motivation with millions of reward options in 190+ countries',
       color: 'from-purple-500 to-pink-600'
     },
     {
@@ -145,7 +145,7 @@ export function EnhancedHero() {
                 transition={{ delay: 0.4 }}
               >
                 {locale === 'tr'
-                  ? 'Peer-to-peer takdir sistemi, 190+ ülkede ödül seçenekleri ve AI destekli performans analitiği ile 30 gün içinde sonuç alın.'
+                  ? 'Peer-to-peer takdir sistemi, Tüm Türkiyede ödül seçenekleri ve AI destekli performans analitiği ile 30 gün içinde sonuç alın.'
                   : 'Get results in 30 days with peer-to-peer recognition, rewards in 190+ countries, and AI-powered performance analytics.'
                 }
               </motion.p>

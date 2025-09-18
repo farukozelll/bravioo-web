@@ -37,7 +37,7 @@ export default async function CookiesPage({ params }: Props) {
       icon: BarChart3,
       title: 'Analytics Cookies',
       description: 'Help us understand how visitors interact with our website',
-      color: 'from-blue-500 to-indigo-600',
+      color: 'from-blue-500 to-gold-600',
       examples: [
         'Google Analytics',
         'Page views and traffic sources',
@@ -51,7 +51,7 @@ export default async function CookiesPage({ params }: Props) {
       icon: Target,
       title: 'Marketing Cookies',
       description: 'Used to deliver relevant advertisements and track campaigns',
-      color: 'from-purple-500 to-pink-600',
+      color: 'from-green-500 to-pink-600',
       examples: [
         'Facebook Pixel',
         'Google Ads conversion tracking',

@@ -89,7 +89,7 @@ export default async function MeetingPage({ params }: Props) {
         ? 'Detaylı platform turu ve işletmenize özel çözümler'
         : 'Detailed platform tour and business-specific solutions',
       icon: Video,
-      color: 'from-blue-500 to-indigo-600',
+      color: 'from-blue-500 to-gold-600',
       popular: true
     },
     {
@@ -100,7 +100,7 @@ export default async function MeetingPage({ params }: Props) {
         ? 'Tüm modüller, entegrasyon seçenekleri ve implementation planı'
         : 'All modules, integration options and implementation plan',
       icon: Users,
-      color: 'from-purple-500 to-pink-600'
+      color: 'from-green-500 to-pink-600'
     }
   ];
 

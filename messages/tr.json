@@ -25,6 +25,19 @@
     "customers": "Referanslar",
     "meeting": "Demo Toplantısı",
     "whyBravioo": "Neden Bravioo?",
+    "features": "Özellikler",
+    "featuresDesc": "Çalışan deneyimini dönüştüren platform",
+    "announcements": "Duyurular",
+    "announcementsDesc": "Çalışanların birbirlerini takdir etmesi için anlamlı sistem",
+    "giveaways": "Çekilişler & Kampanyalar",
+    "giveawaysDesc": "Çalışanların birbirlerini takdir etmesi için anlamlı sistem",
+    "campaigns": "Kampanyalar",
+    "campaignsDesc": "Hedefli  kampanyalar tasarlayın, segmentlere özel mesajlar iletin ve gerçek zamanlı performans takibi yapın.",
+    "feedback": "Geri Bildirim Yönetimi",
+    "feedbackDesc": "Anlık veri toplayın, sorunları anında tespit edin",
+    "userManagement": "Kullanıcı Yönetimi",
+    "userManagementDesc": "Anlık veri toplayın, sorunları anında tespit edin",
+    "subsidiaries": "Alt Şirketler",
     "contact": "İletişim",
     "employerPricing": "İşveren Partnerliği",
     "brandPartnership": "Marka Partnerliği",
@@ -347,7 +360,7 @@
         },
         "reputation": {
           "title": "Marka İtibarı",
-          "description": "Çalışan memnuniyetine katkıda bulunarak B2B sektörinde marka itibarınızı güçlendirin."
+          "description": "Çalışan memnuniyetine katkıda bulunarak B2B sektöründe marka itibarınızı güçlendirin."
         }
       },
       "ctaSection": {
@@ -419,7 +432,7 @@
       "successStoriesSubtitle": "Bravioo partnerlerinin elde ettiği gerçek sonuçlar",
       "story1": {
         "metric": "Satış Artışı",
-        "brand": "E-ticaret Markası"
+        "brand": "Bravioo Markası"
       },
       "story2": {
         "metric": "Müşteri Artışı",
@@ -603,8 +616,36 @@
     "description": "Gizlilik politikası, kullanım koşulları ve diğer yasal belgelerimiz"
   },
   "howItWorks": {
-    "title": "Nasıl Çalışır",
-    "subtitle": "4 basit adımda çalışan deneyiminizi dönüştürün"
+    "badge": "Platform Modülleri",
+    "title": "Güçlü",
+    "titleHighlight": "Entegre",
+    "titleEnd": "Çözümler",
+    "description": "İK ekipleri, çalışanlar ve yöneticiler için tasarlanmış kapsamlı platform modüllerimizi keşfedin. Her modül birleşik bir deneyim sunmak için kusursuz çalışır.",
+    "module": "Modül",
+    "viewDemo": "Demoyu Görüntüle",
+    "learnMore": "Daha Fazla Bilgi",
+    "steps": {
+      "adminPortal": {
+        "title": "Yönetici Kontrol Portalı",
+        "description": "Tam sistem yapılandırması ve kullanıcı yönetimi",
+        "features": [
+          "Kullanıcı rol yönetimi",
+          "Bütçe tahsis kontrolleri",
+          "Entegrasyon ayarları",
+          "Şirket markalama özelleştirmesi"
+        ]
+      },
+      "employeeApp": {
+        "title": "Çalışan Mobil Uygulaması",
+        "description": "Mobilde kesintisiz takdir ve ödül deneyimi",
+        "features": [
+          "Anında meslektaştan meslektaşa takdir",
+          "Global ödül pazarı",
+          "Sosyal akış ve kutlamalar",
+          "Anlık bildirimler"
+        ]
+      }
+    }
   },
   "customers": {
     "title": "Müşteri Hikayeleri",
@@ -851,7 +892,7 @@
     },
     "showcase": {
       "title": "Dünya markalarının tercih ettiği",
-      "titleHighlight": "E-ticaret Altyapısı",
+      "titleHighlight": "Bravioo Altyapısı",
       "exploreButton": "Global Marka Deneyimlerimizi İncele",
       "stats": {
         "growth": "Ortalama Büyüme",
@@ -867,5 +908,60 @@
       },
       "allCategory": "Tümü"
     }
+  },
+  "animatedFeatures": {
+    "badge": "Çözümlerimiz",
+    "title": {
+      "prefix": "İhtiyacınız olan araçlar",
+      "highlight": "ekibinizi şekillendirin"
+    },
+    "cta": "Platformu keşfet",
+    "recognition": {
+      "title": "Kolay Takdir Yönetimi",
+      "description": "Parasal ya da parasal olmayan takdiri, iş akışınızı bozmadan hızlıca gönderin.",
+      "items": [
+        "Kullanımı kolay, modern arayüz",
+        "Yüksek kullanım ve benimsenme",
+        "Kurumsal seviyede entegrasyonlar",
+        "Saha ve ofis çalışanları",
+        "Yenilikçi AI özellikleri"
+      ]
+    },
+    "rewards": {
+      "title": "Gerçekten Küresel Ödül Pazarı",
+      "description": "Dünyanın en geniş yerel ödül ağına erişin – kapsamlı ve yerel ihtiyaçlara göre küratörlü.",
+      "items": [
+        "Milyonlarca seçenek, sıfır ek ücret",
+        "~190 ülkeye ücretsiz teslimat",
+        "Bölgelere uygun yerel ödüller",
+        "Dünya çapında şirket logolu ürünler",
+        "Benzersiz ödüller için concierge hizmeti"
+      ]
+    },
+    "awards": {
+      "title": "Aday Göstermeye Dayalı Ödüller",
+      "description": "Öne çıkan performanslar için ekip arkadaşlarınızı aday gösterin, en iyiler görünür olsun.",
+      "items": [
+        "Kişiselleştirilmiş ödüller",
+        "Özelleştirilebilir onay akışı",
+        "Tek panelden kolay yönetim",
+        "Sosyal akışta ödül görünürlüğü"
+      ]
+    },
+    "milestones": {
+      "title": "Kıdem ve Dönüm Noktaları",
+      "description": "Kıdem gibi kişisel ve profesyonel başarıları nasıl kutlayacağınızı özelleştirin.",
+      "items": [
+        "Dijital ve basılabilir kartlar",
+        "Anlamlı hatıralar",
+        "Ödül puanları",
+        "Ölçeklenebilir kutlamalar"
+      ]
+    },
+    "stats": [
+      "Diğer tüm platformlardan daha fazla etkileşim",
+      "Dünya çapında üyeler",
+      "Desteklenen ülke sayısı"
+    ]
   }
 }

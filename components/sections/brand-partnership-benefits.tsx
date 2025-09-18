@@ -23,7 +23,7 @@ export function BrandPartnershipBenefits() {
       icon: <Target className="w-8 h-8" />,
       titleKey: 'benefits.targeted.title',
       descKey: 'benefits.targeted.description',
-      color: 'blue',
+      color: 'gold',
       stats: ['%85', '%40']
     },
     {
@@ -37,7 +37,7 @@ export function BrandPartnershipBenefits() {
       icon: <Heart className="w-8 h-8" />,
       titleKey: 'benefits.loyalty.title',
       descKey: 'benefits.loyalty.description',
-      color: 'purple',
+      color: 'green',
       stats: ['%200', '%75']
     },
     {
@@ -65,11 +65,11 @@ export function BrandPartnershipBenefits() {
 
   const getColorClasses = (color: string) => {
     const classes = {
-      blue: {
-        bg: 'from-blue-500 to-blue-600',
-        text: 'text-blue-600',
-        border: 'border-blue-200',
-        bgLight: 'bg-blue-50'
+      gold: {
+        bg: 'from-gold-500 to-gold-600',
+        text: 'text-gold-600',
+        border: 'border-gold-200',
+        bgLight: 'bg-gold-50'
       },
       emerald: {
         bg: 'from-emerald-500 to-emerald-600',
@@ -77,11 +77,11 @@ export function BrandPartnershipBenefits() {
         border: 'border-emerald-200',
         bgLight: 'bg-emerald-50'
       },
-      purple: {
-        bg: 'from-purple-500 to-purple-600',
-        text: 'text-purple-600',
-        border: 'border-purple-200',
-        bgLight: 'bg-purple-50'
+      green: {
+        bg: 'from-green-500 to-green-600',
+        text: 'text-green-600',
+        border: 'border-green-200',
+        bgLight: 'bg-green-50'
       },
       orange: {
         bg: 'from-orange-500 to-orange-600',
@@ -188,28 +188,28 @@ export function BrandPartnershipBenefits() {
           viewport={{ once: true }}
           className="text-center mt-20"
         >
-          <div className="bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl p-12 text-white">
+          <div className="bg-gradient-to-r from-green-600 to-gold-600 rounded-3xl p-12 text-white">
             <div className="max-w-3xl mx-auto">
               <h3 className="text-3xl lg:text-4xl font-bold mb-6">
                 {t('ctaSection.title')}
               </h3>
-              <p className="text-xl mb-8 text-purple-100">
+              <p className="text-xl mb-8 text-green-100">
                 {t('ctaSection.description')}
               </p>
               
               {/* Features List */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
                 <div className="flex items-center gap-3 justify-center md:justify-start">
-                  <Users className="w-6 h-6 text-purple-200" />
-                  <span className="text-purple-100">{t('ctaSection.feature1')}</span>
+                  <Users className="w-6 h-6 text-green-200" />
+                  <span className="text-green-100">{t('ctaSection.feature1')}</span>
                 </div>
                 <div className="flex items-center gap-3 justify-center md:justify-start">
-                  <Zap className="w-6 h-6 text-purple-200" />
-                  <span className="text-purple-100">{t('ctaSection.feature2')}</span>
+                  <Zap className="w-6 h-6 text-green-200" />
+                  <span className="text-green-100">{t('ctaSection.feature2')}</span>
                 </div>
                 <div className="flex items-center gap-3 justify-center md:justify-start">
-                  <Globe className="w-6 h-6 text-purple-200" />
-                  <span className="text-purple-100">{t('ctaSection.feature3')}</span>
+                  <Globe className="w-6 h-6 text-green-200" />
+                  <span className="text-green-100">{t('ctaSection.feature3')}</span>
                 </div>
               </div>
 
@@ -218,14 +218,14 @@ export function BrandPartnershipBenefits() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-white text-purple-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-all duration-300"
+                  className="bg-white text-green-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-all duration-300"
                 >
                   {t('ctaSection.primaryButton')}
                 </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="border-2 border-white text-white hover:bg-white hover:text-purple-600 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300"
+                  className="border-2 border-white text-white hover:bg-white hover:text-green-600 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300"
                 >
                   {t('ctaSection.secondaryButton')}
                 </motion.button>

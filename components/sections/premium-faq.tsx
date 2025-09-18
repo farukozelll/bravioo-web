@@ -36,7 +36,7 @@ const faqData = [
     id: 4,
     question: 'Ödül marketplace\'i nasıl çalışıyor?',
     questionEn: 'How does the rewards marketplace work?',
-    answer: 'Global ödül marketplace\'imizde 190+ ülkede milyonlarca ödül seçeneği bulunur. Çalışanlar kazandıkları puanları Amazon, Starbucks, yerel restoranlar, deneyimler veya bağışlar için kullanabilir. Hiçbir mark-up ücreti yoktur.',
+    answer: 'Global ödül marketplace\'imizde Tüm Türkiyede milyonlarca ödül seçeneği bulunur. Çalışanlar kazandıkları puanları Amazon, Starbucks, yerel restoranlar, deneyimler veya bağışlar için kullanabilir. Hiçbir mark-up ücreti yoktur.',
     answerEn: 'Our global rewards marketplace offers millions of reward options in 190+ countries. Employees can use their earned points for Amazon, Starbucks, local restaurants, experiences, or donations. There are no mark-up fees.',
     icon: HelpCircle
   },

@@ -72,7 +72,7 @@ export function LiveSupport() {
               }]);
             }
           }}
-          className="group relative w-14 h-14 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
+          className="group relative w-14 h-14 bg-gradient-to-r from-green-500 to-gold-600 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -132,7 +132,7 @@ export function LiveSupport() {
           {/* Header */}
           <DialogHeader className={`p-4 ${
             supportType === 'ai' 
-              ? 'bg-gradient-to-r from-purple-500 to-indigo-600' 
+              ? 'bg-gradient-to-r from-green-500 to-gold-600' 
               : 'bg-gradient-to-r from-brand-500 to-emerald-600'
           }`}>
             <div className="flex items-center justify-between">
@@ -238,7 +238,7 @@ export function LiveSupport() {
                 size="sm"
                 className={`px-3 ${
                   supportType === 'ai'
-                    ? 'bg-gradient-to-r from-purple-500 to-indigo-600'
+                    ? 'bg-gradient-to-r from-green-500 to-gold-600'
                     : 'bg-gradient-to-r from-brand-500 to-emerald-600'
                 }`}
               >

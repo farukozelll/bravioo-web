@@ -24,7 +24,10 @@ export function BrandsHero() {
     const perRow = Math.ceil(logosOnly.length / 4) || 1;
     return [0, 1, 2, 3].map(rowIndex => {
       const slice = logosOnly.slice(rowIndex * perRow, (rowIndex + 1) * perRow);
-      return slice.length ? slice : logosOnly;
+      const base = slice.length ? slice : logosOnly;
+      if (base.length <= 1) return base;
+      const offset = (rowIndex * Math.floor(base.length / 4)) % base.length;
+      return base.map((_, i, a) => a[(i + offset) % a.length]);
     });
   }, [brands]);
 
@@ -71,11 +74,12 @@ export function BrandsHero() {
               {rows.map((row, rowIdx) => (
                 <div key={rowIdx} className="relative overflow-hidden">
                   <div
-                    className={`flex items-center gap-10 ${
+                    className={`flex items-center gap-16 ${
                       rowIdx % 2 === 0 ? 'animate-marquee-left' : 'animate-marquee-right'
                     }`}
+                    style={{ animationDuration: `${35 + rowIdx * 5}s` }}
                   >
-                    {[...row, ...row].map((item, i) => (
+                    {[...row, ...row, ...row].map((item, i) => (
                       <div key={`${item.id}-${i}`} className="shrink-0 h-16 flex items-center">
                         {item.logo ? (
                           <Image 

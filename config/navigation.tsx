@@ -113,11 +113,17 @@ export const navigationData: NavItem[] = [
     megaMenuContent: {
       mainLinks: [
         { 
-          nameKey: 'recognition', 
-          descriptionKey: 'recognitionDesc', 
-          href: '/features/recognition', 
-          icon: <Heart className="w-5 h-5" />,
+          nameKey: 'campaigns', 
+          descriptionKey: 'campaignsDesc', 
+          href: '/features/campaigns', 
+          icon: <Target className="w-5 h-5" />,
           isNew: false
+        },
+        { 
+          nameKey: 'giveaways', 
+          descriptionKey: 'giveawaysDesc', 
+          href: '/features/giveaways', 
+          icon: <Heart className="w-5 h-5" />
         },
         { 
           nameKey: 'surveys', 
@@ -126,29 +132,22 @@ export const navigationData: NavItem[] = [
           icon: <MessageSquare className="w-5 h-5" />
         },
         { 
-          nameKey: 'analytics', 
-          descriptionKey: 'analyticsDesc', 
-          href: '/features/analytics', 
-          icon: <BarChart className="w-5 h-5" />
+          nameKey: 'announcements', 
+          descriptionKey: 'announcementsDesc', 
+          href: '/features/announcements', 
+          icon: <Zap className="w-5 h-5" />
         },
         { 
-          nameKey: 'automation', 
-          descriptionKey: 'automationDesc', 
-          href: '/features/automation', 
-          icon: <Zap className="w-5 h-5" />,
-          isNew: true
+          nameKey: 'feedback', 
+          descriptionKey: 'feedbackDesc', 
+          href: '/features/feedback', 
+          icon: <Shield className="w-5 h-5" />
         },
         { 
-          nameKey: 'integrations', 
-          descriptionKey: 'integrationsDesc', 
-          href: '/features/integrations', 
-          icon: <Layers className="w-5 h-5" />
-        },
-        { 
-          nameKey: 'mobile', 
-          descriptionKey: 'mobileDesc', 
-          href: '/features/mobile', 
-          icon: <Smartphone className="w-5 h-5" />
+          nameKey: 'userManagement', 
+          descriptionKey: 'userManagementDesc', 
+          href: '/features/user-management', 
+          icon: <Users className="w-5 h-5" />
         }
       ],
       featuredContent: {
@@ -198,10 +197,7 @@ export const navigationData: NavItem[] = [
     nameKey: 'customers', 
     href: '/customers' 
   },
-  { 
-    nameKey: 'meeting', 
-    href: '/meeting' 
-  },
+
   { 
     nameKey: 'contact', 
     href: '/contact' 

@@ -25,7 +25,20 @@
     "customers": "Customers",
     "meeting": "Demo Meeting",
     "whyBravioo": "Why Bravioo?",
-    "blog": "Blog",
+    "blog": "Blog", 
+    "features": "Features",
+    "featuresDesc": "Transform your employee experience with Bravioo's comprehensive recognition and rewards platform.",
+    "announcements": "Announcements",
+    "announcementsDesc": "Meaningful system for employees to recognize each other",
+    "giveaways": "Giveaways & Campaigns",
+    "giveawaysDesc": "Meaningful system for employees to recognize each other",
+    "campaigns": "Campaigns",
+    "campaignsDesc": "Design targeted campaigns, send personalized messages to segments, and track real-time performance.",
+    "feedback": "Feedback Management",
+    "feedbackDesc": "Collect real-time data, identify issues instantly",
+    "userManagement": "User Management",
+    "userManagementDesc": "Collect real-time data, identify issues instantly",
+    "subsidiaries": "Subsidiaries",
     "freeMeeting": "Free Meeting",
     "contact": "Contact",
     "login": "Login",
@@ -298,10 +311,6 @@
     "title": "Legal Documents",
     "description": "Privacy policy, terms of use and other legal documents"
   },
-  "howItWorks": {
-    "title": "How It Works",
-    "subtitle": "Transform your employee experience in 4 simple steps"
-  },
   "customers": {
     "title": "Customer Stories",
     "subtitle": "Results achieved by successful companies with Bravioo"
@@ -389,6 +398,61 @@
       },
       "allCategory": "All"
     }
+  },
+  "animatedFeatures": {
+    "badge": "Our Solutions",
+    "title": {
+      "prefix": "The tools you need to",
+      "highlight": "shape your workforce"
+    },
+    "cta": "Explore our platform",
+    "recognition": {
+      "title": "Employee Recognition Made Easy",
+      "description": "It's quick and simple to send monetary or non-monetary recognition, all in your flow of work.",
+      "items": [
+        "Easy-to-use, modern interface",
+        "High usage and adoption",
+        "Enterprise-grade integrations",
+        "Online and offline populations",
+        "Innovative AI features"
+      ]
+    },
+    "rewards": {
+      "title": "A Truly Global Rewards Marketplace",
+      "description": "Access the world's largest in-country reward network – unmatched in reach and locally curated for your workforce.",
+      "items": [
+        "Millions of options, zero mark-ups",
+        "Free delivery to ~190 countries",
+        "Locally relevant rewards tailored to regions",
+        "Company branded swag available worldwide",
+        "Concierge service for unique rewards"
+      ]
+    },
+    "awards": {
+      "title": "Nomination-based Awards",
+      "description": "Nominate colleagues for outstanding performance, ensuring your MVPs are recognized.",
+      "items": [
+        "Personalized awards",
+        "Customizable approval workflow",
+        "Single dashboard for easy management",
+        "Awards displayed in social newsfeed"
+      ]
+    },
+    "milestones": {
+      "title": "Years of Service & Milestones",
+      "description": "Customize how you want to celebrate personal and professional achievements such as years of service.",
+      "items": [
+        "Custom digital and printable cards",
+        "Meaningful keepsakes",
+        "Reward tokens",
+        "Scalable celebrations and milestones"
+      ]
+    },
+    "stats": [
+      "More engagement than any other platform",
+      "Members worldwide",
+      "Countries supported"
+    ]
   }
 }
 }

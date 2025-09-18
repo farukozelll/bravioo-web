@@ -141,8 +141,8 @@ export function BrandsShowcase() {
               <div className="relative bg-white dark:bg-gray-800 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-gray-700 overflow-hidden h-48 sm:h-56 hover:shadow-lg transition-shadow duration-300">
                 
                 {/* Brand Logo - Clean and optimized */}
-                <div className="flex justify-center mb-4 h-16 items-center">
-                  <div className="relative h-12 w-20 bg-slate-50 dark:bg-gray-700 rounded-xl flex items-center justify-center">
+                <div className="flex justify-center mb-4 h-24 items-center">
+                  <div className="relative h-22 w-20 bg-slate-50 dark:bg-gray-700 rounded-xl flex items-center justify-center">
                     {brand.logo && brand.logo !== '/images/brands/placeholder.png' ? (
                       <Image
                         src={brand.logo}
@@ -162,8 +162,8 @@ export function BrandsShowcase() {
                 </div>
 
                 {/* Category Badge */}
-                <div className="absolute top-3 right-3">
-                  <span className="inline-block px-2 py-1 text-xs font-medium bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full">
+                <div className="absolute top-1 right-1">
+                  <span className="inline-block px-2 py-1 text-xs font-light bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full">
                     {brand.category}
                   </span>
                 </div>
@@ -174,9 +174,9 @@ export function BrandsShowcase() {
                 </h3>
 
                 {/* Brand Description */}
-                <p className="text-xs text-slate-600 dark:text-gray-400 text-center line-clamp-2 leading-relaxed">
+           {/*      <p className="text-xs text-slate-600 dark:text-gray-400 text-center line-clamp-2 leading-relaxed">
                   {brand.description}
-                </p>
+                </p> */}
               </div>
             </motion.div>
           ))}

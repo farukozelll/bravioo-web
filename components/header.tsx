@@ -424,7 +424,7 @@ function PlatformMegaMenu({ locale, t, menuData }: MegaMenuComponentProps) {
 function WhyBraviooHero({ locale }: { locale: string }) {
   return (
     <div className="lg:col-span-2">
-      <div className="relative bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-3xl p-8 h-80 overflow-hidden">
+      <div className="relative bg-gradient-to-br from-green-50 to-gold-50 dark:from-green-900/20 dark:to-gold-900/20 rounded-3xl p-8 h-80 overflow-hidden">
         <BackgroundPattern />
         <FloatingElements />
         <HeroContent locale={locale} />
@@ -436,15 +436,15 @@ function WhyBraviooHero({ locale }: { locale: string }) {
 
 function BackgroundPattern() {
   return (
-    <div className="absolute inset-0 bg-grid-purple-100/50 dark:bg-grid-purple-300/10 bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_at_center,black_70%,transparent_100%)]" />
+    <div className="absolute inset-0 bg-grid-green-100/50 dark:bg-grid-green-300/10 bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_at_center,black_70%,transparent_100%)]" />
   );
 }
 
 function FloatingElements() {
   return (
     <>
-      <div className="absolute top-8 left-8 w-16 h-16 bg-purple-200 dark:bg-purple-700/30 rounded-full opacity-20 animate-pulse" />
-      <div className="absolute top-16 right-16 w-24 h-24 bg-blue-200 dark:bg-blue-700/30 rounded-full opacity-20 animate-pulse delay-1000" />
+      <div className="absolute top-8 left-8 w-16 h-16 bg-green-200 dark:bg-green-700/30 rounded-full opacity-20 animate-pulse" />
+      <div className="absolute top-16 right-16 w-24 h-24 bg-gold-200 dark:bg-gold-700/30 rounded-full opacity-20 animate-pulse delay-1000" />
       <div className="absolute bottom-16 left-1/4 w-12 h-12 bg-emerald-200 dark:bg-emerald-700/30 rounded-full opacity-20 animate-pulse delay-2000" />
     </>
   );
@@ -454,7 +454,7 @@ function HeroContent({ locale }: { locale: string }) {
   return (
     <div className="relative z-10 h-full flex flex-col justify-between">
       <div>
-        <div className="inline-flex items-center gap-2 bg-purple-100 dark:bg-purple-800/50 text-purple-700 dark:text-purple-300 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+        <div className="inline-flex items-center gap-2 bg-green-100 dark:bg-green-800/50 text-green-700 dark:text-green-300 px-4 py-2 rounded-full text-sm font-semibold mb-6">
           <Building className="w-4 h-4" />
           {locale === 'tr' ? 'Güçlü Temeller' : 'Strong Foundation'}
         </div>
@@ -479,8 +479,8 @@ function HeroContent({ locale }: { locale: string }) {
 
 function StatsGrid({ locale }: { locale: string }) {
   const stats = [
-    { value: '200+', label: locale === 'tr' ? 'Şirket' : 'Companies', color: 'text-purple-600' },
-    { value: '50.000+', label: locale === 'tr' ? 'Kullanıcı' : 'Users', color: 'text-blue-600' },
+    { value: '200+', label: locale === 'tr' ? 'Şirket' : 'Companies', color: 'text-green-600' },
+    { value: '50.000+', label: locale === 'tr' ? 'Kullanıcı' : 'Users', color: 'text-gold-600' },
     { value: '%98', label: locale === 'tr' ? 'Memnuniyet' : 'Satisfaction', color: 'text-emerald-600' }
   ];
 
@@ -523,7 +523,7 @@ function QuickLink({ link, locale, t }: { link: LinkItem; locale: string; t: (ke
       className="group flex items-center gap-2 p-2 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200"
     >
       <div className="flex-1">
-        <h5 className="font-semibold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+        <h5 className="font-semibold text-gray-900 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
           {t(link.nameKey)}
         </h5>
       </div>
@@ -536,7 +536,7 @@ function CTAButton({ locale }: { locale: string }) {
     <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
       <Link
         href={`/${locale}/brands`}
-        className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white rounded-xl font-semibold transition-all hover:scale-105 shadow-lg"
+        className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-gold-600 hover:from-green-700 hover:to-gold-700 text-white rounded-xl font-semibold transition-all hover:scale-105 shadow-lg"
       >
         {locale === 'tr' ? 'Tüm Markaları Keşfet' : 'Explore All Brands'}
         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-// import { useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { 
   Users, 
@@ -18,14 +18,14 @@ const features = [
   {
     id: 'recognition',
     icon: Award,
-    title: 'Employee Recognition Made Easy',
-    description: "It's quick and simple to send monetary or non-monetary recognition, all in your flow of work.",
-    features: [
-      'Easy-to-use, modern interface',
-      'High usage and adoption',
-      'Enterprise-grade integrations',
-      'Online and offline populations',
-      'Innovative AI features'
+    titleKey: 'animatedFeatures.recognition.title',
+    descriptionKey: 'animatedFeatures.recognition.description',
+    featuresKeys: [
+      'animatedFeatures.recognition.items.0',
+      'animatedFeatures.recognition.items.1',
+      'animatedFeatures.recognition.items.2',
+      'animatedFeatures.recognition.items.3',
+      'animatedFeatures.recognition.items.4'
     ],
     color: 'from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900',
     accentColor: 'primary-500',
@@ -34,14 +34,14 @@ const features = [
   {
     id: 'rewards',
     icon: Globe,
-    title: 'A Truly Global Rewards Marketplace',
-    description: 'Access the world\'s largest in-country reward network – unmatched in reach and locally curated for your workforce.',
-    features: [
-      'Millions of options, zero mark-ups',
-      'Free delivery to ~190 countries',
-      'Locally relevant rewards tailored to regions',
-      'Company branded swag available worldwide',
-      'Concierge service for unique rewards'
+    titleKey: 'animatedFeatures.rewards.title',
+    descriptionKey: 'animatedFeatures.rewards.description',
+    featuresKeys: [
+      'animatedFeatures.rewards.items.0',
+      'animatedFeatures.rewards.items.1',
+      'animatedFeatures.rewards.items.2',
+      'animatedFeatures.rewards.items.3',
+      'animatedFeatures.rewards.items.4'
     ],
     color: 'from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900',
     accentColor: 'primary-600',
@@ -50,13 +50,13 @@ const features = [
   {
     id: 'awards',
     icon: Star,
-    title: 'Nomination-based Awards',
-    description: 'Nominate colleagues for outstanding performance, ensuring your MVPs are recognized.',
-    features: [
-      'Personalized awards',
-      'Customizable approval workflow',
-      'Single dashboard for easy management',
-      'Awards displayed in social newsfeed'
+    titleKey: 'animatedFeatures.awards.title',
+    descriptionKey: 'animatedFeatures.awards.description',
+    featuresKeys: [
+      'animatedFeatures.awards.items.0',
+      'animatedFeatures.awards.items.1',
+      'animatedFeatures.awards.items.2',
+      'animatedFeatures.awards.items.3'
     ],
     color: 'from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900',
     accentColor: 'secondary-500',
@@ -65,13 +65,13 @@ const features = [
   {
     id: 'milestones',
     icon: Users,
-    title: 'Years of Service & Milestones',
-    description: 'Customize how you want to celebrate personal and professional achievements such as years of service.',
-    features: [
-      'Custom digital and printable cards',
-      'Meaningful keepsakes',
-      'Reward tokens',
-      'Scalable celebrations and milestones'
+    titleKey: 'animatedFeatures.milestones.title',
+    descriptionKey: 'animatedFeatures.milestones.description',
+    featuresKeys: [
+      'animatedFeatures.milestones.items.0',
+      'animatedFeatures.milestones.items.1',
+      'animatedFeatures.milestones.items.2',
+      'animatedFeatures.milestones.items.3'
     ],
     color: 'from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900',
     accentColor: 'primary-700',
@@ -81,8 +81,8 @@ const features = [
 ];
 
 export function AnimatedFeaturesSection() {
+  const t = useTranslations();
   const [activeFeature, setActiveFeature] = useState(0);
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
     <section className="relative py-24 bg-neutral-50 dark:bg-gray-900 overflow-hidden transition-colors duration-300">
@@ -109,12 +109,12 @@ export function AnimatedFeaturesSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            Our Solutions
+            {t('animatedFeatures.badge')}
           </motion.span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 dark:text-gray-100 mb-6 font-display transition-colors duration-300">
-            The tools you need to{' '}
+            {t('animatedFeatures.title.prefix')}{' '}
             <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
-              shape your workforce
+              {t('animatedFeatures.title.highlight')}
             </span>
           </h2>
           <motion.div
@@ -128,7 +128,7 @@ export function AnimatedFeaturesSection() {
               variant="outline" 
               className="border-2 border-primary-200 dark:border-primary-700 text-primary-700 dark:text-primary-300 hover:bg-primary-50 dark:hover:bg-primary-900 rounded-full px-8 py-3 font-semibold transition-colors duration-300"
             >
-              Explore our platform
+              {t('animatedFeatures.cta')}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </motion.div>
@@ -138,11 +138,12 @@ export function AnimatedFeaturesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-16">
           {features.map((feature, index) => {
             const Icon = feature.icon;
+            const isActive = index === activeFeature;
             return (
               <div
                 key={feature.id}
                 className={`relative group cursor-pointer ${
-                  index === activeFeature ? 'lg:col-span-2' : 'lg:col-span-1'
+                  isActive ? 'lg:col-span-2' : 'lg:col-span-1'
                 }`}
                 onClick={() => setActiveFeature(index)}
               >
@@ -150,7 +151,7 @@ export function AnimatedFeaturesSection() {
                   relative h-80 rounded-3xl p-6 overflow-hidden border border-neutral-200 dark:border-neutral-700
                   bg-gradient-to-br ${feature.color}
                   transform transition-all duration-500
-                  ${index === activeFeature ? 'ring-2 ring-primary-300 shadow-2xl border-primary-200' : 'shadow-lg hover:shadow-xl'}
+                  ${isActive ? 'ring-2 ring-emerald-300 shadow-2xl border-emerald-200' : 'shadow-lg hover:shadow-xl'}
                   hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-2
                   group cursor-pointer
                 `}>
@@ -166,8 +167,8 @@ export function AnimatedFeaturesSection() {
                   {/* Expand Icon */}
                   <div 
                     className={`absolute top-6 right-6 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 ${
-                      index === activeFeature 
-                        ? `bg-${feature.accentColor} text-white shadow-lg rotate-180` 
+                      isActive 
+                        ? 'bg-emerald-500 text-white shadow-lg rotate-180' 
                         : 'bg-neutral-200 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-400 group-hover:bg-primary-500 group-hover:text-white'
                     }`}
                   >
@@ -178,19 +179,19 @@ export function AnimatedFeaturesSection() {
                   <div className="relative z-10 h-full flex flex-col">
                     <div className="mb-6">
                       <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-all duration-300 ${
-                        index === activeFeature 
-                          ? `bg-${feature.accentColor} text-white shadow-lg` 
+                        isActive 
+                          ? 'bg-emerald-500 text-white shadow-lg' 
                           : 'bg-neutral-200 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-400'
                       }`}>
                         <Icon className="h-6 w-6" />
                       </div>
                       <h3 className="text-xl font-bold mb-3 leading-tight text-neutral-900 dark:text-neutral-100">
-                        {feature.title}
+                        {t(feature.titleKey)}
                       </h3>
                     </div>
 
                     <AnimatePresence>
-                      {index === activeFeature && (
+                      {isActive && (
                         <motion.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: 'auto' }}
@@ -199,19 +200,19 @@ export function AnimatedFeaturesSection() {
                           className="mt-auto"
                         >
                           <p className="text-neutral-600 dark:text-neutral-300 text-sm mb-4 leading-relaxed">
-                            {feature.description}
+                            {t(feature.descriptionKey)}
                           </p>
                           <ul className="space-y-2">
-                            {feature.features.slice(0, 3).map((item, i) => (
+                            {feature.featuresKeys.slice(0, 3).map((key, i) => (
                               <motion.li 
-                                key={i}
+                                key={key}
                                 className="flex items-center text-sm text-neutral-600 dark:text-neutral-400"
                                 initial={{ opacity: 0, x: -10 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: i * 0.1 }}
                               >
-                                <CheckCircle className={`h-3 w-3 mr-2 flex-shrink-0 text-${feature.accentColor}`} />
-                                {item}
+                                <CheckCircle className="h-3 w-3 mr-2 flex-shrink-0 text-emerald-500" />
+                                {t(key)}
                               </motion.li>
                             ))}
                           </ul>
@@ -219,21 +220,21 @@ export function AnimatedFeaturesSection() {
                       )}
                     </AnimatePresence>
 
-                    {index !== activeFeature && (
+                    {!isActive && (
                       <motion.div 
                         className="mt-auto"
                         initial={{ opacity: 1 }}
                         animate={{ opacity: 1 }}
                       >
                         <p className="text-neutral-600 dark:text-neutral-300 text-sm leading-relaxed">
-                          {feature.description.slice(0, 80)}...
+                          {t(features[index].descriptionKey).slice(0, 80)}...
                         </p>
                       </motion.div>
                     )}
                   </div>
 
                   {/* Hover Effect */}
-                  <div className="absolute inset-0 bg-primary-500/5 rounded-3xl opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-emerald-500/5 rounded-3xl opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                 </div>
               </div>
             );
@@ -250,9 +251,9 @@ export function AnimatedFeaturesSection() {
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {[
-              { number: '2x', label: 'More engagement than any other platform' },
-              { number: '4M+', label: 'Members worldwide' },
-              { number: '190+', label: 'Countries supported' }
+              { number: '2x', label: t('animatedFeatures.stats.0') },
+              { number: '4M+', label: t('animatedFeatures.stats.1') },
+              { number: '190+', label: t('animatedFeatures.stats.2') }
             ].map((stat, index) => (
               <motion.div 
                 key={index}
