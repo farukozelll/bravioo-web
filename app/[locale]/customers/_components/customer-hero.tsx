@@ -48,11 +48,7 @@ export function CustomerHero() {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           
           {/* Left Side - Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+          <div
             className="lg:pr-8 lg:sticky lg:top-32"
           >
             {/* Global Badge */}
@@ -93,14 +89,10 @@ export function CustomerHero() {
               </Link>
             </div>
             {/* Hover detayları kaldırıldı */}
-          </motion.div>
+          </div>
 
           {/* Right Side - Infinite Scrolling Customers with subtle background visuals */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+          <div
             className="relative h-[700px] overflow-hidden"
           >
             {/* Decorative blobs removed for solid background */}
@@ -134,7 +126,7 @@ export function CustomerHero() {
             </div>
 
             {/* Edge overlays removed to keep single-color background */}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

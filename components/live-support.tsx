@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { MessageSquare, X, Send, Bot, User, Phone, Mail, Clock, Headphones, Zap, Users } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Send, Bot, Headphones, Zap, Users } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -20,8 +20,31 @@ export function LiveSupport() {
     sender: 'user' | 'ai' | 'human';
     timestamp: Date;
   }>>([]);
+  const [showPulse, setShowPulse] = useState(true);
 
-  const handleSendMessage = () => {
+  // Reduce motion/pulse for accessibility, auto-hide after a few seconds
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (media.matches) {
+      setShowPulse(false);
+      return;
+    }
+    const t = window.setTimeout(() => setShowPulse(false), 5000);
+    return () => window.clearTimeout(t);
+  }, []);
+
+  // Persist scroll lock when dialog is open
+  useEffect(() => {
+    if (!isOpen) return;
+    const original = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = original;
+    };
+  }, [isOpen]);
+
+  const handleSendMessage = async () => {
     if (!message.trim() || !supportType) return;
 
     const newMessage = {
@@ -32,20 +55,43 @@ export function LiveSupport() {
     };
 
     setMessages(prev => [...prev, newMessage]);
+    const prompt = message;
     setMessage('');
 
-    // Simulate response
-    setTimeout(() => {
-      const response = {
-        id: Date.now() + 1,
-        text: supportType === 'ai' 
-          ? 'AI Asistanınız olarak size yardımcı olmaktan mutluyum! Bu konuda size şu önerileri sunabilirim...'
-          : 'Canlı destek temsilciniz olarak size yardımcı olacağım. Lütfen sorununuzu detaylı anlatın.',
-        sender: supportType,
-        timestamp: new Date(),
-      };
-      setMessages(prev => [...prev, response]);
-    }, 1000);
+    if (supportType === 'ai') {
+      try {
+        const res = await fetch('/api/assistant', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ prompt, locale })
+        });
+        const data = await res.json();
+        const reply = (data && data.reply) || (locale === 'tr' ? 'Size yardımcı olmaktan mutluyum. Daha fazla detay verebilir misiniz?' : 'Happy to help. Could you share more details?');
+        setMessages(prev => [...prev, {
+          id: Date.now() + 1,
+          text: reply,
+          sender: 'ai',
+          timestamp: new Date(),
+        }]);
+      } catch {
+        setMessages(prev => [...prev, {
+          id: Date.now() + 1,
+          text: locale === 'tr' ? 'Şu anda yanıt veremiyorum. Lütfen tekrar deneyin.' : 'Unable to respond right now. Please try again.',
+          sender: 'ai',
+          timestamp: new Date(),
+        }]);
+      }
+    } else {
+      // Simulate human response
+      setTimeout(() => {
+        setMessages(prev => [...prev, {
+          id: Date.now() + 1,
+          text: locale === 'tr' ? 'Canlı destek temsilciniz olarak yardımcı olacağım. Detayları paylaşır mısınız?' : 'Your live agent will help you. Please share more details.',
+          sender: 'human',
+          timestamp: new Date(),
+        }]);
+      }, 800);
+    }
   };
 
   const resetChat = () => {
@@ -77,15 +123,12 @@ export function LiveSupport() {
           whileTap={{ scale: 0.95 }}
         >
           <Bot className="h-6 w-6 text-white" />
-          
-          {/* Tooltip - Responsive */}
-          <div className="absolute right-16 md:left-16 top-1/2 -translate-y-1/2 bg-ink-900 dark:bg-gray-800 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden sm:block">
-            AI Asistan
-            <div className="absolute left-full md:right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-ink-900 dark:border-l-gray-800 md:border-l-transparent md:border-r-ink-900 md:dark:border-r-gray-800"></div>
-          </div>
+        
 
-          {/* Pulse animation */}
-          <div className="absolute inset-0 rounded-full bg-purple-500 animate-ping opacity-20"></div>
+          {/* Pulse animation (reduced/limited) */}
+          {showPulse && (
+            <div className="absolute inset-0 rounded-full bg-purple-500 animate-ping opacity-20"></div>
+          )}
         </motion.button>
 
         {/* Live Support Button */}
@@ -113,11 +156,7 @@ export function LiveSupport() {
             <div className="w-full h-full bg-green-400 rounded-full animate-pulse"></div>
           </div>
 
-          {/* Tooltip */}
-          <div className="absolute right-16 md:left-16 top-1/2 -translate-y-1/2 bg-ink-900 dark:bg-gray-800 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden sm:block">
-            Canlı Destek
-            <div className="absolute left-full md:right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-ink-900 dark:border-l-gray-800 md:border-l-transparent md:border-r-ink-900 md:dark:border-r-gray-800"></div>
-          </div>
+        
         </motion.button>
       </div>
 

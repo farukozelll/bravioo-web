@@ -13,9 +13,9 @@ interface Story {
   content: string;
 }
 
-export default function StoryDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+export default function StoryDetailPage({ params }: { params: Promise<{ slug: string; locale: string }> }) {
   return (async () => {
-    const { slug } = await params;
+    const { slug, locale } = await params;
     const items = stories as Story[];
     const story = items.find((s) => s.slug === slug);
 
@@ -36,7 +36,7 @@ export default function StoryDetailPage({ params }: { params: Promise<{ slug: st
           <article className="mx-auto max-w-3xl px-6 py-10 sm:py-12">
             {/* Back Button */}
             <div className="mb-6 flex items-center justify-between">
-              <a href="../stories" className="inline-flex items-center gap-2 text-emerald-700 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-700/50 bg-emerald-50 dark:bg-emerald-900/30 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 rounded-full px-3 py-1.5 text-sm font-medium transition-colors">
+              <a href={`/${locale}/stories`} className="inline-flex items-center gap-2 text-emerald-700 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-700/50 bg-emerald-50 dark:bg-emerald-900/30 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 rounded-full px-3 py-1.5 text-sm font-medium transition-colors">
                 <ArrowLeft className="w-4 h-4" />
                 Tüm Hikayeler
               </a>

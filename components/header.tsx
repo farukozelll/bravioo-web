@@ -571,7 +571,7 @@ function PlatformMainLinks({ locale, t, menuData }: MegaMenuComponentProps) {
 
 function PlatformLink({ link, locale, t }: { link: LinkItem; locale: string; t: (key: string) => string }) {
   return (
-    <Link 
+        <Link 
       href={`/${locale}${link.href}`} 
       className="group flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all duration-200"
     >
@@ -592,8 +592,9 @@ function PlatformLink({ link, locale, t }: { link: LinkItem; locale: string; t: 
         <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
           {t(link.descriptionKey)}
         </p>
-      </div>
+      </div>  
     </Link>
+ 
   );
 }
 

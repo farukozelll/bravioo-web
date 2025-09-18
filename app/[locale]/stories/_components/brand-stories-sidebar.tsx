@@ -24,7 +24,12 @@ export function BrandStoriesSidebar({ onSearch }: { onSearch?: (q: string) => vo
   }, [items]);
   const [query, setQuery] = useState('');
 
-  const featured = useMemo(() => items.slice(0, 3), [items]);
+  // Trending by recency
+  const featured = useMemo(() => items
+    .slice()
+    .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+    .slice(0, 3)
+  , [items]);
 
   return (
     <aside className="space-y-8">
@@ -53,7 +58,7 @@ export function BrandStoriesSidebar({ onSearch }: { onSearch?: (q: string) => vo
       </div>
 
       <div>
-        <div className="text-sm font-semibold text-slate-900 dark:text-white mb-3">Öne Çıkanlar</div>
+        <div className="text-sm font-semibold text-slate-900 dark:text-white mb-3">Trend</div>
         <div className="space-y-4">
           {featured.map((s) => (
             <Link key={s.slug} href={`/${locale}/stories/${s.slug}`} className="flex gap-3 group">
@@ -67,6 +72,18 @@ export function BrandStoriesSidebar({ onSearch }: { onSearch?: (q: string) => vo
                 </div>
               </div>
             </Link>
+          ))}
+        </div>
+      </div>
+
+      {/* Tag Cloud (from categories) */}
+      <div>
+        <div className="text-sm font-semibold text-slate-900 dark:text-white mb-3">Etiketler</div>
+        <div className="flex flex-wrap gap-2">
+          {categories.slice(1).map((c) => (
+            <span key={`tag-${c}`} className="px-2.5 py-1 rounded-md text-xs bg-slate-100 dark:bg-gray-800 text-slate-700 dark:text-gray-200 border border-slate-200 dark:border-gray-700">
+              #{c}
+            </span>
           ))}
         </div>
       </div>

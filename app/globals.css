@@ -371,11 +371,13 @@ body {
     }
   }
 
-  /* Mobile responsiveness - disable animations on small screens */
+  /* Mobile responsiveness - keep animations but slightly slower */
   @media (max-width: 768px) {
-    .animate-scroll-up, 
+    .animate-scroll-up {
+      animation-duration: 60s;
+    }
     .animate-scroll-down {
-      animation: none;
+      animation-duration: 60s;
     }
   }
 

@@ -143,11 +143,12 @@ export const navigationData: NavItem[] = [
           href: '/features/feedback', 
           icon: <Shield className="w-5 h-5" />
         },
-        { 
-          nameKey: 'userManagement', 
-          descriptionKey: 'userManagementDesc', 
-          href: '/features/user-management', 
-          icon: <Users className="w-5 h-5" />
+    
+        {
+          nameKey: 'viewAll',
+          descriptionKey: 'featuresDesc',
+          href: '/features',
+          icon: <Layers className="w-5 h-5" />
         }
       ],
       featuredContent: {
