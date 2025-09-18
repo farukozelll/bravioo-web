@@ -1,10 +1,13 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Globe } from 'lucide-react';
+import React, { useMemo } from 'react';
+import { motion } from 'framer-motion';
+import { Globe } from 'lucide-react';
 import Image from 'next/image';
 import customerData from '@/data/companies.json';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface Customer {
   id: string;
@@ -15,10 +18,8 @@ interface Customer {
 }
 
 export function CustomerHero() {
-  const [hoveredCustomer, setHoveredCustomer] = useState<string | null>(null);
-  
   const customers: Customer[] = customerData;
-  
+  const t = useTranslations('brands.hero');
   // Create infinite scroll data with varying heights
   const scrollData = useMemo(() => {
     const heights = [220, 180, 260, 200, 240, 190, 210]; // Varying card heights for customers
@@ -35,10 +36,10 @@ export function CustomerHero() {
     return { leftColumn, rightColumn };
   }, [customers]);
 
-  const currentCustomer = hoveredCustomer ? customers.find(b => b.id === hoveredCustomer) : null;
+  // Hover details removed; no selected customer state
 
   return (
-    <section className="bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-20 lg:py-24 overflow-hidden transition-colors duration-300">
+    <section className="bg-emerald-600 py-2 lg:py-2 overflow-hidden transition-colors duration-300">
       <div className="mx-auto max-w-7xl px-6">
         
         {/* Main Layout */}
@@ -50,95 +51,48 @@ export function CustomerHero() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:pr-8 lg:sticky lg:top-8"
+            className="lg:pr-8 lg:sticky lg:top-24"
           >
             {/* Global Badge */}
             <div className="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-400 px-4 py-2 rounded-full text-sm font-medium mb-8">
               <Globe className="w-4 h-4" />
-              <span>Global Markalar</span>
+              <span>Global Şirketler</span>
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
+            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
               Dünya Devlerinin<br />
-              <span className="text-emerald-600 dark:text-emerald-400">Teknoloji Ortağı</span>
+              <span className="text-white">Teknoloji Ortağı</span>
             </h1>
 
             {/* Description */}
-            <p className="text-xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+            <p className="text-xl text-emerald-100 mb-8 leading-relaxed">
               Fortune 500 şirketlerinden startup&apos;lara kadar{' '}
               <span className="font-semibold text-emerald-600 dark:text-emerald-400">50+</span> global marka 
               Bravioo&apos;ın enterprise-grade altyapısına güveniyor.
             </p>
-
-            {/* Current Customer Details */}
-            <AnimatePresence mode="wait">
-              {currentCustomer ? (
+            <div className="flex flex-wrap items-center gap-4">
+              <Link href="/contact">
                 <motion.div
-                  key={currentCustomer.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4 }}
-                  className="bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700/50"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center gap-2 bg-gold-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-gold-700 transition-colors duration-300 shadow-lg hover:shadow-xl cursor-pointer"
                 >
-                  {/* Customer Header */}
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-20 h-20 bg-white rounded-xl flex items-center justify-center overflow-hidden">
-                      {currentCustomer.logo ? (
-                        <Image 
-                          src={currentCustomer.logo} 
-                          alt={`${currentCustomer.name} logo`}
-                          width={64}
-                          height={64}
-                          className="w-16 h-16 object-contain"
-                        />
-                      ) : (
-                        <span className="text-slate-800 font-bold text-2xl">
-                          {currentCustomer.name.charAt(0)}
-                        </span>
-                      )}
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-white">{currentCustomer.name}</h3>
-                      <p className="text-emerald-400 font-medium">{currentCustomer.category}</p>
-                    </div>
-                  </div>
-
-              
-
-                  {/* Description */}
-                  <div className="bg-slate-700/50 p-4 rounded-xl mb-6">
-                    <p className="text-slate-200 text-sm leading-relaxed">
-                      {currentCustomer.description}
-                    </p>
-                  </div>
-
-                
+                  <span>{t('enterpriseDemo')}</span>
+                  <ArrowRight className="w-5 h-5" />
                 </motion.div>
-              ) : (
+              </Link>
+              <Link href="/stories">
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="bg-[#3A9355] backdrop-blur-sm p-8 rounded-2xl border border-emerald-500/30"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-flex items-center gap-2 border border-slate-300 dark:border-gray-700 text-gold-400 dark:text-slate-200 px-6 py-3 rounded-xl font-semibold hover:bg-slate-50 dark:hover:bg-gray-800 transition-colors duration-300 cursor-pointer"
                 >
-                  <h3 className="text-xl font-bold text-white mb-4">
-                    Enterprise Success Stories
-                  </h3>
-                  <p className="text-slate-300 mb-6">
-                    Sağdaki kartların üzerine gelerek global markaların Bravioo ile elde ettiği başarıları keşfedin.
-                  </p>
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="bg-emerald-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-emerald-700 transition-colors duration-300 inline-flex items-center gap-2"
-                  >
-                    <span>Tüm Case Study&apos;ler</span>
-                    <ArrowRight className="w-5 h-5" />
-                  </motion.button>
+                  <span>{t('customerStories')}</span>
                 </motion.div>
-              )}
-            </AnimatePresence>
+              </Link>
+            </div>
+            {/* Hover detayları kaldırıldı */}
           </motion.div>
 
           {/* Right Side - Infinite Scrolling Customers with subtle background visuals */}
@@ -149,11 +103,7 @@ export function CustomerHero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative h-[700px] overflow-hidden"
           >
-            {/* Light/Dark background decorative images */}
-            <div className="pointer-events-none absolute inset-0">
-              <div className="absolute -top-10 -left-10 w-80 h-80 rounded-full blur-3xl opacity-20 bg-emerald-300 dark:bg-emerald-700"></div>
-              <div className="absolute -bottom-16 -right-16 w-96 h-96 rounded-full blur-3xl opacity-20 bg-blue-300 dark:bg-blue-700"></div>
-            </div>
+            {/* Decorative blobs removed for solid background */}
             <div className="grid grid-cols-2 gap-4 h-full group">
               
               {/* Left Column - Scrolling Up */}
@@ -164,8 +114,6 @@ export function CustomerHero() {
                       key={`left-${customer.uniqueId}-${index}`}
                       customer={customer}
                       height={customer.height}
-                      onHover={() => setHoveredCustomer(customer.id)}
-                      onLeave={() => setHoveredCustomer(null)}
                     />
                   ))}
                 </div>
@@ -179,17 +127,13 @@ export function CustomerHero() {
                       key={`right-${customer.uniqueId}-${index}`}
                       customer={customer}
                       height={customer.height}
-                      onHover={() => setHoveredCustomer(customer.id)}
-                      onLeave={() => setHoveredCustomer(null)}
                     />
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Gradient Overlays for Fade Effect */}
-            <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-slate-900 to-transparent z-10 pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-slate-900 to-transparent z-10 pointer-events-none"></div>
+            {/* Edge overlays removed to keep single-color background */}
           </motion.div>
         </div>
       </div>
@@ -201,67 +145,29 @@ export function CustomerHero() {
 interface CustomerCardProps {
   customer: Customer & { height: number };
   height: number;
-  onHover: () => void;
-  onLeave: () => void;
 }
 
-const CustomerCard = React.memo(function CustomerCard({ customer, height, onHover, onLeave }: CustomerCardProps) {
-
+const CustomerCard = React.memo(function CustomerCard({ customer, height }: CustomerCardProps) {
   return (
-    <motion.div
-      onHoverStart={() => {
-        onHover();
-      }}
-      onHoverEnd={() => {
-        onLeave();
-      }}
-      whileHover={{ scale: 1.03, zIndex: 10 }}
-      className="group relative cursor-pointer"
+    <div
+      className="relative rounded-2xl overflow-hidden bg-white/10 shadow-lg border border-white/20 flex items-center justify-center"
       style={{ height: `${height}px` }}
     >
-      <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gradient-to-br from-slate-800 to-slate-900 shadow-lg border border-slate-700/50">
-        
-        {/* Background Image */}
-        {customer.logo && (
-          <div 
-            className="absolute inset-0 bg-cover bg-center opacity-20"
-            style={{
-              backgroundImage: `url(${customer.logo})`,
-              filter: 'blur(20px)',
-            }}
+      <div className="w-full h-full flex items-center justify-center p-4">
+        {customer.logo ? (
+          <Image
+            src={customer.logo}
+            alt={`${customer.name} logo`}
+            width={160}
+            height={80}
+            className="max-h-16 w-auto object-contain opacity-100 invert brightness-0 saturate-0 contrast-100"
           />
+        ) : (
+          <span className="text-slate-800 dark:text-white/80 font-bold text-2xl">
+            {customer.name.charAt(0)}
+          </span>
         )}
-        
-        {/* Background Gradient */}
-        <div className={`absolute inset-0 bg-[#3A9355]`}></div>
-
-        {/* Content */}
-        <div className="absolute inset-0 p-4 flex flex-col justify-between text-white">
-          
-          {/* Top Section */}
-          <div className="flex items-start justify-between">
-          
-            
-            {/* Enterprise Badge */}
-            <div className="bg-white/40 text-black-400 px-2 py-1 rounded-md text-xs font-medium backdrop-blur-sm">
-              {customer.category}
-            </div>
-          </div>
-
-          {/* Bottom Section */}
-          <div>
-            {/* Customer Name & Category */}
-            <div className="text-white font-bold text-xl mb-1">{customer.name}</div>
-          </div>
-        </div>
-
-        {/* Hover Overlay */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileHover={{ opacity: 1 }}
-          className="absolute inset-0 bg-gradient-to-t from-emerald-600/30 to-transparent"
-        />
       </div>
-    </motion.div>
+    </div>
   );
 });

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ArrowRight, TrendingUp, Users, Award, Building } from 'lucide-react';
 import Image from 'next/image';
 import companiesData from '@/data/companies.json';
@@ -29,7 +29,6 @@ interface Company {
 }
 
 export function CustomerShowcase() {
-  const [hoveredCompany, setHoveredCompany] = useState<string | null>(null);
   const [activeCategory, setActiveCategory] = useState<string>('Tümü');
 
   const companies: Company[] = companiesData;
@@ -135,17 +134,12 @@ export function CustomerShowcase() {
             <motion.div
               key={company.id}
               variants={itemVariants}
-              onHoverStart={() => setHoveredCompany(company.id)}
-              onHoverEnd={() => setHoveredCompany(null)}
-              onFocus={() => setHoveredCompany(company.id)}
-              onBlur={() => setHoveredCompany(null)}
-              tabIndex={0}
-              className="group relative cursor-pointer outline-none focus:ring-2 focus:ring-emerald-500 rounded-lg"
+              className="relative rounded-lg"
             >
-              <div className="relative bg-white dark:bg-gray-800 rounded-2xl p-3 sm:p-4 border border-slate-200 dark:border-gray-700 transition-all duration-300 group-hover:border-emerald-300 dark:group-hover:border-emerald-500 group-hover:shadow-xl group-hover:-translate-y-2 overflow-hidden h-40 sm:h-48">
+              <div className="relative bg-white dark:bg-gray-800 rounded-2xl p-3 sm:p-4 border border-slate-200 dark:border-gray-700 overflow-hidden h-36 sm:h-36">
                 
                 {/* Company Logo */}
-                <div className="w-12 sm:w-16 h-12 sm:h-16 mx-auto mb-2 bg-slate-100 dark:bg-gray-700 rounded-xl flex items-center justify-center group-hover:bg-emerald-50 dark:group-hover:bg-emerald-900/30 transition-colors duration-300 overflow-hidden">
+                <div className="w-12 sm:w-16 h-12 sm:h-16 mx-auto mb-2 bg-slate-100 dark:bg-gray-700 rounded-xl flex items-center justify-center overflow-hidden">
                   {company.logo ? (
                     <Image 
                       src={company.logo} 
@@ -160,7 +154,7 @@ export function CustomerShowcase() {
                       }}
                     />
                   ) : null}
-                  <span className="text-slate-600 dark:text-gray-300 group-hover:text-emerald-600 font-bold text-lg transition-colors duration-300 hidden">
+                  <span className="text-slate-600 dark:text-gray-300 font-bold text-lg hidden">
                     {company.name.charAt(0)}
                   </span>
                 </div>
@@ -171,36 +165,12 @@ export function CustomerShowcase() {
                 </h3>
 
                 {/* Category */}
-                <p className="text-xs text-slate-500 dark:text-gray-400 text-center mb-2 sm:mb-4">
+              {/*   <p className="text-xs text-slate-500 dark:text-gray-400 text-center mb-2 sm:mb-4">
                   {company.category}
-                </p>
+                </p> */}
 
 
-                {/* Hover Card - Success Story */}
-                <AnimatePresence>
-                  {hoveredCompany === company.id && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: -20, scale: 0.9 }}
-                      transition={{ duration: 0.4 }}
-                      className="absolute inset-0 bg-white dark:bg-gray-800 rounded-2xl p-3 sm:p-4 border border-emerald-200 dark:border-emerald-600 shadow-2xl z-10"
-                    >
-                      <div className="h-full flex flex-col">
-                        
-                    
-       
-                        {/* Testimonial */}
-                        <div className="bg-emerald-50 dark:bg-emerald-900/20 p-3 rounded-lg mb-4">
-                          <p className="text-xs text-slate-700 dark:text-gray-300 italic mb-2">
-                            &ldquo;{company.testimonial.text}&rdquo;
-                          </p>
-                        </div>
-
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                {/* No hover overlay */}
 
               </div>
             </motion.div>
