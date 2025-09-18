@@ -96,7 +96,7 @@ export function CustomerShowcase() {
         </motion.div>
 
         {/* Category Filter */}
-        <motion.div
+{/*         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -120,7 +120,7 @@ export function CustomerShowcase() {
               {category.name} ({category.count})
             </motion.button>
           ))}
-        </motion.div>
+        </motion.div> */}
 
         {/* Company Grid */}
         <motion.div
