@@ -250,13 +250,13 @@ export function HowItWorksSection() {
                     </div>
                   ) : (
                     <div className="flex justify-end">
-                      <div className="relative w-[560px] aspect-[16/9] overflow-hidden rounded-3xl">
+                      <div className="relative w-[1600px] aspect-[16/9] overflow-hidden rounded-3xl">
                         <Image
-                          src="/images/Ekran görüntüsü 2025-09-18 094417.png"
+                          src="/images/Bravioo-Tablet_Mockup.png"
                           alt="Admin portal preview"
                           fill
-                          sizes="560px"
-                          className="object-cover"
+                          sizes="1600px"
+                          className="object-contain"
                           priority
                         />
                       </div>

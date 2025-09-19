@@ -84,7 +84,7 @@ export const socialLinks: SocialLink[] = [
   },
   { 
     nameKey: 'footer.social.email', 
-    href: 'mailto:hello@bravioo.com', 
+    href: 'mailto:info@bravioo.com', 
     icon: Mail 
   },
 ];

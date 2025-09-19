@@ -14,7 +14,7 @@ export function Footer() {
   const { theme, toggleTheme, mounted } = useEnhancedTheme();
 
   return (
-    <footer className="relative mt-12 bg-gradient-to-br from-primary-900 via-green-800 to-green-950 dark:from-gray-900 dark:via-gray-800 dark:to-gray-950 text-white overflow-hidden transition-colors duration-300">
+    <footer className="relative mt-12 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-950 dark:from-gray-900 dark:via-gray-800 dark:to-gray-950 text-white overflow-hidden transition-colors duration-300">
       {/* Modern Background Pattern */}
       <div className="absolute inset-0 opacity-30">
         <div className="h-full w-full" style={{
@@ -25,7 +25,7 @@ export function Footer() {
       
       {/* Enhanced Gradient Overlays */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-radial from-primary-500/15 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-radial from-secondary-400/10 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-radial from-primary-400/10 to-transparent rounded-full blur-3xl" />
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-primary-600/5 to-transparent rounded-full blur-3xl" />
       
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">

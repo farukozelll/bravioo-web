@@ -153,7 +153,7 @@ export async function POST(request: Request) {
         `;
 
         emailResult = await sendMailViaGraph({
-          to: process.env.CONTACT_EMAIL || 'hello@bravioo.com',
+          to: process.env.CONTACT_EMAIL || 'info@bravioo.com',
           subject: `🎯 New Demo Request: ${data.demoType} - ${data.company}`,
           htmlContent: emailContent,
           textContent: `
@@ -196,7 +196,7 @@ Submission Time: ${data.timestamp || new Date().toISOString()}
 
         <p>In the meantime, feel free to explore our <a href="https://bravioo.com/features">features</a> and <a href="https://bravioo.com/customers">customer success stories</a>.</p>
         
-        <p>If you have any urgent questions, don't hesitate to reach out to us at <a href="mailto:hello@bravioo.com">hello@bravioo.com</a>.</p>
+        <p>If you have any urgent questions, don't hesitate to reach out to us at <a href="mailto:info@bravioo.com">info@bravioo.com</a>.</p>
         
         <p>Best regards,<br>The Bravioo Team</p>
         

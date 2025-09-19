@@ -48,7 +48,7 @@ export default async function ContactPage({ params }: Props) {
     {
       icon: Mail,
       title: locale === 'tr' ? 'E-posta' : 'Email',
-      description: 'hello@bravioo.com',
+      description: 'info@bravioo.com',
       action: locale === 'tr' ? 'E-posta Gönder' : 'Send Email',
       color: 'from-purple-500 to-pink-600'
     },

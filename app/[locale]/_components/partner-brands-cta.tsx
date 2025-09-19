@@ -101,7 +101,7 @@ export function PartnerBrandsCTA() {
                 >
                   {/* Single phone mockup image */}
                   <Image
-                    src="/images/device-friendly-thumb.png"
+                    src="/images/Bravioo-Web-Mobile_Mockup.png"
                     alt={locale === 'tr' ? 'Bravioo Mobil Uygulama Mockup' : 'Bravioo Mobile App Mockup'}
                     width={1600}
                     height={1200}
