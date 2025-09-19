@@ -1,8 +1,8 @@
 [
   {
     "id": "ahes-insaat",
-    "name": "AHES İnşaat",
-    "logo": "/images/companies/placeholder.png",
+    "name": "Ahes İnşaat Ticaret ve Sanayi A.Ş.",
+    "logo": "/images/companies/ahes-insaat.png",
     "category": "İnşaat",
     "description": "Dijitalleşme ile Proje Verimliliğini Zirveye Taşıdı",
     "metrics": {
@@ -27,7 +27,7 @@
   {
     "id": "akgun-grup",
     "name": "Akgün Grup",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/akgungroup-logo-v1.png",
     "category": "Holding",
     "description": "Grup Şirketleri Arası Veri Akışını Merkezileştirerek Stratejik Kararları Hızlandırdı",
     "metrics": {
@@ -52,7 +52,7 @@
   {
     "id": "akmercan-grup",
     "name": "Akmercan Grup",
-    "logo": "/images/companies/akmercan-grup.svg",
+    "logo": "/images/companies/akmercan.webp",
     "category": "Enerji",
     "description": "Saha Operasyonları Yönetiminde Dijital Dönüşümü Başarıyla Tamamladı",
     "metrics": {
@@ -102,7 +102,7 @@
   {
     "id": "alpedo-dondurma",
     "name": "Alpedo Dondurma",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/alpedo.png",
     "category": "Gıda",
     "description": "Soğuk Zincir Lojistiğini ve Bayi Siparişlerini Optimize Etti",
     "metrics": {
@@ -152,7 +152,7 @@
   {
     "id": "azik-yemek",
     "name": "Azık Yemek",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/azik-yemek.png",
     "category": "Gıda",
     "description": "Toplu Yemek Üretim ve Dağıtım Süreçlerini Otomatize Etti",
     "metrics": {
@@ -227,7 +227,7 @@
   {
     "id": "bekart-gida",
     "name": "Bekart Gıda",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/bekart.png",
     "category": "Gıda",
     "description": "Pazar Yeri Entegrasyonları ile E-Ticaret Hacmini Büyüttü",
     "metrics": {
@@ -252,7 +252,7 @@
   {
     "id": "bilge-cocuk",
     "name": "Bilge Çocuk",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/bilge-cocuk.png",
     "category": "Yayıncılık",
     "description": "Abonelik Yönetimi ve Dijital İçerik Sunumunda Başarıyı Yakaladı",
     "metrics": {
@@ -277,7 +277,7 @@
   {
     "id": "bilge-minik",
     "name": "Bilge Minik",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/bilge-minik.webp",
     "category": "Yayıncılık",
     "description": "Okul Öncesi Eğitim İçeriklerini İnteraktif Platforma Taşıdı",
     "metrics": {
@@ -327,7 +327,7 @@
   {
     "id": "celiktas",
     "name": "Çeliktaş",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/celiktas.png",
     "category": "Üretim",
     "description": "Stok Yönetimi ve Lojistik Süreçlerinde %30 Verimlilik Sağladı",
     "metrics": {
@@ -352,7 +352,7 @@
   {
     "id": "cevtem-temizlik",
     "name": "Çevtem Temizlik",
-    "logo": "/images/companies/evtem-temizlik.png",
+    "logo": "/images/companies/cevtem-temizlik.png",
     "category": "Hizmet",
     "description": "Saha Ekibi Yönetiminde %60 Zaman Tasarrufu Elde Etti",
     "metrics": {
@@ -377,7 +377,7 @@
   {
     "id": "cift-geyik-karaca",
     "name": "Çift Geyik Karaca",
-    "logo": "/images/companies/ift-geyik-karaca.png",
+    "logo": "/images/companies/cift-geyik-karaca3.png",
     "category": "Tekstil & Giyim",
     "description": "Omnichannel Stratejisi ile Mağaza ve Online Satışları Birleştirdi",
     "metrics": {
@@ -402,7 +402,7 @@
   {
     "id": "eregli-tekstil",
     "name": "Ereğli Tekstil",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/eregli-tekstil.png",
     "category": "Tekstil & Giyim",
     "description": "B2B Portal Üzerinden Bayi Siparişlerini %500 Artırdı",
     "metrics": {
@@ -427,7 +427,7 @@
   {
     "id": "ertex-tekstil",
     "name": "Ertex Tekstil",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/erteks-tekstil.png",
     "category": "Tekstil & Giyim",
     "description": "Üretim Planlama ve Takip Süreçlerini Dijitalleştirdi",
     "metrics": {
@@ -477,7 +477,7 @@
   {
     "id": "fa-grup",
     "name": "FA Grup",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/fa-grup.png",
     "category": "Holding",
     "description": "Grup Şirketleri Arası Sinerjiyi ve Raporlamayı Güçlendirdi",
     "metrics": {
@@ -502,7 +502,7 @@
   {
     "id": "global-turizm",
     "name": "Global Turizm",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/global-turizm.jpg",
     "category": "Turizm",
     "description": "Rezervasyon ve Tur Yönetimini Tek Platformda Birleştirdi",
     "metrics": {
@@ -527,7 +527,7 @@
   {
     "id": "gzt",
     "name": "GZT",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/gzt.png",
     "category": "Medya",
     "description": "Video İçerik Platformu ile Ziyaretçi Etkileşimini Zirveye Çıkardı",
     "metrics": {
@@ -552,7 +552,7 @@
   {
     "id": "hasal-aluminyum",
     "name": "Hasal Alüminyum",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/hasal.svg",
     "category": "Üretim",
     "description": "Özelleştirilmiş Ürün Siparişlerini B2B Portal ile Kolaylaştırdı",
     "metrics": {
@@ -577,7 +577,7 @@
   {
     "id": "ictas",
     "name": "İçtaş",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/ictas.webp",
     "category": "İnşaat",
     "description": "Büyük Altyapı Projelerinde Doküman Yönetimini Merkezileştirdi",
     "metrics": {
@@ -602,7 +602,7 @@
   {
     "id": "kaanlar-hikmet-gida",
     "name": "Kaanlar Hikmet Gıda",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/kaanlar.png",
     "category": "Gıda",
     "description": "Tedarik Zinciri ve Bayi Yönetimini Dijitalleştirdi",
     "metrics": {
@@ -627,7 +627,7 @@
   {
     "id": "ketebe-yayinlari",
     "name": "Ketebe Yayınları",
-    "logo": "/images/companies/ketebe-yaynlar.jpg",
+    "logo": "/images/companies/ketebe.svg",
     "category": "Yayıncılık",
     "description": "E-Ticaret ve Yazar İlişkileri Yönetimini Tek Platforma Taşıdı",
     "metrics": {
@@ -677,7 +677,7 @@
   {
     "id": "lokma",
     "name": "Lokma",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/lokma.svg",
     "category": "Medya",
     "description": "Yemek Tarifi Platformunda Kullanıcı Etkileşimini Artırdı",
     "metrics": {
@@ -727,7 +727,7 @@
   {
     "id": "misek-insaat",
     "name": "MİSEK İnşaat",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/misek.svg",
     "category": "İnşaat",
     "description": "Tedarikçi ve Hakediş Yönetimini Dijitalleştirdi",
     "metrics": {
@@ -752,7 +752,7 @@
   {
     "id": "nihayet",
     "name": "Nihayet",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/nihayet.png",
     "category": "Yayıncılık",
     "description": "Akademik ve Kültürel İçerikleri Dijital Platforma Taşıdı",
     "metrics": {
@@ -802,7 +802,7 @@
   {
     "id": "skyroad",
     "name": "Skyroad",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/skyroad.jpg",
     "category": "Medya",
     "description": "Gezi ve Kültür İçeriklerini İnteraktif Haritalarla Zenginleştirdi",
     "metrics": {
@@ -827,7 +827,7 @@
   {
     "id": "sukkar",
     "name": "Sukkar",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/sukkar.svg",
     "category": "Gıda",
     "description": "Şekerleme Üretiminde Reçete ve Stok Yönetimini Optimize Etti",
     "metrics": {
@@ -902,7 +902,7 @@
   {
     "id": "tokal-insaat",
     "name": "Tokal İnşaat",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/tokal.png",
     "category": "İnşaat",
     "description": "Konut Projelerinde Satış ve Müşteri İlişkilerini Yönetti",
     "metrics": {
@@ -927,7 +927,7 @@
   {
     "id": "trabzon-limani",
     "name": "Trabzon Limanı",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/trabzon-port.png",
     "category": "Lojistik & Ulaşım",
     "description": "Liman Operasyonları ve Gümrük Süreçlerini Dijital Platforma Taşıdı",
     "metrics": {
@@ -952,7 +952,7 @@
   {
     "id": "tumosan",
     "name": "Tümosan",
-    "logo": "/images/companies/tmosan.png",
+    "logo": "/images/companies/tumosan.png",
     "category": "Üretim",
     "description": "Yedek Parça Yönetimi ve Servis Ağı Verimliliğini Artırdı",
     "metrics": {
@@ -1002,7 +1002,7 @@
   {
     "id": "tvnet",
     "name": "TVNET",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/tvnet.png",
     "category": "Medya",
     "description": "Canlı Yayın ve İçerik Arşiv Yönetimini Tek Platformda Birleştirdi",
     "metrics": {
@@ -1102,7 +1102,7 @@
   {
     "id": "yaka-textil",
     "name": "Yaka Textil",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/yaka.svg",
     "category": "Tekstil & Giyim",
     "description": "Koleksiyon ve Numune Yönetim Süreçlerini Dijitalleştirdi",
     "metrics": {
@@ -1127,7 +1127,7 @@
   {
     "id": "yeni-safak",
     "name": "Yeni Şafak",
-    "logo": "/images/companies/placeholder.png",
+    "logo": "/images/companies/yenisafak.png",
     "category": "Medya",
     "description": "Dijital Abonelik ve İçerik Yönetiminde Liderliğe Ulaştı",
     "metrics": {

@@ -90,7 +90,7 @@ export function BrandPartnershipHero() {
               className="relative w-full max-w-sm sm:max-w-md lg:max-w-xl"
             >
               <Image
-                src="/images/hero-thumb2.png"
+                src="/images/Bravioo-Double2-Mobile_Mockup.png"
                 alt="Bravioo marka işbirliği görseli"
                 width={1600}
                 height={1200}

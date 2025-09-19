@@ -8,14 +8,10 @@ import {
   Star,
   ChevronLeft,
   ChevronRight,
-  Users,
   Building,
   MapPin,
-  // TrendingUp,
-  Play,
 } from 'lucide-react';
 import Image from 'next/image';
-import { VideoDialog } from '@/components/ui/video-dialog';
 import { TESTIMONIALS } from '@/data/testimonials';
 
 export function TestimonialsSlider() {
@@ -23,10 +19,6 @@ export function TestimonialsSlider() {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   // Removed hover expansion on thumbnails for cleaner UX
   const [autoPlay, setAutoPlay] = useState(true);
-  const [videoModal, setVideoModal] = useState<{
-    src?: string;
-    title?: string;
-  } | null>(null);
 
   const testimonials = TESTIMONIALS.map((t) => ({
     ...t,
@@ -60,23 +52,9 @@ export function TestimonialsSlider() {
   };
 
   const currentTestimonial = testimonials[activeTestimonial];
-  const MOCK_VISUALS = [
-    'https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1600&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1529336953121-4f3f8c6dc2a6?q=80&w=1600&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1600&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1542744094-24638eff58bb?q=80&w=1600&auto=format&fit=crop',
-  ];
-  const MOCK_VIDEO_URL =
-    'https://www.youtube.com/embed/ScMzIvxBSi4?autoplay=0&mute=1&controls=1&rel=0&modestbranding=1';
-  const openVideo = () => {
-    const title = `${currentTestimonial.company} – ${locale === 'tr' ? 'Başarı Hikayesi' : 'Success Story'}`;
-    setVideoModal({ src: MOCK_VIDEO_URL, title });
-  };
-  const closeVideo = () => setVideoModal(null);
 
   return (
-    <section className="relative overflow-hidden bg-white py-24 text-ink-900 transition-colors duration-300 dark:bg-gray-900 dark:text-white">
+    <section className="relative overflow-hidden py-24 text-ink-900 transition-colors duration-300 dark:bg-gray-900 dark:text-white">
       {/* Background Effects */}
       <div className="pointer-events-none absolute inset-0"></div>
 
@@ -105,22 +83,14 @@ export function TestimonialsSlider() {
                 {/* Author Info */}
                 <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-6">
                   <div className="relative">
-                    <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm">
+                    <div className="h-20 w-20 rounded-full overflow-hidden border border-gray-200 dark:border-gray-700 shadow-sm bg-white dark:bg-gray-800">
                       <Image
-                        src={currentTestimonial.companyLogo}
-                        alt={currentTestimonial.company}
-                        width={48}
-                        height={48}
-                        className="object-contain max-w-12 max-h-12"
+                        src={currentTestimonial.avatar}
+                        alt={currentTestimonial.name}
+                        width={80}
+                        height={80}
+                        className="h-full w-full object-cover"
                       />
-                    </div>
-                    <div className="absolute -bottom-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-brand-500 to-emerald-500">
-                      <span className="text-xs font-bold text-white">
-                        {currentTestimonial.name
-                          .split(' ')
-                          .map((n) => n[0])
-                          .join('')}
-                      </span>
                     </div>
                   </div>
 
@@ -140,10 +110,7 @@ export function TestimonialsSlider() {
                         <MapPin className="h-4 w-4" />
                         {currentTestimonial.location}
                       </div>
-                      <div className="flex items-center gap-1">
-                        <Users className="h-4 w-4" />
-                        {currentTestimonial.employeeCount}
-                      </div>
+                  
                     </div>
 
                     {/* Rating */}
@@ -162,40 +129,19 @@ export function TestimonialsSlider() {
                 </div>
               </div>
 
-              {/* Right - Results & Visual */}
+              {/* Right - Company Logo Visual */}
               <div className="space-y-6">
-                {/* Company Visual */}
-                <div
-                  className={`relative h-44 rounded-2xl bg-gradient-to-br sm:h-52 ${currentTestimonial.background} group cursor-pointer overflow-hidden p-4 sm:p-6`}
-                >
-                  <Image
-                    src={MOCK_VISUALS[activeTestimonial % MOCK_VISUALS.length]}
-                    alt={`${currentTestimonial.company} visual`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
-                  {/* Company Info */}
-                  <div className="absolute left-6 right-6 top-6">
-                    <div className="flex items-center justify-between"></div>
+                <div className="relative h-44 sm:h-52 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200/60 dark:border-gray-700/60 flex items-center justify-center p-6">
+                  <div className="relative h-full w-full">
+                    <Image
+                      src={currentTestimonial.companyLogo}
+                      alt={`${currentTestimonial.company} logo`}
+                      fill
+                      className="object-contain p-4"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      priority
+                    />
                   </div>
-
-                  {/* Play Button */}
-                  <button
-                    className="absolute inset-0 m-auto flex h-16 w-16 items-center justify-center rounded-full bg-black/20 hover:bg-black/30 dark:bg-white/20 dark:hover:bg-white/30 transition-all duration-300 hover:scale-110 active:scale-95 z-10"
-                    aria-label={
-                      locale === 'tr' ? 'Videoyu oynat' : 'Play video'
-                    }
-                    onClick={openVideo}
-                  >
-                    <Play className="ml-1 h-6 w-6 text-ink-900 dark:text-white" />
-                  </button>
-
-                  {/* Background Elements */}
-                  <div className="absolute bottom-4 right-4 h-24 w-24 rounded-full border border-white/20"></div>
-                  <div className="absolute right-8 top-1/2 h-16 w-16 rounded-full border border-white/20"></div>
                 </div>
                 <span className="text-sm font-semibold text-ink-900 dark:text-white">
                   {currentTestimonial.company}
@@ -246,7 +192,7 @@ export function TestimonialsSlider() {
           </div>
 
           {/* Testimonial Thumbnails */}
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+       {/*    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
             {testimonials.map((testimonial, index) => (
               <button
                 key={testimonial.id}
@@ -289,18 +235,12 @@ export function TestimonialsSlider() {
                   </div>
                 </div>
 
-                {/* Removed hover-open extra content for simplicity */}
               </button>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
-      <VideoDialog
-        open={!!videoModal}
-        onClose={closeVideo}
-        title={videoModal?.title}
-        src={videoModal?.src}
-      />
+      
     </section>
   );
 }

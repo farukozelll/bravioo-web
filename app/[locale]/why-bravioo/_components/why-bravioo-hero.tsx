@@ -124,7 +124,7 @@ export function WhyBraviooHero() {
               className="relative w-full max-w-sm sm:max-w-md lg:max-w-xl"
             >
               <Image
-                src="/images/hero-thumb3.png"
+                src="/images/Bravioo-Double-Mobile_Mockup.png"
                 alt="Bravioo neden biz görseli"
                 width={1600}
                 height={1200}
