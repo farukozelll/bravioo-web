@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { EnhancedThemeProvider } from '@/contexts/enhanced-theme-context';
 import { HubSpotTracking } from '@/components/hubspot-tracking';
+import '@/lib/safari-polyfills';
 import "./globals.css";
 
 const redditSans = Reddit_Sans({
@@ -66,7 +67,7 @@ export default function RootLayout({
       <body
         className={`${redditSans.variable} font-sans antialiased`}
       >
-        <EnhancedThemeProvider defaultTheme="system" enableSystem={true}>
+        <EnhancedThemeProvider defaultTheme="light" enableSystem={true}>
           {children}
           <Analytics />
           <SpeedInsights />

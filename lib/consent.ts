@@ -1,4 +1,5 @@
 import { ConsentData } from './zod-schemas';
+import { safeLocalStorage } from './safari-polyfills';
 
 export const CONSENT_COOKIE_NAME = 'bravioo-consent';
 export const CONSENT_VERSION = '1.0';
@@ -29,7 +30,7 @@ export function getConsent(): ConsentState | null {
 
   try {
     // Try localStorage first
-    const stored = localStorage.getItem(CONSENT_COOKIE_NAME);
+    const stored = safeLocalStorage.getItem(CONSENT_COOKIE_NAME);
     if (stored) {
       const parsed = JSON.parse(stored);
       return {
@@ -66,7 +67,7 @@ export function saveConsent(consent: ConsentState, useCookies: boolean = true) {
     const consentString = JSON.stringify(consent);
 
     // Save to localStorage
-    localStorage.setItem(CONSENT_COOKIE_NAME, consentString);
+    safeLocalStorage.setItem(CONSENT_COOKIE_NAME, consentString);
 
     // Optionally save to cookies for server-side access
     if (useCookies) {
@@ -136,7 +137,7 @@ export function initializeGoogleConsentMode() {
 export function clearConsent() {
   if (typeof window === 'undefined') return;
 
-  localStorage.removeItem(CONSENT_COOKIE_NAME);
+  safeLocalStorage.removeItem(CONSENT_COOKIE_NAME);
   document.cookie = `${CONSENT_COOKIE_NAME}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
 
   // Reset Google Consent Mode

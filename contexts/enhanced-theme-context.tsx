@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
+import { safeLocalStorage } from '@/lib/safari-polyfills';
 
 type Theme = 'light' | 'dark' | 'system';
 type ResolvedTheme = 'light' | 'dark';
@@ -66,7 +67,7 @@ export function EnhancedThemeProvider({
   useEffect(() => {
     try {
       // Get saved theme or use default
-      const savedTheme = localStorage.getItem(storageKey) as Theme | null;
+      const savedTheme = safeLocalStorage.getItem(storageKey) as Theme | null;
       const initialTheme = savedTheme || defaultTheme;
       
       setThemeState(initialTheme);
@@ -114,7 +115,7 @@ export function EnhancedThemeProvider({
   const setTheme = useCallback((newTheme: Theme) => {
     try {
       setThemeState(newTheme);
-      localStorage.setItem(storageKey, newTheme);
+      safeLocalStorage.setItem(storageKey, newTheme);
       
       const resolved = resolveTheme(newTheme);
       setResolvedTheme(resolved);

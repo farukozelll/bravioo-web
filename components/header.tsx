@@ -78,22 +78,32 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close dropdowns when clicking outside
+  // Close dropdowns when clicking outside - Safari compatible
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = (event: Event) => {
       const target = event.target as HTMLElement;
+      if (!target) return;
       
-      if (!target.closest('.language-selector') && isLangOpen) {
+      // Safari compatibility: use closest() with proper fallback
+      const isLanguageSelector = target.closest('.language-selector');
+      const isDropdownContainer = target.closest('.dropdown-container');
+      
+      if (!isLanguageSelector && isLangOpen) {
         setIsLangOpen(false);
       }
       
-      if (!target.closest('.dropdown-container') && activeDropdown) {
+      if (!isDropdownContainer && activeDropdown) {
         setActiveDropdown(null);
       }
     };
 
+    // Add both mousedown and touchstart for better Safari support
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener('touchstart', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
   }, [isLangOpen, activeDropdown]);
 
   const isActiveRoute = useCallback((href: string) => {
@@ -112,11 +122,7 @@ export function Header() {
     setIsLangOpen(prev => !prev);
   }, []);
 
-  const handleDropdownHover = useCallback((itemKey: string | null) => {
-    if (canHover) {
-      setActiveDropdown(itemKey);
-    }
-  }, [canHover]);
+  
 
   const closeAllMenus = useCallback(() => {
     setIsMenuOpen(false);
@@ -619,7 +625,7 @@ function SuccessStoryCard({ story, locale, t }: { story: StoryItem; locale: stri
     <Link href={`/${locale}${story.href}`} className="group block">
       <div className="relative overflow-hidden rounded-lg mb-3">
         <Image 
-          src={story.image} 
+          src={story.image.trim()} 
           alt={story.title} 
           width={300} 
           height={180}

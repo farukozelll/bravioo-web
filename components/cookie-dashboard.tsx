@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocale } from 'next-intl';
 import { getConsent, saveConsent, ConsentState, ConsentCategory } from '@/lib/consent';
+import { safeLocalStorage } from '@/lib/safari-polyfills';
 import { Button } from '@/components/ui/button';
 import { Switch } from '@/components/ui/switch';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -33,19 +34,19 @@ export function CookieDashboard() {
     setShowDashboard(true);
     
     // Load minimized state from localStorage
-    const minimized = localStorage.getItem('cookie-dashboard-minimized') !== 'false';
+    const minimized = safeLocalStorage.getItem('cookie-dashboard-minimized') !== 'false';
     setIsMinimized(minimized);
   }, []);
 
   const toggleMinimized = () => {
     const newMinimized = !isMinimized;
     setIsMinimized(newMinimized);
-    localStorage.setItem('cookie-dashboard-minimized', newMinimized.toString());
+    safeLocalStorage.setItem('cookie-dashboard-minimized', newMinimized.toString());
   };
 
   const closeDashboard = () => {
     setShowDashboard(false);
-    localStorage.setItem('cookie-dashboard-closed', 'true');
+    safeLocalStorage.setItem('cookie-dashboard-closed', 'true');
   };
 
   const updateConsent = (category: ConsentCategory, value: boolean) => {

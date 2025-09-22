@@ -41,7 +41,23 @@ export function ConsentManager() {
     }
   }, []);
 
+  // Keyboard shortcut for accepting cookies (Alt+A)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (showBanner && e.altKey && e.key.toLowerCase() === 'a') {
+        e.preventDefault();
+        console.log('Keyboard shortcut used for accept all');
+        handleAcceptAll();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [showBanner]);
+
   const handleAcceptAll = () => {
+    console.log('Accept All clicked'); // Debug log
+    
     const newConsent: ConsentState = {
       necessary: true,
       analytics: true,
@@ -51,10 +67,15 @@ export function ConsentManager() {
       version: '1.0',
     };
     
-    saveConsent(newConsent);
-    setConsent(newConsent);
-    setShowBanner(false);
-    setShowModal(false);
+    try {
+      saveConsent(newConsent);
+      setConsent(newConsent);
+      setShowBanner(false);
+      setShowModal(false);
+      console.log('Consent saved successfully'); // Debug log
+    } catch (error) {
+      console.error('Error saving consent:', error);
+    }
   };
 
   const handleRejectAll = () => {
@@ -102,9 +123,9 @@ export function ConsentManager() {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 100, opacity: 0 }}
         transition={{ duration: 0.5, type: 'spring', damping: 25 }}
-        className="fixed bottom-6 left-6 right-6 z-50 max-w-md ml-auto"
+        className="fixed bottom-6 left-6 right-6 z-[9999] max-w-md ml-auto pointer-events-auto"
       >
-        <div className="bg-white rounded-3xl shadow-2xl border border-sand-200 p-6 backdrop-blur-lg bg-white/95">
+        <div className="bg-white rounded-3xl shadow-2xl border border-sand-200 p-6 backdrop-blur-lg bg-white/95 relative z-[10000] pointer-events-auto">
           {/* Header */}
           <div className="flex items-start gap-4 mb-4">
             <div className="w-12 h-12 bg-gradient-to-br from-brand-500 to-brand-600 rounded-2xl flex items-center justify-center flex-shrink-0">
@@ -117,23 +138,36 @@ export function ConsentManager() {
               <p className="text-sm text-ink-600 mt-1 leading-relaxed">
                 {t('banner.description')}
               </p>
+              <p className="text-xs text-ink-500 mt-1">
+                Kısayol: Alt+A tuşları ile de kabul edebilirsiniz
+              </p>
             </div>
           </div>
           
           {/* Actions */}
           <div className="flex flex-col gap-3">
             <div className="flex gap-2">
-              <Button
-                size="sm"
-                onClick={handleAcceptAll}
-                className="flex-1 rounded-2xl bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700"
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  console.log('Native button clicked'); // Debug
+                  handleAcceptAll();
+                }}
+                type="button"
+                className="flex-1 h-9 px-4 rounded-2xl bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 text-white text-sm font-medium cursor-pointer transition-all duration-200 relative z-[10001]"
               >
                 {t('banner.acceptAll')}
-              </Button>
+              </button>
               <Button
                 variant="outline"
                 size="sm"
-                onClick={handleRejectAll}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handleRejectAll();
+                }}
+                type="button"
                 className="rounded-2xl border-2"
               >
                 {t('banner.rejectAll')}
@@ -143,7 +177,12 @@ export function ConsentManager() {
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => setShowModal(true)}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setShowModal(true);
+              }}
+              type="button"
               className="text-xs text-ink-500 hover:text-ink-700 rounded-2xl"
             >
               <Settings className="h-3 w-3 mr-1" />

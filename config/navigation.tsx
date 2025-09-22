@@ -162,7 +162,7 @@ export const navigationData: NavItem[] = [
             badge: '+25% artış'
           },
           {
-            image: '/images/brands/akgungroup-logo-v1.png',
+            image: '/images/companies/akgungroup-logo-v1.png',
             title: 'Akgün Grup',
             descriptionKey: 'akgunGrupSuccess',
             href: '/stories/akgun-grup',
