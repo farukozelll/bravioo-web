@@ -34,19 +34,14 @@ export async function POST(request: Request) {
           company: data.company,
           employees: data.employees,
           message: data.message,
-          utm_source: data.utm_source,
-          utm_campaign: data.utm_campaign,
-          utm_medium: data.utm_medium,
-          utm_term: data.utm_term,
-          utm_content: data.utm_content,
-        } as const;
+          ...(data.utm_source && { utm_source: data.utm_source }),
+          ...(data.utm_campaign && { utm_campaign: data.utm_campaign }),
+          ...(data.utm_medium && { utm_medium: data.utm_medium }),
+          ...(data.utm_term && { utm_term: data.utm_term }),
+          ...(data.utm_content && { utm_content: data.utm_content }),
+        };
 
-        const fields: Record<string, string | number | boolean> = {};
-        for (const [key, value] of Object.entries(rawFields)) {
-          if (value !== undefined) {
-            fields[key] = value as string | number | boolean;
-          }
-        }
+        const fields: Record<string, string | number | boolean> = rawFields;
 
         await submitHubSpotForm({
           portalId: process.env.HS_PORTAL_ID,
