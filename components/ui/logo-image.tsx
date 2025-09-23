@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion'; // TODO: Add animations when needed
 import NextImage from 'next/image';
 
 interface LogoImageProps {
@@ -153,7 +153,7 @@ export function LogoImage({
  * Hook for dynamic logo format detection and fallback
  * Tries multiple formats in order: webp -> png -> jpg -> svg
  */
-export function useLogoFallback(basePath: string, name: string) {
+export function useLogoFallback(basePath: string, _name: string) {
   const [logoSrc, setLogoSrc] = useState<string | undefined>();
   const [isLoading, setIsLoading] = useState(true);
 

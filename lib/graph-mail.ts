@@ -33,7 +33,7 @@ export async function sendMailViaGraph({
   to,
   subject,
   htmlContent,
-  textContent,
+  // textContent, // TODO: Use this for plain text version
   cc = [],
   bcc = [],
   from = 'noreply@bravioo.com',

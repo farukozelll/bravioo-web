@@ -6,6 +6,7 @@
 // Polyfill for Element.closest() for older Safari versions
 if (typeof window !== 'undefined' && !Element.prototype.closest) {
   Element.prototype.closest = function(s: string) {
+    // eslint-disable-next-line @typescript-eslint/no-this-alias
     let el: Element | null = this;
     
     do {
@@ -87,7 +88,7 @@ export const addSafeEventListener = (
       const testHandler = () => {};
       element.addEventListener('test', testHandler, testOptions);
       element.removeEventListener('test', testHandler);
-    } catch (err) {
+    } catch {
       passiveSupported = false;
     }
     
@@ -97,10 +98,11 @@ export const addSafeEventListener = (
     } else {
       element.addEventListener(event, handler, typeof options === 'boolean' ? options : false);
     }
-  } catch (e) {
-    console.warn('addEventListener failed:', e);
+  } catch {
+    console.warn('addEventListener failed');
     // Fallback for very old browsers
     if ('attachEvent' in element) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (element as any).attachEvent(`on${event}`, handler);
     }
   }
@@ -113,7 +115,7 @@ export const supportsCSSProperty = (property: string): boolean => {
   try {
     const testElement = document.createElement('div');
     return property in testElement.style;
-  } catch (e) {
+  } catch {
     return false;
   }
 };
@@ -126,8 +128,8 @@ export const safeMatchMedia = (query: string): MediaQueryList | null => {
   
   try {
     return window.matchMedia(query);
-  } catch (e) {
-    console.warn('matchMedia failed:', e);
+  } catch (error) {
+    console.warn('matchMedia failed:', error);
     return null;
   }
 };
@@ -152,7 +154,9 @@ if (typeof window !== 'undefined') {
   setTimeout(() => {
     if (document.body) {
       document.body.style.display = 'none';
-      document.body.offsetHeight; // Trigger reflow
+      // Trigger reflow
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+      document.body.offsetHeight;
       document.body.style.display = '';
     }
   }, 0);

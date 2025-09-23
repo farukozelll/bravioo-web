@@ -9,11 +9,11 @@ export function formatCurrency(
   amount: number,
   currency: 'USD' | 'EUR' | 'TRY' = 'USD'
 ) {
-  const symbols = {
-    USD: '$',
-    EUR: '€',
-    TRY: '₺',
-  };
+  // const symbols = {
+  //   USD: '$',
+  //   EUR: '€',
+  //   TRY: '₺',
+  // }; // TODO: Use this for symbol-based formatting
 
   const locales = {
     USD: 'en-US',

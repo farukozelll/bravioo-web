@@ -1,4 +1,4 @@
-import { ConsentData } from './zod-schemas';
+// import { ConsentData } from './zod-schemas'; // TODO: Use this when implementing form validation
 import { safeLocalStorage } from './safari-polyfills';
 
 export const CONSENT_COOKIE_NAME = 'bravioo-consent';

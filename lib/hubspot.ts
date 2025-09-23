@@ -1,7 +1,7 @@
 export interface HubSpotFormData {
   portalId: string;
   formId: string;
-  fields: Record<string, any>;
+  fields: Record<string, string | number | boolean>;
 }
 
 export async function submitHubSpotForm({

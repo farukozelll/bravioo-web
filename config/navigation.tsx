@@ -106,77 +106,10 @@ export const navigationData: NavItem[] = [
         href: '/why-bravioo'
       }
     }
-  },{
+  },
+  {
     nameKey: 'platform',
-    href: '/features',
-    isMegaMenu: true,
-    megaMenuContent: {
-      mainLinks: [
-        { 
-          nameKey: 'campaigns', 
-          descriptionKey: 'campaignsDesc', 
-          href: '/features/campaigns', 
-          icon: <Target className="w-5 h-5" />,
-          isNew: false
-        },
-        { 
-          nameKey: 'giveaways', 
-          descriptionKey: 'giveawaysDesc', 
-          href: '/features/giveaways', 
-          icon: <Heart className="w-5 h-5" />
-        },
-        { 
-          nameKey: 'surveys', 
-          descriptionKey: 'surveysDesc', 
-          href: '/features/surveys', 
-          icon: <MessageSquare className="w-5 h-5" />
-        },
-        { 
-          nameKey: 'announcements', 
-          descriptionKey: 'announcementsDesc', 
-          href: '/features/announcements', 
-          icon: <Zap className="w-5 h-5" />
-        },
-        { 
-          nameKey: 'feedback', 
-          descriptionKey: 'feedbackDesc', 
-          href: '/features/feedback', 
-          icon: <Shield className="w-5 h-5" />
-        },
-    
-        {
-          nameKey: 'viewAll',
-          descriptionKey: 'featuresDesc',
-          href: '/features',
-          icon: <Layers className="w-5 h-5" />
-        }
-      ],
-      featuredContent: {
-        titleKey: 'successStories',
-        items: [
-          {
-            image: '/images/brands/Albayrak_Grubu_Logo.png',
-            title: 'Albayrak Grubu',
-            descriptionKey: 'albayrakGrubuSuccess',
-            href: '/stories/albayrak-grubu',
-            badge: '+25% artış'
-          },
-          {
-            image: '/images/companies/akgungroup-logo-v1.png',
-            title: 'Akgün Grup',
-            descriptionKey: 'akgunGrupSuccess',
-            href: '/stories/akgun-grup',
-            badge: '%35 verimlilik'
-          }
-        ]
-      },
-      bottomCTA: {
-        titleKey: 'platformCTATitle',
-        descriptionKey: 'platformCTADesc',
-        buttonTextKey: 'startFree',
-        href: '/demo'
-      }
-    }
+    href: '/features'
   },
   {
     nameKey: 'pricing',
