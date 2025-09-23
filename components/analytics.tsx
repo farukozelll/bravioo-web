@@ -100,7 +100,7 @@ export function MicrosoftClarity({ clarityId }: { clarityId: string }) {
 // Analytics Event Tracking
 export const trackEvent = (
   eventName: string,
-  parameters?: Record<string, any>
+  parameters?: Record<string, unknown>
 ) => {
   if (typeof window === 'undefined') return;
 
