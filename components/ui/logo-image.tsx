@@ -153,6 +153,7 @@ export function LogoImage({
  * Hook for dynamic logo format detection and fallback
  * Tries multiple formats in order: webp -> png -> jpg -> svg
  */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function useLogoFallback(basePath: string, _name: string) {
   const [logoSrc, setLogoSrc] = useState<string | undefined>();
   const [isLoading, setIsLoading] = useState(true);

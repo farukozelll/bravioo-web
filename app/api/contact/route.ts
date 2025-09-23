@@ -26,24 +26,32 @@ export async function POST(request: Request) {
     // Submit to HubSpot (if configured)
     if (process.env.HS_PORTAL_ID && process.env.HS_FORM_ID) {
       try {
+        // Build fields with explicit typing and skip undefined UTM fields
+        const rawFields = {
+          email: data.email,
+          firstname: data.name.split(' ')[0],
+          lastname: data.name.split(' ').slice(1).join(' ') || '',
+          company: data.company,
+          employees: data.employees,
+          message: data.message,
+          utm_source: data.utm_source,
+          utm_campaign: data.utm_campaign,
+          utm_medium: data.utm_medium,
+          utm_term: data.utm_term,
+          utm_content: data.utm_content,
+        } as const;
+
+        const fields: Record<string, string | number | boolean> = {};
+        for (const [key, value] of Object.entries(rawFields)) {
+          if (value !== undefined) {
+            fields[key] = value as string | number | boolean;
+          }
+        }
+
         await submitHubSpotForm({
           portalId: process.env.HS_PORTAL_ID,
           formId: process.env.HS_FORM_ID,
-          fields: Object.fromEntries(
-            Object.entries({
-              email: data.email,
-              firstname: data.name.split(' ')[0],
-              lastname: data.name.split(' ').slice(1).join(' ') || '',
-              company: data.company,
-              employees: data.employees,
-              message: data.message,
-              utm_source: data.utm_source,
-              utm_campaign: data.utm_campaign,
-              utm_medium: data.utm_medium,
-              utm_term: data.utm_term,
-              utm_content: data.utm_content,
-            }).filter(([, v]) => v !== undefined)
-          ),
+          fields,
         });
       } catch (hubspotError) {
         console.error('HubSpot submission failed:', hubspotError);
