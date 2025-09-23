@@ -9,8 +9,9 @@ import Link from 'next/link';
 import { useLocale } from 'next-intl';
 import { ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { generateId } from '@/lib/utils';
 
-interface Customer {
+interface Customer {  
   id: string;
   name: string;
   logo: string;
@@ -27,7 +28,7 @@ export function CustomerHero() {
     const heights = [220, 180, 260, 200, 240, 190, 210]; // Varying card heights for customers
     const infiniteCustomers = Array.from({ length: 24 }, (_, i) => ({
       ...customers[i % customers.length],
-      uniqueId: `${customers[i % customers.length].id}-${i}`,
+      uniqueId: `${customers[i % customers.length].id}-${i}-${generateId()}`,
       height: heights[i % heights.length],
     }));
     
