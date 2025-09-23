@@ -181,18 +181,7 @@ export const navigationData: NavItem[] = [
   {
     nameKey: 'pricing',
     href: '/pricing',
-    children: [
-      { 
-        nameKey: 'employerPricing', 
-        href: '/pricing/employer',
-        icon: <Users className="w-4 h-4" />
-      },
-      { 
-        nameKey: 'brandPartnership', 
-        href: '/pricing/brands',
-        icon: <Building className="w-4 h-4" />
-      }
-    ]
+   
   },
   { 
     nameKey: 'customers', 
