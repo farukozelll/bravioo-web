@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
@@ -19,23 +19,24 @@ import {
 export function EnhancedHero() {
   const locale = useLocale();
   const shouldReduceMotion = useReducedMotion();
+  const t = useTranslations('enhancedHero');
 
 
 
   const trustBadges = [
     {
       icon: Shield,
-      text: 'ISO 27001',
+      key: 'iso',
       color: 'text-green-600'
     },
     {
       icon: Star,
-      text: 'SOC 2 Type II',
+      key: 'soc2',
       color: 'text-blue-600'
     },
     {
       icon: Globe,
-      text: 'GDPR Compliant',
+      key: 'gdpr',
       color: 'text-purple-600'
     }
   ];
@@ -62,12 +63,7 @@ export function EnhancedHero() {
               className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-primary-500/10 to-secondary-500/10 dark:from-primary-400/20 dark:to-secondary-400/20 border border-primary-200 dark:border-primary-600 rounded-full"
             >
               <Sparkles className="h-4 w-4 text-primary-600 dark:text-primary-400" />
-              <span className="text-sm font-semibold text-primary-700 dark:text-primary-300">
-                {locale === 'tr' 
-                  ? '🎉 2025\'ün En İyi HR Tech Ürünü Seçildik!'
-                  : '🎉 Winner of Best HR Tech Product 2025!'
-                }
-              </span>
+              <span className="text-sm font-semibold text-primary-700 dark:text-primary-300">{t('badge')}</span>
             </motion.div>
 
             {/* Main Heading */}
@@ -78,10 +74,9 @@ export function EnhancedHero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                {locale === 'tr' 
-                  ? <>Çalışan Motivasyonunu <span className="bg-gradient-to-r from-primary-600 via-primary-600 to-secondary-600 bg-clip-text text-transparent">%450 Artırın</span></>
-                  : <>Increase Employee Motivation by <span className="bg-gradient-to-r from-primary-600 via-primary-600 to-secondary-600 bg-clip-text text-transparent">450%</span></>
-                }
+                {t('titlePrefix')}{' '}
+                <span className="bg-gradient-to-r from-primary-600 via-primary-600 to-secondary-600 bg-clip-text text-transparent">{t('titleHighlight')}</span>
+                {t('titleSuffix') ? <> {t('titleSuffix')}</> : null}
               </motion.h1>
 
               <motion.p 
@@ -90,10 +85,7 @@ export function EnhancedHero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
               >
-                {locale === 'tr'
-                  ? 'Peer-to-peer takdir sistemi, Tüm Türkiyede ödül seçenekleri ve AI destekli performans analitiği ile 30 gün içinde sonuç alın.'
-                  : 'Get results in 30 days with peer-to-peer recognition, rewards in 190+ countries, and AI-powered performance analytics.'
-                }
+                {t('subtitle')}
               </motion.p>
 
             </div>
@@ -109,7 +101,7 @@ export function EnhancedHero() {
                 size="lg" 
                 className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white rounded-2xl px-6 lg:px-8 py-3 lg:py-4 text-base lg:text-lg font-semibold shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
               >
-                {locale === 'tr' ? 'Ücretsiz Demo Başlat' : 'Start Free Demo'}
+                {t('ctaPrimary')}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               
@@ -119,7 +111,7 @@ export function EnhancedHero() {
                 className="border-2 border-neutral-200 dark:border-gray-600 text-neutral-700 dark:text-gray-300 hover:bg-neutral-50 dark:hover:bg-gray-800 rounded-2xl px-6 lg:px-8 py-3 lg:py-4 text-base lg:text-lg font-semibold group"
               >
                 <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-                {locale === 'tr' ? 'Videoyu İzle' : 'Watch Video'}
+                {t('ctaSecondary')}
               </Button>
             </motion.div>
 
@@ -135,7 +127,7 @@ export function EnhancedHero() {
                 return (
                   <div key={index} className="flex items-center gap-2">
                     <Icon className={`h-4 w-4 ${badge.color}`} />
-                    <span className="text-sm font-medium text-neutral-600 dark:text-gray-400">{badge.text}</span>
+                    <span className="text-sm font-medium text-neutral-600 dark:text-gray-400">{t(`badges.${badge.key}`)}</span>
                   </div>
                 );
               })}
@@ -146,7 +138,7 @@ export function EnhancedHero() {
 
           {/* Right Visual Content */}
           <motion.div 
-            className="lg:col-span-5 relative order-first lg:order-last"
+            className="lg:col-span-5 relative order-last"
             initial={{ opacity: 0, x: shouldReduceMotion ? 0 : 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: shouldReduceMotion ? 0.3 : 0.8, ease: "easeOut", delay: shouldReduceMotion ? 0 : 0.2 }}
@@ -161,7 +153,7 @@ export function EnhancedHero() {
                 <div className="relative aspect-[9/19.5] overflow-hidden ">
                   <Image
                     src="/images/Bravioo-Home-Mobile_Mockup.png"
-                    alt={locale === 'tr' ? 'Bravioo Mobil Uygulaması' : 'Bravioo Mobile App'}
+                    alt={t('mobileAlt')}
                     fill
                     className="object-cover object-top"
                     sizes="(min-width: 1024px) 340px, (min-width: 768px) 300px, 260px"
@@ -184,12 +176,8 @@ export function EnhancedHero() {
                   <CheckCircle className="h-4 w-4 text-white" />
                 </div>
                 <div>
-                  <div className="font-semibold text-neutral-900 dark:text-gray-100 text-xs">
-                    {locale === 'tr' ? 'Ahmet Yılmaz' : 'John Smith'}
-                  </div>
-                  <div className="text-xs text-neutral-600 dark:text-gray-400">
-                    {locale === 'tr' ? 'Takdir aldı!' : 'Recognized!'}
-                  </div>
+                  <div className="font-semibold text-neutral-900 dark:text-gray-100 text-xs">{t('floating.name')}</div>
+                  <div className="text-xs text-neutral-600 dark:text-gray-400">{t('floating.recognized')}</div>
                 </div>
               </div>
             </motion.div>
@@ -204,12 +192,8 @@ export function EnhancedHero() {
                   <TrendingUp className="h-4 w-4 text-white" />
                 </div>
                 <div>
-                  <div className="font-semibold text-neutral-900 dark:text-gray-100 text-xs">
-                    {locale === 'tr' ? '+185% ROI' : '+185% ROI'}
-                  </div>
-                  <div className="text-xs text-neutral-600 dark:text-gray-400">
-                    {locale === 'tr' ? 'Bu ay' : 'This month'}
-                  </div>
+                  <div className="font-semibold text-neutral-900 dark:text-gray-100 text-xs">{t('floating.roiValue')}</div>
+                  <div className="text-xs text-neutral-600 dark:text-gray-400">{t('floating.thisMonth')}</div>
                 </div>
               </div>
             </motion.div>

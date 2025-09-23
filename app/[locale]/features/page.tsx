@@ -199,7 +199,7 @@ export default function FeaturesOverviewPage() {
                 const isExpanded = expandedFeature === feature.slug;
                 
                 return (
-                  <motion.div key={feature.slug} variants={itemVariants}>
+              <motion.div key={feature.slug} variants={itemVariants}>
                     <div className="bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
                       {/* Feature Header - Always Visible */}
                       <div 
@@ -210,22 +210,22 @@ export default function FeaturesOverviewPage() {
                           <div className="flex items-center gap-6">
                             {/* Number Badge */}
                             <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-blue-500 rounded-2xl flex items-center justify-center text-white font-bold text-lg shadow-lg flex-shrink-0">
-                              {index + 1}
-                            </div>
+                          {index + 1}
+                        </div>
 
                             {/* Icon */}
                             <div className="w-16 h-16 bg-gradient-to-br from-emerald-50 to-blue-50 dark:from-emerald-900/30 dark:to-blue-900/30 rounded-2xl flex items-center justify-center flex-shrink-0">
                               <IconComponent className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
-                            </div>
+                    </div>
 
                             {/* Basic Info */}
                             <div className="flex-1">
                               <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-                                {feature.name}
-                              </h3>
+                        {feature.name}
+                      </h3>
                               <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                                {feature.description}
-                              </p>
+                        {feature.description}
+                      </p>
                             </div>
                           </div>
 
@@ -241,7 +241,7 @@ export default function FeaturesOverviewPage() {
                           </motion.div>
                         </div>
                       </div>
-
+                      
                       {/* Expanded Content */}
                       <AnimatePresence>
                         {isExpanded && (
@@ -278,7 +278,7 @@ export default function FeaturesOverviewPage() {
                                         ))}
                                       </div>
                                     )}
-                                  </div>
+                    </div>
 
                                   {/* Image */}
                                   <div className={sectionIndex % 2 === 1 ? 'md:order-1' : ''}>
@@ -315,13 +315,13 @@ export default function FeaturesOverviewPage() {
                                     Daha Fazla Bilgi
                                   </motion.button>
                                 </div>
-                              </div>
-                            </div>
+                    </div>
+                  </div>
                           </motion.div>
                         )}
                       </AnimatePresence>
                     </div>
-                  </motion.div>
+              </motion.div>
                 );
               })}
             </div>
@@ -353,7 +353,7 @@ export default function FeaturesOverviewPage() {
                     Hayatınızı 
                     <span className="block">Kolaylaştırmaya</span>
                     <span className="block text-yellow-300">Hazır Mısınız?</span>
-                  </h2>
+              </h2>
                   <p className="text-white/90 mb-12 max-w-3xl mx-auto text-xl lg:text-2xl leading-relaxed">
                     <strong>14 gün boyunca</strong> tüm özelliklerimizi ücretsiz deneyin. 
                     Kurulum yapmadan, kredi kartı vermeden hemen başlayın!
@@ -391,22 +391,22 @@ export default function FeaturesOverviewPage() {
                   transition={{ delay: 1.4 }}
                   className="flex flex-col sm:flex-row gap-6 justify-center"
                 >
-                  <motion.button
+                <motion.button
                     whileHover={{ scale: 1.05, boxShadow: "0 25px 50px rgba(255, 255, 255, 0.2)" }}
-                    whileTap={{ scale: 0.95 }}
+                  whileTap={{ scale: 0.95 }}
                     className="bg-white text-emerald-600 px-10 py-5 rounded-2xl font-black text-xl hover:bg-gray-50 transition-all duration-300 shadow-2xl inline-flex items-center justify-center gap-3"
-                  >
+                >
                     <Sparkles className="w-6 h-6" />
                     14 Gün Ücretsiz Başla
                     <ArrowRight className="w-6 h-6" />
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                     className="border-2 border-white/50 text-white px-10 py-5 rounded-2xl font-bold text-xl hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
-                  >
+                >
                     🎥 Demo İzle
-                  </motion.button>
+                </motion.button>
                 </motion.div>
 
                 {/* Small Print */}
