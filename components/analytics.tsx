@@ -191,9 +191,9 @@ export const analytics = {
 // Extend window type for analytics
 declare global {
   interface Window {
-    gtag?: (...args: any[]) => void;
-    dataLayer?: any[];
-    _hsq?: any[];
-    clarity?: (...args: any[]) => void;
+    gtag?: (...args: unknown[]) => void;
+    dataLayer?: unknown[];
+    _hsq?: unknown[];
+    clarity?: (...args: unknown[]) => void;
   }
-}
+} 
