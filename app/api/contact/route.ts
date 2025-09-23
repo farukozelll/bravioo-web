@@ -29,19 +29,21 @@ export async function POST(request: Request) {
         await submitHubSpotForm({
           portalId: process.env.HS_PORTAL_ID,
           formId: process.env.HS_FORM_ID,
-          fields: {
-            email: data.email,
-            firstname: data.name.split(' ')[0],
-            lastname: data.name.split(' ').slice(1).join(' ') || '',
-            company: data.company,
-            employees: data.employees,
-            message: data.message,
-            utm_source: data.utm_source,
-            utm_campaign: data.utm_campaign,
-            utm_medium: data.utm_medium,
-            utm_term: data.utm_term,
-            utm_content: data.utm_content,
-          },
+          fields: Object.fromEntries(
+            Object.entries({
+              email: data.email,
+              firstname: data.name.split(' ')[0],
+              lastname: data.name.split(' ').slice(1).join(' ') || '',
+              company: data.company,
+              employees: data.employees,
+              message: data.message,
+              utm_source: data.utm_source,
+              utm_campaign: data.utm_campaign,
+              utm_medium: data.utm_medium,
+              utm_term: data.utm_term,
+              utm_content: data.utm_content,
+            }).filter(([, v]) => v !== undefined)
+          ),
         });
       } catch (hubspotError) {
         console.error('HubSpot submission failed:', hubspotError);
