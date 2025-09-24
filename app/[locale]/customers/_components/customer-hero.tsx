@@ -153,7 +153,7 @@ const CustomerCard = React.memo(function CustomerCard({ customer, height }: Cust
             alt={`${customer.name} logo`}
             width={160}
             height={80}
-            className="max-h-16 w-auto object-contain opacity-100 invert brightness-0 saturate-0 contrast-100"
+            className="max-h-16 w-auto object-contain opacity-100 drop-shadow-sm"
           />
         ) : (
           <span className="text-slate-800 dark:text-white/80 font-bold text-2xl">

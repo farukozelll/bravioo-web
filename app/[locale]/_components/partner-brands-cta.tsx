@@ -72,9 +72,9 @@ export function PartnerBrandsCTA() {
               </div>
               
               {/* Right Phone Visual */}
-              <div className="relative p-8 md:p-12 lg:p-16 flex items-center justify-center">
+              <div className="relative p-8 md:p-12 lg:p-16 flex items-center justify-center -mt-6 md:-mt-10 lg:-mt-16 xl:-mt-16">
                 <motion.div 
-                  className="relative max-w-sm sm:max-w-md lg:max-w-2xl mx-auto"
+                  className="relative z-10 max-w-md sm:max-w-lg lg:max-w-3xl xl:max-w-4xl mx-auto"
                   animate={{ y: [0, -12, 0] }}
                   transition={{
                     duration: 18,
@@ -89,7 +89,7 @@ export function PartnerBrandsCTA() {
                     width={1600}
                     height={1200}
                     className="w-full h-auto drop-shadow-2xl rounded-3xl"
-                    sizes="(max-width: 1536px) 80vw, 1200px"
+                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 70vw, (max-width: 1536px) 55vw, 1200px"
                     priority
                   />
                 </motion.div>
