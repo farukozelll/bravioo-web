@@ -26,10 +26,10 @@ export const footerSections: FooterSection[] = [
     iconKey: 'P',
     color: 'bg-brand-500',
     links: [
-      { nameKey: 'footer.sections.product.features', href: '/#features' },
-      { nameKey: 'footer.sections.product.integrations', href: '/#integrations' },
+      { nameKey: 'footer.sections.product.features', href: '/features' },
+      { nameKey: 'footer.sections.product.integrations', href: '/why-bravioo' },
       { nameKey: 'footer.sections.product.pricing', href: '/pricing' },
-      { nameKey: 'footer.sections.product.demo', href: '/demo' },
+      { nameKey: 'footer.sections.product.demo', href: '/meeting' },
     ]
   },
   {

@@ -7,7 +7,7 @@ export function CTA() {
   return (
     <section className="py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-600 via-blue-600 to-purple-600 p-10 text-white lg:p-16">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-600 via-green-600 to-gold-600 p-10 text-white lg:p-16">
           <div className="absolute inset-0 opacity-10">
             <div className="absolute -left-8 -top-8 h-40 w-40 rounded-full bg-white blur-3xl" />
             <div className="absolute -bottom-10 -right-10 h-56 w-56 rounded-full bg-white blur-3xl" />

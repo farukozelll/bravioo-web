@@ -6,7 +6,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 // import { useLocale } from 'next-intl';
 
 // Content
-import { journeySteps, stepThumbs } from './_components/content';
+import { journeySteps, stepNavigationThumbs, PathType } from '../../../data/features-journey';
 import { Hero } from './_components/Hero';
 import { StepNavigator } from './_components/StepNavigator';
 import { Journey } from './_components/Journey';
@@ -16,7 +16,7 @@ import { CTA } from './_components/CTA';
 
 export default function FeaturesPage() {
   // const locale = useLocale();
-  const [selectedPath, setSelectedPath] = useState<'hr' | 'employee'>('hr');
+  const [selectedPath, setSelectedPath] = useState<PathType>('hr');
   const [activeStep, setActiveStep] = useState(0);
 
   const { scrollY } = useScroll();
@@ -66,6 +66,9 @@ export default function FeaturesPage() {
   }, [selectedPath]);
 
   const currentSteps = journeySteps[selectedPath];
+  
+  // Use Unsplash thumbnails for step navigation
+  const currentThumbs = stepNavigationThumbs.slice(0, currentSteps.length);
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
@@ -75,8 +78,8 @@ export default function FeaturesPage() {
 
       <div className="-mt-10">
         <StepNavigator
-          thumbs={stepThumbs}
-          color={selectedPath === 'hr' ? 'emerald' : 'blue'}
+          thumbs={currentThumbs}
+          color={selectedPath === 'hr' ? 'emerald' : 'gold'}
           onClick={handleStepClick}
         />
                       </div>

@@ -21,7 +21,8 @@ if (typeof window !== 'undefined' && !Element.prototype.closest) {
 // Polyfill for Element.matches() for older Safari versions  
 if (typeof window !== 'undefined' && !Element.prototype.matches) {
   Element.prototype.matches = function(s: string) {
-    const matches = (this.document || this.ownerDocument).querySelectorAll(s);
+    const doc = (this as any).document || this.ownerDocument;
+    const matches = doc.querySelectorAll(s);
     let i = matches.length;
     while (--i >= 0 && matches.item(i) !== this) {}
     return i > -1;

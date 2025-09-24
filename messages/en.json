@@ -79,6 +79,70 @@
   "features": {
     "title": "Everything You Need for Employee Recognition",
     "subtitle": "Powerful features designed to create a culture of appreciation",
+    "hero": {
+      "badge": "Interactive Platform Tour",
+      "titleLine1": "Experience the Future of",
+      "titleLine2": "Employee Recognition",
+      "subtitle": "Discover how Bravioo transforms workplace culture with powerful, intuitive tools.",
+      "subtitleCta": "Choose your path to get started:",
+      "tabs": {
+        "hr": "HR Manager",
+        "hrShort": "HR",
+        "employee": "Employee",
+        "employeeShort": "Employee"
+      }
+    },
+    "journey": {
+      "hr": {
+        "0": {
+          "title": "Set Up Recognition Programs",
+          "body": "Create custom recognition categories and configure approval workflows that align with your company values.",
+          "highlight": "Quick Setup"
+        },
+        "1": {
+          "title": "Manage Employee Engagement",
+          "body": "Track participation, monitor recognition patterns, and identify opportunities to boost team morale.",
+          "highlight": "Smart Analytics"
+        },
+        "2": {
+          "title": "Send Company-wide Announcements",
+          "body": "Broadcast important updates, celebrate achievements, and keep everyone informed and engaged.",
+          "highlight": "Instant Communication"
+        },
+        "3": {
+          "title": "Generate Detailed Reports",
+          "body": "Access comprehensive analytics to measure program success and demonstrate ROI to leadership.",
+          "highlight": "Data-Driven Insights"
+        },
+        "4": {
+          "title": "Scale Recognition Culture",
+          "body": "Expand programs across departments and locations while maintaining consistency and quality.",
+          "highlight": "Enterprise Ready"
+        }
+      },
+      "employee": {
+        "0": {
+          "title": "Recognize Colleagues Instantly",
+          "body": "Send meaningful recognition to teammates with just a few taps, anywhere, anytime.",
+          "highlight": "Mobile First"
+        },
+        "1": {
+          "title": "Earn and Redeem Rewards",
+          "body": "Collect points for great work and redeem them for exciting rewards from our global catalog.",
+          "highlight": "Global Rewards"
+        },
+        "2": {
+          "title": "Stay Connected",
+          "body": "Follow company updates, celebrate team wins, and engage with your workplace community.",
+          "highlight": "Social Feed"
+        },
+        "3": {
+          "title": "Track Your Impact",
+          "body": "See how your contributions make a difference and celebrate your growing influence.",
+          "highlight": "Personal Growth"
+        }
+      }
+    },
     "recognition": {
       "title": "Peer-to-Peer Recognition",
       "description": "Enable employees to recognize each other's contributions with meaningful, public appreciation."

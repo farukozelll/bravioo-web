@@ -90,6 +90,70 @@
   "features": {
     "title": "Çalışan Takdiri İçin İhtiyacınız Olan Her Şey",
     "subtitle": "Takdir kültürü oluşturmak için tasarlanmış güçlü özellikler",
+    "hero": {
+      "badge": "İnteraktif Platform Turu",
+      "titleLine1": "Çalışan Takdirinin",
+      "titleLine2": "Geleceğini Deneyimleyin",
+      "subtitle": "Bravioo'nun güçlü ve sezgisel araçlarla iş yeri kültürünü nasıl dönüştürdüğünü keşfedin.",
+      "subtitleCta": "Başlamak için yolunuzu seçin:",
+      "tabs": {
+        "hr": "İK Yöneticisi",
+        "hrShort": "İK",
+        "employee": "Çalışan",
+        "employeeShort": "Çalışan"
+      }
+    },
+    "journey": {
+      "hr": {
+        "0": {
+          "title": "Takdir Programları Kurun",
+          "body": "Şirket değerlerinizle uyumlu özel takdir kategorileri oluşturun ve onay iş akışlarını yapılandırın.",
+          "highlight": "Hızlı Kurulum"
+        },
+        "1": {
+          "title": "Çalışan Bağlılığını Yönetin",
+          "body": "Katılımı takip edin, takdir kalıplarını izleyin ve ekip moralini artırma fırsatlarını belirleyin.",
+          "highlight": "Akıllı Analitik"
+        },
+        "2": {
+          "title": "Şirket Geneli Duyurular Gönderin",
+          "body": "Önemli güncellemeleri paylaşın, başarıları kutlayın ve herkesi bilgilendirilmiş tutun.",
+          "highlight": "Anında İletişim"
+        },
+        "3": {
+          "title": "Detaylı Raporlar Oluşturun",
+          "body": "Program başarısını ölçmek ve liderliğe ROI göstermek için kapsamlı analizlere erişin.",
+          "highlight": "Veri Odaklı İçgörüler"
+        },
+        "4": {
+          "title": "Takdir Kültürünü Ölçeklendirin",
+          "body": "Tutarlılık ve kaliteyi korurken programları departmanlar ve lokasyonlar genelinde genişletin.",
+          "highlight": "Kurumsal Hazır"
+        }
+      },
+      "employee": {
+        "0": {
+          "title": "Meslektaşlarınızı Anında Takdir Edin",
+          "body": "Birkaç dokunuşla ekip arkadaşlarınıza anlamlı takdir gönderin, her yerden, her zaman.",
+          "highlight": "Mobil Öncelikli"
+        },
+        "1": {
+          "title": "Ödül Kazanın ve Kullanın",
+          "body": "Harika işler için puan toplayın ve global kataloğumuzdan heyecan verici ödüller için kullanın.",
+          "highlight": "Global Ödüller"
+        },
+        "2": {
+          "title": "Bağlantıda Kalın",
+          "body": "Şirket güncellemelerini takip edin, ekip galibiyetlerini kutlayın ve iş yeri topluluğunuzla etkileşime geçin.",
+          "highlight": "Sosyal Akış"
+        },
+        "3": {
+          "title": "Etkilerinizi Takip Edin",
+          "body": "Katkılarınızın nasıl fark yarattığını görün ve büyüyen etkilerinizi kutlayın.",
+          "highlight": "Kişisel Büyüme"
+        }
+      }
+    },
     "recognition": {
       "title": "Meslektaştan Meslektaşa Takdir",
       "description": "Çalışanların birbirlerinin katkılarını anlamlı ve açık takdirle fark etmelerini sağlayın."
