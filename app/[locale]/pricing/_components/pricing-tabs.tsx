@@ -7,6 +7,7 @@ import { Building2, Gift } from 'lucide-react';
 // Import the components for the tabs
 import { EmployerPricingPlans } from '@/app/[locale]/pricing/_components/employer-pricing-plans';
 import { BrandPartnershipPrograms } from '@/app/[locale]/pricing/_components/brand-partnership-programs';
+import { BrandPartnershipSingle } from '@/app/[locale]/pricing/_components/brand-partnership-single';
 
 interface TabButtonProps {
   isActive: boolean;
@@ -128,7 +129,7 @@ export function PricingTabs({ locale }: PricingTabsProps) {
             onClick={() => setActiveTab('brands')}
             icon={<Gift className="w-6 h-6" />}
             title={t('Marka Partnerliği', 'Brand Partnership')}
-            description={t('Tamamen ücretsiz! Tier sistemi ile daha fazla avantaj kazanın ve geniş çalışan kitlesine ulaşın.', 'Completely free! Earn more benefits with tier system and reach large employee base.')}
+            description={t('Benzersiz indirim sunan markalar için tek, ücretsiz program. Geniş çalışan kitlesine ulaşın.', 'Single, free program for brands offering unique discounts. Reach a large employee base.')}
           />
         </motion.div>
 
@@ -143,7 +144,7 @@ export function PricingTabs({ locale }: PricingTabsProps) {
           {activeTab === 'employer' ? (
             <EmployerPricingPlans />
           ) : (
-            <BrandPartnershipPrograms />
+            <BrandPartnershipSingle />
           )}
         </motion.div>
       </div>

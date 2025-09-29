@@ -286,6 +286,7 @@
         "integrations": "Entegrasyonlar (Slack, Teams vs.)",
         "mobile": "Mobil Uygulama",
         "api": "API Erişimi",
+        "ai": "AI Destekli Tavsiyeler",
         "all": "Tüm Modüller Dahil",
         "custom": "Özel Modül Geliştirme",
         "support": "Öncelikli Teknik Destek",
@@ -295,7 +296,10 @@
         "feedback": "Geri Bildirim Yönetimi",
         "campaigns": "Kampanya Yönetimi",
         "announcements": "Duyuru Sistemi",
-        "userManagement": "Kullanıcı Yönetimi"
+        "userManagement": "Kullanıcı Yönetimi",
+        "onboarding": "Onboarding",
+        "ssoIntegration": "SSO Entegrasyonu",
+        "customModules": "Özel Modüller"
       },
       "enterpriseNote": {
         "title": "500+ Çalışanınız mı var?",

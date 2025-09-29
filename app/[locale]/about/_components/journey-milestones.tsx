@@ -105,12 +105,12 @@ export function JourneyMilestones() {
             </span>
           </h2>
           
-          <p className="max-w-3xl mx-auto text-lg lg:text-xl text-slate-600 dark:text-gray-300 leading-relaxed">
+       {/*    <p className="max-w-3xl mx-auto text-lg lg:text-xl text-slate-600 dark:text-gray-300 leading-relaxed">
             {locale === 'tr'
               ? 'İlk günden bu yana Braviooı güçlü ve kullanıcı dostu bir e-ticaret altyapısı haline getirmek için çalışıyoruz.'
               : 'From day one, we\'ve been working to make Bravioo a powerful and user-friendly e-commerce infrastructure for businesses.'
             }
-          </p>
+          </p> */}
         </motion.div>
 
         {/* Horizontal Timeline with Navigation */}

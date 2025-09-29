@@ -4,7 +4,9 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, TrendingUp, Users, Award, Building } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import companiesData from '@/data/companies.json';
+import { useLocale } from 'next-intl';
 
 interface Company {
   id: string;
@@ -29,20 +31,20 @@ interface Company {
 }
 
 export function CustomerShowcase() {
-  const [activeCategory, setActiveCategory] = useState<string>('Tümü');
-
+  const [activeCategory] = useState<string>('Tümü');
+  const locale = useLocale();
   const companies: Company[] = companiesData;
 
-  // Extract unique categories from companies data
-  const uniqueCategories = Array.from(new Set(companies.map(c => c.category)));
+  // Extract unique categories from companies data (not used since filter UI is disabled)
+  // const uniqueCategories = Array.from(new Set(companies.map(c => c.category)));
   
-  const categories = [
-    { name: 'Tümü', count: companies.length },
-    ...uniqueCategories.map(category => ({
-      name: category,
-      count: companies.filter(c => c.category === category).length
-    }))
-  ];
+  // const categories = [
+  //   { name: 'Tümü', count: companies.length },
+  //   ...uniqueCategories.map(category => ({
+  //     name: category,
+  //     count: companies.filter(c => c.category === category).length
+  //   }))
+  // ];
 
   const filteredCompanies = activeCategory === 'Tümü' 
     ? companies 
@@ -89,6 +91,9 @@ export function CustomerShowcase() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 px-4 sm:px-6 py-2 sm:py-3 rounded-xl border border-emerald-200 dark:border-emerald-600 hover:border-emerald-300 dark:hover:border-emerald-500 font-medium transition-all duration-300 shadow-sm hover:shadow-md"
+            onClick={() => {
+              window.location.href = `/${locale}/stories`;
+            }}
           >
             <span>Başarı Hikayelerimize Göz At</span>
             <ArrowRight className="w-4 h-4" />
@@ -233,20 +238,22 @@ export function CustomerShowcase() {
             Bravioo&apos;ın güçlü e-ticaret altyapısı ile siz de bu başarılı markalar arasına katılın.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-emerald-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-emerald-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
-            >
-              Ücretsiz Demo Alın
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="border border-slate-300 dark:border-gray-600 text-slate-700 dark:text-gray-300 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:border-slate-400 dark:hover:border-gray-500 hover:bg-slate-50 dark:hover:bg-gray-800 transition-all duration-300"
-            >
-              Fiyat Bilgisi Alın
-            </motion.button>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                href={`/${locale}/meeting`}
+                className="bg-emerald-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-emerald-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
+              >
+                Ücretsiz Demo Alın
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                href={`/${locale}/pricing`}
+                className="border border-slate-300 dark:border-gray-600 text-slate-700 dark:text-gray-300 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:border-slate-400 dark:hover:border-gray-500 hover:bg-slate-50 dark:hover:bg-gray-800 transition-all duration-300"
+              >
+                Fiyat Bilgisi Alın
+              </Link>
+            </motion.div>
           </div>
         </motion.div>
 

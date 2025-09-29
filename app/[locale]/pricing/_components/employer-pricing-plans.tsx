@@ -1,12 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Check, Star, Users, Zap, Building, Crown } from 'lucide-react';
 
 export function EmployerPricingPlans() {
   const t = useTranslations('pricing.employer');
+  const locale = useLocale();
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('yearly');
   const [currency, setCurrency] = useState<'USD' | 'TRY'>('USD');
   const [exchangeRate, setExchangeRate] = useState<number>(42); // 1 USD = 42 TRY (fallback)
@@ -14,47 +15,51 @@ export function EmployerPricingPlans() {
   const plans = [
     {
       id: 'starter',
-      nameKey: 'plans.starter.name',
+      nameTR: 'Temel',
+      nameEN: 'Essential',
       descKey: 'plans.starter.description',
       icon: <Users className="w-8 h-8" />,
       perSeatUSD: 10,
       maxUsers: 50,
       popular: false,
       color: 'blue',
-      modules: ['recognition', 'surveys', 'analytics', 'polls']
+      modules: ['campaigns', 'surveys', 'announcements', 'feedback', 'analytics']
     },
     {
       id: 'growth',
-      nameKey: 'plans.growth.name',
+      nameTR: 'Profesyonel',
+      nameEN: 'Professional',
       descKey: 'plans.growth.description', 
       icon: <Zap className="w-8 h-8" />,
       perSeatUSD: 5,
       maxUsers: 200,
       popular: true,
       color: 'emerald',
-      modules: ['recognition', 'surveys', 'analytics', 'automation', 'integrations', 'feedback', 'campaigns']
+      modules: ['campaigns', 'surveys', 'announcements', 'feedback', 'analytics', 'giveaways', 'onboarding']
     },
     {
       id: 'scale',
-      nameKey: 'plans.scale.name',
+      nameTR: 'Gelişmiş',
+      nameEN: 'Advanced',
       descKey: 'plans.scale.description',
       icon: <Building className="w-8 h-8" />,
       perSeatUSD: 3,
       maxUsers: 500,
       popular: false,
       color: 'purple',
-      modules: ['recognition', 'surveys', 'analytics', 'automation', 'integrations', 'mobile', 'api', 'giveaways', 'announcements']
+      modules: ['campaigns', 'surveys', 'announcements', 'feedback', 'analytics', 'giveaways', 'onboarding', 'userManagement', 'ai']
     },
     {
       id: 'enterprise',
-      nameKey: 'plans.enterprise.name',
+      nameTR: 'Premier',
+      nameEN: 'Premier',
       descKey: 'plans.enterprise.description',
       icon: <Crown className="w-8 h-8" />,
       perSeatUSD: null,
       maxUsers: '500+',
       popular: false,
       color: 'gray',
-      modules: ['all', 'custom', 'support', 'training', 'userManagement']
+      modules: ['campaigns', 'surveys', 'announcements', 'feedback', 'analytics', 'giveaways', 'onboarding', 'userManagement', 'ai', 'support', 'training', 'custom']
     }
   ];
 
@@ -215,8 +220,13 @@ export function EmployerPricingPlans() {
                     {plan.icon}
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                    {t(plan.nameKey)}
+                    {locale === 'tr' ? plan.nameTR : plan.nameEN}
                   </h3>
+                  <div className="inline-block mb-3 px-3 py-1 rounded-full bg-gray-100 text-gray-800 font-semibold">
+                    {typeof plan.maxUsers === 'number' 
+                      ? (locale === 'tr' ? `En fazla ${plan.maxUsers} kullanıcı` : `Up to ${plan.maxUsers} users`) 
+                      : (locale === 'tr' ? `${plan.maxUsers} kullanıcı` : `${plan.maxUsers} users`)}
+                  </div>
                   <p className="text-gray-600">
                     {t(plan.descKey)}
                   </p>
@@ -236,18 +246,14 @@ export function EmployerPricingPlans() {
                           25% {t('off')} ({currencySymbol}{Math.round((monthly * 12) - (yearly || 0)).toLocaleString()} {t('saved')})
                         </div>
                       )}
-                      <div className="text-sm text-gray-600 mt-2">
-                        {typeof plan.maxUsers === 'number' ? `${plan.maxUsers} ${t('usersMax')}` : `${plan.maxUsers} ${t('usersMax')}`}
-                      </div>
+                      
                     </>
                   ) : (
                     <>
                       <div className="text-4xl font-bold text-gray-900 mb-2">
                         {t('custom')}
                       </div>
-                      <div className="text-sm text-gray-600">
-                        {plan.maxUsers} {t('usersMax')}
-                      </div>
+                      
                     </>
                   )}
                 </div>
@@ -279,30 +285,6 @@ export function EmployerPricingPlans() {
             );
           })}
         </div>
-
-        {/* Bottom Note */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mt-16"
-        >
-          <div className="bg-white p-8 rounded-2xl shadow-lg border border-emerald-100">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
-              {t('enterpriseNote.title')}
-            </h3>
-            <p className="text-gray-600 mb-6">
-              {t('enterpriseNote.description')}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300">
-                {t('contactSales')}
-              </button>
-              <button className="border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white px-8 py-3 rounded-full font-semibold transition-all duration-300">
-                {t('scheduleDemo')}
-              </button>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

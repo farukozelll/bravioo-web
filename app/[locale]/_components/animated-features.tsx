@@ -112,21 +112,7 @@ export function AnimatedFeaturesSection() {
               {t('animatedFeatures.title.highlight')}
             </span>
           </h2>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="flex justify-start"
-          >
-            <Button 
-              variant="outline" 
-              className="border-2 border-primary-200 dark:border-primary-700 text-primary-700 dark:text-primary-300 hover:bg-primary-50 dark:hover:bg-primary-900 rounded-full px-8 py-3 font-semibold transition-colors duration-300"
-            >
-              {t('animatedFeatures.cta')}
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </motion.div>
+        
         </motion.div>
 
         {/* Feature Cards Grid */}
@@ -237,7 +223,7 @@ export function AnimatedFeaturesSection() {
         </div>
 
         {/* Bottom Stats */}
-        <motion.div 
+  {/*       <motion.div 
           className="text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -265,7 +251,7 @@ export function AnimatedFeaturesSection() {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

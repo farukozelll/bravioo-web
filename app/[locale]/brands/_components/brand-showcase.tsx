@@ -200,78 +200,9 @@ export function BrandShowcase() {
           ))}
         </motion.div>
 
-        {/* Bottom Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-12 lg:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6"
-        >
-          <div className="text-center p-4 sm:p-6 bg-gradient-to-br from-emerald-50 to-white dark:from-emerald-900/20 dark:to-gray-800 rounded-2xl border border-emerald-100 dark:border-emerald-800">
-            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <TrendingUp className="w-6 h-6 text-emerald-600" />
-            </div>
-            <div className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-gray-100 mb-2">+200%</div>
-            <div className="text-xs sm:text-sm text-slate-600 dark:text-gray-400">Ortalama Büyüme</div>
-          </div>
-          
-          <div className="text-center p-4 sm:p-6 bg-gradient-to-br from-blue-50 to-white dark:from-blue-900/20 dark:to-gray-800 rounded-2xl border border-blue-100 dark:border-blue-800">
-            <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <Users className="w-6 h-6 text-blue-600" />
-            </div>
-            <div className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-gray-100 mb-2">10.000+</div>
-            <div className="text-xs sm:text-sm text-slate-600 dark:text-gray-400">Başarılı İşletme</div>
-          </div>
-          
-          <div className="text-center p-4 sm:p-6 bg-gradient-to-br from-purple-50 to-white dark:from-purple-900/20 dark:to-gray-800 rounded-2xl border border-purple-100 dark:border-purple-800">
-            <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <Award className="w-6 h-6 text-purple-600" />
-            </div>
-            <div className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-gray-100 mb-2">4.8/5</div>
-            <div className="text-xs sm:text-sm text-slate-600 dark:text-gray-400">Müşteri Puanı</div>
-          </div>
-          
-          <div className="text-center p-4 sm:p-6 bg-gradient-to-br from-orange-50 to-white dark:from-orange-900/20 dark:to-gray-800 rounded-2xl border border-orange-100 dark:border-orange-800">
-            <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <Building className="w-6 h-6 text-orange-600" />
-            </div>
-            <div className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-gray-100 mb-2">15+</div>
-            <div className="text-xs sm:text-sm text-slate-600 dark:text-gray-400">Farklı Sektör</div>
-          </div>
-        </motion.div>
+      
 
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-center mt-16"
-        >
-          <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-gray-100 mb-4">
-            Sizin de başarı hikayenizi yazalım
-          </h3>
-          <p className="text-slate-600 dark:text-gray-300 mb-6 lg:mb-8 max-w-2xl mx-auto">
-            Bravioo&apos;ın güçlü e-ticaret altyapısı ile siz de bu başarılı markalar arasına katılın.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-emerald-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-emerald-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
-            >
-              Ücretsiz Demo Alın
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="border border-slate-300 dark:border-gray-600 text-slate-700 dark:text-gray-300 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:border-slate-400 dark:hover:border-gray-500 hover:bg-slate-50 dark:hover:bg-gray-800 transition-all duration-300"
-            >
-              Fiyat Bilgisi Alın
-            </motion.button>
-          </div>
-        </motion.div>
+
 
       </div>
     </section>

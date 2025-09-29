@@ -54,7 +54,7 @@ export type MegaMenuContent = {
 export const navigationData: NavItem[] = [
   {
     nameKey: 'whyBravioo',
-    href: '/why-bravioo',
+    href: '/about',
     isMegaMenu: true,
     megaMenuContent: {
       mainLinks: [
@@ -65,13 +65,13 @@ export const navigationData: NavItem[] = [
           icon: <Building className="w-6 h-6" />,
           isNew: false
         },
-        {
+        /* {
           nameKey: 'difference',
           descriptionKey: 'differenceDesc',
           href: '/why-bravioo',
           icon: <Target className="w-6 h-6" />,
           isNew: false
-        },
+        }, */
         {
           nameKey: 'brands',
           descriptionKey: 'brandsDesc',
