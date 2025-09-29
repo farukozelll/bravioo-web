@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, TrendingUp, Users, Award, Building } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import brandsData from '@/data/brands.json';
 
@@ -37,40 +37,55 @@ interface Company {
 }
 
 export function BrandShowcase() {
-  const [activeCategory, setActiveCategory] = useState<string>('Tümü');
+  const [activeCategory, setActiveCategory] = useState<string>('ALL');
 
   const brands: Brand[] = brandsData as unknown as Brand[];
 
+  const normalizeCategory = (value: string | undefined) => (value || '').trim().toLowerCase();
+
   // Map brands to the expected shape used by the showcase UI
-  const companies: Company[] = brands.map((b) => ({
-    id: b.id,
-    name: b.name,
-    logo: b.logo,
-    category: b.category,
-    description: b.description ?? '',
-    metrics: { primary: '', secondary: '' },
-    details: { challenge: '', solution: '', results: [] },
-    testimonial: {
-      text: b.description ?? '',
-      author: b.name,
-      position: b.category,
-    },
-  }));
-
-  // Extract unique categories from brands data
-  const uniqueCategories = Array.from(new Set(companies.map(c => c.category)));
-  
-  const categories = [
-    { name: 'Tümü', count: companies.length },
-    ...uniqueCategories.map(category => ({
-      name: category,
-      count: companies.filter(c => c.category === category).length
+  const companies: Company[] = useMemo(() => (
+    brands.map((b) => ({
+      id: b.id,
+      name: b.name,
+      logo: b.logo,
+      category: b.category,
+      description: b.description ?? '',
+      metrics: { primary: '', secondary: '' },
+      details: { challenge: '', solution: '', results: [] },
+      testimonial: {
+        text: b.description ?? '',
+        author: b.name,
+        position: b.category,
+      },
     }))
-  ];
+  ), [brands]);
 
-  const filteredCompanies = activeCategory === 'Tümü' 
-    ? companies 
-    : companies.filter(c => c.category === activeCategory);
+  // Build normalized categories with counts
+  const categories = useMemo(() => {
+    const counts = new Map<string, { displayName: string; count: number }>();
+    for (const c of companies) {
+      const norm = normalizeCategory(c.category);
+      const display = c.category;
+      const existing = counts.get(norm);
+      if (existing) existing.count += 1; else counts.set(norm, { displayName: display, count: 1 });
+    }
+    const list = Array.from(counts.entries()).map(([norm, info]) => ({
+      norm,
+      name: info.displayName,
+      count: info.count
+    }));
+    list.sort((a, b) => a.name.localeCompare(b.name, 'tr'));
+    return [
+      { norm: 'ALL', name: 'Tümü', count: companies.length },
+      ...list
+    ];
+  }, [companies]);
+
+  const filteredCompanies = useMemo(() => {
+    if (activeCategory === 'ALL') return companies;
+    return companies.filter(c => normalizeCategory(c.category) === activeCategory);
+  }, [activeCategory, companies]);
 
   // Staggered animation variants to avoid per-card whileInView issues
   const containerVariants = {
@@ -129,13 +144,13 @@ export function BrandShowcase() {
         >
           {categories.map((category) => (
             <motion.button
-              key={category.name}
+              key={category.norm}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => setActiveCategory(category.name)}
+              onClick={() => setActiveCategory(category.norm)}
               className={`
                 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-sm font-medium transition-all duration-300
-                ${activeCategory === category.name
+                ${activeCategory === category.norm
                   ? 'bg-emerald-600 text-white shadow-lg' 
                   : 'bg-slate-100 dark:bg-gray-700 text-slate-600 dark:text-gray-300 hover:bg-slate-200 dark:hover:bg-gray-600 hover:text-slate-900 dark:hover:text-gray-100'
                 }
@@ -148,10 +163,11 @@ export function BrandShowcase() {
 
         {/* Company Grid */}
         <motion.div
+          key={activeCategory}
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true, amount: 0.15 }}
+          viewport={{ once: false, amount: 0.15 }}
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 lg:gap-6"
         >
           {filteredCompanies.map((company) => (
@@ -171,6 +187,7 @@ export function BrandShowcase() {
                       width={48}
                       height={48}
                       className="w-8 sm:w-12 h-8 sm:h-12 object-contain"
+                      loading="lazy"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
@@ -188,12 +205,6 @@ export function BrandShowcase() {
                   {company.name}
                 </h3>
 
-                {/* Category */}
-             {/*    <p className="text-xs text-slate-500 dark:text-gray-400 text-center mb-2 sm:mb-4">
-                  {company.category}
-                </p> */}
-
-                {/* No hover overlay */}
 
               </div>
             </motion.div>
