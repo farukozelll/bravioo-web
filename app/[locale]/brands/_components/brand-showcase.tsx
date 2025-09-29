@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useMemo, useState } from 'react';
-import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import brandsData from '@/data/brands.json';
@@ -87,66 +86,34 @@ export function BrandShowcase() {
     return companies.filter(c => normalizeCategory(c.category) === activeCategory);
   }, [activeCategory, companies]);
 
-  // Staggered animation variants to avoid per-card whileInView issues
-  const containerVariants = {
-    hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.06,
-        delayChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 16 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.45, ease: 'easeOut' }
-    }
-  };
+  // Animations removed for faster loading
 
   return (
     <section className="bg-white dark:bg-gray-900 py-16 lg:py-20 xl:py-24 transition-colors duration-300">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-gray-100 mb-4 lg:mb-6 leading-tight">
             Her sektörden işletme için<br />
             <span className="text-emerald-600">Yeni Nesil Bravioo Altyapısı</span>
           </h2>
           
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <button
             className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 px-4 sm:px-6 py-2 sm:py-3 rounded-xl border border-emerald-200 dark:border-emerald-600 hover:border-emerald-300 dark:hover:border-emerald-500 font-medium transition-all duration-300 shadow-sm hover:shadow-md"
           >
             <span>Başarı Hikayelerimize Göz At</span>
             <ArrowRight className="w-4 h-4" />
-          </motion.button>
-        </motion.div>
+          </button>
+        </div>
 
         {/* Category Filter */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+        <div
           className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 lg:mb-12"
         >
           {categories.map((category) => (
-            <motion.button
+            <button
               key={category.norm}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
               onClick={() => setActiveCategory(category.norm)}
               className={`
                 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-sm font-medium transition-all duration-300
@@ -157,23 +124,18 @@ export function BrandShowcase() {
               `}
             >
               {category.name} ({category.count})
-            </motion.button>
+            </button>
           ))}
-        </motion.div>
+        </div>
 
         {/* Company Grid */}
-        <motion.div
+        <div
           key={activeCategory}
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: false, amount: 0.15 }}
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 lg:gap-6"
         >
           {filteredCompanies.map((company) => (
-            <motion.div
+            <div
               key={company.id}
-              variants={itemVariants}
               className="relative rounded-lg"
             >
               <div className="relative bg-white dark:bg-gray-800 rounded-2xl p-3 sm:p-4 border border-slate-200 dark:border-gray-700 overflow-hidden h-36 sm:h-36">
@@ -207,9 +169,9 @@ export function BrandShowcase() {
 
 
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
       
 
