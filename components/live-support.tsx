@@ -44,6 +44,39 @@ export function LiveSupport() {
     };
   }, [isOpen]);
 
+  // Listen for external trigger to open assistant modal
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const handler = (e: Event) => {
+      const detail = (e as CustomEvent).detail as { type?: SupportType } | undefined;
+      const type = detail?.type || 'ai';
+      setIsOpen(true);
+      setSupportType(type);
+      if (messages.length === 0) {
+        setMessages([{
+          id: 1,
+          text: type === 'ai'
+            ? 'Merhaba! Ben Bravioo AI Asistanınızım. Ürün özelliklerimiz, fiyatlandırma ve entegrasyonlar hakkında sorularınızı yanıtlayabilirim. Size nasıl yardımcı olabilirim?'
+            : 'Merhaba! Ben canlı destek temsilcinizim. Teknik sorunlar, hesap yönetimi ve özel talepleriniz için buradayım. Size nasıl yardımcı olabilirim?',
+          sender: type === 'ai' ? 'ai' : 'human',
+          timestamp: new Date(),
+        }]);
+      }
+    };
+    window.addEventListener('open-support', handler as EventListener);
+
+    // Also auto-open if query param present on load
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const support = params.get('support');
+      if (support === 'ai' || support === 'human') {
+        window.dispatchEvent(new CustomEvent('open-support', { detail: { type: support as SupportType } }));
+      }
+    } catch {}
+
+    return () => window.removeEventListener('open-support', handler as EventListener);
+  }, [messages.length]);
+
   const handleSendMessage = async () => {
     if (!message.trim() || !supportType) return;
 

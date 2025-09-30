@@ -1,15 +1,12 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
+// import { getTranslations } from 'next-intl/server';
 import { ContactFormTabs } from '@/app/[locale]/contact/_components/contact-form-tabs';
+import { QuickContactMethods } from '@/app/[locale]/contact/_components/quick-contact-methods';
 import { FAQSection } from '@/app/[locale]/contact/_components/faq';
 import { 
   MapPin, 
-  Phone, 
-  Mail, 
-  Clock, 
-  MessageSquare,
-  Users,
+  Clock
 } from 'lucide-react';
 
 type Props = {
@@ -30,36 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ContactPage({ params }: Props) {
   const { locale } = await params;
 
-  const contactMethods = [
-    {
-      icon: MessageSquare,
-      title: locale === 'tr' ? 'Canlı Sohbet' : 'Live Chat',
-      description: locale === 'tr' ? '7/24 anlık destek' : '24/7 instant support',
-      action: locale === 'tr' ? 'Sohbeti Başlat' : 'Start Chat',
-      color: 'from-brand-500 to-emerald-600'
-    },
-    {
-      icon: Phone,
-      title: locale === 'tr' ? 'Telefon Desteği' : 'Phone Support',
-      description: '+90 (212) 555-0123',
-      action: locale === 'tr' ? 'Hemen Ara' : 'Call Now',
-      color: 'from-blue-500 to-indigo-600'
-    },
-    {
-      icon: Mail,
-      title: locale === 'tr' ? 'E-posta' : 'Email',
-      description: 'info@bravioo.com',
-      action: locale === 'tr' ? 'E-posta Gönder' : 'Send Email',
-      color: 'from-purple-500 to-pink-600'
-    },
-    {
-      icon: Users,
-      title: locale === 'tr' ? 'Demo Talep Et' : 'Request Demo',
-      description: locale === 'tr' ? '30 dakikalık özel sunum' : '30-minute personalized demo',
-      action: locale === 'tr' ? 'Demo Planla' : 'Schedule Demo',
-      color: 'from-orange-500 to-red-600'
-    }
-  ];
+  // moved to client component
 
   const officeInfo = [
     {
@@ -104,26 +72,7 @@ export default async function ContactPage({ params }: Props) {
               </p>
 
               {/* Quick Contact Methods */}
-              <div className="grid grid-cols-2 gap-4 mb-8">
-                {contactMethods.map((method, index) => {
-                  const Icon = method.icon;
-                  return (
-                    <div
-                      key={index}
-                      className="group p-4 bg-white dark:bg-gray-800 rounded-2xl border border-sand-200 dark:border-gray-700 hover:border-brand-300 dark:hover:border-brand-500 transition-all duration-300 hover:shadow-lg cursor-pointer"
-                    >
-                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${method.color} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}>
-                        <Icon className="h-6 w-6 text-white" />
-                      </div>
-                      <h3 className="font-semibold text-ink-900 dark:text-gray-100 mb-1">{method.title}</h3>
-                      <p className="text-sm text-ink-600 dark:text-gray-300 mb-3">{method.description}</p>
-                      <span className="text-sm font-medium text-brand-600 group-hover:text-brand-700 transition-colors">
-                        {method.action} →
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
+              <QuickContactMethods />
             </div>
 
             {/* Right Form */}

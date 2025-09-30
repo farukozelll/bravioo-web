@@ -15,14 +15,14 @@ interface Company {
   description: string;
   metrics: {
     primary: string;
-    secondary: string;
+    secondary?: string;
   };
-  details: {
+  details?: {
     challenge: string;
     solution: string;
     results: string[];
   };
-  testimonial: {
+  testimonial?: {
     text: string;
     author: string;
     position: string;
@@ -31,7 +31,7 @@ interface Company {
 
 export function CustomerGallery() {
   const locale = useLocale();
-  const companies: Company[] = companiesData;
+  const companies: Company[] = companiesData as unknown as Company[];
 
   // Create enhanced gallery data with category backgrounds
   const galleryData = useMemo(() => {
