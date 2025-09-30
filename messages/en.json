@@ -18,6 +18,14 @@
     "bookDemo": "Book a Demo",
     "contactSales": "Contact Sales"
   },
+  "error": {
+    "title": "Oops! Something went wrong",
+    "description": "We're sorry, but something unexpected happened.",
+    "tryAgain": "Try Again",
+    "goHome": "Go Home",
+    "contact": "If this problem persists, please",
+    "contactUs": "contact our support team"
+  },
   "navigation": {
     "home": "Home",
     "platform": "Platform",

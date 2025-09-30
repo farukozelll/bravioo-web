@@ -3,13 +3,20 @@ import { NextResponse } from 'next/server';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://bravioo.com';
 
 const staticPages = [
-  { path: '', priority: 1.0, changefreq: 'weekly' },
+  { path: '', priority: 1.0, changefreq: 'daily' },
   { path: '/pricing', priority: 0.9, changefreq: 'weekly' },
+  { path: '/features', priority: 0.9, changefreq: 'weekly' },
+  { path: '/customers', priority: 0.8, changefreq: 'weekly' },
+  { path: '/about', priority: 0.8, changefreq: 'monthly' },
   { path: '/contact', priority: 0.8, changefreq: 'monthly' },
+  { path: '/meeting', priority: 0.8, changefreq: 'monthly' },
   { path: '/brands', priority: 0.7, changefreq: 'monthly' },
-  { path: '/privacy', priority: 0.6, changefreq: 'monthly' },
-  { path: '/terms', priority: 0.6, changefreq: 'monthly' },
-  { path: '/cookies', priority: 0.5, changefreq: 'monthly' },
+  { path: '/why-bravioo', priority: 0.7, changefreq: 'monthly' },
+  { path: '/stories', priority: 0.6, changefreq: 'weekly' },
+  { path: '/legal/privacy', priority: 0.5, changefreq: 'yearly' },
+  { path: '/legal/terms', priority: 0.5, changefreq: 'yearly' },
+  { path: '/legal/cookies', priority: 0.5, changefreq: 'yearly' },
+  { path: '/legal/accessibility', priority: 0.5, changefreq: 'yearly' },
 ];
 
 const locales = ['en', 'tr'];

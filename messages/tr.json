@@ -18,6 +18,14 @@
     "bookDemo": "Demo Rezervasyonu",
     "contactSales": "Satış Ekibi ile İletişim"
   },
+  "error": {
+    "title": "Hata! Bir şeyler yanlış gitti",
+    "description": "Üzgünüz, beklenmeyen bir hata oluştu.",
+    "tryAgain": "Tekrar Dene",
+    "goHome": "Ana Sayfaya Dön",
+    "contact": "Bu sorun devam ederse lütfen",
+    "contactUs": "destek ekibimizle iletişime geçin"
+  },
   "navigation": {
     "home": "Ana Sayfa",
     "platform": "Platform",

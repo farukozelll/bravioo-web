@@ -6,6 +6,7 @@ import { LiveSupport } from '@/components/live-support';
 import { ScrollToTop } from '@/components/ui/scroll-to-top';
 import { GoogleAnalytics, HubSpotAnalytics, MicrosoftClarity } from '@/components/analytics';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
+import { OrganizationSchema, WebsiteSchema, ProductSchema } from '@/components/structured-data';
 // Theme provider moved to root layout
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
@@ -34,6 +35,11 @@ export default async function LocaleLayout({
   return (
     <div className="min-h-screen bg-neutral-50 dark:bg-gray-900 text-neutral-900 dark:text-gray-100 transition-colors duration-300">
       <NextIntlClientProvider locale={locale} messages={messages}>
+          {/* Structured Data for SEO */}
+          <OrganizationSchema />
+          <WebsiteSchema />
+          <ProductSchema />
+
           {/* Skip to main content link for accessibility */}
           <a
             href="#main-content"

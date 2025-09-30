@@ -1,17 +1,51 @@
 {
-  "name": "Bravioo - Employee Recognition Platform",
+  "name": "Bravioo - Employee Recognition & Rewards Platform",
   "short_name": "Bravioo",
-  "description": "Transform your workplace culture with comprehensive employee recognition and rewards.",
+  "description": "Transform your workplace culture with Bravioo's comprehensive employee recognition and rewards platform. Boost engagement, retention, and productivity.",
   "icons": [
     {
       "src": "/favicon.ico",
-      "sizes": "any",
+      "sizes": "48x48",
       "type": "image/x-icon"
+    },
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
     }
   ],
   "theme_color": "#3A9355",
   "background_color": "#F7F5F0",
   "display": "standalone",
   "start_url": "/",
-  "lang": "en"
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity", "education"],
+  "screenshots": [],
+  "related_applications": [],
+  "prefer_related_applications": false
 }
