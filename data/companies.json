@@ -55,10 +55,7 @@
     "logo": "/images/companies/agt-seramik.jpeg",
     "category": "Üretim",
     "description": "Üretim Hattı Verimliliğini Akıllı Fabrika Çözümleriyle Artırdı",
-    "metrics": {
-      "primary": "%15 Üretim Artışı",
-      "secondary": "Aynı Sürede"
-    },
+    "metrics": { "primary": "%15 Üretim Artışı", "secondary": "Aynı Sürede" },
     "details": {
       "challenge": "Seramik üretiminde kalite kontrol ve üretim bandı verimliliğini artırma ihtiyacı.",
       "solution": "Bravioo'nun Endüstri 4.0 uyumlu üretim yürütme sistemi (MES).",
@@ -73,5 +70,139 @@
       "author": "Selim Taşçı",
       "position": "Fabrika Müdürü"
     }
+  },
+
+  {
+    "id": "global-turizm",
+    "name": "Global Turizm",
+    "logo": "/images/companies/global-turizm.jpg",
+    "category": "Turizm",
+    "description": "Operasyon ve rezervasyon süreçlerini tek panelden yönetti.",
+    "metrics": { "primary": "%30 Operasyonel Hız" },
+    "details": {
+      "challenge": "Dağınık acente süreçleri",
+      "solution": "Merkezi rezervasyon ve CRM",
+      "results": ["Tek ekrandan yönetim", "Satış takibinde şeffaflık"]
+    }
+  },
+  {
+    "id": "fa-grup",
+    "name": "FA Grup",
+    "logo": "/images/companies/fa-grup.png",
+    "category": "Hizmet",
+    "description": "Saha operasyonlarını gerçek zamanlı raporladı.",
+    "metrics": { "primary": "%40 Verimlilik" },
+    "details": {
+      "challenge": "Saha ekip senkronizasyonu",
+      "solution": "Görev & rota planlama",
+      "results": ["Zamanında tamamlanan işler", "Maliyet düşüşü"]
+    }
+  },
+  {
+    "id": "misek-insaat",
+    "name": "Misek İnşaat",
+    "logo": "/images/companies/misek.svg",
+    "category": "İnşaat",
+    "description": "Şantiye ve tedarik yönetimini dijitalleştirdi.",
+    "metrics": { "primary": "%20 Maliyet Tasarrufu" },
+    "details": {
+      "challenge": "Stok ve hakediş takibi",
+      "solution": "ERP + satınalma modülleri",
+      "results": ["Gerçek zamanlı stok görünürlüğü", "Onay akışları kısaldı"]
+    }
+  },
+  {
+    "id": "kaanlar",
+    "name": "Kaanlar",
+    "logo": "/images/companies/kaanlar.png",
+    "category": "Gıda",
+    "description": "Üretimden dağıtıma uçtan uca izlenebilirlik sağladı.",
+    "metrics": { "primary": "%35 İzlenebilirlik" },
+    "details": {
+      "challenge": "Soğuk zincir takibi",
+      "solution": "IoT sensör ve uyarılar",
+      "results": ["Isı ihlallerinde anlık alarm", "İade oranı azaldı"]
+    }
+  },
+  {
+    "id": "akgun-grup",
+    "name": "Akgün Grup",
+    "logo": "/images/companies/akgun-grup.png",
+    "category": "Holding",  
+    "description": "Grup şirketlerinde merkezi finans ve insan kaynakları yönetimi.",
+    "metrics": { "primary": "%50 Daha Hızlı Raporlama" }
+  },
+  {
+    "id": "hasal-aluminyum",
+    "name": "Hasal Alüminyum",
+    "logo": "/images/companies/hasal.svg",
+    "category": "Üretim",
+    "description": "Üretim planlama ve kalite süreçlerini standartlaştırdı.",
+    "metrics": { "primary": "%18 Verimlilik" }
+  },
+  {
+    "id": "celiktas",
+    "name": "Çeliktaş",
+    "logo": "/images/companies/celiktas.png",
+    "category": "İnşaat/Metal",
+    "description": "Tedarik ve proje planlamasını tek sistemde topladı.",
+    "metrics": { "primary": "%22 Zaman Kazancı" }
+  },
+  {
+    "id": "safak-oil",
+    "name": "Şafak Oil",
+    "logo": "/images/companies/placeholder.png",
+    "category": "Enerji",
+    "description": "Bayilik ve sevkiyat yönetimini otomatikleştirdi.",
+    "metrics": { "primary": "%28 Operasyon Hızı" }
+  },
+  {
+    "id": "ustun-plastik",
+    "name": "Üstün Plastik",
+    "logo": "/images/companies/placeholder.png",
+    "category": "Üretim",
+    "description": "Üretim, stok ve kalite kontrolünü entegre etti.",
+    "metrics": { "primary": "%15 Fire Azalışı" }
+  },
+  {
+    "id": "bekart-gida",
+    "name": "Bekart Gıda",
+    "logo": "/images/companies/bekart.png",
+    "category": "Gıda",
+    "description": "Satış ve dağıtım ağını tek panelden yönetti.",
+    "metrics": { "primary": "%30 Sipariş Hızı" }
+  },
+  {
+    "id": "ahes-insaat",
+    "name": "AHES İnşaat",
+    "logo": "/images/companies/ahes-insaat.png",
+    "category": "İnşaat",
+    "description": "Keşif, teklif ve maliyet kontrolünü dijitalleştirdi.",
+    "metrics": { "primary": "%17 Maliyet Kontrolü" }
+  },
+  {
+    "id": "azik-yemek",
+    "name": "Azık Yemek",
+    "logo": "/images/companies/azik-yemek.png",
+    "category": "Yemek & Catering",
+    "description": "Toplu yemek üretimi ve dağıtım planını optimize etti.",
+    "metrics": { "primary": "%25 İsraf Azalışı" }
+  },
+  {
+    "id": "ertex",
+    "name": "Ertex",
+    "logo": "/images/companies/erteks-tekstil.png",
+    "category": "Tekstil",
+    "description": "Üretim planlama ve termin takibini hızlandırdı.",
+    "metrics": { "primary": "%20 Teslimat Performansı" }
+  },
+  {
+    "id": "turksat",
+    "name": "Türksat",
+    "logo": "/images/companies/trsat.png",
+    "category": "Telekom",
+    "description": "BT varlık ve hizmet yönetimini standartlaştırdı.",
+    "metrics": { "primary": "%35 Hizmet Seviyesi" }
   }
+
 ]

@@ -1,7 +1,7 @@
 {
   "common": {
     "loading": "Loading...",
-    "error": "An error occurred",
+    "error": "Something went wrong",
     "success": "Success!",
     "close": "Close",
     "save": "Save",
@@ -22,7 +22,7 @@
     "title": "Error! Something went wrong",
     "description": "Sorry, an unexpected error occurred.",
     "tryAgain": "Try Again",
-    "goHome": "Go to Home",
+    "goHome": "Go to Homepage",
     "contact": "If this issue persists, please",
     "contactUs": "contact our support team"
   },
@@ -59,50 +59,50 @@
     "surveys": "Surveys & Feedback",
     "surveysDesc": "Collect instant data and detect issues immediately",
     "analytics": "Advanced Analytics",
-    "analyticsDesc": "Track engagement and measure the impact of your recognition program",
+    "analyticsDesc": "Track engagement and measure your recognition program’s impact",
     "automation": "Automated Workflows",
     "automationDesc": "Automate recognition processes and save time",
     "integrations": "Integrations",
-    "integrationsDesc": "Seamless integration with Slack, Teams, and 50+ tools",
+    "integrationsDesc": "Seamless integration with Slack, Teams and 50+ tools",
     "mobile": "Mobile App",
-    "mobileDesc": "Recognize from anywhere with iOS and Android apps",
+    "mobileDesc": "Recognize from anywhere, iOS & Android apps",
     "aboutUs": "About Us",
-    "aboutUsDesc": "Bravioo’s story, vision, and values",
+    "aboutUsDesc": "Bravioo’s story, vision and values",
     "brands": "Brands",
-    "brandsDesc": "Data security, GDPR compliance, and security certifications",
-    "differenceDesc": "Features and advantages that set Bravioo apart",
-    "pressDesc": "Press coverage, awards, and company announcements",
+    "brandsDesc": "Data security, GDPR compliance and security certifications",
+    "differenceDesc": "What sets Bravioo apart and the advantages",
+    "pressDesc": "Press coverage, awards and company announcements",
     "whyBraviooCTATitle": "Why do thousands of companies choose Bravioo?",
     "whyBraviooCTADesc": "Discover what makes Bravioo different",
     "learnMore": "Learn More",
-    "seriesADesc": "Bravioo completed a $5M Series A funding round",
-    "awardDesc": "We won the Excellence Award in the Remote Work category",
+    "seriesADesc": "Bravioo has completed a $5M Series A funding round",
+    "awardDesc": "We received an excellence award in the remote work category",
     "companyNews": "Company News",
-    "difference": "What Makes Us Different",
+    "difference": "What Makes Us Different?",
     "press": "In the Press",
     "successStories": "Success Stories",
     "albayrakGrubuSuccess": "Annual revenue increased by 285% with Bravioo",
     "akgunGrupSuccess": "50% improvement in employee satisfaction",
     "platformCTATitle": "One platform. Measurable happiness.",
-    "platformCTADesc": "Build a culture where every contribution is valued",
+    "platformCTADesc": "Build a culture where every contribution matters",
     "startFree": "Start Free",
     "viewAll": "View All"
   },
   "hero": {
     "title": "Transform Your Workplace with Meaningful Recognition",
-    "subtitle": "Increase employee engagement and retention with Bravioo’s comprehensive recognition and rewards platform. Build a culture where every success is celebrated.",
+    "subtitle": "Increase employee engagement and retention with Bravioo’s comprehensive recognition & rewards platform. Create a culture where every success is celebrated.",
     "cta": "Start Free Trial",
     "watchDemo": "Watch Demo",
     "trustedBy": "Trusted by 500+ companies worldwide"
   },
   "features": {
     "title": "Everything You Need for Employee Recognition",
-    "subtitle": "Powerful features designed to build a culture of recognition",
+    "subtitle": "Powerful features designed to build a recognition culture",
     "hero": {
       "badge": "Interactive Platform Tour",
       "titleLine1": "Experience the",
       "titleLine2": "Future of Recognition",
-      "subtitle": "Discover how Bravioo transforms workplace culture with powerful and intuitive tools.",
+      "subtitle": "Discover how Bravioo transforms workplace culture with powerful, intuitive tools.",
       "subtitleCta": "Choose your path to get started:",
       "tabs": {
         "hr": "HR Manager",
@@ -134,20 +134,20 @@
           "highlight": "Data-Driven Insights"
         },
         "4": {
-          "title": "Scale Recognition Culture",
+          "title": "Scale Your Recognition Culture",
           "body": "Expand programs across departments and locations while maintaining consistency and quality.",
           "highlight": "Enterprise-Ready"
         }
       },
       "employee": {
         "0": {
-          "title": "Recognize Colleagues Instantly",
-          "body": "Send meaningful recognition to teammates with just a few taps, anytime, anywhere.",
+          "title": "Recognize Peers Instantly",
+          "body": "Send meaningful recognition to teammates in just a few taps—anytime, anywhere.",
           "highlight": "Mobile-First"
         },
         "1": {
           "title": "Earn and Redeem Rewards",
-          "body": "Collect points for great work and redeem them for exciting rewards from our global catalog.",
+          "body": "Collect points for great work and redeem them from our global catalog.",
           "highlight": "Global Rewards"
         },
         "2": {
@@ -164,7 +164,7 @@
     },
     "recognition": {
       "title": "Peer-to-Peer Recognition",
-      "description": "Enable employees to acknowledge each other’s contributions with meaningful, open recognition."
+      "description": "Enable employees to acknowledge each other’s contributions with meaningful, transparent recognition."
     },
     "rewards": {
       "title": "Global Rewards Catalog",
@@ -211,7 +211,7 @@
           "Advanced analytics",
           "Custom recognition categories",
           "Slack & Teams integration",
-          "Admin dashboard",
+          "Admin console",
           "API access"
         ]
       },
@@ -223,7 +223,7 @@
           "Unlimited users",
           "Custom integrations",
           "Dedicated success manager",
-          "Enhanced security (SSO, SAML)",
+          "Advanced security (SSO, SAML)",
           "Custom branding",
           "Priority support"
         ]
@@ -241,20 +241,20 @@
       },
       "featuresTitle": "Features",
       "featuresLabel": "Features",
-      "description": "Four packages designed for your headcount and needs. Module-based pricing means you only pay for what you use.",
+      "description": "Four packages tailored to your employee count and needs. Module-based pricing—pay only for what you use.",
       "feature1": "14-Day Free Trial",
       "feature2": "Setup Support Included",
       "feature3": "24/7 Technical Support",
       "ctaPrimary": "Try for Free",
       "ctaSecondary": "Book a Demo",
       "benefit1Title": "Employee Satisfaction",
-      "benefit1Desc": "Increase employee satisfaction by 85% with a recognition system",
+      "benefit1Desc": "Increase satisfaction by 85% with a recognition system",
       "benefit2Title": "Productivity Boost",
-      "benefit2Desc": "40% more productivity with highly motivated employees",
+      "benefit2Desc": "Up to 40% higher productivity with motivated employees",
       "benefit3Title": "Secure Platform",
-      "benefit3Desc": "GDPR-compliant, ISO 27001 certified secure infrastructure",
+      "benefit3Desc": "GDPR-compliant, ISO 27001-certified secure infrastructure",
       "plansTitle": "Packages for Your Company Size",
-      "plansSubtitle": "Solutions for every size, from startups to large enterprises",
+      "plansSubtitle": "Solutions for every size—from startups to large enterprises",
       "monthly": "Monthly",
       "yearly": "Yearly",
       "off": "Off",
@@ -279,7 +279,7 @@
         },
         "scale": {
           "name": "Scale",
-          "description": "Full feature set for mid-sized companies"
+          "description": "Full feature set for mid-size businesses"
         },
         "enterprise": {
           "name": "Enterprise",
@@ -303,7 +303,7 @@
         "giveaways": "Giveaways & Campaigns",
         "feedback": "Feedback Management",
         "campaigns": "Campaign Management",
-        "announcements": "Announcements System",
+        "announcements": "Announcement System",
         "userManagement": "User Management",
         "onboarding": "Onboarding",
         "ssoIntegration": "SSO Integration",
@@ -311,18 +311,18 @@
       },
       "enterpriseNote": {
         "title": "500+ Employees?",
-        "description": "We offer custom pricing and solutions for large-scale companies. Contact us for your tailored offer."
+        "description": "We offer custom pricing and solutions for large-scale companies. Contact us for a tailored offer."
       },
       "currency": "Currency",
       "perSeat": "per seat",
       "saved": "saved",
       "comparisonTitle": "Package Comparison",
-      "comparisonSubtitle": "Use the detailed comparison table to decide which package suits you",
+      "comparisonSubtitle": "Compare packages in detail to decide which fits you",
       "popular": "Popular",
       "featuresList": {
         "userLimit": "User Limit",
         "recognition": "Recognition System",
-        "surveys": "Surveys Module",
+        "surveys": "Survey Module",
         "polls": "Polls System",
         "basicAnalytics": "Basic Analytics",
         "emailSupport": "Email Support",
@@ -336,7 +336,7 @@
         "mobileApp": "Mobile App",
         "apiAccess": "API Access",
         "giveaways": "Giveaways & Campaigns",
-        "announcements": "Announcements System",
+        "announcements": "Announcement System",
         "userManagement": "User Management",
         "ssoIntegration": "SSO Integration",
         "customModules": "Custom Modules",
@@ -349,54 +349,54 @@
       },
       "migration": {
         "title": "Free Migration",
-        "description": "Free data transfer from your existing system"
+        "description": "Free data transfer from your current system"
       },
       "support": {
         "title": "24/7 Support",
-        "description": "Our technical support team is always by your side"
+        "description": "Our technical support team is always here for you"
       },
       "faqTitle": "Frequently Asked Questions",
-      "faqSubtitle": "Everything you wonder about employer packages",
+      "faqSubtitle": "Everything you want to know about employer packages",
       "faq": {
         "q1": {
           "question": "How do I change packages?",
-          "answer": "You can change your package anytime. Upgrades take effect immediately by paying the difference; downgrades take effect in the next billing cycle."
+          "answer": "You can change your package anytime as your needs evolve. Upgrades take effect immediately by paying the difference; downgrades take effect in the next billing cycle."
         },
         "q2": {
-          "question": "What if I exceed the user limit?",
-          "answer": "If your user count exceeds your package limit, you’ll be directed to the next plan. The price difference will be reflected on your next invoice."
+          "question": "What happens if we exceed the user limit?",
+          "answer": "When your user count exceeds the package limit, you’ll be directed to the next tier automatically. The difference will be reflected in your next invoice."
         },
         "q3": {
           "question": "How is data security ensured?",
-          "answer": "All data is stored encrypted in ISO 27001 certified data centers. With GDPR-compliant processes, your data is maximally protected."
+          "answer": "All data is stored encrypted in ISO 27001-certified data centers. With GDPR-compliant processes, your data is fully protected."
         },
         "q4": {
           "question": "How do integrations work?",
-          "answer": "Bravioo integrates with Slack, Microsoft Teams, HRIS systems, and 50+ popular tools. Custom integrations are also possible via our API."
+          "answer": "Bravioo integrates with Slack, Microsoft Teams, HRIS systems and 50+ popular tools. Custom integrations are available via our REST API."
         },
         "q5": {
           "question": "How do training and support work?",
-          "answer": "Setup support is included in all packages. Live trainings are available on Growth and above; Enterprise includes on-site training."
+          "answer": "Setup support is included in all packages. Live trainings are available for Growth and above; on-site training is offered for Enterprise."
         },
         "q6": {
           "question": "How does cancellation work?",
-          "answer": "You can cancel anytime. After cancellation, data is retained for 30 days, during which reactivation is possible."
+          "answer": "You can cancel anytime. We keep your data for 30 days after cancellation—reactivation is possible within this period."
         }
       },
       "stillHaveQuestions": "Still Have Questions?",
-      "contactDescription": "Our experts are ready to help you",
+      "contactDescription": "Our experts are ready to help",
       "bookDemo": "Book a Demo"
     },
     "brands": {
       "badgeText": "Brand Partnership Program",
       "title": "Deliver Your Brand to",
       "titleHighlight": "Millions of Employees for Free",
-      "description": "The Bravioo System delivers the right offer to the right employee using smart segments based on location, salary, title, and demographics; it positions your brand directly to boost sales and conversions while strengthening awareness.",
+      "description": "With smart segments based on location, salary, title, and demographics, Bravioo targets the right offer to the right employee; positioning your brand directly to boost sales and conversions and strengthen awareness.",
       "ctaPrimary": "Apply for Partnership",
       "ctaSecondary": "Download Info Pack",
       "trustBadge1": "500+ Company Partners",
       "trustBadge2": "200+ Active Users",
-      "trustBadge3": "15+ Industry Experience",
+      "trustBadge3": "15+ Years of Experience",
       "impactTitle": "Partnership Impact",
       "impactSubtitle": "Average performance of Bravioo partners",
       "stats": {
@@ -416,37 +416,37 @@
       "benefits": {
         "targeted": {
           "title": "Targeted Marketing",
-          "description": "Reach the right audience with demographic data. Run customized campaigns by employee profiles."
+          "description": "Reach the right audience with demographic data. Run personalized campaigns by employee profile."
         },
         "sales": {
           "title": "Sales Growth",
-          "description": "Increase sales by joining the rewards system. Partner brands see an average 120% sales increase."
+          "description": "Increase sales by joining the rewards system. Partner brands see an average 120% increase."
         },
         "loyalty": {
           "title": "Customer Loyalty",
-          "description": "Boost employee affinity for your brand. Build long-term relationships with regular reward purchases."
+          "description": "Increase employee loyalty to your brand. Build long-term relationships with regular reward purchases."
         },
         "analytics": {
           "title": "Detailed Analytics",
-          "description": "Track campaign performance in real time. Optimize strategy with ROI analyses."
+          "description": "Track campaign performance in real time. Optimize your strategy with ROI analyses."
         },
         "rewards": {
-          "title": "Integration into Rewards",
-          "description": "Be listed in the Bravioo rewards catalog. Join the brands preferred by employees."
+          "title": "Rewards System Integration",
+          "description": "Be listed in the Bravioo rewards catalog. Join the most preferred brands among employees."
         },
         "reputation": {
           "title": "Brand Reputation",
-          "description": "Strengthen your reputation in B2B by contributing to employee satisfaction."
+          "description": "Strengthen your B2B brand reputation by contributing to employee satisfaction."
         }
       },
       "ctaSection": {
-        "title": "Become Our Partner Today",
+        "title": "Become a Partner Today",
         "description": "Join the Bravioo ecosystem and reach millions of employees",
         "feature1": "2.5M+ Employee Reach",
         "feature2": "Instant Campaign Setup",
         "feature3": "Global Rewards Network",
-        "primaryButton": "Partnership Application",
-        "secondaryButton": "Get in Touch"
+        "primaryButton": "Apply for Partnership",
+        "secondaryButton": "Contact Us"
       },
       "programsTitle": "Partnership Programs",
       "programsSubtitle": "Choose the option that fits your brand size and goals",
@@ -483,21 +483,21 @@
         "whiteboard": "Co-Marketing Opportunities",
         "events": "Event Sponsorships"
       },
-      "joinProgram": "Join the Program",
+      "joinProgram": "Join Program",
       "processTitle": "Partnership Process",
       "processSubtitle": "Join the Bravioo partner ecosystem in 4 simple steps",
       "process": {
         "step1": {
           "title": "Application",
-          "description": "Fill out the online application form. Share your brand information and goals."
+          "description": "Fill out the online application form. Share your brand details and goals."
         },
         "step2": {
           "title": "Evaluation",
-          "description": "Our team evaluates your application and determines the most suitable partnership program."
+          "description": "Our team reviews your application and selects the program that fits you best."
         },
         "step3": {
           "title": "Setup",
-          "description": "Add your products to the rewards catalog and craft your campaign strategy."
+          "description": "Add your products to the rewards catalog and build your campaign strategy."
         },
         "step4": {
           "title": "Activation",
@@ -537,12 +537,12 @@
     },
     "steps": {
       "contact": {
-        "title": "Let’s Get Acquainted",
-        "subtitle": "We’ll use this information to personalize your experience"
+        "title": "Let’s Connect",
+        "subtitle": "We’ll use this info to personalize your experience"
       },
       "details": {
         "title": "Tell us about your project",
-        "subtitle": "This helps us prepare a more relevant demo for you"
+        "subtitle": "This helps us prepare a tailored demo for you"
       }
     },
     "form": {
@@ -553,7 +553,7 @@
       "company": "Company Name",
       "companyPlaceholder": "Enter your company name",
       "employees": "Company Size",
-      "employeesPlaceholder": "Select company size",
+      "employeesPlaceholder": "Select your company size",
       "phone": "Phone",
       "phonePlaceholder": "Enter your phone number",
       "jobTitle": "Job Title",
@@ -567,11 +567,11 @@
       "painPoints": "Current Challenges",
       "painPointsPlaceholder": "Describe the challenges you’re facing",
       "currentSolution": "Current Solution",
-      "currentSolutionPlaceholder": "Mention any system you currently use",
+      "currentSolutionPlaceholder": "If you’re using a system now, please specify",
       "message": "Message",
       "messagePlaceholder": "Tell us about your recognition needs...",
       "agree": "I accept the privacy policy and terms of service",
-      "agreePrefix": "I accept:",
+      "agreePrefix": "I agree to the",
       "privacyPolicy": "Privacy Policy",
       "and": "and",
       "termsOfService": "Terms of Service",
@@ -580,7 +580,7 @@
       "next": "Next Step",
       "previous": "Previous",
       "submit": "Send Message",
-      "success": "Thank you! We’ll get back to you within 24 hours.",
+      "success": "Thanks! We’ll get back to you within 24 hours.",
       "error": "Something went wrong. Please try again."
     },
     "employeeOptions": {
@@ -593,18 +593,18 @@
   "footer": {
     "description": "Bravioo helps organizations build stronger workplace cultures through meaningful recognition and rewards.",
     "copyright": "All rights reserved.",
-    "rights": "All commercial usage rights are reserved.",
+    "rights": "All commercial usage rights reserved.",
     "uptime": "Uptime",
     "madeWith": {
       "prefix": "Built with",
       "suffix": "for better workplaces"
     },
     "contact": {
-      "support": "24/7 Support Service",
+      "support": "24/7 Support",
       "sales": "Sales Consulting"
     },
     "newsletter": {
-      "title": "Stay Up to Date",
+      "title": "Stay in the Loop",
       "description": "Don’t miss product updates, special offers, and industry news.",
       "placeholder": "Enter your email address",
       "subscribe": "Subscribe"
@@ -666,7 +666,7 @@
     },
     "modal": {
       "title": "Cookie Preferences",
-      "description": "Choose which cookies you want to allow. You can change these settings at any time.",
+      "description": "Choose which cookies to allow. You can change these settings at any time.",
       "necessary": {
         "title": "Necessary Cookies",
         "description": "These cookies are essential for the website to function properly and cannot be disabled."
@@ -677,7 +677,7 @@
       },
       "marketing": {
         "title": "Marketing Cookies",
-        "description": "These cookies are used to deliver personalized ads and track the effectiveness of our marketing campaigns."
+        "description": "These cookies are used to deliver personalized ads and to measure the effectiveness of our marketing campaigns."
       },
       "functional": {
         "title": "Functional Cookies",
@@ -713,11 +713,11 @@
       },
       "employeeApp": {
         "title": "Employee Mobile App",
-        "description": "Seamless recognition and rewards experience on mobile",
+        "description": "Seamless recognition & rewards on mobile",
         "features": [
           "Instant peer-to-peer recognition",
           "Global rewards marketplace",
-          "Social feed and celebrations",
+          "Social feed & celebrations",
           "Real-time notifications"
         ]
       }
@@ -725,376 +725,375 @@
   },
   "customers": {
     "title": "Customer Stories",
-    "subtitle": "Results achieved by successful companies with Bravioo"
+    "subtitle": "Results that successful companies achieve with Bravioo"
   },
   "about": {
-    "title": "Hakkımızda",
+    "title": "About Us",
     "hero": {
-      "title": "İnsana Yakışır İş için Teknoloji",
-      "subtitle": "Rakamların ve raporların ardındaki insanı görüyoruz",
-      "description": "Bravioo olarak biz, her çalışanın potansiyelinin ancak takdir edildiği ve değerli hissettiği bir ortamda tam olarak ortaya çıkacağına inanıyoruz. İş yerindeki isimsizliğe ve görünmezliğe meydan okuyoruz."
+      "title": "Technology for Dignified Work",
+      "subtitle": "We see the human behind the numbers and reports",
+      "description": "At Bravioo, we believe every employee’s potential reveals itself fully only in an environment where they feel appreciated and valued. We challenge anonymity and invisibility in the workplace."
     },
     "manifesto": {
-      "title": "Marka Manifestomuz",
-      "subtitle": "İnsan potansiyelini ortaya çıkarma misyonumuz",
-      "content": "Bravioo olarak biz, rakamların ve raporların ardındaki insanı görüyoruz. Potansiyelin, ancak takdirle yeşerdiğine inanıyoruz. Bu yüzden, iş yerlerini sadece daha verimli değil, daha insani kılmak için yola çıktık. Teknolojiyi, insanlar arasındaki bağları güçlendirmek için bir köprü olarak kullanıyoruz. Çünkü biliyoruz ki, harika bir iş, kendini değerli hisseden insanlar tarafından yapılır. Biz, o değeri görünür kılıyoruz.",
-      "tagline": "Değeri Görünür Kılıyoruz",
-      "quote": "Bravioo olarak biz, rakamların ve raporların ardındaki insanı görüyoruz. Potansiyelin, ancak takdirle yeşerdiğine inanıyoruz."
+      "title": "Our Brand Manifesto",
+      "subtitle": "Our mission to unlock human potential",
+      "content": "At Bravioo, we see the human behind the numbers and reports. We believe potential blossoms only with recognition. That’s why we set out to make workplaces not only more efficient, but more human. We use technology as a bridge to strengthen the bonds between people. Because we know great work is done by people who feel valued. We make that value visible.",
+      "tagline": "We Make Value Visible",
+      "quote": "At Bravioo, we see the human behind the numbers and reports. We believe potential blossoms only with recognition."
     },
     "values": {
-      "title": "Değer Yaratım Modelimiz",
-      "subtitle": "Kotler'in üç katmanlı değer sistemi ile şirketlere kapsamlı çözümler sunuyoruz",
+      "title": "Our Value Creation Model",
+      "subtitle": "We deliver comprehensive solutions using Kotler’s three-layer value system",
       "functional": {
-        "title": "Fonksiyonel Değer",
-        "subtitle": "Aklına Hitap Et",
-        "description": "Ölçülebilir sonuçlar ve operasyonel iyileştirmeler sağlayan temel fonksiyonlar",
-        "feature1": "Çalışanları elde tutma (retention) oranlarını artırmak",
-        "feature2": "Verimliliği ve üretkenliği yükseltmek",
-        "feature3": "İK süreçlerini otomatize etmek ve veri sağlamak",
-        "feature4": "Geri bildirim döngüleri oluşturmak"
+        "title": "Functional Value",
+        "subtitle": "Appeal to the Mind",
+        "description": "Core functions that deliver measurable results and operational improvements",
+        "feature1": "Increase employee retention rates",
+        "feature2": "Boost efficiency and productivity",
+        "feature3": "Automate HR processes and provide data",
+        "feature4": "Create feedback loops"
       },
       "emotional": {
-        "title": "Duygusal Değer",
-        "subtitle": "Kalbine Hitap Et",
-        "description": "Çalışanların ve yöneticilerin kendilerini değerli hissetmesini sağlayan deneyimler",
-        "feature1": "İK Yöneticisi için: Kültürü dönüştüren kahraman hissi",
-        "feature2": "Yenilikçi ve stratejik lider olarak görülme",
-        "feature3": "Çalışanların mutlu olduğunu görmenin tatmini",
-        "feature4": "Görülme, değerli hissetme ve ait olma duygusu"
+        "title": "Emotional Value",
+        "subtitle": "Appeal to the Heart",
+        "description": "Experiences that make employees and managers feel valued",
+        "feature1": "For HR managers: the hero who transforms culture",
+        "feature2": "Be seen as an innovative, strategic leader",
+        "feature3": "Satisfaction of seeing happy employees",
+        "feature4": "A sense of being seen, valued, and belonging"
       },
       "spiritual": {
-        "title": "Ruhsal/Toplumsal Değer",
-        "subtitle": "Ruhuna Hitap Et",
-        "description": "Daha adil ve insani çalışma ortamları yaratma misyonuna ortak olma",
-        "feature1": "Daha adil, şeffaf çalışma ortamları yaratma",
-        "feature2": "Toksik iş yeri kültürleriyle mücadele",
-        "feature3": "Toplumda iyi şirket tanımını yeniden şekillendirme",
-        "feature4": "İnsan potansiyelini ortaya çıkarma misyonu"
+        "title": "Spiritual/Societal Value",
+        "subtitle": "Appeal to the Soul",
+        "description": "Join the mission of building fairer and more humane workplaces",
+        "feature1": "Create fairer, more transparent workplaces",
+        "feature2": "Fight toxic work cultures",
+        "feature3": "Redefine what it means to be a good company",
+        "feature4": "Unlock human potential"
       },
-      "keyFeatures": "Temel Özellikler",
-      "cta": "Bu değer katmanlarının sizin şirketinizde nasıl uygulanacağını öğrenmek ister misiniz?",
-      "ctaButton": "Demo Alın"
+      "keyFeatures": "Key Features",
+      "cta": "Want to learn how these value layers can be applied in your company?",
+      "ctaButton": "Get a Demo"
     },
     "team": {
-      "title": "Liderlik Ekibimiz",
-      "subtitle": "İnsan odaklı teknoloji vizyonumuzu hayata geçiren deneyimli ekibimiz",
+      "title": "Our Leadership Team",
+      "subtitle": "An experienced team bringing our human-centric technology vision to life",
       "member1": {
         "name": "Mehmet Çelik",
-        "position": "Kurucu & CEO",
-        "bio": "15 yıllık teknoloji ve insan kaynakları deneyimi ile Bravioo'yu kuran vizyon lideri"
+        "position": "Founder & CEO",
+        "bio": "Visionary leader who founded Bravioo with 15 years of technology and HR experience"
       },
       "member2": {
         "name": "Ayşe Demir",
         "position": "CTO",
-        "bio": "Ölçeklenebilir teknoloji altyapıları geliştiren, yapay zeka ve veri analitik uzmanı"
+        "bio": "Expert in scalable technology infrastructures, AI, and data analytics"
       },
       "member3": {
         "name": "Emre Yılmaz",
         "position": "CPO",
-        "bio": "Kullanıcı deneyimi ve ürün stratejisi konusunda uzman, insan odaklı tasarım savunucusu"
+        "bio": "Advocate of human-centered design with expertise in UX and product strategy"
       }
     },
     "culture": {
-      "title": "Şirket Kültürümüz",
-      "description": "Yaratmak istediğimiz değişimi önce kendi şirketimizde yaşıyoruz. Açık iletişim, sürekli öğrenme ve insana saygı değerlerimizin temelini oluşturuyor.",
+      "title": "Our Company Culture",
+      "description": "We live the change we want to create. Open communication, continuous learning, and respect for people are our foundations.",
       "value1": {
-        "title": "İşbirliği",
-        "description": "Ekip olarak büyürüz, birlikte başarırız"
+        "title": "Collaboration",
+        "description": "We grow as a team and succeed together"
       },
       "value2": {
-        "title": "İnovasyon",
-        "description": "Sürekli öğrenir, gelişir ve yeniliği benimseriz"
+        "title": "Innovation",
+        "description": "We keep learning, improving, and embracing change"
       },
       "value3": {
-        "title": "Empati",
-        "description": "İnsanı merkeze alır, anlayışla yaklaşırız"
+        "title": "Empathy",
+        "description": "We put people at the center and lead with understanding"
       }
     },
     "investors": {
-      "title": "Güçlü Ekosistem",
-      "description": "Bravioo'nun büyümesinde bize güvenen yatırımcılar ve teknoloji ortaklarımızla birlikte güçlü bir ekosistem oluşturuyoruz."
+      "title": "A Strong Ecosystem",
+      "description": "With investors and technology partners who trust in Bravioo’s growth, we build a powerful ecosystem."
     },
     "partners": {
-      "title": "Yatırımcı & Ortaklarımız",
-      "subtitle": "Güçlü ortaklıklar kurup birlikte büyüyor, teknoloji ekosisteminin lider isimleriyle işbirliği yapıyoruz",
+      "title": "Our Investors & Partners",
+      "subtitle": "We build strong partnerships and grow together with leaders of the tech ecosystem",
       "investors": {
-        "title": "Yatırımcılarımız"
+        "title": "Our Investors"
       },
       "tech": {
-        "title": "Teknoloji Ortaklarımız"
+        "title": "Technology Partners"
       },
       "brands": {
-        "title": "Güvenlik & Uyumluluk"
+        "title": "Security & Compliance"
       },
       "investor1": {
-        "description": "Küresel ölçekte startuplara yatırım yapan köklü fon"
+        "description": "Established fund investing in startups globally"
       },
       "investor2": {
-        "description": "Teknoloji girişimlerine odaklanan erken aşama yatırım fonu"
+        "description": "Early-stage fund focused on technology ventures"
       },
       "investor3": {
-        "description": "Dijital dönüşüm alanında uzman olan Pre-Seed yatırım ortağı"
+        "description": "Pre-seed partner specializing in digital transformation"
       },
       "tech1": {
-        "description": "Cloud altyapı ve güvenilir hosting çözümleri"
+        "description": "Cloud infrastructure and reliable hosting solutions"
       },
       "tech2": {
-        "description": "Güvenli ödeme işlemleri ve finansal entegrasyonlar"
+        "description": "Secure payments and financial integrations"
       },
       "brands1": {
-        "description": "Uluslararası bilgi güvenliği yönetim sistemi sertifikası"
+        "description": "International information security management certification"
       },
-      "investor": "Yatırımcı",
-      "technology": "Teknoloji"
+      "investor": "Investor",
+      "technology": "Technology"
     }
   },
   "whyBravioo": {
     "hero": {
-      "badge": "Lider Platform",
-      "title": "Neden Binlerce Şirket",
-      "titleHighlight": "Bravioo'yu Seçiyor?",
-      "description": "İnsana yakışır iş yerlerini inşa eden teknoloji. Güvenlik, verimlilik ve çalışan memnuniyetinde sektör lideri.",
-      "benefit1": "ISO 27001 Sertifikalı Güvenlik",
-      "benefit2": "%40 Verimlilik Artışı",
-      "benefit3": "2.5M+ Mutlu Kullanıcı",
-      "ctaPrimary": "Ücretsiz Demo Al",
-      "ctaSecondary": "Fiyatları İncele",
-      "trust1": "14 Gün Ücretsiz",
-      "trust2": "Kurulum Desteği",
-      "trust3": "7/24 Destek",
-      "statsTitle": "Güvenilen Platform",
-      "statsSubtitle": "Rakamlarla Bravioo",
+      "badge": "Leader Platform",
+      "title": "Why Do Thousands of Companies",
+      "titleHighlight": "Choose Bravioo?",
+      "description": "Technology that builds dignified workplaces. Industry-leading in security, efficiency, and employee satisfaction.",
+      "benefit1": "ISO 27001-Certified Security",
+      "benefit2": "40% Productivity Increase",
+      "benefit3": "2.5M+ Happy Users",
+      "ctaPrimary": "Get a Free Demo",
+      "ctaSecondary": "View Pricing",
+      "trust1": "14-Day Free",
+      "trust2": "Setup Support",
+      "trust3": "24/7 Support",
+      "statsTitle": "A Trusted Platform",
+      "statsSubtitle": "Bravioo in Numbers",
       "stats": {
-        "companies": "Şirket",
-        "users": "Kullanıcı",
-        "satisfaction": "Memnuniyet",
-        "retention": "Elde Tutma"
+        "companies": "Companies",
+        "users": "Users",
+        "satisfaction": "Satisfaction",
+        "retention": "Retention"
       },
       "floatingCard": {
-        "value": "+%120",
-        "label": "ROI Artışı"
+        "value": "+120%",
+        "label": "ROI Increase"
       }
     },
     "comparison": {
-      "title": "Rekabet Karşılaştırması",
-      "subtitle": "Bravioo'yu diğer çözümlerle karşılaştırın ve neden en iyi seçenek olduğunu görün",
+      "title": "Competitive Comparison",
+      "subtitle": "Compare Bravioo with other solutions and see why it’s the best choice",
       "categories": {
-        "features": "Özellikler",
-        "pricing": "Fiyatlandırma",
-        "support": "Destek"
+        "features": "Features",
+        "pricing": "Pricing",
+        "support": "Support"
       },
-      "featureColumn": "Özellik",
-      "startTrial": "Ücretsiz Deneyin",
-      "otherOption": "Alternatif",
-      "stat1": "Daha Düşük Maliyet",
-      "stat2": "Daha Hızlı Kurulum",
-      "stat3": "Müşteri Memnuniyeti"
+      "featureColumn": "Feature",
+      "startTrial": "Try for Free",
+      "otherOption": "Alternative",
+      "stat1": "Lower Cost",
+      "stat2": "Faster Setup",
+      "stat3": "Customer Satisfaction"
     },
     "roi": {
-      "title": "ROI Hesaplayıcı",
-      "subtitle": "Bravioo ile ne kadar tasarruf edeceğinizi hesaplayın",
+      "title": "ROI Calculator",
+      "subtitle": "Calculate how much you’ll save with Bravioo",
       "calculator": {
-        "title": "Bilgilerinizi Girin",
-        "employees": "Çalışan Sayısı",
-        "currentCost": "Mevcut Aylık Maliyet (₺)",
-        "currentCostDesc": "Şu anki HR/İK yazılım maliyetiniz",
-        "employeeRange": "Çalışan Sayısı Aralığı"
+        "title": "Enter Your Information",
+        "employees": "Number of Employees",
+        "currentCost": "Current Monthly Cost (₺)",
+        "currentCostDesc": "Your current HR software cost",
+        "employeeRange": "Employee Range"
       },
       "results": {
-        "monthlyCost": "Bravioo Aylık Maliyet",
-        "monthlyCostDesc": "Bravioo ile ödeyeceğiniz tutar",
-        "monthlySavings": "Aylık Tasarruf",
-        "monthlySavingsDesc": "Her ay tasarruf edeceğiniz tutar",
-        "annualROI": "Yıllık ROI",
-        "annualROIDesc": "Yatırım getiri oranınız",
-        "payback": "Geri Ödeme Süresi",
-        "paybackDesc": "Yatırımınızı ne kadar sürede geri alırsınız",
-        "months": "ay",
-        "immediate": "Anında"
+        "monthlyCost": "Bravioo Monthly Cost",
+        "monthlyCostDesc": "What you’ll pay with Bravioo",
+        "monthlySavings": "Monthly Savings",
+        "monthlySavingsDesc": "What you’ll save each month",
+        "annualROI": "Annual ROI",
+        "annualROIDesc": "Your return on investment",
+        "payback": "Payback Period",
+        "paybackDesc": "How long it takes to recover your investment",
+        "months": "months",
+        "immediate": "Immediate"
       },
       "cta": {
-        "title": "Tasarrufunuzu Gerçekleştirin",
-        "description": "Hemen ücretsiz deneme başlatın ve ilk aydan tasarruf etmeye başlayın",
-        "button": "Ücretsiz Deneme Başlat"
+        "title": "Unlock Your Savings",
+        "description": "Start a free trial now and begin saving in your first month",
+        "button": "Start Free Trial"
       }
     },
     "brands": {
-      "title": "Güvenlik & Uyumluluk",
-      "subtitle": "Verileriniz en yüksek güvenlik standartlarıyla korunur",
+      "title": "Security & Compliance",
+      "subtitle": "Your data is protected by the highest security standards",
       "certifications": {
         "iso27001": {
           "title": "ISO 27001",
-          "description": "Bilgi güvenliği yönetim sistemi sertifikası"
+          "description": "Information security management certification"
         },
         "gdpr": {
-          "title": "GDPR Uyumlu",
-          "description": "Avrupa veri koruma yönetmeliğine uygun"
+          "title": "GDPR Compliant",
+          "description": "Compliant with the EU data protection regulation"
         },
         "soc2": {
           "title": "SOC 2 Type II",
-          "description": "Güvenlik, kullanılabilirlik ve gizlilik denetimi"
+          "description": "Audit for security, availability, and privacy"
         },
         "kvkk": {
-          "title": "KVKK Uyumlu",
-          "description": "Kişisel verilerin korunması kanununa uygun"
+          "title": "KVKK Compliant",
+          "description": "Compliant with Turkey’s personal data protection law"
         }
       },
       "features": {
-        "title": "Güvenlik Özellikleri",
-        "subtitle": "Verilerinizi korumak için kullandığımız teknolojiler",
-        "encryption": "256-bit SSL Şifreleme",
-        "backup": "Günlük Otomatik Yedekleme",
-        "monitoring": "7/24 Güvenlik İzleme",
-        "access": "İki Faktörlü Kimlik Doğrulama",
-        "audit": "Detaylı Denetim Kayıtları",
-        "compliance": "Düzenli Uyumluluk Denetimleri"
+        "title": "Security Features",
+        "subtitle": "Technologies we use to protect your data",
+        "encryption": "256-bit SSL Encryption",
+        "backup": "Daily Automatic Backups",
+        "monitoring": "24/7 Security Monitoring",
+        "access": "Two-Factor Authentication",
+        "audit": "Detailed Audit Logs",
+        "compliance": "Regular Compliance Audits"
       },
       "trust": {
-        "title": "Güven ve Güvenilirlik",
-        "description": "Binlerce şirketin güvendiği platform",
-        "uptime": "Çalışma Süresi",
-        "monitoring": "İzleme",
-        "breaches": "Güvenlik İhlali"
+        "title": "Trust & Reliability",
+        "description": "A platform trusted by thousands of companies",
+        "uptime": "Uptime",
+        "monitoring": "Monitoring",
+        "breaches": "Security Breaches"
       }
     }
   },
   "brands": {
     "hero": {
-      "title": "Dünya Devlerinin",
-      "titleHighlight": "Teknoloji Ortağı",
-      "description": "Fortune 500 şirketlerinden startuplara kadar sayısız marka Bravioo'nun altyapısına güveniyor.",
-      "enterpriseDemo": "Enterprise Demo Alın",
-      "brandStories": "Marka Hikayeleri",
-      "customerStories": "Müşteri Hikayeleri"
+      "title": "Technology Partner of",
+      "titleHighlight": "Global Leaders",
+      "description": "From Fortune 500 companies to startups, countless brands trust Bravioo’s infrastructure.",
+      "enterpriseDemo": "Get an Enterprise Demo",
+      "brandStories": "Brand Stories",
+      "customerStories": "Customer Stories"
     },
     "showcase": {
-      "title": "Dünya markalarının tercih ettiği",
-      "titleHighlight": "Bravioo Altyapısı",
-      "exploreButton": "Global Marka Deneyimlerimizi İncele",
+      "title": "Preferred by global brands —",
+      "titleHighlight": "The Bravioo Infrastructure",
+      "exploreButton": "Explore Our Global Brand Experiences",
       "stats": {
-        "growth": "Ortalama Büyüme",
-        "brands": "Global Marka",
-        "rating": "Enterprise Puanı",
-        "countries": "Farklı Ülke"
+        "growth": "Average Growth",
+        "brands": "Global Brands",
+        "rating": "Enterprise Rating",
+        "countries": "Countries"
       },
       "cta": {
-        "title": "Markanızı global standartlara taşıyın",
-        "description": "Dünya markalarının güvendiği Bravioo altyapısı ile siz de international e-ticaret deneyimi yaratın.",
-        "enterpriseDemo": "Enterprise Demo Alın",
-        "pricing": "Özel Fiyat Teklifi"
+        "title": "Bring your brand to global standards",
+        "description": "Create an international e-commerce experience with Bravioo infrastructure trusted by world-class brands.",
+        "enterpriseDemo": "Get an Enterprise Demo",
+        "pricing": "Custom Pricing"
       },
-      "allCategory": "Tümü"
+      "allCategory": "All"
     }
   },
   "animatedFeatures": {
-    "badge": "Çözümlerimiz",
+    "badge": "Our Solutions",
     "title": {
-      "prefix": "İhtiyacınız olan araçlar",
-      "highlight": "ekibinizi şekillendirin"
+      "prefix": "The tools you need—",
+      "highlight": "shape your team"
     },
-    "cta": "Platformu keşfet",
+    "cta": "Explore the platform",
     "recognition": {
-      "title": "Kolay Takdir Yönetimi",
-      "description": "Parasal ya da parasal olmayan takdiri, iş akışınızı bozmadan hızlıca gönderin.",
+      "title": "Effortless Recognition Management",
+      "description": "Send monetary or non-monetary recognition quickly—without disrupting your workflow.",
       "items": [
-        "Kullanımı kolay, modern arayüz",
-        "Yüksek kullanım ve benimsenme",
-        "Kurumsal seviyede entegrasyonlar",
-        "Saha ve ofis çalışanları",
-        "Yenilikçi AI özellikleri"
+        "Easy-to-use, modern interface",
+        "High usage and adoption",
+        "Enterprise-grade integrations",
+        "Field and office employees",
+        "Innovative AI features"
       ]
     },
     "rewards": {
-      "title": "Gerçekten Küresel Ödül Pazarı",
-      "description": "Dünyanın en geniş yerel ödül ağına erişin – kapsamlı ve yerel ihtiyaçlara göre küratörlü.",
+      "title": "Truly Global Rewards Marketplace",
+      "description": "Access the world’s widest local rewards network—comprehensive and curated for local needs.",
       "items": [
-        "Milyonlarca seçenek, sıfır ek ücret",
-        "~190 ülkeye ücretsiz teslimat",
-        "Bölgelere uygun yerel ödüller",
-        "Dünya çapında şirket logolu ürünler",
-        "Benzersiz ödüller için concierge hizmeti"
+        "Millions of options, zero extra fees",
+        "Free delivery to ~190 countries",
+        "Localized rewards by region",
+        "Company-branded items worldwide",
+        "Concierge service for unique rewards"
       ]
     },
     "awards": {
-      "title": "Aday Göstermeye Dayalı Ödüller",
-      "description": "Öne çıkan performanslar için ekip arkadaşlarınızı aday gösterin, en iyiler görünür olsun.",
+      "title": "Nomination-Based Awards",
+      "description": "Nominate teammates for standout performance and make excellence visible.",
       "items": [
-        "Kişiselleştirilmiş ödüller",
-        "Özelleştirilebilir onay akışı",
-        "Tek panelden kolay yönetim",
-        "Sosyal akışta ödül görünürlüğü"
+        "Personalized awards",
+        "Customizable approval flow",
+        "Simple management from one panel",
+        "Award visibility in social feed"
       ]
     },
     "milestones": {
-      "title": "Kıdem ve Dönüm Noktaları",
-      "description": "Kıdem gibi kişisel ve profesyonel başarıları nasıl kutlayacağınızı özelleştirin.",
+      "title": "Service & Milestones",
+      "description": "Customize how you celebrate personal and professional milestones.",
       "items": [
-        "Dijital ve basılabilir kartlar",
-        "Anlamlı hatıralar",
-        "Ödül puanları",
-        "Ölçeklenebilir kutlamalar"
+        "Digital and printable cards",
+        "Meaningful keepsakes",
+        "Reward points",
+        "Scalable celebrations"
       ]
     },
     "stats": [
-      "Diğer tüm platformlardan daha fazla etkileşim",
-      "Dünya çapında üyeler",
-      "Desteklenen ülke sayısı"
+      "More engagement than any other platform",
+      "Members around the world",
+      "Number of supported countries"
     ]
-  }
-  ,
+  },
   "enhancedHero": {
-    "badge": "🎉 2025'ün En İyi HR Tech Ürünü Seçildik!",
-    "titlePrefix": "Çalışan Motivasyonunu",
-    "titleHighlight": "%450",
-    "titleSuffix": "Artırın",
-    "subtitle": "Peer-to-peer takdir sistemi, Türkiye genelinde ödül seçenekleri ve AI destekli performans analitiği ile 30 gün içinde sonuç alın.",
-    "ctaPrimary": "Ücretsiz Demo Başlat",
-    "ctaSecondary": "Videoyu İzle",
+    "badge": "🎉 Voted Best HR Tech Product of 2025!",
+    "titlePrefix": "Boost Employee Motivation by",
+    "titleHighlight": "450%",
+    "titleSuffix": "",
+    "subtitle": "Peer-to-peer recognition, nationwide rewards in Türkiye, and AI-powered performance analytics—see results in 30 days.",
+    "ctaPrimary": "Start Free Demo",
+    "ctaSecondary": "Watch Video",
     "badges": {
       "iso": "ISO 27001",
       "soc2": "SOC 2 Type II",
-      "gdpr": "GDPR Uyumlu"
+      "gdpr": "GDPR Compliant"
     },
-    "mobileAlt": "Bravioo Mobil Uygulaması",
+    "mobileAlt": "Bravioo Mobile App",
     "floating": {
       "name": "Ahmet Yılmaz",
-      "recognized": "Takdir aldı!",
-      "roiValue": "+%185 ROI",
-      "thisMonth": "Bu ay"
+      "recognized": "was recognized!",
+      "roiValue": "+185% ROI",
+      "thisMonth": "This month"
     }
   },
   "partnerBrandsCTA": {
-    "title": "Daha Fazla Marka",
-    "subtitle": "Daha Fazla Avantaj",
-    "description": "Her ay yeni markalarla anlaşmalar yapıyoruz. Çalışanlarınız için sınırsız avantajlar keşfedin.",
-    "downloadLabel": "Mobil uygulamayı indirin:",
+    "title": "More Brands",
+    "subtitle": "More Benefits",
+    "description": "We make new partnerships every month. Discover unlimited benefits for your employees.",
+    "downloadLabel": "Download the mobile app:",
     "appStore": { "downloadOn": "Download on the", "storeName": "App Store" },
     "playStore": { "getItOn": "Get it on", "storeName": "Google Play" },
-    "phoneAlt": "Bravioo Mobil Uygulama Mockup"
+    "phoneAlt": "Bravioo Mobile App Mockup"
   },
   "contactFaq": {
     "title": "Frequently Asked Questions",
-    "subtitle": "Quick answers about Bravioo.",
+    "subtitle": "We compiled the most asked questions about Bravioo. If you can’t find your answer, contact us.",
     "q": {
       "setupTime": {
-        "question": "How long does setup take?",
-        "answer": "Go‑live in 3–10 business days depending on scope. With HRIS/SSO/ERP integrations, plan 2–4 weeks based on complexity."
+        "question": "How long does it take to set up Bravioo?",
+        "answer": "Average setup time is 1–2 weeks. Our team supports you throughout and provides custom trainings. For small companies it can take 3–5 days; for large enterprises, 2–4 weeks."
       },
       "integrations": {
-        "question": "What do you integrate with?",
-        "answer": "SAP, Logo, Netsis, Mikro, Nebim, Luca; LDAP/AD, SSO (Azure AD/Google), email and SMS. Open REST API enables custom integrations."
+        "question": "Which systems can you integrate with?",
+        "answer": "We support integrations with Slack, Microsoft Teams, SAP, Workday, BambooHR, ADP, Oracle HCM, and 50+ platforms. With our REST API, we can also build custom integrations."
       },
       "security": {
-        "question": "How do you handle security & privacy?",
-        "answer": "Compliant with GDPR/KVKK. Data hosted in TR/EU, encrypted in transit and at rest. Access logs retained; NDAs and DPAs available upon request."
+        "question": "How is data security ensured?",
+        "answer": "We hold ISO 27001 and SOC 2 Type II certifications. Your data is protected with 256-bit SSL encryption and is compliant with GDPR and KVKK. All data is stored on servers in Türkiye and the EU."
       },
       "pricing": {
-        "question": "How is pricing structured?",
-        "answer": "Quote‑based according to company needs; no numeric pricing on the site. Contact info@bravioo.com for a proposal."
+        "question": "How does pricing work?",
+        "answer": "We use a monthly subscription model based on employee count. Free up to 50 employees, then a per-employee monthly fee. We offer 20% off on annual billing."
       },
       "support": {
         "question": "What support options are available?",
-        "answer": "Weekdays 09:00–18:00 email/phone; optional SLA and dedicated account manager. Knowledge base and training videos included."
+        "answer": "24/7 live chat, email support, phone support (business hours), video training, and a dedicated onboarding program. Enterprise customers get a dedicated account manager."
       }
     }
   }
