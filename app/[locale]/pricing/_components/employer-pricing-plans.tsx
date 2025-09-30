@@ -9,8 +9,8 @@ export function EmployerPricingPlans() {
   const t = useTranslations('pricing.employer');
   const locale = useLocale();
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('yearly');
-  const [currency, setCurrency] = useState<'USD' | 'TRY'>('USD');
-  const [exchangeRate, setExchangeRate] = useState<number>(42); // 1 USD = 42 TRY (fallback)
+  const [currency, setCurrency] = useState<'USD' | 'TRY'>('TRY');
+  const [exchangeRate, setExchangeRate] = useState<number>(35); // 1 USD = 35 TRY (fallback)
 
   const plans = [
     {
@@ -19,7 +19,7 @@ export function EmployerPricingPlans() {
       nameEN: 'Essential',
       descKey: 'plans.starter.description',
       icon: <Users className="w-8 h-8" />,
-      perSeatUSD: 10,
+      perSeatUSD: null,
       maxUsers: 50,
       popular: false,
       color: 'blue',
@@ -31,7 +31,7 @@ export function EmployerPricingPlans() {
       nameEN: 'Professional',
       descKey: 'plans.growth.description', 
       icon: <Zap className="w-8 h-8" />,
-      perSeatUSD: 5,
+      perSeatUSD: null,
       maxUsers: 200,
       popular: true,
       color: 'emerald',
@@ -43,7 +43,7 @@ export function EmployerPricingPlans() {
       nameEN: 'Advanced',
       descKey: 'plans.scale.description',
       icon: <Building className="w-8 h-8" />,
-      perSeatUSD: 3,
+      perSeatUSD: null,
       maxUsers: 500,
       popular: false,
       color: 'purple',
@@ -234,28 +234,12 @@ export function EmployerPricingPlans() {
 
                 {/* Pricing */}
                 <div className="text-center mb-8">
-                  {monthly ? (
-                    <>
-                      <div className="text-4xl font-bold text-gray-900 mb-2">
-                        {currencySymbol}{billingCycle === 'monthly' ? Math.round(monthly).toLocaleString() : Math.round(yearly || 0).toLocaleString()}
-                        <span className="text-lg text-gray-500 font-normal">/{billingCycle === 'monthly' ? t('month') : t('year')}</span>
-                        <span className="ml-2 text-sm text-gray-500 align-middle">· {t('perSeat')}</span>
-                      </div>
-                      {billingCycle === 'yearly' && (
-                        <div className="text-sm text-gray-500">
-                          25% {t('off')} ({currencySymbol}{Math.round((monthly * 12) - (yearly || 0)).toLocaleString()} {t('saved')})
-                        </div>
-                      )}
-                      
-                    </>
-                  ) : (
-                    <>
-                      <div className="text-4xl font-bold text-gray-900 mb-2">
-                        {t('custom')}
-                      </div>
-                      
-                    </>
-                  )}
+                  <div className="text-4xl font-bold text-gray-900 mb-2">
+                    {t('custom')}
+                  </div>
+                  <p className="text-sm text-gray-500">
+                    {locale === 'tr' ? 'Fiyat bilgisi için iletişime geçin' : 'Contact us for pricing'}
+                  </p>
                 </div>
 
                 {/* Modules */}
@@ -279,7 +263,7 @@ export function EmployerPricingPlans() {
                   whileTap={{ scale: 0.98 }}
                   className={`mt-auto w-full border-2 ${colors.border} ${colors.text} py-4 rounded-2xl font-bold text-lg bg-white hover:shadow-md transition-all duration-300`}
                 >
-                  {plan.id === 'enterprise' ? t('getQuote') : t('startTrial')}
+                  {t('getQuote')}
                 </motion.button>
               </motion.div>
             );

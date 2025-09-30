@@ -58,7 +58,7 @@ export async function POST(request: Request) {
     if (process.env.AZ_TENANT_ID && process.env.AZ_CLIENT_ID && process.env.AZ_CLIENT_SECRET) {
       try {
         await sendMailViaGraph({
-          to: ['feyza.ozel@bravioo.com', 'sales@bravioo.com'],
+          to: ['feyza.ozel@bravioo.com', 'info@bravioo.com'],
           subject: `New Bravioo Contact: ${data.company}`,
           htmlContent: emailTemplates.contactForm({
             name: data.name,
