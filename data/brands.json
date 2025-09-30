@@ -16,42 +16,42 @@
   {
     "id": "birun-kumbet",
     "name": "Birun Kümbet",
-    "logo": "/images/brands/placeholder.png",
+    "logo": "/images/brands/birun.png",
     "category": "Turizm & Konaklama",
     "description": "Doğa turizmini Bravioo'nun dijital rezervasyon platformuyla birleştirdi."
   },
   {
     "id": "teos-village",
     "name": "Teos Village",
-    "logo": "/images/brands/teos-village.png",
+    "logo": "/images/brands/teos.jpg",
     "category": "Turizm & Konaklama",
     "description": "İzmir'deki tatil köyü, tesis içi deneyimi ve ek hizmet satışlarını Bravioo'nun mobil uygulamasıyla artırdı."
   },
   {
     "id": "camlica-kulesi",
     "name": "Çamlıca Kulesi",
-    "logo": "/images/brands/placeholder.png",
+    "logo": "/images/brands/amlca-kulesi.png",
     "category": "Turizm & Eğlence",
     "description": "Ziyaretçi ve bilet yönetiminde Bravioo altyapısını kullanıyor."
   },
   {
     "id": "birun-ada-otel-restoran",
     "name": "Birun Ada Otel Restoran",
-    "logo": "/images/brands/placeholder.png",
+    "logo": "/images/brands//birun-ada.png",
     "category": "Yeme & İçme",
     "description": "Misafir deneyimini Bravioo'nun restoran çözümleriyle yönetiyor."
   },
   {
     "id": "tepe-restaurant",
     "name": "Tepe Restaurant",
-    "logo": "/images/brands/tepe-restaurant.png",
+    "logo": "/images/brands/tepe-black.png",
     "category": "Yeme & İçme",
     "description": "Rezervasyon ve etkinlik yönetimini Bravioo platformuna taşıdı."
   },
   {
-    "id": "mihribat-korusu",
-    "name": "Mihribat Korusu",
-    "logo": "/images/brands/placeholder.png",
+    "id": "mihrabat-korusu",
+    "name": "Mihrabat Korusu",
+    "logo": "/images/brands/mihrabat.webp",
     "category": "Etkinlik & Organizasyon",
     "description": "Etkinlik ve rezervasyon yönetimini Bravioo ile dijitalleştirdi."
   },
@@ -79,14 +79,14 @@
   {
     "id": "uskudar-universitesi-dis-hastanesi",
     "name": "Üsküdar Üniversitesi Diş Hastanesi",
-    "logo": "/images/brands/placeholder.png",
+    "logo": "/images/brands/uskudar-dis.webp",
     "category": "Sağlık",
     "description": "Hasta yönetimi ve randevu süreçlerini Bravioo ile yürütüyor."
   },
   {
     "id": "npi-uskudar",
     "name": "NPI Üsküdar",
-    "logo": "/images/brands/placeholder.png",
+    "logo": "/images/brands/npi.avif",
     "category": "Sağlık",
     "description": "Nöropsikiyatri sağlık hizmetlerinde Bravioo'nun güvenli veri altyapısını kullanıyor."
   },
@@ -100,7 +100,7 @@
   {
     "id": "ghalia-restaurant",
     "name": "Ghalia Restaurant",
-    "logo": "/images/brands/placeholder.png",
+    "logo": "/images/brands/ghalia3.svg",
     "category": "Yeme & İçme",
     "description": "Rezervasyon ve müşteri ilişkileri yönetimini Bravioo ile yapıyor."
   },
@@ -114,7 +114,7 @@
   {
     "id": "english-time",
     "name": "English Time",
-    "logo": "/images/brands/placeholder.png",
+    "logo": "/images/brands/englishtime.svg",
     "category": "Eğitim",
     "description": "Öğrenci işleri ve ders planlamasını tek sistemde topladı."
   }
