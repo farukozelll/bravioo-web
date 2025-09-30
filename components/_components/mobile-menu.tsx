@@ -135,7 +135,7 @@ export function MobileMenu({
                   
                   <div className="space-y-3">
                     <Link
-                      href={`/${locale}/login`}
+                      href="https://app.bravioo.com"
                       className="block w-full text-center px-4 py-2 text-base font-semibold text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-600 rounded-full hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                       onClick={onClose}
                     >

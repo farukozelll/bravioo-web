@@ -271,7 +271,7 @@ export function Header() {
 
             {/* Login Link */}
             <Link
-              href={`/${locale}/login`}
+              href="https://app.bravioo.com"
               className="text-sm font-semibold text-gray-900 dark:text-gray-100 hover:text-emerald-600 dark:hover:text-emerald-400 border border-green-600 dark:border-emerald-500 transition-colors px-4 py-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
             >
               {t('login')}

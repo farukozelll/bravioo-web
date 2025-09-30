@@ -141,6 +141,6 @@ export const ctaButtons = {
   },
   secondary: {
     textKey: 'login',
-    href: '/login'
+    href: 'https://app.bravioo.com'
   }
 };
