@@ -3,20 +3,20 @@
 import React from 'react';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
-import { Heart, Moon, Sun, ChevronRight, ExternalLink } from 'lucide-react';
+import { Heart, ChevronRight, ExternalLink } from 'lucide-react';
 import { footerSections, socialLinks, footerConfig } from '@/config/footer';
-import { useEnhancedTheme } from '@/contexts/enhanced-theme-context';
+// Theme toggle moved to header per corporate UX
 import Image from 'next/image';
 
 export function Footer() {
   const t = useTranslations();
   const locale = useLocale();
-  const { theme, toggleTheme, mounted } = useEnhancedTheme();
+  
 
   return (
     <footer className="relative mt-12 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-950 dark:from-gray-900 dark:via-gray-800 dark:to-gray-950 text-white overflow-hidden transition-colors duration-300">
       {/* Modern Background Pattern */}
-      <div className="absolute inset-0 opacity-30">
+      <div className="absolute inset-0 opacity-30 pointer-events-none">
         <div className="h-full w-full" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='1' stroke-opacity='0.1'%3E%3Cpath d='M20 20h60v60h-60z'/%3E%3Cpath d='M30 30h40v40h-40z'/%3E%3C/g%3E%3C/svg%3E")`,
           backgroundSize: '100px 100px'
@@ -24,9 +24,9 @@ export function Footer() {
       </div>
       
       {/* Enhanced Gradient Overlays */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-radial from-primary-500/15 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-radial from-primary-400/10 to-transparent rounded-full blur-3xl" />
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-primary-600/5 to-transparent rounded-full blur-3xl" />
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-radial from-primary-500/15 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-radial from-primary-400/10 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-primary-600/5 to-transparent rounded-full blur-3xl pointer-events-none" />
       
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         {/* Main footer content */}
@@ -120,32 +120,7 @@ export function Footer() {
               </div>
             </div>
 
-            {/*  */}
-            {mounted && (
-              <div>
-                <h4 className="text-sm font-semibold text-white mb-4">
-                  {t('footer.theme.title')}
-                </h4>
-                <button
-                  onClick={toggleTheme}
-                  className="group flex items-center gap-3 px-4 py-3 bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-2xl text-primary-200 dark:text-gray-300 hover:text-white hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-white/20"
-                  aria-label={theme === 'light' ? t('footer.theme.switchToDark') : t('footer.theme.switchToLight')}
-                >
-                  {theme === 'light' ? (
-                    <>
-                      <Moon className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
-                      <span className="text-sm font-medium">{t('footer.theme.dark')}</span>
-                    </>
-                  ) : (
-                    <>
-                      <Sun className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
-                      <span className="text-sm font-medium">{t('footer.theme.light')}</span>
-                    </>
-                  )}
-                  <ChevronRight className="h-3 w-3 ml-auto opacity-50 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-0.5" />
-                </button>
-              </div>
-            )}
+            {/* Theme toggle moved to header for corporate UX */}
           </div>
 
           {/* Right Columns - Navigation Links (spans 8 columns on lg+) */}
@@ -165,7 +140,7 @@ export function Footer() {
 
 
 
-        {/* Bottom section - Enhanced */}
+          {/* Bottom section - Enhanced */}
         <div className="mt-12 lg:mt-16 pt-6 sm:pt-8 border-t border-white/10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-center">
             
@@ -179,25 +154,32 @@ export function Footer() {
               </p>
             </div>
 
-          {/* Made with love - Center on larger screens */}
-            <div className="flex items-center justify-center gap-2 text-xs sm:text-sm text-primary-200 dark:text-gray-400">
+            {/* Middle - Contact / Love */}
+            <div className="flex items-center justify-center gap-3 text-xs sm:text-sm text-primary-200 dark:text-gray-400">
               <span>{t('footer.madeWith.prefix')}</span>
               <Heart className="h-4 w-4 text-red-400 fill-current animate-pulse" />
               <span>{t('footer.madeWith.suffix')}</span>
+              <span className="opacity-60">·</span>
+              <Link href="mailto:info@bravioo.com" className="hover:underline">info@bravioo.com</Link>
             </div>
 
-            {/* Status & Performance */}
-            <div className="flex items-center justify-center sm:justify-end gap-4">
-              <div className="flex items-center gap-2">
-              
-              <div className="flex items-center justify-center gap-2 text-xs sm:text-sm text-primary-200 dark:text-gray-400">
-              <span>{t('footer.madeWith.prefix')}</span>
-              <Heart className="h-4 w-4 text-red-400 fill-current animate-pulse" />
-              <span>{t('footer.madeWith.suffix')}</span>
-            </div>
-
-              </div>
-           
+            {/* Right - Social quick links */}
+            <div className="flex items-center justify-center sm:justify-end gap-3">
+              {socialLinks.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <Link
+                    key={`bottom-${item.nameKey}`}
+                    href={item.href}
+                    className="w-8 h-8 bg-white/10 dark:bg-white/5 rounded-xl flex items-center justify-center hover:bg-white/20 transition-colors"
+                    target={item.external ? '_blank' : undefined}
+                    rel={item.external ? 'noopener noreferrer' : undefined}
+                    title={t(item.nameKey)}
+                  >
+                    <Icon className="h-4 w-4 text-primary-200 dark:text-gray-400" />
+                  </Link>
+                );
+              })}
             </div>  
           </div>
         </div>
@@ -227,7 +209,7 @@ function FooterLinkColumn({ section, locale, t }: FooterLinkColumnProps) {
     <div className="space-y-4 sm:space-y-6">
       <h3 className="text-sm sm:text-base font-semibold leading-6 text-white mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3">
         <div className={`w-5 h-5 sm:w-6 sm:h-6 bg-primary-500 dark:bg-primary-600 rounded-lg flex items-center justify-center shadow-lg`}>
-          <span className="text-xs text-white font-bold">{section.iconKey}</span>
+          <span className="text-xs text-white font-bold">{t(section.titleKey).charAt(0)}</span>
         </div>
         {t(section.titleKey)}
       </h3>

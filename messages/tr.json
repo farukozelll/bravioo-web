@@ -1074,27 +1074,27 @@
   },
   "contactFaq": {
     "title": "Sık Sorulan Sorular",
-    "subtitle": "Bravioo hakkında en çok merak edilen konuları derledik. Sorunuzun cevabını bulamadıysanız bizimle iletişime geçin.",
+    "subtitle": "Bravioo hakkında en çok merak edilenleri kısaca derledik.",
     "q": {
       "setupTime": {
-        "question": "Bravioo'yu kurmak ne kadar sürer?",
-        "answer": "Ortalama kurulum süresi 1-2 haftadır. Ekibimiz tüm süreçte yanınızda olur ve özel eğitimler düzenler. Küçük şirketler için kurulum 3-5 gün sürebilir, büyük kurumsal yapılar için 2-4 hafta sürebilir."
+        "question": "Kurulum ne kadar sürer?",
+        "answer": "Kapsama göre 3–10 iş günü içinde canlıya alınır. HRIS/SSO/ERP gibi entegrasyonlar varsa kapsamına bağlı olarak 2–4 hafta sürebilir."
       },
       "integrations": {
-        "question": "Hangi sistemlerle entegrasyon yapabiliyorsunuz?",
-        "answer": "Slack, Microsoft Teams, SAP, Workday, BambooHR, ADP, Oracle HCM ve 50+ platformla entegrasyon desteği sunuyoruz. REST API'miz sayesinde özel entegrasyonlar da geliştirebiliriz."
+        "question": "Hangi sistemlerle entegre oluyorsunuz?",
+        "answer": "SAP, Logo, Netsis, Mikro, Nebim, Luca; LDAP/AD, SSO (Azure AD/Google), e‑posta ve SMS servisleri ile entegre oluruz. Açık REST API ile özel entegrasyonlar da mümkündür."
       },
       "security": {
-        "question": "Veri güvenliği nasıl sağlanıyor?",
-        "answer": "ISO 27001, SOC 2 Type II sertifikalarımız var. Verileriniz 256-bit SSL şifreleme ile korunur, GDPR ve KVKK uyumludur. Tüm veriler Türkiye ve AB sunucularında saklanır."
+        "question": "Güvenlik ve KVKK uyumu nasıl?",
+        "answer": "KVKK/GDPR uyumluyuz. Veriler TR/AB bölgelerinde barındırılır, aktarımda ve saklamada şifrelenir. Erişim logları tutulur, talep üzerine gizlilik ve veri işleme sözleşmeleri paylaşılır."
       },
       "pricing": {
-        "question": "Fiyatlandırma nasıl çalışıyor?",
-        "answer": "Çalışan sayısına göre aylık abonelik modeli kullanıyoruz. 50 çalışana kadar ücretsiz, sonrasında çalışan başına aylık ücretlendirme. Yıllık ödemelerde %20 indirim sunuyoruz."
+        "question": "Fiyatlandırma nasıl yapılıyor?",
+        "answer": "Şirket ihtiyaçlarına göre teklif esaslıdır; sitede sayısal fiyat gösterilmez. Teklif için info@bravioo.com üzerinden bizimle iletişime geçebilirsiniz."
       },
       "support": {
-        "question": "Hangi destek seçenekleri mevcut?",
-        "answer": "7/24 canlı sohbet, e-posta desteği, telefon desteği (iş saatleri), video eğitimler ve özel onboarding programı sunuyoruz. Enterprise müşteriler için özel hesap yöneticisi atanır."
+        "question": "Destek nasıl sağlanıyor?",
+        "answer": "Hafta içi 09:00–18:00 e‑posta/telefon desteği; SLA’lı destek ve hesap yöneticisi opsiyoneldir. Bilgi bankası ve eğitim videoları sunulur."
       }
     }
   }

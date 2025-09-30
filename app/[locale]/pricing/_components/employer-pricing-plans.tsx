@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Check, Star, Users, Zap, Building, Crown } from 'lucide-react';
@@ -8,9 +8,6 @@ import { Check, Star, Users, Zap, Building, Crown } from 'lucide-react';
 export function EmployerPricingPlans() {
   const t = useTranslations('pricing.employer');
   const locale = useLocale();
-  const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('yearly');
-  const [currency, setCurrency] = useState<'USD' | 'TRY'>('TRY');
-  const [exchangeRate, setExchangeRate] = useState<number>(35); // 1 USD = 35 TRY (fallback)
 
   const plans = [
     {
@@ -98,15 +95,7 @@ export function EmployerPricingPlans() {
     return baseClasses[color as keyof typeof baseClasses];
   };
 
-  const currencySymbol = currency === 'USD' ? '$' : '₺';
-
-  type PlanPricing = { perSeatUSD: number | null };
-
-  const calculateMonthly = (plan: PlanPricing): number | null => {
-    if (plan.perSeatUSD == null) return null;
-    const rate = currency === 'USD' ? 1 : exchangeRate;
-    return plan.perSeatUSD * rate; // per seat price only
-  };
+  // Currency calculations removed per request; pricing is custom/quote-based
 
   return (
     <section className="py-16 lg:py-20 xl:py-24 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
@@ -129,70 +118,13 @@ export function EmployerPricingPlans() {
             {t('plansSubtitle')}
           </motion.p>
 
-          {/* Billing Toggle + Controls */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
-          >
-            <div className="inline-flex items-center bg-white dark:bg-gray-800 p-1 rounded-full shadow-lg border border-gray-200 dark:border-gray-700">
-              <button
-                onClick={() => setBillingCycle('monthly')}
-                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                  billingCycle === 'monthly'
-                    ? 'bg-emerald-600 text-white shadow-lg'
-                    : 'text-gray-600 hover:text-emerald-600'
-                }`}
-              >
-                {t('monthly')}
-              </button>
-              <button
-                onClick={() => setBillingCycle('yearly')}
-                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 relative ${
-                  billingCycle === 'yearly'
-                    ? 'bg-emerald-600 text-white shadow-lg'
-                    : 'text-gray-600 hover:text-emerald-600'
-                }`}
-              >
-                {t('yearly')}
-                <span className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs px-2 py-1 rounded-full">
-                  25% {t('off')}
-                </span>
-              </button>
-            </div>
-
-            {/* Employees selector removed: pricing is per seat and not auto-calculated by headcount */}
-
-            <div className="flex items-center gap-3 bg-white dark:bg-gray-800 px-3 py-2 rounded-xl border border-gray-200 dark:border-gray-700">
-              <label className="text-sm text-gray-600 dark:text-gray-300">{t('currency')}</label>
-              <select
-                value={currency}
-                onChange={(e) => setCurrency(e.target.value as 'USD' | 'TRY')}
-                className="h-9 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-8 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/30"
-              >
-                <option value="USD">$ USD</option>
-                <option value="TRY">₺ TRY</option>
-              </select>
-              {currency === 'TRY' && (
-                <input
-                  type="number"
-                  step="0.01"
-                  value={exchangeRate}
-                  onChange={(e) => setExchangeRate(Math.max(0.01, Number(e.target.value)))}
-                  className="w-24 h-9 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-2 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500/30"
-                />
-              )}
-            </div>
-          </motion.div>
+          {/* Controls removed: currency calculation and selectors are no longer shown */}
         </div>
 
         {/* Plans Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {plans.map((plan, index) => {
             const colors = getColorClasses(plan.color);
-            const monthly = calculateMonthly(plan);
-            const yearly = monthly ? monthly * 12 * 0.75 : null;
             
             return (
               <motion.div

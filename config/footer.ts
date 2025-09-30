@@ -58,12 +58,17 @@ export const footerSections: FooterSection[] = [
 ];
 
 export const socialLinks: SocialLink[] = [
-  { 
+/*   { 
     nameKey: 'footer.social.twitter', 
     href: 'https://twitter.com/bravioo', 
     icon: Twitter,
     external: true 
-  },
+  },   { 
+    nameKey: 'footer.social.youtube', 
+    href: 'https://youtube.com/@bravioo', 
+    icon: Youtube,
+    external: true 
+  },*/
   { 
     nameKey: 'footer.social.linkedin', 
     href: 'https://linkedin.com/company/bravioo', 
@@ -76,12 +81,7 @@ export const socialLinks: SocialLink[] = [
     icon: Instagram,
     external: true 
   },
-  { 
-    nameKey: 'footer.social.youtube', 
-    href: 'https://youtube.com/@bravioo', 
-    icon: Youtube,
-    external: true 
-  },
+
   { 
     nameKey: 'footer.social.email', 
     href: 'mailto:info@bravioo.com', 

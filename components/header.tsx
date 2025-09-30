@@ -6,17 +6,21 @@ import { useTranslations, useLocale } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { AnnouncementBar } from '@/components/announcement-bar';
-import { Menu, X, ChevronDown, Building } from 'lucide-react';
+import { Menu, X, ChevronDown, Moon, Sun } from 'lucide-react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
-import { navigationData, languages, type NavItem } from '@/config/navigation';
+import { navigationData, languages } from '@/config/navigation';
+import dynamic from 'next/dynamic';
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
+import { useEnhancedTheme } from '@/contexts/enhanced-theme-context';
 import { MegaMenu } from '@/components/_components/mega-menu';
 import { MobileMenu } from '@/components/_components/mobile-menu';
 
 export function Header() {
   const t = useTranslations('navigation');
   const locale = useLocale();
+  const { theme, toggleTheme, mounted } = useEnhancedTheme();
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
@@ -24,6 +28,8 @@ export function Header() {
   const [announcementClosed, setAnnouncementClosed] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [canHover, setCanHover] = useState(true);
+  const [currentLangAnimation, setCurrentLangAnimation] = useState<object | null>(null);
+  const [otherLangAnimation, setOtherLangAnimation] = useState<object | null>(null);
 
   // Hover close timer for stable dropdown hover
   const closeTimeout = useRef<number | null>(null);
@@ -69,6 +75,28 @@ export function Header() {
       setCanHover(window.matchMedia('(hover: hover)').matches);
     }
   }, []);
+
+  // Load Lottie animations for language flags from public folder
+  useEffect(() => {
+    if (!mounted) return;
+    const load = async (code: string) => {
+      try {
+        const res = await fetch(`/images/lottie/${code}.json`);
+        if (!res.ok) return null;
+        return (await res.json()) as object;
+      } catch {
+        return null;
+      }
+    };
+    (async () => {
+      const [cur, oth] = await Promise.all([
+        load(locale),
+        load(otherLang?.code || (locale === 'tr' ? 'en' : 'tr')),
+      ]);
+      setCurrentLangAnimation(cur);
+      setOtherLangAnimation(oth);
+    })();
+  }, [mounted, locale, otherLang?.code]);
 
   // Scroll detection for header shadow
   useEffect(() => {
@@ -241,7 +269,17 @@ export function Header() {
                 aria-expanded={isLangOpen}
                 aria-label="Dil seçenekleri"
               >
-                {currentLang?.flag}
+                {mounted ? (
+                  <div className="w-6 h-4">
+                    {currentLangAnimation ? (
+                      <Lottie animationData={currentLangAnimation} loop autoplay />
+                    ) : (
+                      currentLang?.flag
+                    )}
+                  </div>
+                ) : (
+                  currentLang?.flag
+                )}
                 <ChevronDown className={cn(
                   "h-4 w-4 transition-transform duration-200",
                   isLangOpen && "rotate-180"
@@ -261,13 +299,30 @@ export function Header() {
                       className="flex items-center gap-x-2 px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700"
                       onClick={() => setIsLangOpen(false)}
                     >
-                      {otherLang?.flag}
+                      <div className="w-6 h-4">
+                        {otherLangAnimation ? (
+                          <Lottie animationData={otherLangAnimation} loop autoplay />
+                        ) : (
+                          otherLang?.flag
+                        )}
+                      </div>
                       <span>{otherLang?.name}</span>
                     </Link>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
+
+            {/* Theme Toggle (corporate-standard in header) */}
+            {mounted && (
+              <button
+                onClick={toggleTheme}
+                className="flex items-center gap-2 px-3 py-2 rounded-lg border border-emerald-600 text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                aria-label={theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'}
+              >
+                {theme === 'light' ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+              </button>
+            )}
 
             {/* Login Link */}
             <Link
