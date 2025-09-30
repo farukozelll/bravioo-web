@@ -66,7 +66,7 @@ export function Footer() {
                   className="group block hover:scale-105 transition-transform duration-300"
                 >
                   <Image
-                    src="/images/apple_btn.webp"
+                    src="/images/app-store-default.png"
                     alt="Download on App Store"
                     width={140}
                     height={40}
@@ -81,7 +81,7 @@ export function Footer() {
                   className="group block hover:scale-105 transition-transform duration-300"
                 >
                   <Image
-                    src="/images/gPlay_btn.webp"
+                    src="/images/play-store-default.png"
                     alt="Get it on Google Play"
                     width={140}
                     height={40}

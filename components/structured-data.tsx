@@ -316,3 +316,4 @@ export function LocalBusinessSchema({
   return <StructuredData data={schema} />;
 }
 
+
