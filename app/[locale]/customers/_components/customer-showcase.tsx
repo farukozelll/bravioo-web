@@ -16,14 +16,14 @@ interface Company {
   description: string;
   metrics: {
     primary: string;
-    secondary: string;
+    secondary?: string;
   };
-  details: {
+  details?: {
     challenge: string;
     solution: string;
     results: string[];
   };
-  testimonial: {
+  testimonial?: {
     text: string;
     author: string;
     position: string;
@@ -33,7 +33,7 @@ interface Company {
 export function CustomerShowcase() {
   const [activeCategory] = useState<string>('Tümü');
   const locale = useLocale();
-  const companies: Company[] = companiesData;
+  const companies: Company[] = companiesData as unknown as Company[];
 
   // Extract unique categories from companies data (not used since filter UI is disabled)
   // const uniqueCategories = Array.from(new Set(companies.map(c => c.category)));
@@ -243,7 +243,7 @@ export function CustomerShowcase() {
                 href={`/${locale}/meeting`}
                 className="bg-emerald-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-emerald-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
               >
-                Ücretsiz Demo Alın
+                Ücretsiz Randevu Al
               </Link>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>

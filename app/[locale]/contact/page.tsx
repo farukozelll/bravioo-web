@@ -63,14 +63,14 @@ export default async function ContactPage({ params }: Props) {
 
   const officeInfo = [
     {
-      title: locale === 'tr' ? 'Ana Ofis' : 'Headquarters',
-      address: 'Maslak Mahallesi, Büyükdere Caddesi\nNo: 123, Sarıyer, İstanbul 34485\nTürkiye',
+      title: locale === 'tr' ? 'Ofis' : 'Office',
+      address: 'EMAAR MALL RESIDENCE \nÜNALAN MAH. LİBADİYE CAD. NO: 82 E\nÜSKÜDAR/ İSTANBUL',
       hours: locale === 'tr' ? 'Pazartesi - Cuma: 09:00 - 18:00' : 'Monday - Friday: 09:00 - 18:00'
     },
     {
-      title: locale === 'tr' ? 'Avrupa Ofisi' : 'Europe Office',
-      address: 'Amsterdam Tech Quarter\nSciencepark 608, 1098 XH\nAmsterdam, Netherlands',
-      hours: locale === 'tr' ? 'Pazartesi - Cuma: 09:00 - 17:00' : 'Monday - Friday: 09:00 - 17:00'
+      title: locale === 'tr' ? 'Merkez' : 'Head Office',
+      address: 'Çubuklu Mahallesi, Boğaziçi Caddesi No: 7, Kat: 4\nÇubuklu, Beykoz / İstanbul',
+      hours: locale === 'tr' ? 'Pazartesi - Cuma: 09:00 - 18:00' : 'Monday - Friday: 09:00 - 18:00'
     }
   ];
 

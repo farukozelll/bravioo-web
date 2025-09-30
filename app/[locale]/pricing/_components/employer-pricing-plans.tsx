@@ -166,9 +166,9 @@ export function EmployerPricingPlans() {
 
                 {/* Pricing */}
                 <div className="text-center mb-8">
-                  <div className="text-4xl font-bold text-gray-900 mb-2">
+               {/*    <div className="text-4xl font-bold text-gray-900 mb-2">
                     {t('custom')}
-                  </div>
+                  </div> */}
                   <p className="text-sm text-gray-500">
                     {locale === 'tr' ? 'Fiyat bilgisi için iletişime geçin' : 'Contact us for pricing'}
                   </p>
