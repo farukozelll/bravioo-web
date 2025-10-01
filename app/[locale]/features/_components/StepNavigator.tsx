@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 type ColorVariant = 'emerald' | 'gold';
 
@@ -14,6 +15,7 @@ type Props = {
 };
 
 export function StepNavigator({ thumbs, color, onClick }: Props) {
+  const t = useTranslations('features.journeyHeaders');
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -21,6 +23,9 @@ export function StepNavigator({ thumbs, color, onClick }: Props) {
       transition={{ delay: 0.2 }}
       className="mx-auto max-w-5xl"
     >
+      <h2 className="mb-4 text-center text-xl font-bold text-gray-900 dark:text-gray-100">
+        {color === 'emerald' ? t('hrTitle') : t('employeeTitle')}
+      </h2>
       <div className="flex flex-col items-center justify-center gap-4 md:flex-row md:gap-6">
         {thumbs.map((src, i) => (
           <React.Fragment key={i}>
@@ -39,8 +44,8 @@ export function StepNavigator({ thumbs, color, onClick }: Props) {
                   sizes="(max-width: 768px) 200px, 240px" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-xl" />
-                <div className={`absolute bottom-2 left-2 rounded px-2 py-1 text-xs font-semibold text-white ${color === 'emerald' ? 'bg-emerald-600/80' : 'bg-gold-600/80'}`}>
-                  Adım {i + 1}
+                <div className={`absolute bottom-2 left-2 rounded px-2 py-1 text-[10px] md:text-xs font-semibold text-white ${color === 'emerald' ? 'bg-emerald-600/80' : 'bg-gold-600/80'}`}>
+                  {color === 'emerald' ? t(`hrSteps.${i}`) : t(`employeeSteps.${i}`)}
                 </div>
               </div>
             </button>

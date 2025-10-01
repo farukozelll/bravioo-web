@@ -162,6 +162,24 @@
         }
       }
     },
+    "journeyHeaders": {
+      "hrTitle": "İşverenler İçin 5 Adımda Bravioo’ya Katılım",
+      "employeeTitle": "Çalışanlar İçin 5 Adımda Uygulama Kullanımı",
+      "hrSteps": {
+        "0": "Adım 1: Tanışma & Demo",
+        "1": "Adım 2: Kurumsal Entegrasyon",
+        "2": "Adım 3: Özelleştirme ve Onboarding",
+        "3": "Adım 4: Aktif Kullanım",
+        "4": "Adım 5: Sürekli Destek & Gelişim"
+      },
+      "employeeSteps": {
+        "0": "Adım 1: Uygulamayı İndir",
+        "1": "Adım 2: Şirket Mailinle Giriş Yap",
+        "2": "Adım 3: Avantaj ve İndirimleri Keşfet",
+        "3": "Adım 4: Geri Bildirim Paylaş",
+        "4": "Adım 5: Ödülleri ve Kuponları Kullan"
+      }
+    },
     "recognition": {
       "title": "Meslektaştan Meslektaşa Takdir",
       "description": "Çalışanların birbirlerinin katkılarını anlamlı ve açık takdirle fark etmelerini sağlayın."
@@ -747,7 +765,7 @@
       "badge": "🚀 Yolculuğumuz",
       "titleTop": "Çalışan Mutluluğunu",
       "titleBottom": "Teknolojiyle Buluşturduk",
-      "progress": "Yolculuğumuzun %{percent}%’i tamamlandı (%{step}/%{total} adım)",
+      "progress": "Yolculuğumuzun %{percent}%’i tamamlandı",
       "items": [
         { "year": "2022", "title": "Fikir Doğdu", "description": "Çalışan motivasyonunun görünmez KPI olduğunu keşfettik, Bravioo’nun temelleri atıldı." },
         { "year": "2023", "title": "Pilot Uygulamalar", "description": "Seçili şirketlerde ilk pilot testler yapıldı, geri bildirimlerle platform şekillendi." },
@@ -1075,7 +1093,7 @@
     "titlePrefix": "Çalışan Motivasyonunu",
     "titleHighlight": "%450",
     "titleSuffix": "Artırın",
-    "subtitle": "Peer-to-peer takdir sistemi, Türkiye genelinde ödül seçenekleri ve AI destekli performans analitiği ile 30 gün içinde sonuç alın.",
+    "subtitle": "Bravioo ile avantajlar, indirimler ve iletişim modülleri sayesinde bağlılık ve performansta kanıtlanmış artış.",
     "ctaPrimary": "Ücretsiz Demo Başlat",
     "ctaSecondary": "Videoyu İzle",
     "badges": {

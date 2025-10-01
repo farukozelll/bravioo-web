@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useLocale, useTranslations } from 'next-intl';
-import { CheckCircle, Circle, ArrowRight } from 'lucide-react';
+import { ArrowRight, Lightbulb, Plane, Rocket, Users, Coins, ArrowUp, Globe } from 'lucide-react';
   
 
 
@@ -14,6 +14,16 @@ export function JourneyMilestones() {
   const rawItems = t.raw('items') as Array<{ year: string; title: string; description: string }>;
   const items = React.useMemo(() => Array.isArray(rawItems) ? rawItems : [], [rawItems]);
   const milestonesToShow = React.useMemo(() => items.slice(0, items.length), [items]);
+
+  const IconComponents = React.useMemo(() => [
+    Lightbulb, // Fikir
+    Plane,     // Pilot uygulama
+    Rocket,    // İştirak
+    Users,     // Kullanıcı
+    Coins,     // Coin
+    ArrowUp,   // Bölgesel büyüme
+    Globe,     // Global büyüme
+  ], []);
   const [visibleStart, setVisibleStart] = React.useState(0);
   
   // Configuration and computed values
@@ -210,7 +220,7 @@ export function JourneyMilestones() {
                         border-slate-200 dark:border-gray-700
                       `}
                     >
-                      {/* Year Badge */}
+                        {/* Year Badge */}
                       <div className={`
                         absolute -top-3 left-4 sm:left-6 px-2 sm:px-3 py-1 text-xs font-bold rounded-full
                         bg-emerald-500 text-white
@@ -223,7 +233,8 @@ export function JourneyMilestones() {
                         mb-3 sm:mb-4 p-2 sm:p-3 rounded-xl w-fit
                         bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400
                       `}>
-                        {/* optional icon */}
+                                              {React.createElement(IconComponents[Math.min(index, IconComponents.length - 1)], { className: 'w-6 h-6' })}
+
                       </div>
 
                       {/* Content */}
@@ -237,7 +248,7 @@ export function JourneyMilestones() {
 
                       {/* Small caption under title instead of status pill */}
                       <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
-                        <p className="text-xs font-medium text-emerald-600 dark:text-emerald-400">
+                        <p className={`text-xs font-medium ${index >= 4 ? 'text-slate-500 dark:text-gray-400' : 'text-emerald-600 dark:text-emerald-400'}`}> 
                           {item.description}
                         </p>
                       </div>

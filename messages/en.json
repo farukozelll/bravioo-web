@@ -162,6 +162,24 @@
         }
       }
     },
+    "journeyHeaders": {
+      "hrTitle": "5 Steps for Employers to Join Bravioo",
+      "employeeTitle": "5 Steps for Employees to Use the App",
+      "hrSteps": {
+        "0": "Step 1: Intro & Demo",
+        "1": "Step 2: Corporate Integration",
+        "2": "Step 3: Customization & Onboarding",
+        "3": "Step 4: Active Usage",
+        "4": "Step 5: Continuous Support & Growth"
+      },
+      "employeeSteps": {
+        "0": "Step 1: Download the App",
+        "1": "Step 2: Sign in with Company Email",
+        "2": "Step 3: Explore Benefits & Discounts",
+        "3": "Step 4: Share Feedback",
+        "4": "Step 5: Use Rewards & Coupons"
+      }
+    },
     "recognition": {
       "title": "Peer-to-Peer Recognition",
       "description": "Enable employees to acknowledge each other’s contributions with meaningful, transparent recognition."
@@ -746,7 +764,7 @@
       "badge": "🚀 Our Journey",
       "titleTop": "We Brought Employee Happiness",
       "titleBottom": "Together with Technology",
-      "progress": "%{percent}% of our journey completed (%{step}/%{total} steps)",
+      "progress": "%{percent}% of our journey completed)",
       "items": [
         { "year": "2022", "title": "Idea Born", "description": "We discovered employee motivation is the invisible KPI; Bravioo’s foundations were laid." },
         { "year": "2023", "title": "Pilot Programs", "description": "Initial pilots in selected companies; the platform was shaped by feedback." },

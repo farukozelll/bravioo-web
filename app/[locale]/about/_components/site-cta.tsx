@@ -16,7 +16,8 @@ export function SiteCTA() {
         transition={{ duration: 0.6, delay: 0.2 }}
         className="text-center"
       >
-        <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl lg:rounded-3xl p-6 sm:p-8 lg:p-12 text-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl lg:rounded-3xl p-6 sm:p-8 lg:p-12 text-white">
           <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4">
             {locale === 'tr' ? 'Bizimle yolculuğa başlayın' : 'Start your journey with us'}
           </h3>
@@ -41,6 +42,7 @@ export function SiteCTA() {
             className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition-all">
               {locale === 'tr' ? 'Ücretsiz Randevu Al' :  "Book a Free Meeting"}
             </button>
+          </div>
           </div>
         </div>
       </motion.div>

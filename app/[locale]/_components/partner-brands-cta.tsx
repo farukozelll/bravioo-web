@@ -17,7 +17,7 @@ export function PartnerBrandsCTA() {
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
         >
-          <div className="bg-gradient-to-r from-secondary-500 to-secondary-600 dark:from-secondary-600 dark:to-secondary-700 rounded-3xl overflow-visible relative shadow-2xl">
+          <div className="bg-gradient-to-r from-emerald-600 via-secondary-500 to-secondary-600 dark:from-emerald-700 dark:via-secondary-600 dark:to-secondary-700 rounded-3xl overflow-visible relative shadow-2xl">
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               {/* Left Content */}
@@ -75,10 +75,10 @@ export function PartnerBrandsCTA() {
               <div className="relative p-6 md:p-10 lg:p-14 flex items-center justify-center -mt-6 md:-mt-10 lg:-mt-16 xl:-mt-16">
                 <div className="relative w-full max-w-[1200px] md:max-w-[1500px] lg:max-w-[1800px] xl:max-w-[2000px]">
                   <div
-                    className="absolute left-0 top-0 md:-top-6 w-[100%] md:w-[70%] lg:w-[110%] xl:w-[100%] transform-gpu will-change-transform backface-hidden z-20 pointer-events-none"
+                    className="absolute left-0 top-0 md:-top-10 w-[100%] md:w-[70%] lg:w-[110%] xl:w-[100%] transform-gpu will-change-transform backface-hidden z-20 pointer-events-none"
                   >
                     <Image
-                      src="/images/Bravioo-Web-Mobile_Mockup.png"
+                      src="/images/Bravioo-Double-Mobile_Mockup.png"
                       alt={t('phoneAlt')}
                       width={1600}
                       height={1200}
