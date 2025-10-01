@@ -2,17 +2,18 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { CheckCircle, Circle, ArrowRight } from 'lucide-react';
-import { MILESTONES_TR as MILESTONES_TR_DATA, MILESTONES_EN as MILESTONES_EN_DATA } from '@/data/journey-milestones';
   
 
 
 
 export function JourneyMilestones() {
   const locale = useLocale();
-  const milestones = React.useMemo(() => (locale === 'tr' ? MILESTONES_TR_DATA : MILESTONES_EN_DATA), [locale]);
-  const milestonesToShow = React.useMemo(() => milestones.slice(0,12), [milestones]);
+  const t = useTranslations('about.journey');
+  const rawItems = t.raw('items') as Array<{ year: string; title: string; description: string }>;
+  const items = React.useMemo(() => Array.isArray(rawItems) ? rawItems : [], [rawItems]);
+  const milestonesToShow = React.useMemo(() => items.slice(0, items.length), [items]);
   const [visibleStart, setVisibleStart] = React.useState(0);
   
   // Configuration and computed values
@@ -92,17 +93,15 @@ export function JourneyMilestones() {
           className="text-center mb-12 lg:mb-16"
         >
           <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-gray-400 mb-4">
-            {locale === 'tr' ? 'Yolculuğumuz' : 'Our Journey'}
+            {t('badge')}
           </p>
           
           <h2 
             id="journey-milestones-title"
             className="font-display text-3xl sm:text-4xl font-light leading-tight text-slate-900 dark:text-gray-100 md:text-5xl lg:text-6xl mb-4 lg:mb-6"
           >
-            {locale === 'tr' ? 'İşletmeler İçin Daha İyi Bir' : 'Designing a Better'}{' '}
-            <span className="font-normal">
-              {locale === 'tr' ? 'E-Ticaret Deneyimi Tasarlıyoruz' : 'E-Commerce Experience'}
-            </span>
+            {t('titleTop')}{' '}
+            <span className="font-normal">{t('titleBottom')}</span>
           </h2>
           
        {/*    <p className="max-w-3xl mx-auto text-lg lg:text-xl text-slate-600 dark:text-gray-300 leading-relaxed">
@@ -133,8 +132,7 @@ export function JourneyMilestones() {
             </div>
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mt-2 gap-2 sm:gap-0">
               <span className="text-sm text-slate-500 dark:text-gray-400">
-                {locale === 'tr' ? 'Yolculuğumuzun' : 'Our journey'} {Math.round(progressPercentage)}%{locale === 'tr' ? "'i tamamlandı" : ' completed'} 
-                ({currentStep}/{config.totalScrollSteps} {locale === 'tr' ? 'adım' : 'steps'})
+                {t('progress', { percent: Math.round(progressPercentage), step: currentStep, total: config.totalScrollSteps })}
               </span>
               
               {/* Navigation Arrows */}
@@ -190,9 +188,9 @@ export function JourneyMilestones() {
                 transition={{ duration: 0.6, ease: "easeInOut" }}
                 style={{ minWidth: '100%' }}
               >
-                {milestonesToShow.map((milestone, index) => (
+                {milestonesToShow.map((item, index) => (
                   <motion.div
-                    key={milestone.id}
+                    key={`${item.year}-${index}`}
                     className="flex-shrink-0 px-3"
                     style={{ flex: `0 0 calc(100% / ${config.itemsPerView})` }}
                     initial={{ opacity: 0, x: 40 }}
@@ -201,7 +199,7 @@ export function JourneyMilestones() {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                   >
                     <div className="flex justify-center mb-8">
-                     
+                      {/* Icon placeholder remains optional */}
                     </div>
 
                     {/* Milestone Card */}
@@ -209,60 +207,39 @@ export function JourneyMilestones() {
                       whileHover={{ y: -8, scale: 1.02 }}
                       className={`
                         relative bg-white dark:bg-gray-800 rounded-2xl p-5 sm:p-7 shadow-lg border transition-all duration-300 h-48 sm:h-64
-                        ${milestone.completed 
-                          ? 'border-emerald-200 dark:border-emerald-600 shadow-emerald-100/50 dark:shadow-emerald-900/20' 
-                          : 'border-slate-200 dark:border-gray-700'
-                        }
+                        border-slate-200 dark:border-gray-700
                       `}
                     >
                       {/* Year Badge */}
                       <div className={`
                         absolute -top-3 left-4 sm:left-6 px-2 sm:px-3 py-1 text-xs font-bold rounded-full
-                        ${milestone.completed 
-                          ? 'bg-emerald-500 text-white' 
-                          : 'bg-slate-300 dark:bg-gray-600 text-slate-600 dark:text-gray-300'
-                        }
+                        bg-emerald-500 text-white
                       `}>
-                        {milestone.year}
+                          {item.year}
                       </div>
 
                       {/* Icon */}
                       <div className={`
                         mb-3 sm:mb-4 p-2 sm:p-3 rounded-xl w-fit
-                        ${milestone.completed 
-                          ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400' 
-                          : 'bg-slate-100 dark:bg-gray-700 text-slate-400 dark:text-gray-500'
-                        }
+                        bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400
                       `}>
-                        {milestone.icon}
+                        {/* optional icon */}
                       </div>
 
                       {/* Content */}
                       <h3 className={`
                         text-base sm:text-lg font-semibold mb-2 sm:mb-3 leading-tight
-                        ${milestone.completed ? 'text-slate-900 dark:text-gray-100' : 'text-slate-600 dark:text-gray-400'}
+                        text-slate-900 dark:text-gray-100
                       `}>
-                        {milestone.title}
+                        {item.title}
                       </h3>
                       
 
-                      {/* Status Indicator */}
+                      {/* Small caption under title instead of status pill */}
                       <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
-                        <div className="flex items-center gap-2">
-                          <div className={`
-                            w-2 h-2 rounded-full
-                            ${milestone.completed ? 'bg-emerald-500' : 'bg-slate-400'}
-                          `}></div>
-                          <span className={`
-                            text-xs font-medium
-                            ${milestone.completed ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-500 dark:text-gray-400'}
-                          `}>
-                            {milestone.completed 
-                              ? (locale === 'tr' ? 'Tamamlandı' : 'Completed')
-                              : (locale === 'tr' ? 'Yakında' : 'Coming Soon')
-                            }
-                          </span>
-                        </div>
+                        <p className="text-xs font-medium text-emerald-600 dark:text-emerald-400">
+                          {item.description}
+                        </p>
                       </div>
                     </motion.div>
                   </motion.div>

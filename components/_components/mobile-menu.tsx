@@ -8,6 +8,9 @@ import { X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { type NavItem } from '@/config/navigation';
+import dynamic from 'next/dynamic';
+
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -18,6 +21,8 @@ interface MobileMenuProps {
   t: (key: string) => string;
   currentLang: { code: string; name: string; flag: React.ReactNode } | undefined;
   otherLang: { code: string; name: string; flag: React.ReactNode } | undefined;
+  currentLangAnimation?: object | null;
+  otherLangAnimation?: object | null;
 }
 
 export function MobileMenu({ 
@@ -27,7 +32,9 @@ export function MobileMenu({
   pathname, 
   navigationData, 
   t, 
-  otherLang 
+  otherLang,
+  currentLangAnimation,
+  otherLangAnimation
 }: MobileMenuProps) {
   const isActiveRoute = (href: string) => {
     return pathname.startsWith(`/${locale}${href}`);
@@ -128,9 +135,13 @@ export function MobileMenu({
                       className="flex items-center gap-x-2 text-sm font-semibold text-emerald-600 dark:text-emerald-400"
                       onClick={onClose}
                     >
-                      {/* Prefer JSON Lottie animation if available via header preload; fallback to flag node */}
+                      {/* Prefer JSON Lottie animation if available; fallback to static flag */}
                       <span className="inline-flex items-center justify-center w-6 h-4">
-                        {otherLang?.flag}
+                        {otherLangAnimation ? (
+                          <Lottie animationData={otherLangAnimation} loop autoplay />
+                        ) : (
+                          otherLang?.flag
+                        )}
                       </span>
                       <span>{otherLang?.name}</span>
                     </Link>

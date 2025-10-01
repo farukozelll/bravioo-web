@@ -404,6 +404,8 @@ export function Header() {
         t={t}
         currentLang={currentLang}
         otherLang={otherLang}
+        currentLangAnimation={currentLangAnimation}
+        otherLangAnimation={otherLangAnimation}
       />
     </div>
   );

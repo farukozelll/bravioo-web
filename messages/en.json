@@ -742,6 +742,25 @@
       "subtitle": "We see the human behind the numbers and reports",
       "description": "At Bravioo, we believe every employee’s potential reveals itself fully only in an environment where they feel appreciated and valued. We challenge anonymity and invisibility in the workplace."
     },
+    "journey": {
+      "badge": "🚀 Our Journey",
+      "titleTop": "We Brought Employee Happiness",
+      "titleBottom": "Together with Technology",
+      "progress": "%{percent}% of our journey completed (%{step}/%{total} steps)",
+      "items": [
+        { "year": "2022", "title": "Idea Born", "description": "We discovered employee motivation is the invisible KPI; Bravioo’s foundations were laid." },
+        { "year": "2023", "title": "Pilot Programs", "description": "Initial pilots in selected companies; the platform was shaped by feedback." },
+        { "year": "2024", "title": "Holding Subsidiary", "description": "Became a subsidiary of Albayrak Holding; engineering team expanded." },
+        { "year": "2025", "title": "30,000 Users & AI", "description": "Reached 30,000+ users; AI-based analytics and communication modules launched." },
+        { "year": "2026", "title": "Bravioo Coin", "description": "Planned launch of Bravioo Coin with digital gift cards and tax advantages." },
+        { "year": "2027", "title": "Regional Growth", "description": "Expansion targeted in GCC countries and the European market." },
+        { "year": "2028", "title": "Global Presence", "description": "Aiming for regional leadership in corporate motivation globally." }
+      ]
+    },
+    "aboutUsSection": {
+      "title": "About Us",
+      "body": "Bravioo is an employee motivation platform built on software and AI expertise as a subsidiary of Albayrak Holding. With our large engineering team and experience from international projects, we build innovative solutions and continuously enrich our platform with new modules.\n\nToday, by partnering with leading brands across industries, we deliver a reliable solution that boosts employee happiness and engagement with benefits, discounts, notification tools, anonymous feedback, and innovative solutions like Bravioo Coin."
+    },
     "manifesto": {
       "title": "Our Brand Manifesto",
       "subtitle": "Our mission to unlock human potential",
@@ -1188,8 +1207,8 @@
   },
   "modules": {
     "badge": "Modules",
-    "title": "Core",
-    "titleHighlight": "Solutions for Your Workplace",
+    "title": "For Employee Happiness",
+    "titleHighlight": "Basic Tools",
     "subtitle": "Create quick impact with Bravioo’s four core modules",
     "items": [
       {

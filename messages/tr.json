@@ -743,6 +743,25 @@
       "subtitle": "Rakamların ve raporların ardındaki insanı görüyoruz",
       "description": "Bravioo olarak biz, her çalışanın potansiyelinin ancak takdir edildiği ve değerli hissettiği bir ortamda tam olarak ortaya çıkacağına inanıyoruz. İş yerindeki isimsizliğe ve görünmezliğe meydan okuyoruz."
     },
+    "journey": {
+      "badge": "🚀 Yolculuğumuz",
+      "titleTop": "Çalışan Mutluluğunu",
+      "titleBottom": "Teknolojiyle Buluşturduk",
+      "progress": "Yolculuğumuzun %{percent}%’i tamamlandı (%{step}/%{total} adım)",
+      "items": [
+        { "year": "2022", "title": "Fikir Doğdu", "description": "Çalışan motivasyonunun görünmez KPI olduğunu keşfettik, Bravioo’nun temelleri atıldı." },
+        { "year": "2023", "title": "Pilot Uygulamalar", "description": "Seçili şirketlerde ilk pilot testler yapıldı, geri bildirimlerle platform şekillendi." },
+        { "year": "2024", "title": "Holding İştiraki", "description": "Albayrak Holding iştiraki olarak kurumsal kimlik kazanıldı, yazılım ekibi büyüdü." },
+        { "year": "2025", "title": "30.000 Kullanıcı & AI", "description": "30.000+ kullanıcı; yapay zekâ tabanlı analiz ve iletişim modülleri devrede." },
+        { "year": "2026", "title": "Bravioo Coin", "description": "Dijital hediye kartı ve vergi avantajı sağlayacak Bravioo Coin lansmanı planlanıyor." },
+        { "year": "2027", "title": "Bölgesel Büyüme", "description": "GCC ve Avrupa pazarında açılım hedefleniyor." },
+        { "year": "2028", "title": "Global Pazarda Varlık", "description": "Kurumsal motivasyonda bölgesel liderlik hedefleniyor." }
+      ]
+    },
+    "aboutUsSection": {
+      "title": "Biz Kimiz",
+      "body": "Bravioo, Albayrak Holding iştiraki olarak yazılım ve yapay zekâ deneyimi üzerine kurulmuş bir çalışan motivasyon platformudur. Geniş yazılım ekibimiz ve yurt dışı projelerden gelen tecrübemizle inovatif çözümler geliştiriyor, yeni modüllerle platformumuzu sürekli zenginleştiriyoruz.\n\nBugün farklı sektörlerdeki dev markalarla iş birliği yaparak, avantajlar, indirimler, bildirim araçları, anonim geri bildirimler ve Bravioo Coin gibi yenilikçi çözümler ile çalışan mutluluğu ve bağlılığını artıran güvenilir bir çözüm sunuyoruz."
+    },
     "manifesto": {
       "title": "Marka Manifestomuz",
       "subtitle": "İnsan potansiyelini ortaya çıkarma misyonumuz",
@@ -1191,8 +1210,8 @@
   },
   "modules": {
     "badge": "Çözümlerimiz",
-    "title": "İş Yeriniz İçin",
-    "titleHighlight": "Temel Çözümler",
+    "title": "Çalışan Mutluluğu İçin",
+    "titleHighlight": "Temel Araçlar",
     "subtitle": "Bravioo platformunun dört ana modülü ile hızlı etki yaratın",
     "items": [
       {
