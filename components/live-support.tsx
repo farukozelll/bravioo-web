@@ -136,7 +136,7 @@ export function LiveSupport() {
   return (
     <>
       {/* Floating Buttons - Responsive positioning */}
-      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-6 md:left-6 z-50 flex flex-col gap-3">
+      <div className="fixed bottom-20 right-4 sm:bottom-24 sm:right-6 md:bottom-24 md:left-6 z-[60] flex flex-col gap-3 pointer-events-auto">
         {/* AI Assistant Button */}
         <motion.button
           onClick={() => {

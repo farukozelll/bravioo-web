@@ -123,7 +123,7 @@ export function ConsentManager() {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 100, opacity: 0 }}
         transition={{ duration: 0.5, type: 'spring', damping: 25 }}
-        className="fixed bottom-6 left-6 right-6 z-[9999] max-w-md ml-auto pointer-events-auto"
+        className="fixed bottom-6 left-6 right-6 z-[70] max-w-md ml-auto pointer-events-auto"
       >
         <div className="bg-white rounded-3xl shadow-2xl border border-sand-200 p-6 backdrop-blur-lg bg-white/95 relative z-[10000] pointer-events-auto">
           {/* Header */}

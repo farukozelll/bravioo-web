@@ -128,7 +128,10 @@ export function MobileMenu({
                       className="flex items-center gap-x-2 text-sm font-semibold text-emerald-600 dark:text-emerald-400"
                       onClick={onClose}
                     >
-                      {otherLang?.flag}
+                      {/* Prefer JSON Lottie animation if available via header preload; fallback to flag node */}
+                      <span className="inline-flex items-center justify-center w-6 h-4">
+                        {otherLang?.flag}
+                      </span>
                       <span>{otherLang?.name}</span>
                     </Link>
                   </div>

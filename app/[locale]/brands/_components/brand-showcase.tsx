@@ -144,7 +144,7 @@ export function BrandShowcase() {
                 <div className="w-12 sm:w-16 h-12 sm:h-16 mx-auto mb-2 bg-slate-100 dark:bg-gray-700 rounded-xl flex items-center justify-center overflow-hidden">
                   {company.logo ? (
                     <Image 
-                      src={company.logo} 
+                      src={company.logo.replace(/\/+/, '/')} 
                       alt={`${company.name} logo`}
                       width={48}
                       height={48}
