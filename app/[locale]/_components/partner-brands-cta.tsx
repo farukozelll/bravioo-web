@@ -73,9 +73,9 @@ export function PartnerBrandsCTA() {
               
               {/* Right Phone Visuals - Two large, responsive mockups */}
               <div className="relative p-6 md:p-10 lg:p-14 flex items-center justify-center -mt-6 md:-mt-10 lg:-mt-16 xl:-mt-16">
-                <div className="relative w-full max-w-[900px] md:max-w-[1000px] lg:max-w-[1200px]">
+                <div className="relative w-full max-w-[1100px] md:max-w-[1300px] lg:max-w-[1500px] xl:max-w-[1680px]">
                   <motion.div
-                    className="absolute left-0 top-6 md:top-10 w-[62%] md:w-[60%] lg:w-[58%]"
+                    className="absolute left-0 top-6 md:top-8 w-[80%] md:w-[72%] lg:w-[66%] transform-gpu will-change-transform backface-hidden"
                     animate={{ y: [0, -10, 0] }}
                     transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
                   >
@@ -84,13 +84,15 @@ export function PartnerBrandsCTA() {
                       alt={t('phoneAlt')}
                       width={1600}
                       height={1200}
-                      className="w-full h-auto drop-shadow-2xl rounded-3xl"
-                      sizes="(max-width: 640px) 85vw, (max-width: 1024px) 70vw, 700px"
+                      className="w-full h-auto drop-shadow-2xl rounded-3xl transform-gpu will-change-transform backface-hidden select-none"
+                      sizes="(max-width: 640px) 95vw, (max-width: 1024px) 80vw, (max-width: 1536px) 900px, 1100px"
+                      quality={90}
                       priority
+                      draggable={false}
                     />
                   </motion.div>
 
-                  <div className="pb-[65%] md:pb-[58%] lg:pb-[52%]" />
+                  <div className="pb-[80%] md:pb-[70%] lg:pb-[62%]" />
                 </div>
               </div>
             </div>

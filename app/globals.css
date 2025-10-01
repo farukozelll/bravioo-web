@@ -388,4 +388,30 @@ body {
       animation: none;
     }
   }
+
+  /* GPU/perf helpers */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  /* Force animations even if reduced motion is enabled (scoped) */
+  .force-animate .animate-scroll-up {
+    animation: scroll-up 40s linear infinite !important;
+  }
+
+  .force-animate .animate-scroll-down {
+    animation: scroll-down 40s linear infinite !important;
+  }
+
+  .force-animate .animate-marquee-left {
+    animation: marquee-left 40s linear infinite !important;
+  }
+
+  .force-animate .animate-marquee-right {
+    animation: marquee-right 40s linear infinite !important;
+  }
 }

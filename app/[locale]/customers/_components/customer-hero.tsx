@@ -92,15 +92,15 @@ export function CustomerHero() {
           </div>
 
           {/* Right Side - Infinite Scrolling Customers with subtle background visuals */}
-          <div
+            <div
             className="relative h-[700px] overflow-hidden"
           >
             {/* Decorative blobs removed for solid background */}
-            <div className="grid grid-cols-2 gap-4 h-full group">
+            <div className="grid grid-cols-2 gap-4 h-full group force-animate transform-gpu will-change-transform">
               
               {/* Left Column - Scrolling Up */}
               <div className="relative overflow-hidden">
-                <div className="space-y-4 animate-scroll-up">
+                <div className="space-y-4 animate-scroll-up transform-gpu will-change-transform">
                   {[...scrollData.leftColumn, ...scrollData.leftColumn].map((customer, index) => (
                     <CustomerCard
                       key={`left-${customer.uniqueId}-${index}`}
@@ -113,7 +113,7 @@ export function CustomerHero() {
 
               {/* Right Column - Scrolling Down */}
               <div className="relative overflow-hidden">
-                <div className="space-y-4 animate-scroll-down">
+                <div className="space-y-4 animate-scroll-down transform-gpu will-change-transform">
                   {[...scrollData.rightColumn, ...scrollData.rightColumn].map((customer, index) => (
                     <CustomerCard
                       key={`right-${customer.uniqueId}-${index}`}

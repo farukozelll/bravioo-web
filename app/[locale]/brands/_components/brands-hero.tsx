@@ -70,12 +70,12 @@ export function BrandsHero() {
           </div>
 
           {/* Right: 4-row marquee */}
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-hidden force-animate">
             <div className="space-y-6">
               {rows.map((row, rowIdx) => (
                 <div key={rowIdx} className="relative overflow-hidden">
                   <div
-                    className={`flex items-center gap-16 ${
+                    className={`flex items-center gap-16 transform-gpu will-change-transform ${
                       rowIdx % 2 === 0 ? 'animate-marquee-left' : 'animate-marquee-right'
                     }`}
                     style={{ animationDuration: `${35 + rowIdx * 5}s` }}
