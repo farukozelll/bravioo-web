@@ -79,7 +79,7 @@ function PlatformMegaMenu({ locale, t, menuData }: MegaMenuComponentProps) {
 function WhyBraviooHero({ locale }: { locale: string }) {
   return (
     <div className="lg:col-span-2">
-      <div className="relative bg-gradient-to-br from-green-50 to-gold-50 dark:from-green-900/20 dark:to-gold-900/20 rounded-3xl p-8 h-80 overflow-hidden">
+      <div className="relative bg-gradient-to-br from-green-50 to-gold-50 dark:from-green-900/20 dark:to-gold-900/20 rounded-3xl p-12 h-80 overflow-hidden">
         <BackgroundPattern />
         <FloatingElements />
         <HeroContent locale={locale} />
@@ -134,17 +134,17 @@ function HeroContent({ locale }: { locale: string }) {
 
 function StatsGrid({ locale }: { locale: string }) {
   const stats = [
-    { value: '200+', label: locale === 'tr' ? 'Şirket' : 'Companies', color: 'text-green-600' },
+    { value: '200+', label: locale === 'tr' ? 'Marka' : 'Brands', color: 'text-green-600' },
     { value: '50.000+', label: locale === 'tr' ? 'Kullanıcı' : 'Users', color: 'text-gold-600' },
-    { value: '%98', label: locale === 'tr' ? 'Memnuniyet' : 'Satisfaction', color: 'text-emerald-600' }
+    { value: '%100', label: locale === 'tr' ? 'Memnuniyet' : 'Satisfaction', color: 'text-emerald-600' }
   ];
 
   return (
-    <div className="relative z-10 grid grid-cols-3 gap-3 mt-auto">
+    <div className="relative z-10 grid grid-cols-3 gap-3 ">
       {stats.map((stat, index) => (
         <div key={index} className="text-center">
-          <div className={`text-2xl font-bold ${stat.color}`}>{stat.value}</div>
-          <div className="text-sm text-gray-600 dark:text-gray-300">{stat.label}</div>
+          <div className={`text-2xl font-bold leading-tight ${stat.color}`}>{stat.value}</div>
+          <div className="text-xs text-gray-600 dark:text-gray-300">{stat.label}</div>
         </div>
       ))}
     </div>
