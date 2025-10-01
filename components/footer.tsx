@@ -60,7 +60,7 @@ export function Footer() {
               </h4>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
-                  href="https://apps.apple.com/app/bravioo"
+                  href="https://apps.apple.com/tr/app/bravioo/id6741318632?l=tr"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group block hover:scale-105 transition-transform duration-300"
@@ -75,7 +75,7 @@ export function Footer() {
                   />
                 </Link>
                 <Link
-                  href="https://play.google.com/store/apps/details?id=com.bravioo"
+                  href="https://play.google.com/store/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group block hover:scale-105 transition-transform duration-300"

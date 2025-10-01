@@ -17,7 +17,7 @@ export function PartnerBrandsCTA() {
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
         >
-          <div className="bg-gradient-to-r from-secondary-500 to-secondary-600 dark:from-secondary-600 dark:to-secondary-700 rounded-3xl overflow-hidden relative shadow-2xl">
+          <div className="bg-gradient-to-r from-secondary-500 to-secondary-600 dark:from-secondary-600 dark:to-secondary-700 rounded-3xl overflow-visible relative shadow-2xl">
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               {/* Left Content */}
@@ -39,7 +39,7 @@ export function PartnerBrandsCTA() {
                   <p className="text-white/80 text-sm font-medium mb-4">{t('downloadLabel')}</p>
                   <div className="flex flex-col sm:flex-row gap-3">
                     <a 
-                      href="https://apps.apple.com/app/bravioo" 
+                      href="https://apps.apple.com/tr/app/bravioo/id6741318632?l=tr" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="flex items-center gap-3 bg-black text-white px-6 py-3 rounded-xl font-semibold hover:bg-neutral-800 transition-all transform hover:scale-105"
@@ -54,7 +54,7 @@ export function PartnerBrandsCTA() {
                     </a>
                     
                     <a 
-                      href="https://play.google.com/store/apps/details?id=com.bravioo" 
+                      href="https://play.google.com/store/" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="flex items-center gap-3 bg-black text-white px-6 py-3 rounded-xl font-semibold hover:bg-neutral-800 transition-all transform hover:scale-105"
@@ -73,11 +73,9 @@ export function PartnerBrandsCTA() {
               
               {/* Right Phone Visuals - Two large, responsive mockups */}
               <div className="relative p-6 md:p-10 lg:p-14 flex items-center justify-center -mt-6 md:-mt-10 lg:-mt-16 xl:-mt-16">
-                <div className="relative w-full max-w-[1100px] md:max-w-[1300px] lg:max-w-[1500px] xl:max-w-[1680px]">
-                  <motion.div
-                    className="absolute left-0 top-6 md:top-8 w-[80%] md:w-[72%] lg:w-[66%] transform-gpu will-change-transform backface-hidden"
-                    animate={{ y: [0, -10, 0] }}
-                    transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
+                <div className="relative w-full max-w-[1200px] md:max-w-[1500px] lg:max-w-[1800px] xl:max-w-[2000px]">
+                  <div
+                    className="absolute left-0 top-0 md:-top-6 w-[100%] md:w-[70%] lg:w-[110%] xl:w-[100%] transform-gpu will-change-transform backface-hidden z-20 pointer-events-none"
                   >
                     <Image
                       src="/images/Bravioo-Web-Mobile_Mockup.png"
@@ -85,14 +83,14 @@ export function PartnerBrandsCTA() {
                       width={1600}
                       height={1200}
                       className="w-full h-auto drop-shadow-2xl rounded-3xl transform-gpu will-change-transform backface-hidden select-none"
-                      sizes="(max-width: 640px) 95vw, (max-width: 1024px) 80vw, (max-width: 1536px) 900px, 1100px"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, (max-width: 1536px) 1200px, 1400px"
                       quality={90}
                       priority
                       draggable={false}
                     />
-                  </motion.div>
+                  </div>
 
-                  <div className="pb-[80%] md:pb-[70%] lg:pb-[62%]" />
+                  <div className="pb-[85%] md:pb-[78%] lg:pb-[70%]" />
                 </div>
               </div>
             </div>
