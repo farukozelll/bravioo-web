@@ -60,7 +60,7 @@ export function Journey({ steps, selectedPath, activeStep, deviceY, onTry }: Pro
           <div className="aspect-[9/16] flex items-center justify-center">
             <Image 
               src={step.dashboardImage} 
-              alt={`Adım ${activeStep + 1} - Platform Görünümü`} 
+              alt={t(step.titleKey)} 
               width={300}
               height={533}
               className="object-contain max-h-full max-w-full" 

@@ -114,51 +114,56 @@
     "journey": {
       "hr": {
         "0": {
-          "title": "Takdir Programları Kurun",
-          "body": "Şirket değerlerinizle uyumlu özel takdir kategorileri oluşturun ve onay iş akışlarını yapılandırın.",
-          "highlight": "Hızlı Kurulum"
+          "title": "Tanışma & Demo",
+          "body": "İhtiyaçlarınızı dinliyor, hedeflerinizi birlikte netleştiriyoruz. Canlı demo ile platformun değerini gösteriyoruz.",
+          "highlight": "İlk Adım"
         },
         "1": {
-          "title": "Çalışan Bağlılığını Yönetin",
-          "body": "Katılımı takip edin, takdir kalıplarını izleyin ve ekip moralini artırma fırsatlarını belirleyin.",
-          "highlight": "Akıllı Analitik"
+          "title": "Kurumsal Entegrasyon",
+          "body": "SSO, HRIS ve iletişim kanallarınızla güvenli ve sorunsuz teknik kurulum yapıyoruz.",
+          "highlight": "Teknik Kurulum"
         },
         "2": {
-          "title": "Şirket Geneli Duyurular Gönderin",
-          "body": "Önemli güncellemeleri paylaşın, başarıları kutlayın ve herkesi bilgilendirilmiş tutun.",
-          "highlight": "Anında İletişim"
+          "title": "Özelleştirme ve Onboarding",
+          "body": "Avantajlar, iletişim, geri bildirim ve (yakında) Bravioo Coin modüllerinden ihtiyaçlarınıza uygun olanları seçiyor, marka kimliğinize göre özelleştiriyoruz.",
+          "highlight": "Kişiselleştirme"
         },
         "3": {
-          "title": "Detaylı Raporlar Oluşturun",
-          "body": "Program başarısını ölçmek ve liderliğe ROI göstermek için kapsamlı analizlere erişin.",
-          "highlight": "Veri Odaklı İçgörüler"
+          "title": "Aktif Kullanım",
+          "body": "Takdir ve iletişim süreçleri canlıya alınır; ekipleriniz platformu günlük iş akışına entegre eder.",
+          "highlight": "Başlangıç"
         },
         "4": {
-          "title": "Takdir Kültürünü Ölçeklendirin",
-          "body": "Tutarlılık ve kaliteyi korurken programları departmanlar ve lokasyonlar genelinde genişletin.",
-          "highlight": "Kurumsal Hazır"
+          "title": "Sürekli Destek & Gelişim",
+          "body": "Raporlama, iyileştirme önerileri ve yeni özelliklerle sürekli değer yaratmaya devam ederiz.",
+          "highlight": "Sürekli İyileştirme"
         }
       },
       "employee": {
         "0": {
-          "title": "Meslektaşlarınızı Anında Takdir Edin",
-          "body": "Birkaç dokunuşla ekip arkadaşlarınıza anlamlı takdir gönderin, her yerden, her zaman.",
-          "highlight": "Mobil Öncelikli"
+          "title": "Uygulamayı İndir",
+          "body": "iOS veya Android cihazınıza Bravioo uygulamasını indirin.",
+          "highlight": "Hızlı Başlangıç"
         },
         "1": {
-          "title": "Ödül Kazanın ve Kullanın",
-          "body": "Harika işler için puan toplayın ve global kataloğumuzdan heyecan verici ödüller için kullanın.",
-          "highlight": "Global Ödüller"
+          "title": "Şirket Mailinle Giriş Yap",
+          "body": "Kurumsal e‑postanızla güvenle giriş yapın ve hesabınızı doğrulayın.",
+          "highlight": "Güvenli Giriş"
         },
         "2": {
-          "title": "Bağlantıda Kalın",
-          "body": "Şirket güncellemelerini takip edin, ekip galibiyetlerini kutlayın ve iş yeri topluluğunuzla etkileşime geçin.",
-          "highlight": "Sosyal Akış"
+          "title": "Avantaj ve İndirimleri Keşfet",
+          "body": "Size özel indirimler ve avantaj kategorilerini keşfedin.",
+          "highlight": "Keşfet"
         },
         "3": {
-          "title": "Etkilerinizi Takip Edin",
-          "body": "Katkılarınızın nasıl fark yarattığını görün ve büyüyen etkilerinizi kutlayın.",
-          "highlight": "Kişisel Büyüme"
+          "title": "Geri Bildirim Paylaş",
+          "body": "İş yerinizle ilgili öneri ve geri bildirimlerinizi kolayca iletin.",
+          "highlight": "Katılım"
+        },
+        "4": {
+          "title": "Ödülleri ve Kuponları Kullan",
+          "body": "Kazandığınız ödül ve kuponları anında kullanın.",
+          "highlight": "Hemen Kullan"
         }
       }
     },

@@ -81,6 +81,8 @@ export default function FeaturesPage() {
           thumbs={currentThumbs}
           color={selectedPath === 'hr' ? 'emerald' : 'gold'}
           onClick={handleStepClick}
+          steps={currentSteps}
+          selectedPath={selectedPath}
         />
                       </div>
                       

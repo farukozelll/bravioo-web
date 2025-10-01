@@ -107,6 +107,14 @@ export const journeySteps: JourneyMap = {
       mobileImage: '/images/Bravioo-Home-Mobile_Mockup.png',
       icon: Heart,
     },
+    {
+      titleKey: 'features.journey.employee.4.title',
+      bodyKey: 'features.journey.employee.4.body',
+      highlightKey: 'features.journey.employee.4.highlight',
+      dashboardImage: '/images/Bravioo-Home-Mobile_Mockup.png',
+      mobileImage: '/images/Bravioo-Home-Mobile_Mockup.png',
+      icon: Heart,
+    },
   ],
 };
 
