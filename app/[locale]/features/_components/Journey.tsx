@@ -19,7 +19,7 @@ export function Journey({ steps, selectedPath, activeStep, deviceY, onTry }: Pro
   const t = useTranslations();
   const step = steps[activeStep];
   return (
-    <div className="grid items-center gap-16 lg:grid-cols-2">
+    <div className="grid items-center gap-12 md:gap-16 lg:grid-cols-2">
       <div className="relative space-y-6">
         <div className="flex items-center gap-4">
           <div
@@ -39,8 +39,8 @@ export function Journey({ steps, selectedPath, activeStep, deviceY, onTry }: Pro
             {t(step.highlightKey)}
           </div>
         </div>
-        <h2 className="text-4xl font-black text-gray-900 dark:text-gray-100 lg:text-5xl">{t(step.titleKey)}</h2>
-        <p className="text-xl leading-relaxed text-gray-600 dark:text-gray-300">{t(step.bodyKey)}</p>
+        <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-gray-100 lg:text-5xl">{t(step.titleKey)}</h2>
+        <p className="text-lg md:text-xl leading-relaxed text-gray-600 dark:text-gray-300">{t(step.bodyKey)}</p>
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -56,15 +56,15 @@ export function Journey({ steps, selectedPath, activeStep, deviceY, onTry }: Pro
       </div>
 
       <motion.div style={{ y: deviceY }} className="relative flex items-center justify-center">
-        <div className="relative w-full max-w-md">
+        <div className="relative w-full max-w-md rounded-2xl border border-gray-200/60 bg-white/70 p-4 shadow-xl backdrop-blur-md dark:border-gray-700/60 dark:bg-gray-800/60">
           <div className="aspect-[9/16] flex items-center justify-center">
-            <Image 
-              src={step.dashboardImage} 
-              alt={t(step.titleKey)} 
-              width={300}
-              height={533}
-              className="object-contain max-h-full max-w-full" 
-              sizes="(max-width: 768px) 80vw, 40vw" 
+            <Image
+              src={step.dashboardImage}
+              alt={t(step.titleKey)}
+              width={360}
+              height={640}
+              className="object-contain max-h-full max-w-full"
+              sizes="(max-width: 768px) 80vw, 40vw"
               priority={activeStep < 2}
             />
           </div>

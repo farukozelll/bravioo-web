@@ -76,7 +76,7 @@ export default function FeaturesPage() {
         <Hero selectedPath={selectedPath} onSelect={setSelectedPath} />
             </motion.div>
 
-      <div className="-mt-10">
+      <div className="-mt-10 px-4 sm:px-6 lg:px-8">
         <StepNavigator
           thumbs={currentThumbs}
           color={selectedPath === 'hr' ? 'emerald' : 'gold'}
@@ -84,7 +84,7 @@ export default function FeaturesPage() {
           steps={currentSteps}
           selectedPath={selectedPath}
         />
-                      </div>
+      </div>
                       
       <section ref={journeyRef} className="relative -mt-2" style={{ height: `${currentSteps.length * 80}vh` }}>
         <div className="sticky top-0 flex h-screen items-center">
@@ -96,7 +96,7 @@ export default function FeaturesPage() {
               deviceY={deviceY}
               onTry={() => {}}
             />
-            </div>
+          </div>
         </div>
       </section>
 

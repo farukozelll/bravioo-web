@@ -63,7 +63,7 @@ export function Hero({ selectedPath, onSelect }: Props) {
               </button>
 
               <motion.div
-                className={`absolute top-2 h-[calc(100%-16px)] rounded-2xl ${
+                className={`absolute top-2 h-[calc(100%-16px)] rounded-2xl shadow-lg ${
                   selectedPath === 'hr' ? 'bg-gradient-to-r from-emerald-500 to-emerald-600' : 'bg-gradient-to-r from-green-500 to-gold-600'
                 }`}
                 animate={{ left: selectedPath === 'hr' ? '8px' : '50%', width: selectedPath === 'hr' ? 'calc(50% - 4px)' : 'calc(50% - 4px)' }}

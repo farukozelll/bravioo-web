@@ -111,8 +111,9 @@ export const journeySteps: JourneyMap = {
       titleKey: 'features.journey.employee.4.title',
       bodyKey: 'features.journey.employee.4.body',
       highlightKey: 'features.journey.employee.4.highlight',
-      dashboardImage: '/images/Bravioo-Rewards-Mobile_Mockup.png',
-      mobileImage: '/images/Bravioo-Rewards-Mobile_Mockup.png',
+      // Use Unsplash image to provide a distinct visual for step 5 (employee)
+      dashboardImage: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=1200&fit=crop&crop=center&auto=format&q=80',
+      mobileImage: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&h=600&fit=crop&crop=center&auto=format&q=80',
       icon: Heart,
     },
   ],

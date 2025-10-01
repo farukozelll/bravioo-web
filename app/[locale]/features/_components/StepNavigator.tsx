@@ -59,27 +59,33 @@ export function StepNavigator({ color, onClick, steps, selectedPath }: Props) {
       <h2 className="mb-6 text-center text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100">
         {color === 'emerald' ? t('hrTitle') : t('employeeTitle')}
       </h2>
-      <div className="flex flex-col items-center justify-center gap-8 md:flex-row md:gap-10">
+      <div className="flex flex-col items-center justify-center gap-6 sm:gap-8 md:flex-row md:gap-10">
         {steps.map((step, i) => (
           <React.Fragment key={i}>
             <button
               onClick={() => onClick(i)}
+              aria-label={`Adım ${i + 1}`}
               className={`group relative overflow-hidden rounded-2xl border ${
                   color === 'emerald' ? 'border-emerald-200 dark:border-emerald-800' : 'border-gold-200 dark:border-gold-800'
-              } shadow-sm hover:shadow-lg transition-all duration-300 p-4 focus-visible:outline-none focus-visible:ring-2 ${
+              } bg-white/70 dark:bg-gray-900/40 backdrop-blur-sm shadow-sm hover:shadow-lg transition-all duration-300 p-4 focus-visible:outline-none focus-visible:ring-2 ${
                   color === 'emerald' ? 'focus-visible:ring-emerald-500/40' : 'focus-visible:ring-amber-500/40'
               } hover:-translate-y-0.5`}
             >
-              <div className="relative h-[140px] w-[240px] md:h-[160px] md:w-[260px] rounded-xl flex items-center justify-center bg-transparent">
-                <div className="h-[96px] w-[96px] md:h-[112px] md:w-[112px]">
+              <div className="relative h-[150px] w-[240px] md:h-[170px] md:w-[270px] rounded-xl flex items-center justify-center bg-transparent">
+                <div className="aspect-square w-24 md:w-28">
                   {stepAnimations[i] && (
-                    <Lottie animationData={stepAnimations[i] as object} loop autoplay />
+                    <Lottie
+                      animationData={stepAnimations[i] as object}
+                      loop
+                      autoplay
+                      style={{ width: '100%', height: '100%' }}
+                      rendererSettings={{ preserveAspectRatio: 'xMidYMid meet' }}
+                    />
                   )}
                 </div>
               </div>
               <div className="mt-3 text-center">
                 {(() => {
-                  const adimIndex = selectedPath === 'hr' ? i + 1 : i + 6;
                   return (
                     <span
                       className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold ${
@@ -88,13 +94,19 @@ export function StepNavigator({ color, onClick, steps, selectedPath }: Props) {
                           : 'border-amber-200 bg-amber-50 text-amber-700 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-300'
                       }`}
                     >
-                      Adım {adimIndex}
+                      Adım {i + 1}
                     </span>
                   );
                 })()}
               </div>
             </button>
-            {i < steps.length - 1 && <ArrowRight className="hidden h-6 w-6 text-gray-400 md:block" />}
+            {i < steps.length - 1 && (
+              <ArrowRight
+                className={`hidden h-6 w-6 md:block ${
+                  color === 'emerald' ? 'text-emerald-400/60 dark:text-emerald-300/40' : 'text-amber-400/60 dark:text-amber-300/40'
+                }`}
+              />
+            )}
           </React.Fragment>
         ))}
       </div>
