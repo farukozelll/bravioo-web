@@ -69,11 +69,55 @@ export function Header() {
     setIsLangOpen(false);
   }, [pathname]);
 
-  // Detect hover capability to avoid unintended dropdowns on touch devices
+  // Detect hover capability to avoid unintended dropdowns on touch devices (reactive)
   useEffect(() => {
-    if (typeof window !== 'undefined' && 'matchMedia' in window) {
-      setCanHover(window.matchMedia('(hover: hover)').matches);
+    if (typeof window === 'undefined' || !('matchMedia' in window)) return;
+    const mq = window.matchMedia('(hover: hover)');
+    const update = () => setCanHover(mq.matches);
+    update();
+    if (mq.addEventListener) {
+      mq.addEventListener('change', update);
+    } else if ('addListener' in mq) {
+      (mq as unknown as { addListener: (listener: (e?: unknown) => void) => void }).addListener(update);
     }
+    return () => {
+      if (mq.removeEventListener) {
+        mq.removeEventListener('change', update);
+      } else if ('removeListener' in mq) {
+        (mq as unknown as { removeListener: (listener: (e?: unknown) => void) => void }).removeListener(update);
+      }
+    };
+  }, []);
+
+  // Close mobile menu when switching to desktop breakpoint (lg+)
+  useEffect(() => {
+    if (typeof window === 'undefined' || !('matchMedia' in window)) return;
+    const lgQuery = window.matchMedia('(min-width: 1024px)');
+    const updateDesktopState = () => {
+      if (lgQuery.matches) {
+        setIsMenuOpen(false);
+      } else {
+        setActiveDropdown(null);
+      }
+    };
+    if (lgQuery.addEventListener) {
+      lgQuery.addEventListener('change', updateDesktopState);
+    } else if ('addListener' in lgQuery) {
+      (lgQuery as unknown as { addListener: (listener: (e?: unknown) => void) => void }).addListener(updateDesktopState);
+    }
+    // Ensure closed if already at desktop
+    if (lgQuery.matches) {
+      setIsMenuOpen(false);
+    } else {
+      setActiveDropdown(null);
+    }
+    return () => {
+      if (lgQuery.removeEventListener) {
+        lgQuery.removeEventListener('change', updateDesktopState);
+      } else if ('removeListener' in lgQuery) {
+        (lgQuery as unknown as { removeListener: (listener: (e?: unknown) => void) => void }).removeListener(updateDesktopState);
+      }
+    };
   }, []);
 
   // Load Lottie animations for language flags from public folder
@@ -160,6 +204,14 @@ export function Header() {
     setIsLangOpen(false);
   }, []);
 
+  // Ensure desktop dropdowns are cleared while mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      setActiveDropdown(null);
+      setIsLangOpen(false);
+    }
+  }, [isMenuOpen]);
+
   return (
     <div className="sticky top-0 z-[200]">
       {!announcementClosed && <AnnouncementBar onClose={handleAnnouncementClose} />}
@@ -213,13 +265,13 @@ export function Header() {
                   key={item.nameKey}
                   className="relative dropdown-container"
                   onMouseEnter={() => {
-                    if ((item.isMegaMenu || item.children) && canHover) {
+                    if ((item.isMegaMenu || item.children) && canHover && !isMenuOpen) {
                       cancelClose();
                       setActiveDropdown(item.nameKey);
                     }
                   }}
                   onMouseLeave={() => {
-                    if ((item.isMegaMenu || item.children) && canHover) {
+                    if ((item.isMegaMenu || item.children) && canHover && !isMenuOpen) {
                       scheduleClose();
                     }
                   }}
@@ -346,7 +398,7 @@ export function Header() {
 
         {/* MEGA MENU */}
         <AnimatePresence>
-          {activeDropdown && navigationData.find(i => i.nameKey === activeDropdown)?.isMegaMenu && (
+          {!isMenuOpen && activeDropdown && navigationData.find(i => i.nameKey === activeDropdown)?.isMegaMenu && (
             <div onMouseEnter={cancelClose} onMouseLeave={scheduleClose}>
               <MegaMenu 
                 activeDropdown={activeDropdown}
@@ -359,7 +411,7 @@ export function Header() {
 
         {/* SIMPLE DROPDOWN */}
         <AnimatePresence>
-          {activeDropdown && navigationData.find(i => i.nameKey === activeDropdown)?.children && (
+          {!isMenuOpen && activeDropdown && navigationData.find(i => i.nameKey === activeDropdown)?.children && (
             <div onMouseEnter={cancelClose} onMouseLeave={scheduleClose}>
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
