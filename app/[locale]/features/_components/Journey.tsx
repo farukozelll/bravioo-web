@@ -56,17 +56,28 @@ export function Journey({ steps, selectedPath, activeStep, deviceY, onTry }: Pro
       </div>
 
       <motion.div style={{ y: deviceY }} className="relative flex items-center justify-center">
-        <div className="relative w-full max-w-md rounded-2xl border border-gray-200/60 bg-white/70 p-4 shadow-xl backdrop-blur-md dark:border-gray-700/60 dark:bg-gray-800/60">
+        <div className="relative w-full max-w-md">
           <div className="aspect-[9/16] flex items-center justify-center">
             <Image
               src={step.dashboardImage}
               alt={t(step.titleKey)}
               width={360}
               height={640}
-              className="object-contain max-h-full max-w-full"
+              className="object-contain max-h-full max-w-full drop-shadow-2xl"
               sizes="(max-width: 768px) 80vw, 40vw"
               priority={activeStep < 2}
             />
+          </div>
+          <div className="mt-4 flex justify-center">
+            <span
+              className={`inline-flex items-center rounded-full border px-4 py-1.5 text-xs font-semibold ${
+                selectedPath === 'hr'
+                  ? 'border-emerald-200 bg-emerald-50 text-emerald-700 dark:border-emerald-800 dark:bg-emerald-900/20 dark:text-emerald-300'
+                  : 'border-amber-200 bg-amber-50 text-amber-700 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-300'
+              }`}
+            >
+              Adım {activeStep + 1}
+            </span>
           </div>
         </div>
       </motion.div>

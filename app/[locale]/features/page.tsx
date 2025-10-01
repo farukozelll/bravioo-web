@@ -98,6 +98,23 @@ export default function FeaturesPage() {
             />
           </div>
         </div>
+        {/* Scroll progress indicator */}
+        <div className="pointer-events-none fixed bottom-8 left-1/2 z-50 -translate-x-1/2">
+          <div className="flex gap-2">
+            {currentSteps.map((_, i) => (
+              <div
+                key={i}
+                className={`h-1.5 w-8 rounded-full transition-all duration-300 ${
+                  i === activeStep
+                    ? selectedPath === 'hr'
+                      ? 'bg-emerald-500 w-12'
+                      : 'bg-gold-500 w-12'
+                    : 'bg-gray-300 dark:bg-gray-700'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
       </section>
 
       <CTA />
