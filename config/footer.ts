@@ -77,7 +77,7 @@ export const socialLinks: SocialLink[] = [
   },
   { 
     nameKey: 'footer.social.instagram', 
-    href: 'https://instagram.com/bravioo', 
+    href: 'https://instagram.com/bravioo.app', 
     icon: Instagram,
     external: true 
   },

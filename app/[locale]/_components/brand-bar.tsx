@@ -3,10 +3,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-import { ALL_BRANDS_LOGOS } from '@/data/customer-results';
+import brands from '@/data/brands.json';
 
 export function BrandBar() {
- 
+  const BRAND_NAMES: readonly string[] = (brands as Array<{ name: string }>).map(b => b.name);
 
   return (
     <section 
@@ -24,7 +24,7 @@ export function BrandBar() {
         >
           <div className="relative overflow-hidden">
             <div className="flex items-center gap-10 py-3 animate-marquee">
-              {[...ALL_BRANDS_LOGOS, ...ALL_BRANDS_LOGOS].map((name, i) => (
+              {[...BRAND_NAMES, ...BRAND_NAMES].map((name, i) => (
                 <span 
                   key={`${name}-${i}`}
                   className="shrink-0 px-4 py-2 text-xl font-bold uppercase tracking-wider text-slate-400 dark:text-gray-400 hover:text-slate-600 dark:hover:text-gray-300 transition-colors cursor-pointer"

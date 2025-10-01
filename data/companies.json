@@ -52,7 +52,7 @@
   {
     "id": "agt-seramik",
     "name": "AGT Seramik",
-    "logo": "/images/companies/agt-seramik.jpeg",
+    "logo": "/images/companies/agt-black-logo.svg",
     "category": "Üretim",
     "description": "Üretim Hattı Verimliliğini Akıllı Fabrika Çözümleriyle Artırdı",
     "metrics": { "primary": "%15 Üretim Artışı", "secondary": "Aynı Sürede" },

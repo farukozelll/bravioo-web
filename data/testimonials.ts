@@ -43,7 +43,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Ayşe Y.',
     title: 'Operasyon Direktörü',
     company: 'ÇEVTEM TEMİZLİK',
-    companyLogo: '/images/companies/cevtem-temizlik.png',
+    companyLogo: '/images/companies/cevtem_logo.svg',
     avatar: '/images/avatars/mock-dev-girl.png',
     location: 'İstanbul, Türkiye',
     industry: 'Hizmet',

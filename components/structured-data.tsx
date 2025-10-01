@@ -61,7 +61,7 @@ export function OrganizationSchema({
     'https://twitter.com/bravioo',
     'https://linkedin.com/company/bravioo',
     'https://facebook.com/bravioo',
-    'https://instagram.com/bravioo',
+    'https://instagram.com/bravioo.app',
   ],
 }: OrganizationData) {
   const schema = {

@@ -39,10 +39,10 @@ export function Hero({ selectedPath, onSelect }: Props) {
           </p>
 
           <div className="mb-8 flex justify-center">
-            <div className="relative flex items-center rounded-2xl border border-gray-200 bg-white/70 p-2 shadow-lg backdrop-blur dark:border-gray-700 dark:bg-gray-800/70">
+            <div className="relative flex items-center rounded-3xl border border-gray-200/60 bg-white/70 p-2 shadow-xl backdrop-blur-md dark:border-gray-700/60 dark:bg-gray-800/70">
               <button
                 onClick={() => onSelect('hr')}
-                className={`relative z-10 flex items-center gap-3 rounded-xl px-6 py-3 text-lg font-bold transition-all duration-300 ${
+                className={`relative z-10 flex items-center gap-3 rounded-2xl px-6 py-3 text-lg font-bold transition-all duration-300 ${
                   selectedPath === 'hr' ? 'text-white' : 'text-gray-700 hover:bg-white/50 dark:text-gray-300 dark:hover:bg-gray-700/50'
                 }`}
               >
@@ -53,7 +53,7 @@ export function Hero({ selectedPath, onSelect }: Props) {
 
               <button
                 onClick={() => onSelect('employee')}
-                className={`relative z-10 flex items-center gap-3 rounded-xl px-6 py-3 text-lg font-bold transition-all duration-300 ${
+                className={`relative z-10 flex items-center gap-3 rounded-2xl px-6 py-3 text-lg font-bold transition-all duration-300 ${
                   selectedPath === 'employee' ? 'text-white' : 'text-gray-700 hover:bg-white/50 dark:text-gray-300 dark:hover:bg-gray-700/50'
                 }`}
               >
@@ -63,7 +63,7 @@ export function Hero({ selectedPath, onSelect }: Props) {
               </button>
 
               <motion.div
-                className={`absolute top-2 h-[calc(100%-16px)] rounded-xl ${
+                className={`absolute top-2 h-[calc(100%-16px)] rounded-2xl ${
                   selectedPath === 'hr' ? 'bg-gradient-to-r from-emerald-500 to-emerald-600' : 'bg-gradient-to-r from-green-500 to-gold-600'
                 }`}
                 animate={{ left: selectedPath === 'hr' ? '8px' : '50%', width: selectedPath === 'hr' ? 'calc(50% - 4px)' : 'calc(50% - 4px)' }}

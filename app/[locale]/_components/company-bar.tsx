@@ -3,10 +3,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-import { STRIP_LOGOS } from '@/data/customer-results';
+import companies from '@/data/companies.json';
 
 export function CompanyBar() {
- 
+  const COMPANY_NAMES: readonly string[] = (companies as Array<{ name: string }>).map(c => c.name);
 
   return (
     <section 
@@ -24,7 +24,7 @@ export function CompanyBar() {
         >
           <div className="relative overflow-hidden">
             <div className="flex items-center gap-8 sm:gap-12 py-2 sm:py-3 animate-marquee">
-              {[...STRIP_LOGOS, ...STRIP_LOGOS].map((name, i) => (
+              {[...COMPANY_NAMES, ...COMPANY_NAMES].map((name, i) => (
                 <span 
                   key={`${name}-${i}`}
                   className="shrink-0 px-2 sm:px-4 py-1 sm:py-2 text-lg sm:text-xl font-bold uppercase tracking-wider text-slate-400 dark:text-gray-500 hover:text-slate-600 dark:hover:text-gray-300 transition-colors cursor-pointer"
