@@ -57,7 +57,7 @@ export function BrandsHero() {
                   <ArrowRight className="w-5 h-5" />
                 </motion.div>
               </Link>
-              <Link href={`/${locale}/stories`}>
+              <Link href={`/${locale}/brands`}>
                 <motion.div
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}

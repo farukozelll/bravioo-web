@@ -1011,11 +1011,11 @@
   },
   "brands": {
     "hero": {
-      "title": "Dünya Devlerinin",
+      "title": "İş veren ve markaların yükselen",
       "titleHighlight": "Teknoloji Ortağı",
-      "description": "Fortune 500 şirketlerinden startuplara kadar sayısız marka Bravioo'nun altyapısına güveniyor.",
-      "enterpriseDemo": "Enterprise Demo Alın",
-      "brandStories": "Marka Hikayeleri",
+      "description": "Sizde altyapımıza güvenin, iş veren çalışan iletişiminizi veya satışlarınız arttırın.",
+      "enterpriseDemo": "Ücretsiz demo sunumu",
+      "brandStories": "Markalar",
       "customerStories": "Müşteri Hikayeleri"
     },
     "showcase": {
