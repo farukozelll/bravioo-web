@@ -702,28 +702,36 @@
     "learnMore": "Learn More",
     "steps": {
       "adminPortal": {
-        "title": "Admin Control Portal",
-        "description": "Full system configuration and user management",
+        "title": "Admin Control Panel",
+        "subtitle": "Making communications visible",
+        "description": "Admin Control Panel",
         "features": [
-          "User role management",
-          "Budget allocation controls",
-          "Integration settings",
-          "Company branding customization"
+          "User & Permission Management",
+          "Communication Modules (Surveys, Announcements, etc.)",
+          "Giveaway Creation",
+          "Reporting & Analytics"
         ]
       },
       "employeeApp": {
-        "title": "Employee Mobile App",
-        "description": "Seamless recognition & rewards on mobile",
+        "title": "Mobile App",
+        "subtitle": "Many benefits in one app",
+        "description": "Employee Application",
         "features": [
-          "Instant peer-to-peer recognition",
-          "Global rewards marketplace",
-          "Social feed & celebrations",
-          "Real-time notifications"
+          "Benefits & Discounts",
+          "Instant Notifications & News",
+          "Strong communication with Feedback",
+          "And much more"
         ]
       }
     }
   },
   "customers": {
+    "hero": {
+      "title": "The rising technology partner of employers and brands",
+      "subtitle": "Trust our infrastructure to strengthen employer-employee communication or increase your sales.",
+      "ctaDemo": "Free demo presentation",
+      "ctaBrands": "Brands"
+    },
     "title": "Customer Stories",
     "subtitle": "Results that successful companies achieve with Bravioo"
   },
@@ -1096,5 +1104,130 @@
         "answer": "24/7 live chat, email support, phone support (business hours), video training, and a dedicated onboarding program. Enterprise customers get a dedicated account manager."
       }
     }
+  },
+  "meeting": {
+    "hero": {
+      "badge": "Free Demo",
+      "title": "Experience Bravioo’s Power",
+      "subtitle": "Let us show the value our platform will add with a live demo. Create a free online demo meeting with our experts now and start your employee experience transformation.",
+      "benefits": [
+        "Free and no commitment required",
+        "Secure and confidential meeting",
+        "Online or on-site demo option",
+        "Confirmation within 24 hours"
+      ]
+    },
+    "formSection": {
+      "title": "Schedule Your Demo Meeting",
+      "subtitle": "Fill out the form below and we'll contact you within 24 hours to schedule your demo meeting."
+    },
+    "cta": {
+      "title": "Have Questions?",
+      "subtitle": "Feel free to contact us directly if you have any questions before the demo.",
+      "contactNow": "Contact Now",
+      "callNow": "Call Now"
+    },
+    "form": {
+      "demoTypeLabel": "Choose Demo Type",
+      "demoTypes": {
+        "quick": { "title": "Quick Demo", "duration": "15 min", "description": "Platform overview" },
+        "standard": { "title": "Standard Demo", "duration": "30 min", "description": "Detailed platform tour", "popular": "Popular" },
+        "comprehensive": { "title": "Comprehensive Demo", "duration": "60 min", "description": "All modules and integration" }
+      },
+      "employees": {
+        "label": "Number of Employees",
+        "select": "Select"
+      },
+      "labels": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email",
+        "phone": "Phone",
+        "company": "Company",
+        "jobTitle": "Job Title",
+        "features": "Features of Interest",
+        "preferredDate": "Preferred Date",
+        "preferredTime": "Preferred Time",
+        "additionalMessage": "Additional Message"
+      },
+      "placeholders": {
+        "firstName": "Your first name",
+        "lastName": "Your last name",
+        "email": "example@email.com",
+        "phone": "+1 (555) 123-4567",
+        "company": "Your company name",
+        "jobTitle": "HR Manager, CEO, etc.",
+        "message": "Any specific requirements or questions about the demo..."
+      },
+      "interests": {
+        "recognition": "Recognition System",
+        "surveys": "Surveys",
+        "analytics": "Analytics",
+        "integrations": "Integrations",
+        "mobile": "Mobile App",
+        "automation": "Automation"
+      },
+      "submit": {
+        "label": "Schedule Demo Meeting",
+        "submitting": "Submitting..."
+      },
+      "privacy": {
+        "prefix": "By submitting this form, you agree to our ",
+        "policy": "Privacy Policy",
+        "suffix": "."
+      },
+      "success": {
+        "title": "Demo Request Received!",
+        "message": "We'll contact you within 24 hours to schedule your demo meeting.",
+        "newRequest": "Create New Request"
+      },
+      "error": {
+        "submit": "An error occurred while submitting the form. Please try again."
+      }
+    }
+  },
+  "modules": {
+    "badge": "Modules",
+    "title": "Core",
+    "titleHighlight": "Solutions for Your Workplace",
+    "subtitle": "Create quick impact with Bravioo’s four core modules",
+    "items": [
+      {
+        "title": "Benefits & Discounts",
+        "description": "Deliver corporate benefits directly under your brand.",
+        "bullets": [
+          "Exclusive discounts from 100+ partner brands",
+          "Interface personalized to your corporate identity",
+          "Category selection aligned with company policies (e.g., alcohol-free only)"
+        ]
+      },
+      {
+        "title": "Internal Communications & Notifications",
+        "description": "Share updates, celebrations and announcements with ease.",
+        "bullets": [
+          "AI-powered notifications: achievements, events, celebrations",
+          "Visual + text-supported communication",
+          "Automatic employee invitations via CRM integration"
+        ]
+      },
+      {
+        "title": "Feedback & Suggestions",
+        "description": "Hear the employee voice and quickly identify areas for improvement.",
+        "bullets": [
+          "Anonymous complaints, suggestions and recognition surveys",
+          "Salary/reward suggestions from team leads",
+          "All data analyzed in one panel for HR"
+        ]
+      },
+      {
+        "title": "Bravioo Coin / Token (Coming Soon)",
+        "description": "Make employee rewards usable in the real world.",
+        "bullets": [
+          "Digital gift cards & token-based rewards",
+          "A tangible motivation driver for employees",
+          "Flexible, tax-advantaged solution"
+        ]
+      }
+    ]
   }
 }

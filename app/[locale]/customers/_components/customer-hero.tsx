@@ -21,7 +21,7 @@ interface Customer {
 
 export function CustomerHero() {
   const customers: Customer[] = customerData;
-  const t = useTranslations('brands.hero');
+  const t = useTranslations('customers.hero');
   const locale = useLocale();
   // Create infinite scroll data with varying heights
   const scrollData = useMemo(() => {
@@ -60,13 +60,12 @@ export function CustomerHero() {
 
             {/* Main Heading */}
             <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-              {t('title')}<br />
-              <span className="text-white">{t('titleHighlight')}</span>
+              {t('title')}
             </h1>
 
             {/* Description */}
             <p className="text-xl text-emerald-100 mb-8 leading-relaxed">
-              {t('description')}
+              {t('subtitle')}
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <Link href={`/${locale}/contact`}>
@@ -75,17 +74,17 @@ export function CustomerHero() {
                   whileTap={{ scale: 0.98 }}
                   className="inline-flex items-center gap-2 bg-gold-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-gold-700 transition-colors duration-300 shadow-lg hover:shadow-xl cursor-pointer"
                 >
-                  <span>{t('enterpriseDemo')}</span>
+                  <span>{t('ctaDemo')}</span>
                   <ArrowRight className="w-5 h-5" />
                 </motion.div>
               </Link>
-              <Link href={`/${locale}/stories`}>
+              <Link href={`/${locale}/brands`}>
                 <motion.div
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
                   className="inline-flex items-center gap-2 border border-slate-300 dark:border-gray-700 text-gold-400 dark:text-slate-200 px-6 py-3 rounded-xl font-semibold hover:bg-slate-50 dark:hover:bg-gray-800 transition-colors duration-300 cursor-pointer"
                 >
-                  <span>{t('customerStories')}</span>
+                  <span>{t('ctaBrands')}</span>
                 </motion.div>
               </Link>
             </div>

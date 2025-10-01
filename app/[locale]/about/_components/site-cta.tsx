@@ -26,12 +26,20 @@ export function SiteCTA() {
               : 'Start today to take your business to the next level'}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-emerald-600 hover:bg-emerald-50 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition-all hover:scale-105 flex items-center gap-2 justify-center">
-              {locale === 'tr' ? 'Hemen E-Ticarete Başlayın' : 'Start E-Commerce Now'}
+            <button 
+            onClick={() => {
+              window.location.href = `/${locale}/contact`;
+            }}
+            className="bg-white text-emerald-600 hover:bg-emerald-50 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition-all hover:scale-105 flex items-center gap-2 justify-center">
+              {locale === 'tr' ? 'Hemen İletişime Geç' : 'Contact Now'}
               <ArrowRight className="w-5 h-5" />
             </button>
-            <button className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition-all">
-              {locale === 'tr' ? 'Demo Al' : 'Get Demo'}
+            <button 
+            onClick={() => {
+              window.location.href = `/${locale}/meeting`;
+            }}
+            className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold transition-all">
+              {locale === 'tr' ? 'Ücretsiz Randevu Al' :  "Book a Free Meeting"}
             </button>
           </div>
         </div>

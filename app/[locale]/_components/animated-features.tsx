@@ -4,115 +4,109 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
-import { 
-  Users, 
-  Award, 
-  Globe, 
+import {
+  Gift,
+  Megaphone,
+  MessageSquare,
+  Coins,
   ChevronDown,
-  ArrowRight,
-  CheckCircle,
-  Star
+  CheckCircle
 } from 'lucide-react';
 
 const features = [
   {
-    id: 'recognition',
-    icon: Award,
-    titleKey: 'animatedFeatures.recognition.title',
-    descriptionKey: 'animatedFeatures.recognition.description',
+    id: 'benefits',
+    icon: Gift,
+    titleKey: 'items.0.title',
+    descriptionKey: 'items.0.description',
     featuresKeys: [
-      'animatedFeatures.recognition.items.0',
-      'animatedFeatures.recognition.items.1',
-      'animatedFeatures.recognition.items.2',
-      'animatedFeatures.recognition.items.3',
-      'animatedFeatures.recognition.items.4'
+      'items.0.bullets.0',
+      'items.0.bullets.1',
+      'items.0.bullets.2'
     ],
     color: 'from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900',
     accentColor: 'primary-500',
     mockup: '/mockups/recognition-card.svg'
   },
   {
-    id: 'rewards',
-    icon: Globe,
-    titleKey: 'animatedFeatures.rewards.title',
-    descriptionKey: 'animatedFeatures.rewards.description',
+    id: 'communications',
+    icon: Megaphone,
+    titleKey: 'items.1.title',
+    descriptionKey: 'items.1.description',
     featuresKeys: [
-      'animatedFeatures.rewards.items.0',
-      'animatedFeatures.rewards.items.1',
-      'animatedFeatures.rewards.items.2',
-      'animatedFeatures.rewards.items.3',
-      'animatedFeatures.rewards.items.4'
+      'items.1.bullets.0',
+      'items.1.bullets.1',
+      'items.1.bullets.2'
     ],
     color: 'from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900',
     accentColor: 'primary-600',
     mockup: '/mockups/rewards-card.svg'
   },
   {
-    id: 'awards',
-    icon: Star,
-    titleKey: 'animatedFeatures.awards.title',
-    descriptionKey: 'animatedFeatures.awards.description',
+    id: 'feedback',
+    icon: MessageSquare,
+    titleKey: 'items.2.title',
+    descriptionKey: 'items.2.description',
     featuresKeys: [
-      'animatedFeatures.awards.items.0',
-      'animatedFeatures.awards.items.1',
-      'animatedFeatures.awards.items.2',
-      'animatedFeatures.awards.items.3'
+      'items.2.bullets.0',
+      'items.2.bullets.1',
+      'items.2.bullets.2'
     ],
     color: 'from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900',
     accentColor: 'secondary-500',
     mockup: '/mockups/awards-card.svg'
   },
   {
-    id: 'milestones',
-    icon: Users,
-    titleKey: 'animatedFeatures.milestones.title',
-    descriptionKey: 'animatedFeatures.milestones.description',
+    id: 'token',
+    icon: Coins,
+    titleKey: 'items.3.title',
+    descriptionKey: 'items.3.description',
     featuresKeys: [
-      'animatedFeatures.milestones.items.0',
-      'animatedFeatures.milestones.items.1',
-      'animatedFeatures.milestones.items.2',
-      'animatedFeatures.milestones.items.3'
+      'items.3.bullets.0',
+      'items.3.bullets.1',
+      'items.3.bullets.2'
     ],
     color: 'from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900',
     accentColor: 'primary-700',
     mockup: '/mockups/milestones-card.svg'
-  },
-  
+  }
 ];
 
 export function AnimatedFeaturesSection() {
-  const t = useTranslations();
+  const t = useTranslations('modules');
   const [activeFeature, setActiveFeature] = useState(0);
 
   return (
     <section className="relative py-24 bg-neutral-50 dark:bg-gray-900 overflow-hidden transition-colors duration-300">
-  
+
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header - F-Pattern: Left-aligned */}
-        <motion.div 
+        <motion.div
           className="text-left mb-16 max-w-4xl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <motion.span 
+          <motion.span
             className="inline-block px-4 py-2 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 rounded-full text-sm font-semibold mb-4 transition-colors duration-300"
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            {t('animatedFeatures.badge')}
+            {t('badge')}
           </motion.span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 dark:text-gray-100 mb-6 font-display transition-colors duration-300">
-            {t('animatedFeatures.title.prefix')}{' '}
+            {t('title')}{' '}
             <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
-              {t('animatedFeatures.title.highlight')}
+              {t('titleHighlight')}
             </span>
           </h2>
-        
+          <p className="text-neutral-600 dark:text-neutral-300 text-base leading-relaxed">
+            {t('subtitle')}
+          </p>
         </motion.div>
 
         {/* Feature Cards Grid */}
@@ -138,7 +132,7 @@ export function AnimatedFeaturesSection() {
                 `}>
                   {/* Subtle Background Pattern */}
                   <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-transparent dark:from-black/20 dark:to-transparent"></div>
-                  <div 
+                  <div
                     className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]"
                     style={{
                       backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
@@ -208,7 +202,7 @@ export function AnimatedFeaturesSection() {
                         animate={{ opacity: 1 }}
                       >
                         <p className="text-neutral-600 dark:text-neutral-300 text-sm leading-relaxed">
-                          {t(features[index].descriptionKey).slice(0, 80)}...
+                          {t(features[index].descriptionKey)}
                         </p>
                       </motion.div>
                     )}
@@ -223,35 +217,7 @@ export function AnimatedFeaturesSection() {
         </div>
 
         {/* Bottom Stats */}
-  {/*       <motion.div 
-          className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {[
-              { number: '2x', label: t('animatedFeatures.stats.0') },
-              { number: '200+', label: t('animatedFeatures.stats.1') },
-              { number: '50.000+', label: t('animatedFeatures.stats.2') }
-            ].map((stat, index) => (
-              <motion.div 
-                key={index}
-                className="text-center"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.8 + index * 0.1 }}
-              >
-                <div className="text-4xl font-bold text-primary-600 mb-2 font-display">
-                  {stat.number}
-                </div>
-                <div className="text-neutral-600 dark:text-neutral-400">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div> */}
+        {/* (kept commented out) */}
       </div>
     </section>
   );

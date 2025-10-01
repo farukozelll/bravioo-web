@@ -19,8 +19,8 @@ export type Testimonial = {
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 1,
-    name: 'Ömer Bolat',
-    title: 'CEO',
+    name: 'Ömer B.',
+    title: 'İş Geliştirme Müdürü',
     company: 'ALBAYRAK GRUBU',
     companyLogo: '/images/companies/albayrak-grubu.png',
     avatar: '/images/avatars/mock-ceo.png',
@@ -40,7 +40,7 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     id: 2,
-    name: 'Ayşe Yılmaz',
+    name: 'Ayşe Y.',
     title: 'Operasyon Direktörü',
     company: 'ÇEVTEM TEMİZLİK',
     companyLogo: '/images/companies/cevtem-temizlik.png',
@@ -61,7 +61,7 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     id: 3,
-    name: 'Mehmet Özkan',
+    name: 'Mehmet Ö.',
     title: 'İnsan Kaynakları Müdürü',
     company: 'AGT',
     companyLogo: '/images/companies/agt-renkli.jpeg',

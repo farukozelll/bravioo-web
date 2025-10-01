@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
+import Link from 'next/link';
 import { 
   ArrowRight, 
   Play, 
@@ -98,11 +99,14 @@ export function EnhancedHero() {
               transition={{ delay: 0.5 }}
             >
               <Button 
+                asChild
                 size="lg" 
                 className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white rounded-2xl px-6 lg:px-8 py-3 lg:py-4 text-base lg:text-lg font-semibold shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
               >
-                {t('ctaPrimary')}
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <Link href={`/${locale}/contact`}>
+                  {locale === 'tr' ? 'Randevu Planla' : 'Schedule a Meeting'}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
               
               <Button 
@@ -111,7 +115,7 @@ export function EnhancedHero() {
                 className="border-2 border-neutral-200 dark:border-gray-600 text-neutral-700 dark:text-gray-300 hover:bg-neutral-50 dark:hover:bg-gray-800 rounded-2xl px-6 lg:px-8 py-3 lg:py-4 text-base lg:text-lg font-semibold group"
               >
                 <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-                {t('ctaSecondary')}
+                {locale === 'tr' ? 'Tanıtım Videosu' : 'Product Video'}
               </Button>
             </motion.div>
 

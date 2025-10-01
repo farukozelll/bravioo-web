@@ -21,6 +21,7 @@ export function HowItWorksSection() {
     {
       id: 'admin-portal',
       title: t('steps.adminPortal.title'),
+      subtitle: t('steps.adminPortal.subtitle'),
       description: t('steps.adminPortal.description'),
       icon: Users,
       color: 'from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900',
@@ -36,6 +37,7 @@ export function HowItWorksSection() {
     {
       id: 'employee-app',
       title: t('steps.employeeApp.title'),
+      subtitle: t('steps.employeeApp.subtitle'),
       description: t('steps.employeeApp.description'),
       icon: Award,
       color: 'from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900',
@@ -136,7 +138,7 @@ export function HowItWorksSection() {
                       {t('module')} {activeStep + 1}
                     </div>
                       <h3 className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-gray-100">
-                        {steps[activeStep].title}
+                        {steps[activeStep].subtitle}
                       </h3>
                     </div>
                   </div>

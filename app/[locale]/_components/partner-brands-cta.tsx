@@ -71,28 +71,27 @@ export function PartnerBrandsCTA() {
                 </div>
               </div>
               
-              {/* Right Phone Visual */}
-              <div className="relative p-8 md:p-12 lg:p-16 flex items-center justify-center -mt-6 md:-mt-10 lg:-mt-16 xl:-mt-16">
-                <motion.div 
-                  className="relative z-10 max-w-md sm:max-w-lg lg:max-w-3xl xl:max-w-4xl mx-auto"
-                  animate={{ y: [0, -12, 0] }}
-                  transition={{
-                    duration: 18,
-                    repeat: Infinity,
-                    ease: 'easeInOut'
-                  }}
-                >
-                  {/* Single phone mockup image */}
-                  <Image
-                    src="/images/Bravioo-Web-Mobile_Mockup.png"
-                    alt={t('phoneAlt')}
-                    width={1600}
-                    height={1200}
-                    className="w-full h-auto drop-shadow-2xl rounded-3xl"
-                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 70vw, (max-width: 1536px) 55vw, 1200px"
-                    priority
-                  />
-                </motion.div>
+              {/* Right Phone Visuals - Two large, responsive mockups */}
+              <div className="relative p-6 md:p-10 lg:p-14 flex items-center justify-center -mt-6 md:-mt-10 lg:-mt-16 xl:-mt-16">
+                <div className="relative w-full max-w-[900px] md:max-w-[1000px] lg:max-w-[1200px]">
+                  <motion.div
+                    className="absolute left-0 top-6 md:top-10 w-[62%] md:w-[60%] lg:w-[58%]"
+                    animate={{ y: [0, -10, 0] }}
+                    transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
+                  >
+                    <Image
+                      src="/images/Bravioo-Web-Mobile_Mockup.png"
+                      alt={t('phoneAlt')}
+                      width={1600}
+                      height={1200}
+                      className="w-full h-auto drop-shadow-2xl rounded-3xl"
+                      sizes="(max-width: 640px) 85vw, (max-width: 1024px) 70vw, 700px"
+                      priority
+                    />
+                  </motion.div>
+
+                  <div className="pb-[65%] md:pb-[58%] lg:pb-[52%]" />
+                </div>
               </div>
             </div>
           </div>

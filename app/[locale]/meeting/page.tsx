@@ -6,17 +6,10 @@ import { MeetingForm } from '@/app/[locale]/meeting/_components/meeting-form';
 import { 
   // Calendar, 
   Clock, 
-  Users, 
-  Video,
   CheckCircle,
-  Zap,
   Shield,
   Globe,
-  ArrowRight,
-  PlayCircle,
   MessageSquare,
-  FileText,
-  Target,
   Phone
 } from 'lucide-react';
 
@@ -37,9 +30,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function MeetingPage({ params }: Props) {
   const { locale } = await params;
-
-
-
+  // i18n for hero texts
+  const isTr = locale === 'tr';
   const benefits = [
     {
       icon: CheckCircle,
@@ -69,35 +61,29 @@ export default async function MeetingPage({ params }: Props) {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <span className="inline-block px-4 py-2 bg-brand-100 text-brand-700 rounded-full text-sm font-semibold mb-4">
-              {locale === 'tr' ? 'Ücretsiz Demo' : 'Free Demo'}
+              {isTr ? 'Ücretsiz Demo' : 'Free Demo'}
             </span>
             <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-ink-900 dark:text-gray-100 mb-6 font-display">
-              {locale === 'tr' 
-                ? 'Bravioo\'nun Gücünü' 
-                : 'Experience the Power'
-              }{' '}
-              <span className="bg-gradient-to-r from-brand-600 to-emerald-600 bg-clip-text text-transparent">
-                {locale === 'tr' ? 'Deneyimleyin' : 'of Bravioo'}
-              </span>
+              {isTr ? "Bravioo'nun Gücünü Deneyimleyin" : 'Experience Bravioo’s Power'}
             </h1>
             <p className="text-lg md:text-xl text-ink-600 dark:text-gray-300 mb-8 leading-relaxed max-w-3xl mx-auto">
-              {locale === 'tr'
-                ? 'Çalışan deneyimi dönüşümünüzü başlatın. Bravioo uzmanları ile kişiselleştirilmiş demo toplantısı planlayın ve platform\'un işletmenize nasıl değer katacağını keşfedin.'
-                : 'Start your employee experience transformation. Schedule a personalized demo meeting with Bravioo experts and discover how the platform will add value to your business.'
-              }
+              {isTr
+                ? 'Size platformumuzun katacağı değerleri bir canlı demo ile sunalım. Şimdi uzmanlarımızla bir ücretsiz online demo toplantısı oluşturun ve çalışan deneyimi dönüşümünüzü başlatın.'
+                : 'Let us show the value our platform will add with a live demo. Create a free online demo meeting with our experts now and start your employee experience transformation.'}
             </p>
 
             {/* Quick Benefits */}
             <div className="flex flex-wrap justify-center gap-6 mb-12">
-              {benefits.map((benefit, index) => {
-                const Icon = benefit.icon;
-                return (
-                  <div key={index} className="flex items-center gap-2 text-ink-700 dark:text-gray-300">
-                    <Icon className="h-5 w-5 text-emerald-600" />
-                    <span className="text-sm font-medium">{benefit.text}</span>
-                  </div>
-                );
-              })}
+              {[0,1,2,3].map((i) => (
+                <div key={i} className="flex items-center gap-2 text-ink-700 dark:text-gray-300">
+                  <CheckCircle className="h-5 w-5 text-emerald-600" />
+                  <span className="text-sm font-medium">{isTr ? (
+                    i===0? 'Ücretsiz ve yükümlülük gerektirmeyen' : i===1? 'Güvenli ve gizli görüşme' : i===2? 'Online veya yerinde demo seçeneği' : '24 saat içinde onay'
+                  ) : (
+                    i===0? 'Free and no commitment required' : i===1? 'Secure and confidential meeting' : i===2? 'Online or on-site demo option' : 'Confirmation within 24 hours'
+                  )}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -110,13 +96,12 @@ export default async function MeetingPage({ params }: Props) {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-ink-900 dark:text-gray-100 mb-4 font-display">
-              {locale === 'tr' ? 'Demo Toplantısı Planlayın' : 'Schedule Your Demo Meeting'}
+              {isTr ? 'Demo Toplantısı Planlayın' : 'Schedule Your Demo Meeting'}
             </h2>
             <p className="text-lg md:text-xl text-ink-600 dark:text-gray-300 max-w-2xl mx-auto">
-              {locale === 'tr'
+              {isTr
                 ? 'Formu doldurun, 24 saat içinde sizinle iletişime geçelim ve demo toplantısını planlayalım.'
-                : 'Fill out the form below and we\'ll contact you within 24 hours to schedule your demo meeting.'
-              }
+                : "Fill out the form below and we'll contact you within 24 hours to schedule your demo meeting."}
             </p>
           </div>
 
@@ -145,14 +130,14 @@ export default async function MeetingPage({ params }: Props) {
               className="bg-white text-brand-600 hover:bg-sand-50 px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2"
             >
               <MessageSquare className="h-5 w-5" />
-              {locale === 'tr' ? 'Hemen İletişime Geç' : 'Contact Now'}
+              {isTr ? 'Hemen İletişime Geç' : 'Contact Now'}
             </Link>
             <a 
               href="tel:+902125550123"
               className="border-2 border-white text-white hover:bg-white hover:text-brand-600 px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2"
             >
               <Phone className="h-5 w-5" />
-              {locale === 'tr' ? 'Hemen Ara' : 'Call Now'}
+              {isTr ? 'Hemen Ara' : 'Call Now'}
             </a>
           </div>
         </div>

@@ -18,7 +18,7 @@ import {
   AlertCircle 
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 // Form validation schema
 const meetingFormSchema = z.object({
@@ -49,6 +49,7 @@ interface MeetingFormProps {
 
 export function MeetingForm({ className = '', defaultDemoType = 'standard' }: MeetingFormProps) {
   const locale = useLocale();
+  const t = useTranslations('meeting.form');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -72,30 +73,24 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
   const demoTypes = [
     {
       value: 'quick',
-      title: locale === 'tr' ? 'Hızlı Demo' : 'Quick Demo',
-      duration: '15 min',
-      description: locale === 'tr' 
-        ? 'Platform genel özellikleri' 
-        : 'Platform overview',
+      title: t('demoTypes.quick.title'),
+      duration: t('demoTypes.quick.duration'),
+      description: t('demoTypes.quick.description'),
       icon: Clock,
     },
     {
       value: 'standard',
-      title: locale === 'tr' ? 'Standart Demo' : 'Standard Demo',
-      duration: '30 min',
-      description: locale === 'tr'
-        ? 'Detaylı platform turu'
-        : 'Detailed platform tour',
+      title: t('demoTypes.standard.title'),
+      duration: t('demoTypes.standard.duration'),
+      description: t('demoTypes.standard.description'),
       icon: Users,
       popular: true,
     },
     {
       value: 'comprehensive',
-      title: locale === 'tr' ? 'Kapsamlı Demo' : 'Comprehensive Demo',
-      duration: '60 min',
-      description: locale === 'tr'
-        ? 'Tüm modüller ve entegrasyon'
-        : 'All modules and integration',
+      title: t('demoTypes.comprehensive.title'),
+      duration: t('demoTypes.comprehensive.duration'),
+      description: t('demoTypes.comprehensive.description'),
       icon: Building2,
     },
   ];
@@ -109,12 +104,12 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
   ];
 
   const interestOptions = [
-    { value: 'recognition', label: locale === 'tr' ? 'Takdir Sistemi' : 'Recognition System' },
-    { value: 'surveys', label: locale === 'tr' ? 'Anketler' : 'Surveys' },
-    { value: 'analytics', label: locale === 'tr' ? 'Analitik' : 'Analytics' },
-    { value: 'integrations', label: locale === 'tr' ? 'Entegrasyonlar' : 'Integrations' },
-    { value: 'mobile', label: locale === 'tr' ? 'Mobil App' : 'Mobile App' },
-    { value: 'automation', label: locale === 'tr' ? 'Otomasyon' : 'Automation' },
+    { value: 'recognition', label: t('interests.recognition') },
+    { value: 'surveys', label: t('interests.surveys') },
+    { value: 'analytics', label: t('interests.analytics') },
+    { value: 'integrations', label: t('interests.integrations') },
+    { value: 'mobile', label: t('interests.mobile') },
+    { value: 'automation', label: t('interests.automation') },
   ];
 
   const onSubmit = async (data: MeetingFormData) => {
@@ -169,11 +164,7 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
 
     } catch (err) {
       console.error('Form submission error:', err);
-      setError(
-        locale === 'tr'
-          ? 'Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin.'
-          : 'An error occurred while submitting the form. Please try again.'
-      );
+      setError(t('error.submit'));
     } finally {
       setIsSubmitting(false);
     }
@@ -191,20 +182,17 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
             <CheckCircle className="w-8 h-8 text-emerald-600" />
           </div>
           <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-            {locale === 'tr' ? 'Demo Talebiniz Alındı!' : 'Demo Request Received!'}
+            {t('success.title')}
           </h3>
           <p className="text-gray-600 dark:text-gray-300 mb-4">
-            {locale === 'tr'
-              ? '24 saat içinde sizinle iletişime geçeceğiz ve demo toplantısı planlayacağız.'
-              : 'We\'ll contact you within 24 hours to schedule your demo meeting.'
-            }
+            {t('success.message')}
           </p>
           <Button
             onClick={() => setIsSubmitted(false)}
             variant="outline"
             className="border-emerald-200 text-emerald-700 hover:bg-emerald-50"
           >
-            {locale === 'tr' ? 'Yeni Talep Oluştur' : 'Create New Request'}
+            {t('success.newRequest')}
           </Button>
         </div>
       </motion.div>
@@ -216,7 +204,7 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
       {/* Demo Type Selection */}
       <div>
         <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-3">
-          {locale === 'tr' ? 'Demo Türü Seçin' : 'Choose Demo Type'}
+          {t('demoTypeLabel')}
         </label>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {demoTypes.map((type) => {
@@ -241,7 +229,7 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
                   {type.popular && (
                     <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
                       <span className="bg-emerald-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
-                        {locale === 'tr' ? 'Popüler' : 'Popular'}
+                        {t('demoTypes.standard.popular')}
                       </span>
                     </div>
                   )}
@@ -263,13 +251,13 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-2">
-            {locale === 'tr' ? 'Ad' : 'First Name'} *
+            {t('labels.firstName')} *
           </label>
           <input
             {...register('firstName')}
             type="text"
             className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 dark:bg-gray-700 dark:text-gray-100 transition-colors"
-            placeholder={locale === 'tr' ? 'Adınız' : 'Your first name'}
+            placeholder={t('placeholders.firstName')}
           />
           {errors.firstName && (
             <p className="mt-1 text-sm text-red-600">{errors.firstName.message}</p>
@@ -278,13 +266,13 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
 
         <div>
           <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-2">
-            {locale === 'tr' ? 'Soyad' : 'Last Name'} *
+            {t('labels.lastName')} *
           </label>
           <input
             {...register('lastName')}
             type="text"
             className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 dark:bg-gray-700 dark:text-gray-100 transition-colors"
-            placeholder={locale === 'tr' ? 'Soyadınız' : 'Your last name'}
+            placeholder={t('placeholders.lastName')}
           />
           {errors.lastName && (
             <p className="mt-1 text-sm text-red-600">{errors.lastName.message}</p>
@@ -297,13 +285,13 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
         <div>
           <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-2">
             <Mail className="w-4 h-4 inline mr-2" />
-            {locale === 'tr' ? 'E-posta' : 'Email'} *
+            {t('labels.email')} *
           </label>
           <input
             {...register('email')}
             type="email"
             className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 dark:bg-gray-700 dark:text-gray-100 transition-colors"
-            placeholder={locale === 'tr' ? 'ornek@email.com' : 'example@email.com'}
+            placeholder={t('placeholders.email')}
           />
           {errors.email && (
             <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
@@ -313,13 +301,13 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
         <div>
           <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-2">
             <Phone className="w-4 h-4 inline mr-2" />
-            {locale === 'tr' ? 'Telefon' : 'Phone'}
+            {t('labels.phone')}
           </label>
           <input
             {...register('phone')}
             type="tel"
             className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 dark:bg-gray-700 dark:text-gray-100 transition-colors"
-            placeholder={locale === 'tr' ? '+90 555 123 45 67' : '+1 (555) 123-4567'}
+            placeholder={t('placeholders.phone')}
           />
         </div>
       </div>
@@ -329,13 +317,13 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
         <div>
           <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-2">
             <Building2 className="w-4 h-4 inline mr-2" />
-            {locale === 'tr' ? 'Şirket' : 'Company'} *
+            {t('labels.company')} *
           </label>
           <input
             {...register('company')}
             type="text"
             className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 dark:bg-gray-700 dark:text-gray-100 transition-colors"
-            placeholder={locale === 'tr' ? 'Şirket adınız' : 'Your company name'}
+            placeholder={t('placeholders.company')}
           />
           {errors.company && (
             <p className="mt-1 text-sm text-red-600">{errors.company.message}</p>
@@ -344,15 +332,13 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
 
         <div>
           <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-2">
-            {locale === 'tr' ? 'Çalışan Sayısı' : 'Number of Employees'} *
+            {t('employees.label')} *
           </label>
           <select
             {...register('employees')}
             className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 dark:bg-gray-700 dark:text-gray-100 transition-colors"
           >
-            <option value="">
-              {locale === 'tr' ? 'Seçiniz' : 'Select'}
-            </option>
+            <option value="">{t('employees.select')}</option>
             {employeeOptions.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
@@ -367,21 +353,21 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
 
       {/* Job Title */}
       <div>
-        <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-2">
-          {locale === 'tr' ? 'Pozisyon' : 'Job Title'}
+          <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-2">
+            {t('labels.jobTitle')}
         </label>
         <input
           {...register('jobTitle')}
           type="text"
           className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 dark:bg-gray-700 dark:text-gray-100 transition-colors"
-          placeholder={locale === 'tr' ? 'İK Müdürü, CEO, vb.' : 'HR Manager, CEO, etc.'}
+            placeholder={t('placeholders.jobTitle')}
         />
       </div>
 
       {/* Interests */}
       <div>
         <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-3">
-          {locale === 'tr' ? 'İlgilendiğiniz Özellikler' : 'Features of Interest'}
+          {t('labels.features')}
         </label>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {interestOptions.map((interest) => (
@@ -403,7 +389,7 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
         <div>
           <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-2">
             <Calendar className="w-4 h-4 inline mr-2" />
-            {locale === 'tr' ? 'Tercih Ettiğiniz Tarih' : 'Preferred Date'}
+            {t('labels.preferredDate')}
           </label>
           <input
             {...register('preferredDate')}
@@ -416,7 +402,7 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
         <div>
           <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-2">
             <Clock className="w-4 h-4 inline mr-2" />
-            {locale === 'tr' ? 'Tercih Ettiğiniz Saat' : 'Preferred Time'}
+            {t('labels.preferredTime')}
           </label>
           <select
             {...register('preferredTime')}
@@ -439,16 +425,13 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
       {/* Additional Message */}
       <div>
         <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-2">
-          {locale === 'tr' ? 'Ek Mesaj' : 'Additional Message'}
+          {t('labels.additionalMessage')}
         </label>
         <textarea
           {...register('message')}
           rows={4}
           className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 dark:bg-gray-700 dark:text-gray-100 transition-colors resize-none"
-          placeholder={locale === 'tr' 
-            ? 'Demo ile ilgili özel talepleriniz veya sorularınız...'
-            : 'Any specific requirements or questions about the demo...'
-          }
+          placeholder={t('placeholders.message')}
         />
       </div>
 
@@ -469,26 +452,23 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
         {isSubmitting ? (
           <>
             <Loader2 className="w-5 h-5 animate-spin" />
-            {locale === 'tr' ? 'Gönderiliyor...' : 'Submitting...'}
+            {t('submit.submitting')}
           </>
         ) : (
           <>
             <Calendar className="w-5 h-5" />
-            {locale === 'tr' ? 'Demo Toplantısı Planla' : 'Schedule Demo Meeting'}
+            {t('submit.label')}
           </>
         )}
       </Button>
 
       {/* Privacy Note */}
       <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
-        {locale === 'tr'
-          ? 'Bu formu göndererek, '
-          : 'By submitting this form, you agree to our '
-        }
+        {t('privacy.prefix')}
         <Link href={`/${locale}/legal/privacy`} className="text-emerald-600 hover:underline">
-          {locale === 'tr' ? 'Gizlilik Politikamızı' : 'Privacy Policy'}
+          {t('privacy.policy')}
         </Link>
-        {locale === 'tr' ? ' kabul etmiş olursunuz.' : '.'}
+        {t('privacy.suffix')}
       </p>
     </form>
   );

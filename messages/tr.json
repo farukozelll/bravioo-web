@@ -701,29 +701,38 @@
     "viewDemo": "Demoyu Görüntüle",
     "learnMore": "Daha Fazla Bilgi",
     "steps": {
+      
       "adminPortal": {
-        "title": "Yönetici Kontrol Portalı",
-        "description": "Tam sistem yapılandırması ve kullanıcı yönetimi",
+        "title": "Yönetici Paneli",
+        "subtitle": "İletişimi görünür kılan",
+        "description": "Yönetici Kontrol Paneli",
         "features": [
-          "Kullanıcı rol yönetimi",
-          "Bütçe tahsis kontrolleri",
-          "Entegrasyon ayarları",
-          "Şirket markalama özelleştirmesi"
+          "Kullanıcı ve Yetki Yönetimi",
+          "İletişim Modülleri (Anket, Duyuru, vb.)",
+          "Çekiliş Oluşturma",
+          "Raporlama & Analitik"
         ]
       },
       "employeeApp": {
-        "title": "Çalışan Mobil Uygulaması",
-        "description": "Mobilde kesintisiz takdir ve ödül deneyimi",
+        "title": "Mobil Uygulama",
+        "subtitle": "Bir çok avantaj tek uygulama",
+        "description": "Çalışan Uygulaması",
         "features": [
-          "Anında meslektaştan meslektaşa takdir",
-          "Global ödül pazarı",
-          "Sosyal akış ve kutlamalar",
-          "Anlık bildirimler"
+          "Avantajlar & İndirimler",
+          "Anlık Bildirim & Haberler",
+          "Geri Bildirim ile güçlü iletişim",
+          "Ve daha fazlası"
         ]
       }
     }
   },
   "customers": {
+    "hero": {
+      "title": "İş veren ve markaların yükselen Teknoloji Ortağı",
+      "subtitle": "Sizde altyapımıza güvenin, iş veren çalışan iletişiminizi veya satışlarınız arttırın.",
+      "ctaDemo": "Ücretsiz demo sunumu",
+      "ctaBrands": "Markalar"
+    },
     "title": "Müşteri Hikayeleri",
     "subtitle": "Başarılı şirketlerin Bravioo ile elde ettiği sonuçlar"
   },
@@ -1053,7 +1062,7 @@
     "badges": {
       "iso": "ISO 27001",
       "soc2": "SOC 2 Type II",
-      "gdpr": "GDPR Uyumlu"
+      "gdpr": "KVKK Uyumlu"
     },
     "mobileAlt": "Bravioo Mobil Uygulaması",
     "floating": {
@@ -1097,5 +1106,131 @@
         "answer": "Hafta içi 09:00–18:00 e‑posta/telefon desteği; SLA’lı destek ve hesap yöneticisi opsiyoneldir. Bilgi bankası ve eğitim videoları sunulur."
       }
     }
+  }
+  ,
+  "meeting": {
+    "hero": {
+      "badge": "Ücretsiz Demo",
+      "title": "Bravioo'nun Gücünü Deneyimleyin",
+      "subtitle": "Size platformumuzun katacağı değerleri bir canlı demo ile sunalım. Şimdi uzmanlarımızla bir ücretsiz online demo toplantısı oluşturun ve çalışan deneyimi dönüşümünüzü başlatın.",
+      "benefits": [
+        "Ücretsiz ve yükümlülük gerektirmeyen",
+        "Güvenli ve gizli görüşme",
+        "Online veya yerinde demo seçeneği",
+        "24 saat içinde onay"
+      ]
+    },
+    "formSection": {
+      "title": "Demo Toplantısı Planlayın",
+      "subtitle": "Formu doldurun, 24 saat içinde sizinle iletişime geçelim ve demo toplantısını planlayalım."
+    },
+    "cta": {
+      "title": "Sorularınız mı var?",
+      "subtitle": "Demo öncesinde aklınıza takılan sorular için doğrudan bizimle iletişime geçebilirsiniz.",
+      "contactNow": "Hemen İletişime Geç",
+      "callNow": "Hemen Ara"
+    },
+    "form": {
+      "demoTypeLabel": "Demo Türü Seçin",
+      "demoTypes": {
+        "quick": { "title": "Hızlı Demo", "duration": "15 dk", "description": "Platform genel özellikleri" },
+        "standard": { "title": "Standart Demo", "duration": "30 dk", "description": "Detaylı platform turu", "popular": "Popüler" },
+        "comprehensive": { "title": "Kapsamlı Demo", "duration": "60 dk", "description": "Tüm modüller ve entegrasyon" }
+      },
+      "employees": {
+        "label": "Çalışan Sayısı",
+        "select": "Seçiniz"
+      },
+      "labels": {
+        "firstName": "Ad",
+        "lastName": "Soyad",
+        "email": "E-posta",
+        "phone": "Telefon",
+        "company": "Şirket",
+        "jobTitle": "Pozisyon",
+        "features": "İlgilendiğiniz Özellikler",
+        "preferredDate": "Tercih Ettiğiniz Tarih",
+        "preferredTime": "Tercih Ettiğiniz Saat",
+        "additionalMessage": "Ek Mesaj"
+      },
+      "placeholders": {
+        "firstName": "Adınız",
+        "lastName": "Soyadınız",
+        "email": "ornek@email.com",
+        "phone": "+90 555 123 45 67",
+        "company": "Şirket adınız",
+        "jobTitle": "İK Müdürü, CEO, vb.",
+        "message": "Demo ile ilgili özel talepleriniz veya sorularınız..."
+      },
+      "interests": {
+        "recognition": "Takdir Sistemi",
+        "surveys": "Anketler",
+        "analytics": "Analitik",
+        "integrations": "Entegrasyonlar",
+        "mobile": "Mobil App",
+        "automation": "Otomasyon"
+      },
+      "submit": {
+        "label": "Demo Toplantısı Planla",
+        "submitting": "Gönderiliyor..."
+      },
+      "privacy": {
+        "prefix": "Bu formu göndererek, ",
+        "policy": "Gizlilik Politikamızı",
+        "suffix": " kabul etmiş olursunuz."
+      },
+      "success": {
+        "title": "Demo Talebiniz Alındı!",
+        "message": "24 saat içinde sizinle iletişime geçeceğiz ve demo toplantısı planlayacağız.",
+        "newRequest": "Yeni Talep Oluştur"
+      },
+      "error": {
+        "submit": "Form gönderilirken bir hata oluştu. Lütfen tekrar deneyin."
+      }
+    }
+  },
+  "modules": {
+    "badge": "Çözümlerimiz",
+    "title": "İş Yeriniz İçin",
+    "titleHighlight": "Temel Çözümler",
+    "subtitle": "Bravioo platformunun dört ana modülü ile hızlı etki yaratın",
+    "items": [
+      {
+        "title": "Avantajlar ve İndirimler",
+        "description": "Kurumsal faydaları çalışanlarınıza doğrudan sizin markanız üzerinden ulaştırın.",
+        "bullets": [
+          "100+ partner markadan özel indirimler",
+          "Kurumsal kimliğe göre kişiselleştirilmiş arayüz",
+          "Şirket prensiplerine göre kategori seçimi (örn. sadece alkolsüz ürünler)"
+        ]
+      },
+      {
+        "title": "İç İletişim & Bildirimler",
+        "description": "Çalışanlarınıza en güncel gelişmeleri, kutlamaları ve duyuruları kolayca iletin.",
+        "bullets": [
+          "AI destekli bildirimler: başarı, etkinlik, kutlama",
+          "Görsel + metin destekli iletişim",
+          "CRM entegrasyonu ile otomatik çalışan daveti"
+        ]
+      },
+      {
+        "title": "Geri Bildirim & Öneriler",
+        "description": "Çalışan sesini duyun, gelişim alanlarını hızla tespit edin.",
+        "bullets": [
+          "Anonim şikâyet, öneri ve ödül anketleri",
+          "Takım liderlerinden maaş/ödül önerileri",
+          "Tüm veriler tek panelde İK için analiz edilebilir"
+        ]
+      },
+      {
+        "title": "Bravioo Coin / Token (Yakında)",
+        "description": "Çalışan ödüllerini gerçek dünyada kullanılabilir hale getirin.",
+        "bullets": [
+          "Dijital hediye kartları & token tabanlı ödüller",
+          "Çalışanlar için somut motivasyon aracı",
+          "Vergi avantajı sağlayan esnek çözüm"
+        ]
+      }
+    ]
   }
 }
