@@ -25,7 +25,7 @@ export function HowItWorksSection() {
       description: t('steps.adminPortal.description'),
       icon: Users,
       color: 'from-neutral-100 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900',
-      accentColor: 'secondary-500',
+      accentColor: 'primary-600',
       features: [
         t('steps.adminPortal.features.0'),
         t('steps.adminPortal.features.1'),

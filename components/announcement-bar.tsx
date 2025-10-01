@@ -21,12 +21,12 @@ export function AnnouncementBar({ onClose }: AnnouncementBarProps) {
 
   const announcements = {
     tr: {
-      text: '🎉 Yeni özellik: Yapay zeka destekli takdir önerileri artık mevcut!',
+      text: '🎉 Yeni: Yapay Zeka destekli kolay anket ve geri bildirim formları oluşturma özelliği şimdi kullanımda!',
       cta: 'Keşfet',
       href: '/tr/features',
     },
     en: {
-      text: '🎉 New feature: AI-powered recognition suggestions now available!',
+      text: '🎉 New: Easy AI-powered survey and feedback form creation feature is now available!',
       cta: 'Explore',
       href: '/en/features',
     },
