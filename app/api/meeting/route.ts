@@ -107,7 +107,7 @@ export async function POST(request: Request) {
 
     // Send email notification (if configured)
     let emailResult = null;
-    if (process.env.MS_TENANT_ID && process.env.MS_CLIENT_ID && process.env.MS_CLIENT_SECRET) {
+    if (process.env.AZ_TENANT_ID && process.env.AZ_CLIENT_ID && process.env.AZ_CLIENT_SECRET) {
       try {
         const emailContent = `
         <h2>🎯 New Demo Meeting Request</h2>
@@ -153,7 +153,7 @@ export async function POST(request: Request) {
         `;
 
         emailResult = await sendMailViaGraph({
-          to: process.env.CONTACT_EMAIL || 'info@bravioo.com',
+          to: ['feyza.ozel@bravioo.com', process.env.CONTACT_EMAIL || 'info@bravioo.com'],
           subject: `🎯 New Demo Request: ${data.demoType} - ${data.company}`,
           htmlContent: emailContent,
           textContent: `

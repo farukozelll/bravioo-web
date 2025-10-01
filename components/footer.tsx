@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
-import { Heart, ChevronRight, ExternalLink } from 'lucide-react';
+import { Heart, ChevronRight, ExternalLink, Mail, Phone } from 'lucide-react';
 import { footerSections, socialLinks, footerConfig } from '@/config/footer';
 // Theme toggle moved to header per corporate UX
 import Image from 'next/image';
@@ -144,42 +144,36 @@ export function Footer() {
         <div className="mt-12 lg:mt-16 pt-6 sm:pt-8 border-t border-white/10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-center">
             
-            {/* Copyright */}
-            <div className="text-center sm:text-left">
+            {/* Left - Copyright & Contact */}
+            <div className="text-center sm:text-left space-y-2">
               <p className="text-xs sm:text-sm text-primary-200 dark:text-gray-400">
                 &copy; {new Date().getFullYear()} Bravioo. {t('footer.copyright')}
               </p>
-              <p className="text-xs text-primary-300 dark:text-gray-500 mt-1">
-                {t('footer.rights')}
-              </p>
+             
             </div>
 
-            {/* Middle - Contact / Love */}
-            <div className="flex items-center justify-center gap-3 text-xs sm:text-sm text-primary-200 dark:text-gray-400">
-              <span>{t('footer.madeWith.prefix')}</span>
-              <Heart className="h-4 w-4 text-red-400 fill-current animate-pulse" />
-              <span>{t('footer.madeWith.suffix')}</span>
-              <span className="opacity-60">·</span>
-              <Link href="mailto:info@bravioo.com" className="hover:underline">info@bravioo.com</Link>
+            {/* Middle - Creative Made With Section */}
+            <div className="flex items-center justify-center gap-2 text-xs sm:text-sm text-primary-200 dark:text-gray-400">
+              <span className="hidden sm:inline">{locale === 'tr' ? 'Daha iyi iş yerleri için' : 'For better workplaces'}</span>
+              <div className="w-8 h-8 flex items-center justify-center">
+                <Heart className="h-5 w-5 text-red-400 fill-current animate-pulse" />
+              </div>
+              <span className="hidden sm:inline">{locale === 'tr' ? 've tutkuyla yapıldı' : 'made with passion'}</span>
+              <span className="sm:hidden">{locale === 'tr' ? 'Tutkuyla yapıldı' : 'Made with passion'}</span>
             </div>
 
-            {/* Right - Social quick links */}
+            {/* Right - Quick Contact CTA */}
             <div className="flex items-center justify-center sm:justify-end gap-3">
-              {socialLinks.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <Link
-                    key={`bottom-${item.nameKey}`}
-                    href={item.href}
-                    className="w-8 h-8 bg-white/10 dark:bg-white/5 rounded-xl flex items-center justify-center hover:bg-white/20 transition-colors"
-                    target={item.external ? '_blank' : undefined}
-                    rel={item.external ? 'noopener noreferrer' : undefined}
-                    title={t(item.nameKey)}
-                  >
-                    <Icon className="h-4 w-4 text-primary-200 dark:text-gray-400" />
-                  </Link>
-                );
-              })}
+            <div className="flex flex-col gap-1 text-xs text-primary-300 dark:text-gray-500">
+                <Link href="mailto:feyza.ozel@bravioo.com" className="hover:text-white transition-colors inline-flex items-center gap-2">
+                  <Mail className="h-3 w-3" />
+                  info@bravioo.com
+                </Link>
+                <Link href="tel:+905555555555" className="hover:text-white transition-colors inline-flex items-center gap-2">
+                  <Phone className="h-3 w-3" />
+                  +90 (555) 555 55 55
+                </Link>
+              </div>
             </div>  
           </div>
         </div>

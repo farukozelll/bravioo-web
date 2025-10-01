@@ -18,6 +18,7 @@ export default function FeaturesPage() {
   // const locale = useLocale();
   const [selectedPath, setSelectedPath] = useState<PathType>('hr');
   const [activeStep, setActiveStep] = useState(0);
+  const [showProgress, setShowProgress] = useState(false);
 
   const { scrollY } = useScroll();
 
@@ -50,10 +51,20 @@ export default function FeaturesPage() {
       const journeyStart = windowHeight; // After hero
       const stepHeight = windowHeight * 0.8;
 
-      const newStep = Math.floor((scrollPosition - journeyStart) / stepHeight);
+      let newStep = Math.floor((scrollPosition - journeyStart) / stepHeight);
       const maxSteps = journeySteps[selectedPath].length - 1;
 
+      // If near the bottom of the page, force last step
+      const docHeight = document.documentElement.scrollHeight;
+      const atBottom = scrollPosition + windowHeight >= docHeight - 4;
+      if (atBottom) newStep = maxSteps;
+
       setActiveStep(Math.max(0, Math.min(newStep, maxSteps)));
+
+      // Show progress only within the journey region
+      const totalJourneyHeight = journeySteps[selectedPath].length * stepHeight;
+      const inJourney = scrollPosition >= journeyStart - 10 && scrollPosition <= journeyStart + totalJourneyHeight;
+      setShowProgress(inJourney);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -86,7 +97,7 @@ export default function FeaturesPage() {
         />
       </div>
                       
-      <section ref={journeyRef} className="relative -mt-2" style={{ height: `${currentSteps.length * 80}vh` }}>
+      <section ref={journeyRef} className="relative -mt-2" style={{ height: `${currentSteps.length * 80 + 50}vh` }}>
         <div className="sticky top-0 flex h-screen items-center">
           <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
             <Journey
@@ -98,23 +109,25 @@ export default function FeaturesPage() {
             />
           </div>
         </div>
-        {/* Scroll progress indicator */}
-        <div className="pointer-events-none fixed bottom-8 left-1/2 z-50 -translate-x-1/2">
-          <div className="flex gap-2">
-            {currentSteps.map((_, i) => (
-              <div
-                key={i}
-                className={`h-1.5 w-8 rounded-full transition-all duration-300 ${
-                  i === activeStep
-                    ? selectedPath === 'hr'
-                      ? 'bg-emerald-500 w-12'
-                      : 'bg-gold-500 w-12'
-                    : 'bg-gray-300 dark:bg-gray-700'
-                }`}
-              />
-            ))}
+        {/* Scroll progress indicator - only visible during journey scroll */}
+        {showProgress && (
+          <div className="pointer-events-none fixed bottom-8 left-1/2 z-50 -translate-x-1/2 transition-opacity duration-300">
+            <div className="flex gap-2">
+              {currentSteps.map((_, i) => (
+                <div
+                  key={i}
+                  className={`h-1.5 w-8 rounded-full transition-all duration-300 ${
+                    i === activeStep
+                      ? selectedPath === 'hr'
+                        ? 'bg-emerald-500 w-12'
+                        : 'bg-gold-500 w-12'
+                      : 'bg-gray-300 dark:bg-gray-700'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </section>
 
       <CTA />

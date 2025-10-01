@@ -72,16 +72,18 @@ export function StepNavigator({ color, onClick, steps, selectedPath }: Props) {
               } hover:-translate-y-0.5`}
             >
               <div className="relative h-[150px] w-[240px] md:h-[170px] md:w-[270px] rounded-xl flex items-center justify-center bg-transparent">
-                <div className="aspect-square w-24 md:w-28">
-                  {stepAnimations[i] && (
-                    <Lottie
-                      animationData={stepAnimations[i] as object}
-                      loop
-                      autoplay
-                      style={{ width: '100%', height: '100%' }}
-                      rendererSettings={{ preserveAspectRatio: 'xMidYMid meet' }}
-                    />
-                  )}
+                <div className="flex items-center justify-center w-full h-full">
+                  <div className="aspect-square w-24 md:w-28 -px-22">
+                    {stepAnimations[i] && (
+                      <Lottie
+                        animationData={stepAnimations[i] as object}
+                        loop
+                        autoplay
+                        style={{ width: '100%', height: '100%', margin: '0 auto' }}
+                        rendererSettings={{ preserveAspectRatio: 'xMidYMid meet' }}
+                      />
+                    )}
+                  </div>
                 </div>
               </div>
               <div className="mt-3 text-center">
