@@ -19,6 +19,13 @@ type Props = {
   readonly selectedPath: PathType;
 };
 const nudgeX = [-64, -60, -64, -60, -64]; // her adım için % kaydırma (px değil)
+const nudgeClasses = [
+  'md:-translate-x-[64%]', // Adım 1
+  'md:-translate-x-[60%]', // Adım 2
+  'md:-translate-x-[64%]', // Adım 3
+  'md:-translate-x-[60%]', // Adım 4
+  'md:-translate-x-[64%]', // Adım 5
+];
 
 export function StepNavigator({ color, onClick, steps, selectedPath }: Props) {
   const t = useTranslations('features.journeyHeaders');
@@ -83,20 +90,23 @@ export function StepNavigator({ color, onClick, steps, selectedPath }: Props) {
               <div className="relative h-[150px] w-[240px] rounded-xl md:h-[170px] md:w-[270px]">
                 <div className="grid h-full w-full place-items-center">
                   {stepAnimations[i] && (
-                    <Lottie
-                      animationData={stepAnimations[i] as object}
-                      loop
-                      autoplay
-                      className="mx-auto block w-24 md:w-28"
-                      style={{ transform: `translateX(${nudgeX[i] ?? 0}%)` }}
-                      rendererSettings={{
-                        preserveAspectRatio: 'xMidYMid meet',
-                      }}
-                    />
+                    // 2) Lottie'yi saran katman: mobilde merkez, md+’da translate uygula
+                    <div
+                      className={`mx-auto block w-24 transform md:w-28 ${nudgeClasses[i] ?? ''}`}
+                    >
+                      <Lottie
+                        animationData={stepAnimations[i] as object}
+                        loop
+                        autoplay
+                        className="h-full w-full"
+                        rendererSettings={{
+                          preserveAspectRatio: 'xMidYMid meet',
+                        }}
+                      />
+                    </div>
                   )}
                 </div>
               </div>
-
               <div className="mt-3 text-center">
                 {(() => {
                   return (
