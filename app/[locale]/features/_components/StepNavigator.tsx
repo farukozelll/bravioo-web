@@ -18,7 +18,6 @@ type Props = {
   readonly steps: readonly StepItem[];
   readonly selectedPath: PathType;
 };
-const nudgeX = [-64, -60, -64, -60, -64]; // her adım için % kaydırma (px değil)
 const nudgeClasses = [
   'md:-translate-x-[64%]', // Adım 1
   'md:-translate-x-[60%]', // Adım 2
@@ -29,7 +28,7 @@ const nudgeClasses = [
 
 export function StepNavigator({ color, onClick, steps, selectedPath }: Props) {
   const t = useTranslations('features.journeyHeaders');
-  // const tAll = useTranslations();
+  const tAll = useTranslations();
   const [stepAnimations, setStepAnimations] = React.useState<(object | null)[]>(
     []
   );
@@ -122,15 +121,28 @@ export function StepNavigator({ color, onClick, steps, selectedPath }: Props) {
                   );
                 })()}
               </div>
+              <div className="mt-3 text-center">
+                {(() => {
+                  return (
+                    <div className="mt-3 text-center">
+                      <span className="text-sm font-medium  text-gray-900 dark:text-gray-100">
+                        {tAll(step.titleKey)}
+                      </span>
+                    </div>
+                  );
+                })()}
+              </div>
             </button>
             {i < steps.length - 1 && (
-              <ArrowRight
-                className={`hidden h-6 w-6 md:block ${
-                  color === 'emerald'
-                    ? 'text-emerald-400/60 dark:text-emerald-300/40'
-                    : 'text-amber-400/60 dark:text-amber-300/40'
-                }`}
-              />
+         <ArrowRight
+         strokeWidth={4}                          // kalınlık
+         className={`hidden md:block h-8 w-8  lg:h-10 lg:w-10     // boyut: 32px
+           ${color === 'emerald'
+             ? 'text-emerald-400/60 dark:text-emerald-300/40'
+             : 'text-amber-400/60 dark:text-amber-300/40'}`}
+       />
+       
+           
             )}
           </React.Fragment>
         ))}
