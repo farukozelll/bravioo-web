@@ -18,11 +18,14 @@ type Props = {
   readonly steps: readonly StepItem[];
   readonly selectedPath: PathType;
 };
+const nudgeX = [-64, -60, -64, -60, -64]; // her adım için % kaydırma (px değil)
 
 export function StepNavigator({ color, onClick, steps, selectedPath }: Props) {
   const t = useTranslations('features.journeyHeaders');
   // const tAll = useTranslations();
-  const [stepAnimations, setStepAnimations] = React.useState<(object | null)[]>([]);
+  const [stepAnimations, setStepAnimations] = React.useState<(object | null)[]>(
+    []
+  );
 
   React.useEffect(() => {
     let isMounted = true;
@@ -47,7 +50,9 @@ export function StepNavigator({ color, onClick, steps, selectedPath }: Props) {
       }
     };
     loadAll();
-    return () => { isMounted = false; };
+    return () => {
+      isMounted = false;
+    };
   }, [steps, selectedPath]);
   return (
     <motion.div
@@ -56,7 +61,7 @@ export function StepNavigator({ color, onClick, steps, selectedPath }: Props) {
       transition={{ delay: 0.2 }}
       className="mx-auto max-w-6xl"
     >
-      <h2 className="mb-6 text-center text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100">
+      <h2 className="mb-6 text-center text-2xl font-bold text-gray-900 dark:text-gray-100 md:text-3xl">
         {color === 'emerald' ? t('hrTitle') : t('employeeTitle')}
       </h2>
       <div className="flex flex-col items-center justify-center gap-6 sm:gap-8 md:flex-row md:gap-10">
@@ -66,26 +71,32 @@ export function StepNavigator({ color, onClick, steps, selectedPath }: Props) {
               onClick={() => onClick(i)}
               aria-label={`Adım ${i + 1}`}
               className={`group relative overflow-hidden rounded-2xl border ${
-                  color === 'emerald' ? 'border-emerald-200 dark:border-emerald-800' : 'border-gold-200 dark:border-gold-800'
-              } bg-white/70 dark:bg-gray-900/40 backdrop-blur-sm shadow-sm hover:shadow-lg transition-all duration-300 p-4 focus-visible:outline-none focus-visible:ring-2 ${
-                  color === 'emerald' ? 'focus-visible:ring-emerald-500/40' : 'focus-visible:ring-amber-500/40'
+                color === 'emerald'
+                  ? 'border-emerald-200 dark:border-emerald-800'
+                  : 'border-gold-200 dark:border-gold-800'
+              } bg-white/70 p-4 shadow-sm backdrop-blur-sm transition-all duration-300 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 dark:bg-gray-900/40 ${
+                color === 'emerald'
+                  ? 'focus-visible:ring-emerald-500/40'
+                  : 'focus-visible:ring-amber-500/40'
               } hover:-translate-y-0.5`}
             >
-              <div className="relative h-[150px] w-[240px] md:h-[170px] md:w-[270px] rounded-xl flex items-center justify-center bg-transparent">
-                <div className="flex items-center justify-center w-full h-full">
-                  <div className="aspect-square w-24 md:w-28 -px-22">
-                    {stepAnimations[i] && (
-                      <Lottie
-                        animationData={stepAnimations[i] as object}
-                        loop
-                        autoplay
-                        style={{ width: '100%', height: '100%', margin: '0 auto' }}
-                        rendererSettings={{ preserveAspectRatio: 'xMidYMid meet' }}
-                      />
-                    )}
-                  </div>
+              <div className="relative h-[150px] w-[240px] rounded-xl md:h-[170px] md:w-[270px]">
+                <div className="grid h-full w-full place-items-center">
+                  {stepAnimations[i] && (
+                    <Lottie
+                      animationData={stepAnimations[i] as object}
+                      loop
+                      autoplay
+                      className="mx-auto block w-24 md:w-28"
+                      style={{ transform: `translateX(${nudgeX[i] ?? 0}%)` }}
+                      rendererSettings={{
+                        preserveAspectRatio: 'xMidYMid meet',
+                      }}
+                    />
+                  )}
                 </div>
               </div>
+
               <div className="mt-3 text-center">
                 {(() => {
                   return (
@@ -105,7 +116,9 @@ export function StepNavigator({ color, onClick, steps, selectedPath }: Props) {
             {i < steps.length - 1 && (
               <ArrowRight
                 className={`hidden h-6 w-6 md:block ${
-                  color === 'emerald' ? 'text-emerald-400/60 dark:text-emerald-300/40' : 'text-amber-400/60 dark:text-amber-300/40'
+                  color === 'emerald'
+                    ? 'text-emerald-400/60 dark:text-emerald-300/40'
+                    : 'text-amber-400/60 dark:text-amber-300/40'
                 }`}
               />
             )}
@@ -115,5 +128,3 @@ export function StepNavigator({ color, onClick, steps, selectedPath }: Props) {
     </motion.div>
   );
 }
-
-
