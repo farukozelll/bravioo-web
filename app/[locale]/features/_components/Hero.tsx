@@ -14,6 +14,10 @@ type Props = {
 
 export function Hero({ selectedPath, onSelect }: Props) {
   const t = useTranslations('features.hero');
+  const audienceTabs = [
+    { id: 'hr' as const, label: t('tabs.hr'), shortLabel: t('tabs.hrShort'), Icon: Building2 },
+    { id: 'employee' as const, label: t('tabs.employee'), shortLabel: t('tabs.employeeShort'), Icon: Users },
+  ];
   const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
       onSelect(selectedPath === 'hr' ? 'employee' : 'hr');
@@ -56,54 +60,31 @@ export function Hero({ selectedPath, onSelect }: Props) {
               aria-label="Kitle seçimi"
               tabIndex={0}
               onKeyDown={handleKeyDown}
-              className="relative inline-flex items-center gap-1 rounded-full bg-gray-100/80 p-1.5 backdrop-blur-sm dark:bg-gray-800/60"
+              className="flex items-center gap-2 md:gap-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full p-2 shadow-lg border border-neutral-200/50 dark:border-gray-700/20"
             >
-              <button
-                onClick={() => onSelect('hr')}
-                role="tab"
-                id="tab-hr"
-                aria-selected={selectedPath === 'hr'}
-                aria-controls="panel-hr"
-                className={`relative z-10 flex items-center gap-2.5 rounded-full px-6 py-2.5 text-base font-semibold transition-all duration-300 ${
-                  selectedPath === 'hr' 
-                    ? 'text-white' 
-                    : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200'
-                } min-w-[9rem] justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500/50`}
-              >
-                <Building2 className="h-4 w-4" />
-                <span className="hidden sm:inline">{t('tabs.hr')}</span>
-                <span className="sm:hidden">{t('tabs.hrShort')}</span>
-              </button>
-
-              <button
-                onClick={() => onSelect('employee')}
-                role="tab"
-                id="tab-employee"
-                aria-selected={selectedPath === 'employee'}
-                aria-controls="panel-employee"
-                className={`relative z-10 flex items-center gap-2.5 rounded-full px-6 py-2.5 text-base font-semibold transition-all duration-300 ${
-                  selectedPath === 'employee' 
-                    ? 'text-white' 
-                    : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200'
-                } min-w-[9rem] justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-amber-500/50`}
-              >
-                <Users className="h-4 w-4" />
-                <span className="hidden sm:inline">{t('tabs.employee')}</span>
-                <span className="sm:hidden">{t('tabs.employeeShort')}</span>
-              </button>
-
-              <motion.div
-                className={`absolute h-[calc(100%-12px)] rounded-full ${
-                  selectedPath === 'hr' 
-                    ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 shadow-lg shadow-emerald-500/30' 
-                    : 'bg-gradient-to-r from-green-500 to-gold-600 shadow-lg shadow-gold-500/30'
-                }`}
-                animate={{ 
-                  left: selectedPath === 'hr' ? '6px' : '50%', 
-                  width: selectedPath === 'hr' ? 'calc(50% - 8px)' : 'calc(50% - 8px)' 
-                }}
-                transition={{ type: 'spring', stiffness: 350, damping: 35 }}
-              />
+              {audienceTabs.map((tab, index) => {
+                const isActive = selectedPath === tab.id;
+                const Icon = tab.Icon;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => onSelect(tab.id)}
+                    role="tab"
+                    id={`tab-${tab.id}`}
+                    aria-selected={isActive}
+                    aria-controls={`panel-${tab.id}`}
+                    className={`flex items-center gap-2 md:gap-3 px-3 md:px-6 py-2 md:py-3 rounded-full transition-all duration-300 ${
+                      isActive
+                        ? 'bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow-lg'
+                        : 'text-neutral-600 dark:text-gray-300 hover:bg-white/50 dark:hover:bg-gray-700/50'
+                    }`}
+                  >
+                    <Icon className={`h-5 w-5 ${isActive ? 'text-white' : 'text-primary-600'}`} />
+                    <span className="font-semibold hidden md:block">{tab.label}</span>
+                    <span className="font-semibold md:hidden">{index + 1}</span>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </motion.div>

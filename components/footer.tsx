@@ -145,15 +145,15 @@ export function Footer() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-center">
             
             {/* Left - Copyright & Contact */}
-            <div className="text-center sm:text-left space-y-2">
-              <p className="text-xs sm:text-sm text-primary-200 dark:text-gray-400">
+            <div className="text-center sm:text-left">
+              <p className="text-sm text-primary-200 dark:text-gray-400">
                 &copy; {new Date().getFullYear()} Bravioo. {t('footer.copyright')}
               </p>
              
             </div>
 
             {/* Middle - Creative Made With Section */}
-            <div className="flex items-center justify-center gap-2 text-xs sm:text-sm text-primary-200 dark:text-gray-400">
+            <div className="flex items-center justify-center gap-2 text-sm text-primary-200 dark:text-gray-400">
               <span className="hidden sm:inline">{locale === 'tr' ? 'Daha iyi iş yerleri için' : 'For better workplaces'}</span>
               <div className="w-8 h-8 flex items-center justify-center">
                 <Heart className="h-5 w-5 text-red-400 fill-current animate-pulse" />
@@ -163,14 +163,15 @@ export function Footer() {
             </div>
 
             {/* Right - Quick Contact CTA */}
-            <div className="flex items-center justify-center sm:justify-end gap-3">
-            <div className="flex flex-col gap-1 text-xs text-primary-300 dark:text-gray-500">
+            <div className="flex items-center justify-center sm:justify-end gap-4">
+              <div className="flex flex-row items-center gap-4 text-sm text-primary-300 dark:text-gray-500">
                 <Link href="mailto:feyza.ozel@bravioo.com" className="hover:text-white transition-colors inline-flex items-center gap-2">
-                  <Mail className="h-3 w-3" />
+                  <Mail className="h-4 w-4" />
                   info@bravioo.com
                 </Link>
+                <span className="opacity-40">|</span>
                 <Link href="tel:+905382306771" className="hover:text-white transition-colors inline-flex items-center gap-2">
-                  <Phone className="h-3 w-3" />
+                  <Phone className="h-4 w-4" />
                   +90 (538) 230 67 71
                 </Link>
               </div>
