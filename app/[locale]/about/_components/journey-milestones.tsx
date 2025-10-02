@@ -142,8 +142,8 @@ export function JourneyMilestones() {
             </div>
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mt-2 gap-2 sm:gap-0">
               <span className="text-sm text-slate-500 dark:text-gray-400">
-                {t('progress', { percent: Math.round(progressPercentage), step: currentStep, total: config.totalScrollSteps })}
-              </span>
+{/*                 {t('progress', { percent: Math.round(progressPercentage), step: currentStep, total: config.totalScrollSteps })}
+ */}              </span>
               
               {/* Navigation Arrows */}
               <div className="flex items-center gap-2">
