@@ -104,7 +104,9 @@ export function FAQSection() {
 
           {/* Right side - FAQ Accordion */}
           <div className="lg:col-span-2">
-            <Accordion items={faqItems} />
+            <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm p-2 sm:p-4">
+              <Accordion items={faqItems} />
+            </div>
           </div>
         </div>
       </div>

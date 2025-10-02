@@ -198,7 +198,10 @@ export function JourneyMilestones() {
                 transition={{ duration: 0.6, ease: "easeInOut" }}
                 style={{ minWidth: '100%' }}
               >
-                {milestonesToShow.map((item, index) => (
+                {milestonesToShow.map((item, index) => {
+                  const yearNum = Number(item.year);
+                  const isFutureAfter2025 = !Number.isNaN(yearNum) && yearNum > 2025;
+                  return (
                   <motion.div
                     key={`${item.year}-${index}`}
                     className="flex-shrink-0 px-3"
@@ -223,7 +226,7 @@ export function JourneyMilestones() {
                         {/* Year Badge */}
                       <div className={`
                         absolute -top-3 left-4 sm:left-6 px-2 sm:px-3 py-1 text-xs font-bold rounded-full
-                        bg-emerald-500 text-white
+                        ${isFutureAfter2025 ? 'bg-slate-400 dark:bg-gray-600 text-white' : 'bg-emerald-500 text-white'}
                       `}>
                           {item.year}
                       </div>
@@ -231,16 +234,18 @@ export function JourneyMilestones() {
                       {/* Icon */}
                       <div className={`
                         mb-3 sm:mb-4 p-2 sm:p-3 rounded-xl w-fit
-                        bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400
+                        ${isFutureAfter2025 
+                          ? 'bg-slate-100 dark:bg-gray-700 text-slate-500 dark:text-gray-400' 
+                          : 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400'}
                       `}>
-                                              {React.createElement(IconComponents[Math.min(index, IconComponents.length - 1)], { className: 'w-6 h-6' })}
+                        {React.createElement(IconComponents[Math.min(index, IconComponents.length - 1)], { className: 'w-6 h-6' })}
 
                       </div>
 
                       {/* Content */}
                       <h3 className={`
                         text-base sm:text-lg font-semibold mb-2 sm:mb-3 leading-tight
-                        text-slate-900 dark:text-gray-100
+                        ${isFutureAfter2025 ? 'text-slate-500 dark:text-gray-400' : 'text-slate-900 dark:text-gray-100'}
                       `}>
                         {item.title}
                       </h3>
@@ -248,13 +253,13 @@ export function JourneyMilestones() {
 
                       {/* Small caption under title instead of status pill */}
                       <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
-                        <p className={`text-xs font-medium ${index >= 4 ? 'text-slate-500 dark:text-gray-400' : 'text-emerald-600 dark:text-emerald-400'}`}> 
+                        <p className={`text-xs font-medium ${isFutureAfter2025 ? 'text-slate-500 dark:text-gray-400' : (index >= 4 ? 'text-slate-500 dark:text-gray-400' : 'text-emerald-600 dark:text-emerald-400')}`}> 
                           {item.description}
                         </p>
                       </div>
                     </motion.div>
                   </motion.div>
-                ))}
+                );})}
               </motion.div>
             </div>
           </div>
