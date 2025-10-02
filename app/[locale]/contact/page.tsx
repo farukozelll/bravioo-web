@@ -32,7 +32,7 @@ export default async function ContactPage({ params }: Props) {
   const officeInfo = [
     {
       title: locale === 'tr' ? 'Ofis' : 'Office',
-      address: 'EMAAR MALL RESIDENCE \nÜNALAN MAH. LİBADİYE CAD. NO: 82 E\nÜSKÜDAR/ İSTANBUL',
+      address: 'Emaar Mall Residence \nÜnalan Mah. Libadiye Cad. No: 82 E \nÜsküdar/ İstanbul',
       hours: locale === 'tr' ? 'Pazartesi - Cuma: 09:00 - 18:00' : 'Monday - Friday: 09:00 - 18:00'
     },
     {

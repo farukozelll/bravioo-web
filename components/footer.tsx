@@ -169,9 +169,9 @@ export function Footer() {
                   <Mail className="h-3 w-3" />
                   info@bravioo.com
                 </Link>
-                <Link href="tel:+905555555555" className="hover:text-white transition-colors inline-flex items-center gap-2">
+                <Link href="tel:+905382306771" className="hover:text-white transition-colors inline-flex items-center gap-2">
                   <Phone className="h-3 w-3" />
-                  +90 (555) 555 55 55
+                  +90 (538) 230 67 71
                 </Link>
               </div>
             </div>  

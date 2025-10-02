@@ -25,10 +25,10 @@ export function QuickContactMethods() {
     {
       icon: Phone,
       title: locale === 'tr' ? 'Telefon Desteği' : 'Phone Support',
-      description: '+90 (212) 555-0123',
+      description: '+90 (538) 230 67 71',
       action: locale === 'tr' ? 'Hemen Ara' : 'Call Now',
       color: 'from-blue-500 to-indigo-600',
-      onClick: () => { window.location.href = 'tel:+902125550123'; }
+      onClick: () => { window.location.href = 'tel:+905382306771'; }
     },
     {
       icon: Mail,

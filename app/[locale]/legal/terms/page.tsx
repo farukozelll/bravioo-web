@@ -242,7 +242,7 @@ export default async function TermsPage({ params }: Props) {
                   <h3 className="font-semibold text-brand-800 mb-2">Legal Department</h3>
                   <div className="text-brand-700 space-y-1">
                     <div>Email: legal@bravioo.com</div>
-                    <div>Phone: +90 (212) 555-0123</div>
+                    <div>Phone: +90 (538) 230 67 71</div>
                     <div>Address: Maslak Mahallesi, Büyükdere Caddesi No: 123, Sarıyer, İstanbul 34485, Turkey</div>
                   </div>
                 </div>

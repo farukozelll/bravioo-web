@@ -178,7 +178,7 @@ export default async function PrivacyPage({ params }: Props) {
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-brand-600" />
-                <span className="text-ink-700">+90 (212) 555-0123</span>
+                <span className="text-ink-700">+90 (538) 230 67 71</span>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-brand-600 mt-0.5" />

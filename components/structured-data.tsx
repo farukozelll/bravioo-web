@@ -54,7 +54,7 @@ export function OrganizationSchema({
   url = 'https://bravioo.com',
   logo = 'https://bravioo.com/Bravioo_logo.png',
   foundingDate = '2023',
-  telephone = '+90-555-0123',
+  telephone = '+90 538 230 67 71',
   email = 'info@bravioo.com',
   address,
   sameAs = [

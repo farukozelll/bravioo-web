@@ -133,7 +133,7 @@ export default async function MeetingPage({ params }: Props) {
               {isTr ? 'Hemen İletişime Geç' : 'Contact Now'}
             </Link>
             <a 
-              href="tel:+902125550123"
+              href="tel:+90 538 230 67 71"
               className="border-2 border-white text-white hover:bg-white hover:text-brand-600 px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2"
             >
               <Phone className="h-5 w-5" />

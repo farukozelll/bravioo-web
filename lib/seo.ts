@@ -116,7 +116,7 @@ export function generateOrganizationJsonLd() {
     logo: 'https://bravioo.com/logo.png',
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+1-555-0123',
+      telephone: '+90 538 230 67 71',
       contactType: 'customer service',
       availableLanguage: ['English', 'Turkish'],
     },

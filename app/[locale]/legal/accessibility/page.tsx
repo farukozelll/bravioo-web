@@ -247,7 +247,7 @@ export default async function AccessibilityPage({ params }: Props) {
                 <h3 className="font-semibold text-brand-800 mb-2">Accessibility Team</h3>
                 <div className="text-brand-700 space-y-1">
                   <div>Email: accessibility@bravioo.com</div>
-                  <div>Phone: +90 (212) 555-0123</div>
+                  <div>Phone: +90 (538) 230 67 71</div>
                   <div>Response time: Within 2 business days</div>
                 </div>
                 <p className="text-brand-600 mt-3 text-sm">
