@@ -21,8 +21,9 @@ export function JourneyMilestones() {
     Rocket,    // İştirak
     Users,     // Kullanıcı
     Coins,     // Coin
-    ArrowUp,   // Bölgesel büyüme
-    Globe,     // Global büyüme
+    ArrowUp,   // GCC açılımı
+    ArrowRight,// Avrupa açılımı
+    Globe,     // Global presans
   ], []);
   const [visibleStart, setVisibleStart] = React.useState(0);
   

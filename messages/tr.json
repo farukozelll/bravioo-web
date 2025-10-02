@@ -777,8 +777,9 @@
         { "year": "2024", "title": "Holding İştiraki", "description": "Albayrak Holding iştiraki olarak kurumsal kimlik kazanıldı, yazılım ekibi büyüdü." },
         { "year": "2025", "title": "30.000 Kullanıcı & AI", "description": "30.000+ kullanıcı; yapay zekâ tabanlı analiz ve iletişim modülleri devrede." },
         { "year": "2026", "title": "Bravioo Coin", "description": "Dijital hediye kartı ve vergi avantajı sağlayacak Bravioo Coin lansmanı planlanıyor." },
-        { "year": "2027", "title": "Bölgesel Büyüme", "description": "GCC ve Avrupa pazarında açılım hedefleniyor." },
-        { "year": "2028", "title": "Global Pazarda Varlık", "description": "Kurumsal motivasyonda bölgesel liderlik hedefleniyor." }
+        { "year": "2027", "title": "GCC Açılımı", "description": "BAE, Suudi Arabistan ve Katar odaklı lansman ve iş ortaklıkları." },
+        { "year": "2028", "title": "Avrupa Açılımı", "description": "DACH/Benelux başlangıcı; yerelleştirme, GDPR uyumu ve kanal ortaklıkları." },
+        { "year": "2029", "title": "Global Pazarda Varlık", "description": "Kurumsal motivasyonda bölgesel liderlik hedefleniyor." }
       ]
     },
     "aboutUsSection": {

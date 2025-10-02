@@ -776,8 +776,9 @@
         { "year": "2024", "title": "Holding Subsidiary", "description": "Became a subsidiary of Albayrak Holding; engineering team expanded." },
         { "year": "2025", "title": "30,000 Users & AI", "description": "Reached 30,000+ users; AI-based analytics and communication modules launched." },
         { "year": "2026", "title": "Bravioo Coin", "description": "Planned launch of Bravioo Coin with digital gift cards and tax advantages." },
-        { "year": "2027", "title": "Regional Growth", "description": "Expansion targeted in GCC countries and the European market." },
-        { "year": "2028", "title": "Global Presence", "description": "Aiming for regional leadership in corporate motivation globally." }
+        { "year": "2027", "title": "GCC Expansion", "description": "Launch and partnership opportunities in GCC countries (BAE, Saudi Arabia, and Qatar)." },
+        { "year": "2028", "title": "European Expansion", "description": "Start of DACH/Benelux; localization, GDPR compliance, and channel partnerships." },
+        { "year": "2029", "title": "Global Presence", "description": "Aiming for regional leadership in corporate motivation globally." }
       ]
     },
     "aboutUsSection": {
