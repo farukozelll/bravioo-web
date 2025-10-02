@@ -138,12 +138,14 @@ export function EmployerPricingPlans() {
               >
                 {/* Popular Badge */}
                 {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-emerald-600 text-white px-6 py-2 rounded-full text-sm font-bold flex items-center gap-2">
-                      <Star className="w-4 h-4" />
-                      {t('mostPopular')}
-                    </div>
-                  </div>
+             <div className="absolute -top-4 inset-x-0 flex justify-center">
+             <div className="inline-flex items-center gap-2 bg-emerald-600 text-white px-8 py-2.5 rounded-full text-sm font-bold whitespace-nowrap">
+               <Star className="w-4 h-4" />
+               {t('mostPopular')}
+             </div>
+           </div>
+           
+               
                 )}
 
                 {/* Plan Header */}

@@ -18,7 +18,7 @@ export function CTA() {
           <div className="relative z-10 mx-auto max-w-3xl text-center">
             <Sparkles className="mx-auto mb-4 h-10 w-10 text-white/90" />
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold leading-tight">{locale === 'tr' ? 'Hazır mısınız?' : 'Ready to get started?'}</h3>
-            <p className="mt-3 sm:mt-4 text-base sm:text-lg text-white/90">{locale === 'tr' ? '14 gün boyunca tüm özellikleri deneyin. Kredi kartı gerekmez.' : 'Try all features for 14 days. No credit card required.'}</p>
+            <p className="mt-3 sm:mt-4 text-base sm:text-lg text-white/90">{locale === 'tr' ? 'Çalışan deneyimini bugün daha iyi hale getirin.' : 'Improve your employee experience today.'}</p>
             <div className="mt-6 sm:mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
               <Link href={`/${locale}/meeting`} className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold text-emerald-700 shadow transition-all hover:bg-gray-50">
                 {locale === 'tr' ? 'Ücretsiz Demo Planla' : 'Schedule Free Demo'}
