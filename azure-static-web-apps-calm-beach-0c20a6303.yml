@@ -20,13 +20,15 @@ jobs:
   steps:
   - checkout: self
     submodules: true
+  
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '22.x'
+    displayName: 'Install Node.js 22.x'
+  
   - task: AzureStaticWebApp@0
     inputs:
       azure_static_web_apps_api_token: $(AZURE_STATIC_WEB_APPS_API_TOKEN_CALM_BEACH_0C20A6303)
-###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-# For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-      app_location: "/" # App source code path
-      api_location: "" # Api source code path - optional
-      output_location: "" # Built app content directory - optional
-###### End of Repository/Build Configurations ######
-
+      app_location: "/"
+      api_location: ""
+      output_location: ""
