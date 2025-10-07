@@ -28,4 +28,4 @@ jobs:
       api_location: ""
       output_location: ""
     env:
-      NODE_VERSION: '22'
+      NODE_VERSION: '20'
