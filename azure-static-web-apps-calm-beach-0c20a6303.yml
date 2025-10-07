@@ -21,14 +21,11 @@ jobs:
   - checkout: self
     submodules: true
   
-  - task: NodeTool@0
-    inputs:
-      versionSpec: '22.x'
-    displayName: 'Install Node.js 22.x'
-  
   - task: AzureStaticWebApp@0
     inputs:
       azure_static_web_apps_api_token: $(AZURE_STATIC_WEB_APPS_API_TOKEN_CALM_BEACH_0C20A6303)
       app_location: "/"
       api_location: ""
       output_location: ""
+    env:
+      NODE_VERSION: '22'
