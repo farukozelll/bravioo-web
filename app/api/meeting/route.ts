@@ -164,6 +164,8 @@ export async function POST(request: Request) {
           to: [process.env.CONTACT_EMAIL || 'info@bravioo.com'],
           subject: `🎯 New Demo Request: ${data.demoType} - ${data.company}`,
           htmlContent: emailHtml,
+          from: process.env.GRAPH_FROM_EMAIL || 'faruk.ozel@bravioo.com',
+          replyTo: data.email,
         });
         emailResult = { via: 'graph' };
       } catch (graphError) {

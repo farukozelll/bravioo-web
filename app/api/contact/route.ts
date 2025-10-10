@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { contactSchema } from '@/lib/zod-schemas';
 import { submitHubSpotForm } from '@/lib/hubspot';
-import { sendMailViaGraph, emailTemplates } from '@/lib/graph-mail';
+import { sendMailViaGraph } from '@/lib/graph-mail';
 import { sendMail } from '@/lib/mailer';
 
 export async function POST(request: Request) {
@@ -110,16 +110,18 @@ export async function POST(request: Request) {
     if (!smtpEnabled && process.env.AZ_TENANT_ID && process.env.AZ_CLIENT_ID && process.env.AZ_CLIENT_SECRET) {
       try {
         await sendMailViaGraph({
-          to: ['info@bravioo.com'],
+          to: [process.env.CONTACT_EMAIL || 'info@bravioo.com'],
           subject: `New Bravioo Contact: ${data.company}`,
           htmlContent: html,
+          from: process.env.GRAPH_FROM_EMAIL || 'faruk.ozel@bravioo.com',
+          replyTo: data.email,
         });
       } catch (graphError) {
         console.error('Graph email sending failed:', graphError);
         // fallback to SMTP if requested
         if (smtpEnabled) {
           try {
-            await sendMail({ to: ['info@bravioo.com'], subject: `New Bravioo Contact: ${data.company}`, html });
+            await sendMail({ to: [process.env.CONTACT_EMAIL || 'info@bravioo.com'], subject: `New Bravioo Contact: ${data.company}`, html });
           } catch (smtpError) {
             console.error('SMTP email sending failed:', smtpError);
           }
@@ -127,12 +129,12 @@ export async function POST(request: Request) {
       }
     } else if (smtpEnabled) {
       try {
-        await sendMail({ to: ['info@bravioo.com'], subject: `New Bravioo Contact: ${data.company}`, html });
+        await sendMail({ to: [process.env.CONTACT_EMAIL || 'info@bravioo.com'], subject: `New Bravioo Contact: ${data.company}`, html });
       } catch (smtpError) {
         console.warn('SMTP failed, trying Graph:', smtpError);
         if (process.env.AZ_TENANT_ID && process.env.AZ_CLIENT_ID && process.env.AZ_CLIENT_SECRET) {
           try {
-            await sendMailViaGraph({ to: ['info@bravioo.com'], subject: `New Bravioo Contact: ${data.company}`, htmlContent: html });
+            await sendMailViaGraph({ to: [process.env.CONTACT_EMAIL || 'info@bravioo.com'], subject: `New Bravioo Contact: ${data.company}`, htmlContent: html, from: process.env.GRAPH_FROM_EMAIL || 'info@bravioo.com', replyTo: data.email });
           } catch (graphError) {
             console.error('Graph email sending failed:', graphError);
           }

@@ -10,6 +10,7 @@ export interface EmailData {
   cc?: string | string[];
   bcc?: string | string[];
   from?: string;
+  replyTo?: string | string[];
 }
 
 // Initialize Microsoft Graph client
@@ -36,7 +37,8 @@ export async function sendMailViaGraph({
   // textContent, // TODO: Use this for plain text version
   cc = [],
   bcc = [],
-  from = 'noreply@bravioo.com',
+  from,
+  replyTo,
 }: EmailData) {
   try {
     const client = await getGraphClient();
@@ -44,6 +46,9 @@ export async function sendMailViaGraph({
     const toList = Array.isArray(to) ? to : [to];
     const ccList = Array.isArray(cc) ? cc : [cc];
     const bccList = Array.isArray(bcc) ? bcc : [bcc];
+    const replyToList = replyTo ? (Array.isArray(replyTo) ? replyTo : [replyTo]) : [];
+
+    const fromAddress = from || process.env.GRAPH_FROM_EMAIL || process.env.CONTACT_EMAIL || 'info@bravioo.com';
 
     const message = {
       message: {
@@ -67,11 +72,14 @@ export async function sendMailViaGraph({
             address: email,
           },
         })),
+        replyTo: replyToList.filter(Boolean).map((email) => ({
+          emailAddress: { address: email },
+        })),
       },
       saveToSentItems: true,
     };
 
-    await client.api(`/users/${from}/sendMail`).post(message);
+    await client.api(`/users/${fromAddress}/sendMail`).post(message);
     
     console.log('Email sent successfully via Microsoft Graph');
   } catch (error) {
