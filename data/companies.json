@@ -1,5 +1,26 @@
 [
   {
+    "id": "turksat",
+    "name": "Türksat",
+    "logo": "/images/companies/trsat.png",
+    "category": "Telekom",
+    "description": "BT varlık ve hizmet yönetimini standartlaştırdı.",
+    "metrics": { "primary": "%35 Hizmet Seviyesi" }
+  },
+  {
+    "id": "kaanlar",
+    "name": "Kaanlar",
+    "logo": "/images/companies/kaanlar.png",
+    "category": "Gıda",
+    "description": "Üretimden dağıtıma uçtan uca izlenebilirlik sağladı.",
+    "metrics": { "primary": "%35 İzlenebilirlik" },
+    "details": {
+      "challenge": "Soğuk zincir takibi",
+      "solution": "IoT sensör ve uyarılar",
+      "results": ["Isı ihlallerinde anlık alarm", "İade oranı azaldı"]
+    }
+  },
+  {
     "id": "albayrak-grubu",
     "name": "Albayrak Grubu",
     "logo": "/images/companies/albayrak-grubu.png",
@@ -23,8 +44,7 @@
       "author": "Ömer B.",
       "position": "CEO"
     }
-  },
-  {
+  },  {
     "id": "cevtem-temizlik",
     "name": "Çevtem Temizlik",
     "logo": "/images/companies/cevtem_logo.svg",
@@ -50,6 +70,31 @@
     }
   },
   {
+    "id": "binbin",
+    "name": "BinBin",
+    "logo": "/images/companies/binbin-blue.svg",
+    "category": "Ulaşım & Teknoloji",
+    "description": "Mikromobilite operasyonlarını ve varlık yönetimini dijitalleştirdi.",
+    "metrics": {
+      "primary": "%45 Varlık Yönetim Verimliliği",
+      "secondary": "Saha Operasyonlarında"
+    },
+    "details": {
+      "challenge": "Binlerce scooter'ın anlık takibi, bakım planlaması ve saha ekibi optimizasyonu.",
+      "solution": "Bravioo'nun IoT entegre varlık yönetimi ve mobil saha servis platformu.",
+      "results": [
+        "Scooter kullanım ömründe %20 artış",
+        "Saha ekibi rotalarında %30 optimizasyon",
+        "Bakım maliyetlerinde %15 düşüş"
+      ]
+    },
+    "testimonial": {
+      "text": "Binlerce aracımızı tek bir ekrandan anlık izlemek ve yönetmek, Bravioo ile mümkün oldu. Operasyonel gücümüzü katladık.",
+      "author": "Kadir G.",
+      "position": "CTO"
+    }
+  },
+  {
     "id": "agt-seramik",
     "name": "AGT Seramik",
     "logo": "/images/companies/agt-black-logo.svg",
@@ -71,64 +116,11 @@
       "position": "Fabrika Müdürü"
     }
   },
-
-  {
-    "id": "global-turizm",
-    "name": "Global Turizm",
-    "logo": "/images/companies/global-turizm.jpg",
-    "category": "Turizm",
-    "description": "Operasyon ve rezervasyon süreçlerini tek panelden yönetti.",
-    "metrics": { "primary": "%30 Operasyonel Hız" },
-    "details": {
-      "challenge": "Dağınık acente süreçleri",
-      "solution": "Merkezi rezervasyon ve CRM",
-      "results": ["Tek ekrandan yönetim", "Satış takibinde şeffaflık"]
-    }
-  },
-  {
-    "id": "fa-grup",
-    "name": "FA Grup",
-    "logo": "/images/companies/fa-grup.png",
-    "category": "Hizmet",
-    "description": "Saha operasyonlarını gerçek zamanlı raporladı.",
-    "metrics": { "primary": "%40 Verimlilik" },
-    "details": {
-      "challenge": "Saha ekip senkronizasyonu",
-      "solution": "Görev & rota planlama",
-      "results": ["Zamanında tamamlanan işler", "Maliyet düşüşü"]
-    }
-  },
-  {
-    "id": "misek-insaat",
-    "name": "Misek İnşaat",
-    "logo": "/images/companies/misek.svg",
-    "category": "İnşaat",
-    "description": "Şantiye ve tedarik yönetimini dijitalleştirdi.",
-    "metrics": { "primary": "%20 Maliyet Tasarrufu" },
-    "details": {
-      "challenge": "Stok ve hakediş takibi",
-      "solution": "ERP + satınalma modülleri",
-      "results": ["Gerçek zamanlı stok görünürlüğü", "Onay akışları kısaldı"]
-    }
-  },
-  {
-    "id": "kaanlar",
-    "name": "Kaanlar",
-    "logo": "/images/companies/kaanlar.png",
-    "category": "Gıda",
-    "description": "Üretimden dağıtıma uçtan uca izlenebilirlik sağladı.",
-    "metrics": { "primary": "%35 İzlenebilirlik" },
-    "details": {
-      "challenge": "Soğuk zincir takibi",
-      "solution": "IoT sensör ve uyarılar",
-      "results": ["Isı ihlallerinde anlık alarm", "İade oranı azaldı"]
-    }
-  },
   {
     "id": "akgun-grup",
     "name": "Akgün Grup",
     "logo": "/images/companies/akgun-grup.png",
-    "category": "Holding",  
+    "category": "Holding",
     "description": "Grup şirketlerinde merkezi finans ve insan kaynakları yönetimi.",
     "metrics": { "primary": "%50 Daha Hızlı Raporlama" }
   },
@@ -157,20 +149,25 @@
     "metrics": { "primary": "%28 Operasyon Hızı" }
   },
   {
-    "id": "ustun-plastik",
-    "name": "Üstün Plastik",
-    "logo": "/images/companies/placeholder.png",
-    "category": "Üretim",
-    "description": "Üretim, stok ve kalite kontrolünü entegre etti.",
-    "metrics": { "primary": "%15 Fire Azalışı" }
+    "id": "ertex",
+    "name": "Ertex",
+    "logo": "/images/companies/erteks-tekstil.png",
+    "category": "Tekstil",
+    "description": "Üretim planlama ve termin takibini hızlandırdı.",
+    "metrics": { "primary": "%20 Teslimat Performansı" }
   },
   {
-    "id": "bekart-gida",
-    "name": "Bekart Gıda",
-    "logo": "/images/companies/bekart.png",
-    "category": "Gıda",
-    "description": "Satış ve dağıtım ağını tek panelden yönetti.",
-    "metrics": { "primary": "%30 Sipariş Hızı" }
+    "id": "misek-insaat",
+    "name": "Misek İnşaat",
+    "logo": "/images/companies/misek.svg",
+    "category": "İnşaat",
+    "description": "Şantiye ve tedarik yönetimini dijitalleştirdi.",
+    "metrics": { "primary": "%20 Maliyet Tasarrufu" },
+    "details": {
+      "challenge": "Stok ve hakediş takibi",
+      "solution": "ERP + satınalma modülleri",
+      "results": ["Gerçek zamanlı stok görünürlüğü", "Onay akışları kısaldı"]
+    }
   },
   {
     "id": "ahes-insaat",
@@ -189,20 +186,46 @@
     "metrics": { "primary": "%25 İsraf Azalışı" }
   },
   {
-    "id": "ertex",
-    "name": "Ertex",
-    "logo": "/images/companies/erteks-tekstil.png",
-    "category": "Tekstil",
-    "description": "Üretim planlama ve termin takibini hızlandırdı.",
-    "metrics": { "primary": "%20 Teslimat Performansı" }
+    "id": "bekart-gida",
+    "name": "Bekart Gıda",
+    "logo": "/images/companies/bekart.png",
+    "category": "Gıda",
+    "description": "Satış ve dağıtım ağını tek panelden yönetti.",
+    "metrics": { "primary": "%30 Sipariş Hızı" }
   },
   {
-    "id": "turksat",
-    "name": "Türksat",
-    "logo": "/images/companies/trsat.png",
-    "category": "Telekom",
-    "description": "BT varlık ve hizmet yönetimini standartlaştırdı.",
-    "metrics": { "primary": "%35 Hizmet Seviyesi" }
-  }
+    "id": "ustun-plastik",
+    "name": "Üstün Plastik",
+    "logo": "/images/companies/placeholder.png",
+    "category": "Üretim",
+    "description": "Üretim, stok ve kalite kontrolünü entegre etti.",
+    "metrics": { "primary": "%15 Fire Azalışı" }
+  },
 
+  {
+    "id": "fa-grup",
+    "name": "FA Grup",
+    "logo": "/images/companies/fa-grup.png",
+    "category": "Hizmet",
+    "description": "Saha operasyonlarını gerçek zamanlı raporladı.",
+    "metrics": { "primary": "%40 Verimlilik" },
+    "details": {
+      "challenge": "Saha ekip senkronizasyonu",
+      "solution": "Görev & rota planlama",
+      "results": ["Zamanında tamamlanan işler", "Maliyet düşüşü"]
+    }
+  },
+  {
+    "id": "global-turizm",
+    "name": "Global Turizm",
+    "logo": "/images/companies/global-turizm.jpg",
+    "category": "Turizm",
+    "description": "Operasyon ve rezervasyon süreçlerini tek panelden yönetti.",
+    "metrics": { "primary": "%30 Operasyonel Hız" },
+    "details": {
+      "challenge": "Dağınık acente süreçleri",
+      "solution": "Merkezi rezervasyon ve CRM",
+      "results": ["Tek ekrandan yönetim", "Satış takibinde şeffaflık"]
+    }
+  }
 ]

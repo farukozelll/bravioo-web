@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { ArrowRight, TrendingUp, Users, Award, Building } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -50,55 +49,25 @@ export function CustomerShowcase() {
     ? companies 
     : companies.filter(c => c.category === activeCategory);
 
-  // Staggered animation variants to avoid per-card whileInView issues
-  const containerVariants = {
-    hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.06,
-        delayChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 16 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.45, ease: 'easeOut' }
-    }
-  };
-
   return (
     <section className="bg-white dark:bg-gray-900 py-16 lg:py-20 xl:py-24 transition-colors duration-300">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-gray-100 mb-4 lg:mb-6 leading-tight">
             Her sektörden işletme için<br />
             <span className="text-emerald-600">Yeni Nesil Bravioo Altyapısı</span>
           </h2>
           
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <Link
+            href={`/${locale}/stories`}
             className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 px-4 sm:px-6 py-2 sm:py-3 rounded-xl border border-emerald-200 dark:border-emerald-600 hover:border-emerald-300 dark:hover:border-emerald-500 font-medium transition-all duration-300 shadow-sm hover:shadow-md"
-            onClick={() => {
-              window.location.href = `/${locale}/stories`;
-            }}
           >
             <span>Başarı Hikayelerimize Göz At</span>
             <ArrowRight className="w-4 h-4" />
-          </motion.button>
-        </motion.div>
+          </Link>
+        </div>
 
         {/* Category Filter */}
 {/*         <motion.div
@@ -128,17 +97,12 @@ export function CustomerShowcase() {
         </motion.div> */}
 
         {/* Company Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.15 }}
+        <div
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 lg:gap-6"
         >
           {filteredCompanies.map((company) => (
-            <motion.div
+            <div
               key={company.id}
-              variants={itemVariants}
               className="relative rounded-lg"
             >
               <div className="relative bg-white dark:bg-gray-800 rounded-2xl p-3 sm:p-4 border border-slate-200 dark:border-gray-700 overflow-hidden h-36 sm:h-36">
@@ -152,6 +116,7 @@ export function CustomerShowcase() {
                       width={48}
                       height={48}
                       className="w-8 sm:w-12 h-8 sm:h-12 object-contain"
+                      loading="lazy"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
@@ -178,16 +143,12 @@ export function CustomerShowcase() {
                 {/* No hover overlay */}
 
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Bottom Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+        <div
           className="mt-12 lg:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6"
         >
           <div className="text-center p-4 sm:p-6 bg-gradient-to-br from-emerald-50 to-white dark:from-emerald-900/20 dark:to-gray-800 rounded-2xl border border-emerald-100 dark:border-emerald-800">
@@ -221,16 +182,10 @@ export function CustomerShowcase() {
             <div className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-gray-100 mb-2">15+</div>
             <div className="text-xs sm:text-sm text-slate-600 dark:text-gray-400">Farklı Sektör</div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-center mt-16"
-        >
+        <div className="text-center mt-16">
           <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-gray-100 mb-4">
             Sizin de başarı hikayenizi yazalım
           </h3>
@@ -238,24 +193,24 @@ export function CustomerShowcase() {
             Bravioo&apos;ın güçlü e-ticaret altyapısı ile siz de bu başarılı markalar arasına katılın.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <div>
               <Link
                 href={`/${locale}/meeting`}
                 className="bg-emerald-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-emerald-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
               >
                 Ücretsiz Randevu Al
               </Link>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            </div>
+            <div>
               <Link
                 href={`/${locale}/pricing`}
                 className="border border-slate-300 dark:border-gray-600 text-slate-700 dark:text-gray-300 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-semibold hover:border-slate-400 dark:hover:border-gray-500 hover:bg-slate-50 dark:hover:bg-gray-800 transition-all duration-300"
               >
                 Fiyat Bilgisi Alın
               </Link>
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
 
       </div>
     </section>

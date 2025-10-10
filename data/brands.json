@@ -1,33 +1,5 @@
 [
   {
-    "id": "jakamen",
-    "name": "Jakamen",
-    "logo": "/images/brands/jakamen.png",
-    "category": "Giyim & Moda",
-    "description": "Erkek giyim markası, bayi ağı ve B2B sipariş yönetimini Bravioo ile dijitalleştirdi."
-  },
-  {
-    "id": "birun-ada-otel",
-    "name": "Birun Ada Otel",
-    "logo": "/images/brands/birun-ada-otel.png",
-    "category": "Turizm & Konaklama",
-    "description": "Online rezervasyon ve misafir iletişiminde Bravioo'yu tercih etti."
-  },
-  {
-    "id": "birun-kumbet",
-    "name": "Birun Kümbet",
-    "logo": "/images/brands/birun.png",
-    "category": "Turizm & Konaklama",
-    "description": "Doğa turizmini Bravioo'nun dijital rezervasyon platformuyla birleştirdi."
-  },
-  {
-    "id": "teos-village",
-    "name": "Teos Village",
-    "logo": "/images/brands/teos.jpg",
-    "category": "Turizm & Konaklama",
-    "description": "İzmir'deki tatil köyü, tesis içi deneyimi ve ek hizmet satışlarını Bravioo'nun mobil uygulamasıyla artırdı."
-  },
-  {
     "id": "camlica-kulesi",
     "name": "Çamlıca Kulesi",
     "logo": "/images/brands/amlca-kulesi.png",
@@ -35,46 +7,18 @@
     "description": "Ziyaretçi ve bilet yönetiminde Bravioo altyapısını kullanıyor."
   },
   {
-    "id": "birun-ada-otel-restoran",
-    "name": "Birun Ada Otel Restoran",
-    "logo": "/images/brands/birun-ada.png",
-    "category": "Yeme & İçme",
-    "description": "Misafir deneyimini Bravioo'nun restoran çözümleriyle yönetiyor."
+    "id": "binbin",
+    "name": "BinBin",
+    "logo": "/images/brands/binbin-blue.svg",
+    "category": "Ulaşım & Teknoloji",
+    "description": "Paylaşımlı e-scooter ağı, operasyonel verimliliğini Bravioo ile artırdı."
   },
   {
-    "id": "tepe-restaurant",
-    "name": "Tepe Restaurant",
-    "logo": "/images/brands/tepe-black.png",
-    "category": "Yeme & İçme",
-    "description": "Rezervasyon ve etkinlik yönetimini Bravioo platformuna taşıdı."
-  },
-  {
-    "id": "mihrabat-korusu",
-    "name": "Mihrabat Korusu",
-    "logo": "/images/brands/mihrabat.webp",
-    "category": "Etkinlik & Organizasyon",
-    "description": "Etkinlik ve rezervasyon yönetimini Bravioo ile dijitalleştirdi."
-  },
-  {
-    "id": "viyana-kahvesi",
-    "name": "Viyana Kahvesi",
-    "logo": "/images/brands/viyana-kahvesi.webp",
-    "category": "Yeme & İçme",
-    "description": "Mobil sadakat programı ve online siparişlerini Bravioo ile yönetiyor."
-  },
-  {
-    "id": "osmanli-saray-kadayifi",
-    "name": "Osmanlı Saray Kadayıfı",
-    "logo": "/images/brands/placeholder.png",
-    "category": "Yeme & İçme",
-    "description": "Online sipariş ve şube yönetimini Bravioo ile modernize etti."
-  },
-  {
-    "id": "qarint",
-    "name": "QARINT",
-    "logo": "/images/brands/qarint.jpg",
-    "category": "Perakende",
-    "description": "Müşteri deneyimini Bravioo'nun sadakat çözümleriyle kişiselleştirdi."
+    "id": "english-time",
+    "name": "English Time",
+    "logo": "/images/brands/englishtime.svg",
+    "category": "Eğitim",
+    "description": "Öğrenci işleri ve ders planlamasını tek sistemde topladı."
   },
   {
     "id": "uskudar-universitesi-dis-hastanesi",
@@ -91,11 +35,67 @@
     "description": "Nöropsikiyatri sağlık hizmetlerinde Bravioo'nun güvenli veri altyapısını kullanıyor."
   },
   {
-    "id": "fil-fil-lahmacun",
-    "name": "Fil Fil Lahmacun",
+    "id": "mihrabat-korusu",
+    "name": "Mihrabat Korusu",
+    "logo": "/images/brands/mihrabat.webp",
+    "category": "Etkinlik & Organizasyon",
+    "description": "Etkinlik ve rezervasyon yönetimini Bravioo ile dijitalleştirdi."
+  },
+  {
+    "id": "viyana-kahvesi",
+    "name": "Viyana Kahvesi",
+    "logo": "/images/brands/viyana-kahvesi.webp",
+    "category": "Yeme & İçme",
+    "description": "Mobil sadakat programı ve online siparişlerini Bravioo ile yönetiyor."
+  },
+  {
+    "id": "jakamen",
+    "name": "Jakamen",
+    "logo": "/images/brands/jakamen.png",
+    "category": "Giyim & Moda",
+    "description": "Erkek giyim markası, bayi ağı ve B2B sipariş yönetimini Bravioo ile dijitalleştirdi."
+  },
+  {
+    "id": "teos-village",
+    "name": "Teos Village",
+    "logo": "/images/brands/teos.jpg",
+    "category": "Turizm & Konaklama",
+    "description": "İzmir'deki tatil köyü, tesis içi deneyimi ve ek hizmet satışlarını Bravioo'nun mobil uygulamasıyla artırdı."
+  },
+  {
+    "id": "osmanli-saray-kadayifi",
+    "name": "Osmanlı Saray Kadayıfı",
     "logo": "/images/brands/placeholder.png",
     "category": "Yeme & İçme",
-    "description": "Online sipariş ve teslimat operasyonlarını Bravioo ile optimize etti."
+    "description": "Online sipariş ve şube yönetimini Bravioo ile modernize etti."
+  },
+  {
+    "id": "birun-kumbet",
+    "name": "Birun Kümbet",
+    "logo": "/images/brands/birun.png",
+    "category": "Turizm & Konaklama",
+    "description": "Doğa turizmini Bravioo'nun dijital rezervasyon platformuyla birleştirdi."
+  },
+  {
+    "id": "birun-ada-otel",
+    "name": "Birun Ada Otel",
+    "logo": "/images/brands/birun-ada-otel.png",
+    "category": "Turizm & Konaklama",
+    "description": "Online rezervasyon ve misafir iletişiminde Bravioo'yu tercih etti."
+  },
+  {
+    "id": "qarint",
+    "name": "QARINT",
+    "logo": "/images/brands/qarint.jpg",
+    "category": "Perakende",
+    "description": "Müşteri deneyimini Bravioo'nun sadakat çözümleriyle kişiselleştirdi."
+  },
+  {
+    "id": "tepe-restaurant",
+    "name": "Tepe Restaurant",
+    "logo": "/images/brands/tepe-black.png",
+    "category": "Yeme & İçme",
+    "description": "Rezervasyon ve etkinlik yönetimini Bravioo platformuna taşıdı."
   },
   {
     "id": "ghalia-restaurant",
@@ -105,17 +105,17 @@
     "description": "Rezervasyon ve müşteri ilişkileri yönetimini Bravioo ile yapıyor."
   },
   {
+    "id": "fil-fil-lahmacun",
+    "name": "Fil Fil Lahmacun",
+    "logo": "/images/brands/placeholder.png",
+    "category": "Yeme & İçme",
+    "description": "Online sipariş ve teslimat operasyonlarını Bravioo ile optimize etti."
+  },
+  {
     "id": "feiralonge",
     "name": "Feiralonge",
     "logo": "/images/brands/placeholder.png",
     "category": "Turizm & Konaklama",
     "description": "Misafir deneyimini Bravioo'nun entegre çözümleriyle güçlendirdi."
-  },
-  {
-    "id": "english-time",
-    "name": "English Time",
-    "logo": "/images/brands/englishtime.svg",
-    "category": "Eğitim",
-    "description": "Öğrenci işleri ve ders planlamasını tek sistemde topladı."
   }
 ]

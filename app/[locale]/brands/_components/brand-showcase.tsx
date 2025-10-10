@@ -3,6 +3,8 @@
 import React, { useMemo, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useLocale } from 'next-intl';
 import brandsData from '@/data/brands.json';
 
 interface Brand {
@@ -37,6 +39,7 @@ interface Company {
 
 export function BrandShowcase() {
   const [activeCategory, setActiveCategory] = useState<string>('ALL');
+  const locale = useLocale();
 
   const brands: Brand[] = brandsData as unknown as Brand[];
 
@@ -99,12 +102,13 @@ export function BrandShowcase() {
             <span className="text-emerald-600">Yeni Nesil Bravioo Altyapısı</span>
           </h2>
           
-          <button
+          <Link
+            href={`/${locale}/stories`}
             className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300 px-4 sm:px-6 py-2 sm:py-3 rounded-xl border border-emerald-200 dark:border-emerald-600 hover:border-emerald-300 dark:hover:border-emerald-500 font-medium transition-all duration-300 shadow-sm hover:shadow-md"
           >
             <span>Başarı Hikayelerimize Göz At</span>
             <ArrowRight className="w-4 h-4" />
-          </button>
+          </Link>
         </div>
 
         {/* Category Filter */}
