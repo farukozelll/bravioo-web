@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { submitHubSpotForm } from '@/lib/hubspot';
 import { sendMailViaGraph, emailTemplates } from '@/lib/graph-mail';
+import { sendMail } from '@/lib/mailer';
 
 // Validation schema for meeting form
 const meetingFormSchema = z.object({
@@ -105,19 +106,18 @@ export async function POST(request: Request) {
       }
     }
 
-    // Send email notification (if configured)
+    // Send email notification - prefer Graph, fallback to SMTP if explicitly enabled
     let emailResult = null;
-    if (process.env.AZ_TENANT_ID && process.env.AZ_CLIENT_ID && process.env.AZ_CLIENT_SECRET) {
-      try {
-        const emailContent = `
-        <h2>🎯 New Demo Meeting Request</h2>
-        
+    const emailHtml = `
+      <div style="font-family: Arial, sans-serif; max-width: 720px; margin: 0 auto;">
+        <h2 style="margin:0 0 12px 0">🎯 New Demo Meeting Request</h2>
+
         <h3>👤 Contact Information</h3>
         <ul>
           <li><strong>Name:</strong> ${data.firstName} ${data.lastName}</li>
           <li><strong>Email:</strong> ${data.email}</li>
-          <li><strong>Phone:</strong> ${data.phone || 'Not provided'}</li>
-          <li><strong>Job Title:</strong> ${data.jobTitle || 'Not provided'}</li>
+          <li><strong>Phone:</strong> ${data.phone || '—'}</li>
+          <li><strong>Job Title:</strong> ${data.jobTitle || '—'}</li>
         </ul>
 
         <h3>🏢 Company Information</h3>
@@ -131,103 +131,66 @@ export async function POST(request: Request) {
           <li><strong>Demo Type:</strong> ${demoTypeDescriptions[data.demoType].en}</li>
           <li><strong>Preferred Date:</strong> ${data.preferredDate || 'No preference'}</li>
           <li><strong>Preferred Time:</strong> ${data.preferredTime || 'No preference'}</li>
-          <li><strong>Timezone:</strong> ${data.timezone || 'Not specified'}</li>
-          <li><strong>Interests:</strong> ${data.interests?.join(', ') || 'None specified'}</li>
+          <li><strong>Timezone:</strong> ${data.timezone || '—'}</li>
         </ul>
 
         <h3>💬 Additional Message</h3>
-        <p>${data.message || 'No additional message'}</p>
+        <div style="padding:12px; background:#f8fafc; border-left:4px solid #0ea5e9">${(data.message || '').replace(/\n/g,'<br>') || '—'}</div>
 
-        <h3>📊 Tracking Information</h3>
+        <h3 style="margin-top:20px">📊 Tracking</h3>
         <ul>
           <li><strong>UTM Source:</strong> ${data.utmSource || 'Direct'}</li>
           <li><strong>UTM Campaign:</strong> ${data.utmCampaign || 'N/A'}</li>
           <li><strong>UTM Medium:</strong> ${data.utmMedium || 'N/A'}</li>
+          <li><strong>UTM Term:</strong> ${data.utmTerm || 'N/A'}</li>
+          <li><strong>UTM Content:</strong> ${data.utmContent || 'N/A'}</li>
           <li><strong>Page URL:</strong> ${data.pageUrl || 'N/A'}</li>
-          <li><strong>Referrer:</strong> ${data.referrer || 'Direct'}</li>
+          <li><strong>Referrer:</strong> ${data.referrer || 'N/A'}</li>
+          <li><strong>User Agent:</strong> ${data.userAgent || 'N/A'}</li>
           <li><strong>Submission Time:</strong> ${data.timestamp || new Date().toISOString()}</li>
         </ul>
 
-        <hr>
-        <p><em>This demo request was submitted through the Bravioo website meeting form.</em></p>
-        `;
+        <hr />
+        <p><em>Submitted via Bravioo website meeting form.</em></p>
+      </div>
+    `;
 
-        emailResult = await sendMailViaGraph({
-          to: ['feyza.ozel@bravioo.com', process.env.CONTACT_EMAIL || 'info@bravioo.com'],
-          subject: `🎯 New Demo Request: ${data.demoType} - ${data.company}`,
-          htmlContent: emailContent,
-          textContent: `
-New Demo Meeting Request
+    const smtpEnabled = process.env.MAIL_SMTP_ENABLED === 'true'
+      && !!process.env.MAIL_HOST && !!process.env.MAIL_PORT && !!process.env.MAIL_USER && !!process.env.MAIL_PASS;
 
-Contact: ${data.firstName} ${data.lastName} (${data.email})
-Company: ${data.company} (${data.employees} employees)
-Demo Type: ${demoTypeDescriptions[data.demoType].en}
-Preferred Date: ${data.preferredDate || 'No preference'}
-Preferred Time: ${data.preferredTime || 'No preference'}
-Message: ${data.message || 'No additional message'}
-UTM Source: ${data.utmSource || 'Direct'}
-Submission Time: ${data.timestamp || new Date().toISOString()}
-          `,
-        });
-
-        // Send confirmation email to user
-        const confirmationEmailContent = `
-        <h2>Thank you for your demo request! 🎉</h2>
-        
-        <p>Hi ${data.firstName},</p>
-        
-        <p>We've received your request for a <strong>${demoTypeDescriptions[data.demoType].en}</strong> and are excited to show you how Bravioo can transform your employee experience!</p>
-        
-        <h3>What happens next?</h3>
-        <ul>
-          <li>✅ We'll review your request within 24 hours</li>
-          <li>📞 A member of our team will contact you to confirm the meeting details</li>
-          <li>📅 We'll schedule the demo at your preferred time</li>
-          <li>🎯 We'll customize the demo based on your interests and company needs</li>
-        </ul>
-
-        <h3>Your Demo Request Details:</h3>
-        <ul>
-          <li><strong>Demo Type:</strong> ${demoTypeDescriptions[data.demoType].en}</li>
-          <li><strong>Company:</strong> ${data.company}</li>
-          <li><strong>Preferred Date:</strong> ${data.preferredDate || 'We\'ll discuss this with you'}</li>
-          <li><strong>Preferred Time:</strong> ${data.preferredTime || 'We\'ll discuss this with you'}</li>
-        </ul>
-
-        <p>In the meantime, feel free to explore our <a href="https://bravioo.com/features">features</a> and <a href="https://bravioo.com/customers">customer success stories</a>.</p>
-        
-        <p>If you have any urgent questions, don't hesitate to reach out to us at <a href="mailto:info@bravioo.com">info@bravioo.com</a>.</p>
-        
-        <p>Best regards,<br>The Bravioo Team</p>
-        
-        <hr>
-        <p><small>This is an automated confirmation email. If you didn't request this demo, please ignore this email.</small></p>
-        `;
-
+    if (process.env.AZ_TENANT_ID && process.env.AZ_CLIENT_ID && process.env.AZ_CLIENT_SECRET) {
+      try {
         await sendMailViaGraph({
-          to: data.email,
-          subject: '🎯 Demo Request Confirmed - Bravioo Team Will Contact You Soon',
-          htmlContent: confirmationEmailContent,
-          textContent: `
-Thank you for your demo request!
-
-Hi ${data.firstName},
-
-We've received your request for a ${demoTypeDescriptions[data.demoType].en} and will contact you within 24 hours to schedule the meeting.
-
-Demo Details:
-- Type: ${demoTypeDescriptions[data.demoType].en}
-- Company: ${data.company}
-- Preferred Date: ${data.preferredDate || 'To be discussed'}
-- Preferred Time: ${data.preferredTime || 'To be discussed'}
-
-Best regards,
-The Bravioo Team
-          `,
+          to: [process.env.CONTACT_EMAIL || 'info@bravioo.com'],
+          subject: `🎯 New Demo Request: ${data.demoType} - ${data.company}`,
+          htmlContent: emailHtml,
         });
-      } catch (emailError) {
-        console.error('Email sending failed:', emailError);
-        // Don't fail the request if email fails
+        emailResult = { via: 'graph' };
+      } catch (graphError) {
+        console.error('Graph email sending failed:', graphError);
+        if (smtpEnabled) {
+          try {
+            await sendMail({
+              to: [process.env.CONTACT_EMAIL || 'info@bravioo.com'],
+              subject: `🎯 New Demo Request: ${data.demoType} - ${data.company}`,
+              html: emailHtml,
+            });
+            emailResult = { via: 'smtp' };
+          } catch (smtpError) {
+            console.error('SMTP email sending failed:', smtpError);
+          }
+        }
+      }
+    } else if (smtpEnabled) {
+      try {
+        await sendMail({
+          to: [process.env.CONTACT_EMAIL || 'info@bravioo.com'],
+          subject: `🎯 New Demo Request: ${data.demoType} - ${data.company}`,
+          html: emailHtml,
+        });
+        emailResult = { via: 'smtp' };
+      } catch (smtpError) {
+        console.error('SMTP email sending failed:', smtpError);
       }
     }
 

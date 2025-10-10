@@ -11,6 +11,16 @@ export const contactSchema = z.object({
   agree: z.literal(true, {
     errorMap: () => ({ message: 'You must agree to the terms and conditions' }),
   }),
+  // Optional fields captured by the UI
+  phone: z.string().optional(),
+  jobTitle: z.string().optional(),
+  industry: z.string().optional(),
+  industryOther: z.string().optional(),
+  budget: z.string().optional(),
+  timeline: z.string().optional(),
+  painPoints: z.string().optional(),
+  currentSolution: z.string().optional(),
+  decisionMakers: z.string().optional(),
   utm_source: z.string().optional(),
   utm_campaign: z.string().optional(),
   utm_medium: z.string().optional(),

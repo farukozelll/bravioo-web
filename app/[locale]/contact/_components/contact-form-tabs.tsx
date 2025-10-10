@@ -334,24 +334,26 @@ export function ContactFormTabs({ className }: ContactFormTabsProps) {
               )}
             </div>
 
-            {/* Agreement with links */}
+            {/* Agreement with links - larger click target for checkbox */}
             <div className="flex items-start gap-3">
-              <input
-                type="checkbox"
-                id="agree"
-                {...register('agree')}
-                className="mt-1 h-4 w-4 rounded border-sand-300 dark:border-gray-600 text-brand-600 focus:ring-brand-500"
-              />
-              <label htmlFor="agree" className="text-sm text-ink-700 dark:text-gray-300">
-                {t('form.agreePrefix') || 'I agree to the'}{' '}
-                <a href={`/${locale}/legal/privacy`} className="text-brand-600 underline" target="_blank" rel="noopener noreferrer">
-                  {t('form.privacyPolicy') || 'Privacy Policy'}
-                </a>{' '}
-                {t('form.and') || 'and'}{' '}
-                <a href={`/${locale}/legal/terms`} className="text-brand-600 underline" target="_blank" rel="noopener noreferrer">
-                  {t('form.termsOfService') || 'Terms of Service'}
-                </a>
-                .
+              <label htmlFor="agree" className="flex items-start gap-3 cursor-pointer select-none">
+                <input
+                  type="checkbox"
+                  id="agree"
+                  {...register('agree')}
+                  className="mt-1 h-5 w-5 rounded border-sand-300 dark:border-gray-600 text-brand-600 focus:ring-brand-500"
+                />
+                <span className="text-sm text-ink-700 dark:text-gray-300">
+                  {t('form.agreePrefix') || 'I agree to the'}{' '}
+                  <a href={`/${locale}/legal/privacy`} className="text-brand-600 underline" target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                    {t('form.privacyPolicy') || 'Privacy Policy'}
+                  </a>{' '}
+                  {t('form.and') || 'and'}{' '}
+                  <a href={`/${locale}/legal/terms`} className="text-brand-600 underline" target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                    {t('form.termsOfService') || 'Terms of Service'}
+                  </a>
+                  .
+                </span>
               </label>
             </div>
             {errors.agree && (

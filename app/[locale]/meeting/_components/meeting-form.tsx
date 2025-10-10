@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { motion } from 'framer-motion';
 import { 
   Calendar, 
   Clock, 
@@ -103,14 +102,19 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
     { value: '1000+', label: '1000+' },
   ];
 
-  const interestOptions = [
-    { value: 'recognition', label: t('interests.recognition') },
-    { value: 'surveys', label: t('interests.surveys') },
-    { value: 'analytics', label: t('interests.analytics') },
-    { value: 'integrations', label: t('interests.integrations') },
-    { value: 'mobile', label: t('interests.mobile') },
-    { value: 'automation', label: t('interests.automation') },
-  ];
+  // Generate preferred time options: 08:00 to 18:00 (inclusive), every 30 minutes
+  const timeOptions = React.useMemo(() => {
+    const options: string[] = [];
+    for (let hour = 8; hour <= 18; hour++) {
+      for (const minute of [0, 30]) {
+        if (hour === 18 && minute === 30) continue; // cap at 18:00
+        const hh = hour.toString().padStart(2, '0');
+        const mm = minute === 0 ? '00' : '30';
+        options.push(`${hh}:${mm}`);
+      }
+    }
+    return options;
+  }, []);
 
   const onSubmit = async (data: MeetingFormData) => {
     setIsSubmitting(true);
@@ -154,8 +158,8 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
       reset();
 
       // Track successful submission
-      if (typeof window !== 'undefined' && (window as any).gtag) {
-        (window as any).gtag('event', 'meeting_request', {
+      if (typeof window !== 'undefined' && (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag) {
+        (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag!('event', 'meeting_request', {
           event_category: 'engagement',
           event_label: data.demoType,
           value: 1,
@@ -172,9 +176,7 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
 
   if (isSubmitted) {
     return (
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+      <div
         className={`bg-white dark:bg-gray-800 rounded-2xl p-6 md:p-8 border border-emerald-200 dark:border-emerald-600 ${className}`}
       >
         <div className="text-center">
@@ -195,7 +197,7 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
             {t('success.newRequest')}
           </Button>
         </div>
-      </motion.div>
+      </div>
     );
   }
 
@@ -364,25 +366,7 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
         />
       </div>
 
-      {/* Interests */}
-      <div>
-        <label className="block text-sm font-medium text-gray-900 dark:text-gray-100 mb-3">
-          {t('labels.features')}
-        </label>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-          {interestOptions.map((interest) => (
-            <label key={interest.value} className="flex items-center space-x-2 cursor-pointer">
-              <input
-                {...register('interests')}
-                type="checkbox"
-                value={interest.value}
-                className="w-4 h-4 text-emerald-600 border-gray-300 rounded focus:ring-emerald-500 focus:ring-2"
-              />
-              <span className="text-sm text-gray-700 dark:text-gray-300">{interest.label}</span>
-            </label>
-          ))}
-        </div>
-      </div>
+      {/* Interests removed as requested */}
 
       {/* Preferred Meeting Time */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -411,13 +395,9 @@ export function MeetingForm({ className = '', defaultDemoType = 'standard' }: Me
             <option value="">
               {locale === 'tr' ? 'Seçiniz' : 'Select'}
             </option>
-            <option value="09:00">09:00</option>
-            <option value="10:00">10:00</option>
-            <option value="11:00">11:00</option>
-            <option value="14:00">14:00</option>
-            <option value="15:00">15:00</option>
-            <option value="16:00">16:00</option>
-            <option value="17:00">17:00</option>
+            {timeOptions.map((time) => (
+              <option key={time} value={time}>{time}</option>
+            ))}
           </select>
         </div>
       </div>
