@@ -49,6 +49,14 @@
     "description": "Mobil sadakat programı ve online siparişlerini Bravioo ile yönetiyor."
   },
   {
+    "id": "wall-street",
+    "name": "Wall Street",
+    "logo": "/images/brands/wall-street-english.svg",
+    "category": "Eğitim",
+    "description": "Online ingilizce eğitim programlarını Bravioo ile yönetiyor."
+  },
+
+  {
     "id": "jakamen",
     "name": "Jakamen",
     "logo": "/images/brands/jakamen.png",
@@ -75,6 +83,13 @@
     "logo": "/images/brands/birun.png",
     "category": "Turizm & Konaklama",
     "description": "Doğa turizmini Bravioo'nun dijital rezervasyon platformuyla birleştirdi."
+  },
+  {
+    "id": "konusarak-ogren",
+    "name": "Konusarak Öğren",
+    "logo": "/images/brands/konusarakogren.png",
+    "category": "Eğitim",
+    "description": "Online Türkçe eğitim programlarını Bravioo ile yönetiyor."
   },
   {
     "id": "birun-ada-otel",
