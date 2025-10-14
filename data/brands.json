@@ -127,10 +127,10 @@
     "description": "Online sipariş ve teslimat operasyonlarını Bravioo ile optimize etti."
   },
   {
-    "id": "feiralonge",
-    "name": "Feiralonge",
-    "logo": "/images/brands/placeholder.png",
-    "category": "Turizm & Konaklama",
+    "id": "feira-lounge",
+    "name": "Feira Lounge",
+    "logo": "/images/brands/feira.svg",
+    "category": "Yeme & İçme",
     "description": "Misafir deneyimini Bravioo'nun entegre çözümleriyle güçlendirdi."
   }
 ]
