@@ -28,6 +28,13 @@
     "description": "Hasta yönetimi ve randevu süreçlerini Bravioo ile yürütüyor."
   },
   {
+    "id": "pecko-firin",
+    "name": "Pecko Fırın",
+    "logo": "/images/brands/pecko.png",
+    "category": "Yeme & İçme",
+    "description": "Mobil sadakat programı ve online siparişlerini Bravioo ile yönetiyor."
+  },
+  {
     "id": "npi-uskudar",
     "name": "NPI Üsküdar",
     "logo": "/images/brands/npi.avif",
@@ -130,7 +137,7 @@
     {
     "id": "wall-street-english",
     "name": "Wall Street English",
-    "logo": "/images/brands/wall-street-english.svg",
+    "logo": "/images/brands/wall-street-english.png",
     "category": "Eğitim",
     "description": "Online ingilizce eğitim programlarını Bravioo ile yönetiyor."
   }

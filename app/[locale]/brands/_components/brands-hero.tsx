@@ -32,6 +32,11 @@ export function BrandsHero() {
     });
   }, [brands]);
 
+  // Triple rows for seamless infinite scroll
+  const duplicatedRows = useMemo(() => {
+    return rows.map(row => [...row, ...row, ...row]);
+  }, [rows]);
+
   return (
     <section className="bg-white dark:bg-gray-900 py-16 lg:py-20 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6">
@@ -72,33 +77,41 @@ export function BrandsHero() {
           {/* Right: 4-row marquee */}
           <div className="relative overflow-hidden force-animate">
             <div className="space-y-6">
-              {rows.map((row, rowIdx) => (
+              {duplicatedRows.map((row, rowIdx) => (
                 <div key={rowIdx} className="relative overflow-hidden">
                   <div
-                    className={`flex items-center gap-16 transform-gpu will-change-transform ${
+                    className={`flex items-center gap-12 transform-gpu will-change-transform ${
                       rowIdx % 2 === 0 ? 'animate-marquee-left' : 'animate-marquee-right'
                     }`}
-                    style={{ animationDuration: `${35 + rowIdx * 5}s` }}
+                    style={{ 
+                      animationDuration: `${40 + rowIdx * 5}s`,
+                      animationTimingFunction: 'linear',
+                      animationIterationCount: 'infinite'
+                    }}
+                    aria-label="Brand logos carousel"
                   >
-                    {[...row, ...row, ...row].map((item, i) => (
-                      <div key={`${item.id}-${i}`} className="shrink-0 h-16 flex items-center">
+                    {row.map((item, i) => (
+                      <div 
+                        key={`${item.id}-${i}`} 
+                        className="shrink-0 flex items-center justify-center"
+                        style={{ width: '120px', height: '64px' }}
+                      >
                         {item.logo ? (
                           <Image 
                             src={item.logo} 
-                            alt={item.name} 
-                            width={96}
-                            height={40}
-                            className="h-10 object-contain opacity-90"
-                            sizes="96px"
-                            style={{ width: 'auto', height: 'auto' }}
+                            alt={`${item.name} logo`} 
+                            width={120}
+                            height={64}
+                            className="max-w-[120px] max-h-[64px] w-auto h-auto object-contain"
+                            sizes="120px"
+                            loading="lazy"
                           />
                         ) : (
-                          <div className="h-10 w-24 bg-slate-200" />
+                          <div className="w-24 h-12 bg-slate-200 dark:bg-gray-700 rounded" />
                         )}
                       </div>
                     ))}
                   </div>
-                
                 </div>
               ))}
             </div>
