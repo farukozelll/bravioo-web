@@ -10,7 +10,7 @@
     "id": "binbin",
     "name": "BinBin",
     "logo": "/images/brands/binbin-blue.svg",
-    "category": "Turizm",
+    "category": "Ulaşım & Teknoloji",
     "description": "Paylaşımlı e-scooter uygulaması; kısa/orta mesafe şehir içi ulaşım için mobil uygulama üzerinden kiralama imkânı sunar. Operasyonel verimliliğini Bravioo ile artırdı."
   },
   {
@@ -31,7 +31,7 @@
     "id": "pecko-firin",
     "name": "Pecko Fırın",
     "logo": "/images/brands/pecko.png",
-    "category": "Yiyecek-İçecek",
+    "category": "Yiyecek & İçecek",
     "description": "Zanaat fırın ürünleri ve kahvaltı/sandviç menüsüyle hizmet verir. Mobil sadakat programı ve online siparişlerini Bravioo ile yönetiyor."
   },
   {
@@ -52,35 +52,35 @@
     "id": "viyana-kahvesi",
     "name": "Viyana Kahvesi",
     "logo": "/images/brands/viyana-kahvesi.webp",
-    "category": "Yiyecek-İçecek",
+    "category": "Yiyecek & İçecek",
     "description": "Nitelikli kahve ve artizan tatlı konseptiyle birden çok şubede hizmet verir. Mobil sadakat ve online sipariş akışını Bravioo ile yönetiyor."
   },
   {
     "id": "jakamen",
     "name": "Jakamen",
     "logo": "/images/brands/jakamen3.png",
-    "category": "Giyim",
+    "category": "Giyim & Moda",
     "description": "Erkek giyimde takım elbise, gömlek ve günlük giyim koleksiyonlarıyla bilinen marka. Bayi ağı ve B2B sipariş yönetimini Bravioo ile dijitalleştirdi."
   },
   {
     "id": "teos-village",
     "name": "Teos Village",
     "logo": "/images/brands/teos.jpg",
-    "category": "Turizm",
+    "category": "Turizm & Konaklama",
     "description": "Seferihisar/Sığacık’ta doğa ile iç içe aile dostu tatil köyü. Tesis içi deneyimi ve ek hizmet satışlarını Bravioo’nun mobil uygulamasıyla artırdı."
   },
   {
     "id": "osmanli-saray-kadayifi",
     "name": "Osmanlı Saray Kadayıfı",
     "logo": "/images/brands/osmanli-saray-kadayifi.jpeg",
-    "category": "Yiyecek-İçecek",
+    "category": "Yiyecek & İçecek",
     "description": "Kadayıf ve geleneksel tatlılarda uzmanlaşan marka. Online sipariş ve şube operasyonlarını Bravioo ile modernize etti."
   },
   {
     "id": "birun-kumbet",
     "name": "Birun Kümbet",
     "logo": "/images/brands/birun.png",
-    "category": "Turizm",
+    "category": "Turizm & Konaklama",
     "description": "Giresun Kümbet Yaylası’nda doğa oteli/dağ evi konsepti. Rezervasyon ve misafir iletişimini Bravioo üzerinden yönetiyor."
   },
   {
@@ -94,7 +94,7 @@
     "id": "birun-ada-otel",
     "name": "Birun Ada Otel",
     "logo": "/images/brands/birun-ada-otel.png",
-    "category": "Turizm",
+    "category": "Turizm & Konaklama",
     "description": "Demokrasi ve Özgürlükler Adası’nda konumlanan 5 yıldızlı otel. Online rezervasyon ve misafir deneyimini Bravioo ile güçlendirdi."
   },
   {
@@ -108,28 +108,35 @@
     "id": "tepe-restaurant",
     "name": "Tepe Restaurant",
     "logo": "/images/brands/tepe-black.png",
-    "category": "Yiyecek-İçecek",
+    "category": "Yiyecek & İçecek",
     "description": "Geleneksel/Türk mutfağı ağırlıklı restoran. Rezervasyon ve etkinlik yönetimini Bravioo platformuna taşıdı."
   },
   {
     "id": "ghalia-restaurant",
     "name": "Ghalia Restaurant",
     "logo": "/images/brands/ghalia3.svg",
-    "category": "Yiyecek-İçecek",
+    "category": "Yiyecek & İçecek",
     "description": "Orta Doğu esintili mutfağıyla hizmet verir. Rezervasyon ve CRM süreçlerini Bravioo ile yönetiyor."
   },
   {
     "id": "feira-lounge",
     "name": "Feira Lounge",
     "logo": "/images/brands/feira.svg",
-    "category": "Yiyecek-İçecek",
+    "category": "Yiyecek & İçecek",
     "description": "Cafe–lounge konsepti; misafir deneyimini Bravioo’nun entegre çözümleriyle güçlendirdi."
+  },
+  {
+    "id": "ihlas-koleji",
+    "name": "İhlas Koleji",
+    "logo": "/images/brands/ihlas-koleji.svg",
+    "category": "Eğitim",
+    "description": "Anaokulundan liseye uzanan K12 odaklı özel eğitim kurumu."
   },
   {
     "id": "fil-fil-lahmacun",
     "name": "Fil Fil Lahmacun",
     "logo": "/images/brands/placeholder.png",
-    "category": "Yiyecek-İçecek",
+    "category": "Yiyecek & İçecek",
     "description": "Lahmacun ve fırın ürünleri odaklı yerel marka. Online sipariş ve teslimat operasyonlarını Bravioo ile optimize etti."
   },
   {
@@ -142,8 +149,9 @@
   {
     "id": "golden-rose",
     "name": "Golden Rose",
-    "logo": "/images/brands/golden-rose.png",
+    "logo": "/images/brands/golden-rose.svg",
     "category": "Kişisel Bakım",
     "description": "Erkul Kozmetik’in 1983’ten beri faaliyet gösteren makyaj/kosmetik markası; Türkiye’de geniş satış ağı ve 90+ ülkeye ihracat. Bravioo ile kampanya–sadakat akışlarını yönetiyor."
   }
 ]
+
